@@ -1,8 +1,8 @@
-# **Trainee 2025.1**
+# **Trainee 2025.2**
 
-# **Nome do seu blog**
+# **Rastros de Pista**
 
-## **Projeto Trainee, Code Jr, 2025.1**
+## **Projeto Trainee, Code Jr, 2025.2**
 
 | **Sumário** |
 |-------------|
@@ -25,13 +25,13 @@
 
 #### Links Úteis:
 
-* [Trello]()
+* [Trello](https://trello.com/b/WgAceaOb/252-trello-do-scrum-rastros-de-pista)
 
 
 
 ## Descrição do Projeto:
 
-* Blog / Sistema de treinamento e capacitação dos Trainees da [CodeJR](https://codejr.com.br/), na gestão 2025.1;
+* Blog / Sistema de treinamento e capacitação dos Trainees da [CodeJR](https://codejr.com.br/), na gestão 2025.2;
 * Possuirá Front-End em HTML, CSS, JavaScript, Bootstrap e Back-End em PHP (puro), com Banco de Dados MySQL;
 
 
