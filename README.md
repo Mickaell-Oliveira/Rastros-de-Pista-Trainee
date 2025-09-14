@@ -21,7 +21,7 @@
 
 #### Scrum Master:
 
-* [Nome do Scrum](coloque o link do github).
+* [Mickaell de Oliveira](https://github.com/Mickaell-Oliveira).
 
 #### Links Úteis:
 
