@@ -1,0 +1,60 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body{
+    background-image: url(../assets/Imagem-Ratao-fundo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.logo-site{
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(4px 4px 2.5px rgba(0, 0, 0, 0.9));
+}
+
+/* Tablets (800px a 1280px) */
+@media screen and (max-width: 1280px) and (min-width: 800px) {
+    .logo-site {
+        width: 200px;
+    }
+    
+    body {
+        padding-top: 3vh;
+        background-position: 10% center;
+    }
+}
+
+/* Smartphones (até 844px) */
+@media screen and (max-width: 844px) {
+    .logo-site {
+        width: 200px;
+    }
+    
+    body {
+        padding-top: 3vh;
+        background-position: 20% center;
+    }
+}
+
+/* Telas grandes/Desktop (acima de 1200px) */
+@media screen and (min-width: 1024px) {
+    .logo-site {
+        width: 250px;
+    }
+    
+    body {
+        padding-top: 3vh;
+    }
+}
