@@ -12,8 +12,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     padding-top: 50px;
     box-sizing: border-box;
 }
@@ -21,40 +22,178 @@ body{
 .logo-site{
     max-width: 80%;
     height: auto;
-    filter: drop-shadow(4px 4px 2.5px rgba(0, 0, 0, 0.9));
+    filter: drop-shadow(4px 4px 2.5px #1a1a1a);
+    margin-bottom: 3vh;
 }
 
-/* Tablets (800px a 1280px) */
-@media screen and (max-width: 1280px) and (min-width: 800px) {
-    .logo-site {
-        width: 200px;
-    }
-    
-    body {
-        padding-top: 3vh;
-        background-position: 10% center;
-    }
+.login-container{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    width: 80%;
 }
 
-/* Smartphones (até 844px) */
-@media screen and (max-width: 844px) {
-    .logo-site {
-        width: 200px;
-    }
-    
-    body {
-        padding-top: 3vh;
-        background-position: 20% center;
-    }
+.login-form{
+    background: #1A1A1A;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    max-width: 90vw;
+    box-shadow: 0 8px 32px 0 #1A1A1A;
+    text-align: center;
+    height: 400px;
+    opacity: 80%;
+}
+
+.login-form h2{
+    color: #ED1C24;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+    font-family: Bebas Neue;
+}
+
+.input-group{
+    margin-bottom: 20px;
+    text-align: left;
+    padding-bottom: 30px;
+}
+
+.input-group label{
+    color: #ED1C24;
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: Oswald;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 25px;
+    background: #F5F5F5;
+    font-size: 16px;
+    color: #1A1A1A;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #666;
+}
+
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.passwrod-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width:100%;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #C0C0C0;
+    font-size: 18px;
+}
+
+button[type="submit"] {
+    background: #e74c3c;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+
+button[type="submit"]:hover {
+    background: #F5F5F5;
+    color:#ED1C24;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
 /* Telas grandes/Desktop (acima de 1200px) */
 @media screen and (min-width: 1024px) {
     .logo-site {
         width: 250px;
+        margin-bottom: 2vh;
     }
     
     body {
         padding-top: 3vh;
+        background-position: left center;
+    }
+
+    .login-form {
+        width: 300px;
+        height: 400px;
+        padding: 5%;
+    }
+}
+
+/* Tablets (768px a 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    body {
+        background-position: left center;
+        padding-top: 3vh;
+    }
+    
+    .logo-site {
+        max-width: 250px;
+        margin-bottom: 2vh;
+    }
+    
+    .login-form {
+        width: 280px;
+        padding: 30px;
+    }
+}
+
+/* Smartphones (até 767px) */
+@media screen and (max-width: 767px) {
+    body {
+        padding-top: 3vh;
+        background-position: 20% center;
+    }
+    
+    .logo-site {
+        width: 250px;
+    }
+    
+    .login-form {
+        width: 280px;
+        padding: 25px;
+        margin: 0 5px;
+    }
+    
+    .login-form h2 {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+    
+    button[type="submit"] {
+        padding: 10px 30px;
+        font-size: 14px;
     }
 }
