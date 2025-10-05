@@ -91,23 +91,38 @@ body{
     box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
-.passwrod-container {
+.password-container {
     position: relative;
     display: flex;
     align-items: center;
 }
 
 .password-container input {
-    width:100%;
-    padding-right: 45px;
+    width: 100%;
+    padding: 12px 45px 12px 12px;
+    border: none;
+    border-radius: 25px;
+    background: #F5F5F5;
+    font-size: 16px;
+    color: #1A1A1A;
+    box-sizing: border-box;
+    outline: none;
 }
 
 .toggle-password {
     position: absolute;
     right: 15px;
-    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
     color: #C0C0C0;
+    cursor: pointer;
     font-size: 18px;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.toggle-password:hover {
+    color: #ED1C24;
 }
 
 button[type="submit"] {
