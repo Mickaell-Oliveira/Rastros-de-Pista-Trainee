@@ -1,0 +1,11 @@
+
+/* ======== BACKGROUND ======== */
+body {
+  background: url('public/assets/Walpapper.png')  center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: brightness(0.9);
+}
