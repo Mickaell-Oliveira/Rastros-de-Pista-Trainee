@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Oswald, Bebas Neue;
+    overflow-x: hidden;
+}
+
 .navbar{
     background: #c0c0c0;
     padding: 10px 0;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.7);
+    box-shadow: 0px 2px 10px #1a1a1a;
     position: sticky;
     top: 0;
     z-index:1000;
@@ -25,6 +30,7 @@
 .navbar-logo{
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .logo-site{
@@ -90,4 +96,153 @@
     color: #1a1a1a;
     transform: translateY(-3px);
     box-shadow: 0px 4px 15px #ED1C24;
+}
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: 5px;
+}
+
+.bar{
+    height: 3px;
+    width: 25px;
+    background-color: #1a1a1a;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.close-menu{
+    display: none;
+}
+
+.close-btn{
+    font-size: 80px;
+    cursor: pointer;
+    color: #1a1a1a;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-shadow: 0px 4px 15px #7F9CB8;
+    margin-top: 40px;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    text-shadow: 0px 6px 20px #7F9CB8;
+}
+
+/* Logo do ratão no celular - oculta inicialmente */
+.mobile-logo {
+    display: none;
+    width: 250px;
+    height: auto;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInLogo 0.6s ease 0.4s forwards;
+}
+
+@keyframes fadeInLogo {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade para telas pequenas e menores que 540px */
+@media (max-width: 540px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .navbar-menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #c0c0c0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0px;
+        transition: top 0.4s ease;
+        z-index: 10000;
+        padding: 80px 20px 80px 20px;
+        overflow-y: auto;
+    }
+    
+    .navbar-menu.active {
+        top: 0;
+    }
+    
+    /* Mostrar logo */
+    .mobile-logo {
+        display: block;
+        margin-bottom: 60px;
+    }
+    
+    .navbar-item {
+        margin: 30px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .navbar-item a {
+        width: 280px;
+        text-align: center;
+        padding: 18px 30px;
+        font-size: 22px;
+        font-weight: bold;
+        min-width: unset;
+        margin: 0;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: slideInFromTop 0.5s ease forwards;
+        border-radius: 30px;
+    }
+    
+    .navbar-menu.active .navbar-item:nth-child(2) a {
+        animation-delay: 0.1s;
+    }
+    
+    .navbar-menu.active .navbar-item:nth-child(3) a {
+        animation-delay: 0.2s;
+    }
+    
+    .navbar-menu.active .navbar-item:nth-child(4) a {
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes slideInFromTop {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .close-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: 40px;
+    }
+    
+    .logo-site {
+        height: 50px;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
 }
