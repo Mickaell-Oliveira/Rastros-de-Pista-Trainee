@@ -148,7 +148,7 @@ button[type="submit"]:hover {
     box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
-/* Telas grandes/Desktop (acima de 1200px) */
+/* Telas grandes/Desktop (acima de 1024px) */
 @media screen and (min-width: 1024px) {
     .logo-site {
         width: 250px;
@@ -170,7 +170,7 @@ button[type="submit"]:hover {
 /* Tablets (768px a 1024px) */
 @media screen and (max-width: 1024px) and (min-width: 768px) {
     body {
-        background-position: left center;
+        background-position: 30% center;
         padding-top: 3vh;
     }
     
