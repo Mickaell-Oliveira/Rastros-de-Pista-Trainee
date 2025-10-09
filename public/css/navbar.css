@@ -143,7 +143,7 @@ body {
 /* Logo do ratão no celular - oculta inicialmente */
 .mobile-logo {
     display: none;
-    width: 250px;
+    width: 220px;
     height: auto;
     margin-bottom: 30px;
     opacity: 0;
@@ -176,7 +176,7 @@ body {
         transition: top 0.4s ease;
         z-index: 10000;
         padding: 80px 20px 80px 20px;
-        overflow-y: auto;
+        overflow-y: hidden;
     }
     
     .navbar-menu.active {
@@ -186,7 +186,7 @@ body {
     /* Mostrar logo */
     .mobile-logo {
         display: block;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
     
     .navbar-item {
