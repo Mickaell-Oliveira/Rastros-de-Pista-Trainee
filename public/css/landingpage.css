@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Fonte base para o corpo */
+}
+
+h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif; /* Fonte base para títulos */
+}
+
+/* --- Seção Hero (Topo) --- */
+.container-imagem {
+    background-image: url('../assets/img/fotoopc.jpg.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 60%vh; /* Altura relativa à tela, melhor que pixels fixos */
+    display: flex;
+    flex-direction: column;
+    
+    padding: 50px 20px; /* Espaçamento lateral para não colar nas bordas */
+    box-sizing: border-box;
+}
+
+.container-imagem h1 {
+    color: white;
+    font-size: 2.5em; /* Fonte menor para celular */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.container-imagem p {
+    color: #f0f0f0;
+    font-size: 1em; /* Fonte menor para celular */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 30px;
+    width: 75%;
+}
+
+/* --- Seção Degradê e Carrossel --- */
+.degrade {
+    background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);
+    padding: 40px 20px; /* Espaçamento vertical */
+    
+}
+
+.fundo-do-carrossel {
+    width: 90%; /* Ocupa 90% da largura do celular */
+    height: 50vh;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center; /* Isso já centraliza na HORIZONTAL */
+    align-items: center;     /* ADICIONADO: Isso centraliza na VERTICAL */
+    border-radius: 16px;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%; /* Ocupa todo o espaço do fundo */
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    height: 50vh;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    background-color: rgb(0, 0, 0, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    overflow: hidden;
+    width: 100%; /* O card agora ocupa 100% do container */
+    transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+    flex-shrink: 0;
+}
+
+.card:hover {
+    transform: translateY(-15px); /* Levanta o card um pouco ao passar o mouse */
+}
+.conteudo-carrossel {
+    height: 250px; /* Imagem um pouco menor no celular */
+    width: 100%;
+    background-size: cover; 
+    background-position: center; 
+}
+
+.info-container {
+    padding: 20px;
+}
+
+.info-container h3 {
+    color: #ffffff;
+    font-size: 1.8em;
+}
+
+.info-container p {
+    color: #ffffff;
+    font-size: 1em;
+}
+
+/* Botões do Carrossel */
+.carousel-btn {
+    position: absolute;
+    top: 40%; /* Ajuste para a altura da imagem */
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #C0C0C0;
+    color: black;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.prev { left: 5px; }
+.next { right: 5px; }
+
+.carousel-btn:hover {
+    background-color: #AE171C;
+}
+
+
+/* --- Seção "Ver Mais" e "Sobre Nós" --- */
+.ver-mais {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+.ver-mais h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.container-sobre-nos {
+    display: flex;
+    flex-direction: column; /* EMPILHADO: Imagem fica abaixo do texto no celular */
+    color: white;
+}
+
+.sobre-nos {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.sobre-nos h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
+.sobre-nos p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.última-imagem img {
+    width: 100%; /* Imagem ocupa 100% da largura */
+    height: auto;
+    display: flex;
+    border-radius: 16px;
+}
+
+/* Imagens do Carrossel */
+.img-1 { background-image: url('../assets/img/dodger.jpg.jpeg'); }
+.img-2 { background-image: url('../assets/img/carro-ceu.jpg.jpeg'); }
+.img-3 { background-image: url('../assets/img/ratao.jpg.jpeg'); }
+
+
+/* 
+   2. MEDIA QUERY PARA TABLETS (Telas com 768px de largura ou mais)
+    */
+@media (min-width: 768px) {
+    /* Aumenta as fontes no geral */
+
+
+    
+    
+   
+    .container-imagem h1 { font-size: 3.5em; }
+    .container-imagem p { font-size: 1.2em; }
+    .ver-mais h1 {font-size: 2em;}
+    .sobre-nos h1 { font-size: 3.5em; }
+    .info-container h3 { font-size: 2em; }
+    .info-container p { font-size: 1.2em; }
+
+
+.card {
+    width: 70vh; 
+    height: 50vh;
+    margin: auto;
+}
+
+
+
+
+    /* Seção Sobre Nós fica lado a lado */
+    .container-sobre-nos {
+        flex-direction: row; /* VOLTA A FICAR LADO A LADO */
+        align-items: center;
+    }
+    .sobre-nos, .última-imagem {
+        flex: 1; /* Divide o espaço igualmente */
+    }
+    .sobre-nos {
+        padding: 60px;
+        text-align: left; /* Alinha à esquerda em telas maiores */
+    }
+}
+
+
+/* 
+   3. MEDIA QUERY PARA DESKTOPS (Telas com 1200px de largura ou mais)
+  */
+@media (min-width: 1200px) {
+    /* Restaura o tamanho original do Hero */
+    .container-imagem {
+        height: 730px;
+    }
+    .container-imagem h1 {
+        font-size: 4em;
+    }
+    .container-imagem p {
+        font-size: 1.8em;
+    }
+
+    /* Restaura o layout original do carrossel para mostrar 3 cards */
+    .fundo-do-carrossel {
+        width: 1240px; /* Volta a ter a largura fixa */
+        height: 704px;
+        margin: auto;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Isso já centraliza na HORIZONTAL */
+    }
+
+    .carousel-container {
+        width: auto; /* Largura para 3 cards + gaps */
+        height: auto;
+        margin: auto;
+    }
+
+    .card {
+        width: 100vh; /* Volta ao tamanho fixo original */
+        height: 600px;
+        margin-right: 0; /* Remove a margem, pois o track controlará */
+    }
+
+    .carousel-track {
+        width: 100vh;
+        height: 100vh;
+        display: flex;
+        gap: 0px;
+    }
+
+    .carousel-btn {
+        top: 50%; /* Volta ao centro do container maior */
+    }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .sobre-nos h1 {
+color: #ffffff;
+font-size: 4em;
+margin-top: 0;
+
+}
+
+.sobre-nos p {
+color: #ffffff;
+margin: 20px;
+font-size: 2em;
+line-height: 1.6;
+
+
+}
+
+    .última-imagem{
+    
+   flex: 1;
+   
+}
+
+    .última-imagem img{
+width: 483px;
+height: 280px;
+border-radius: 18px;
+
+}
+}
