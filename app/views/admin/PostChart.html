@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Posts - Admin</title>
+    <link rel="stylesheet" href="/public/css/PostChart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="admin-panel">
+        <header class="main-header">
+            <h1>TABELA DE POSTS</h1>
+        </header>
+
+        <div class="toolbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="">
+            </div>
+            <div class="actions-container">
+                <button class="new-post-btn">
+                    <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
+                </button>
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="posts-table-header">
+            <div class="header-col">Post ID</div>
+            <div class="header-col">Data</div>
+            <div class="header-col" style="flex: 2;">Título</div>
+            <div class="header-col" style="flex: 2;">Autor</div>
+            <div class="header-col" style="flex: 1.5;">Views/Curtidas/Comentários</div>
+            <div class="header-col">Ações</div>
+        </div>
+
+        <main class="posts-content">
+            <div class="post-item">
+                <div class="post-options-container">
+                    <button class="options-menu-btn">
+                        <i class="fas fa-ellipsis-v"></i> </button>
+                
+                    <div class="post-actions" data-label="Ações">
+                        <button class="action-btn edit">
+                            <i class="fas fa-pencil-alt"></i> <span>Editar</span>
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> <span>Excluir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="post-data post-id" data-label="Post ID">#000</div>
+                <div class="post-data post-date" data-label="Data">15/04/2025</div>
+                <div class="post-data post-title" data-label="Título">
+                    <img src="/public\assets\Lamborguini-Huracan.jpg" alt="Lamborguini Huracan" class="post-thumbnail">
+                    <span>De 0 à 100 em 7s</span>
+                </div>
+                <div class="post-data post-author" data-label="Autor">Yuri Marangon Gomes</div>
+                <div class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                    <span class="stat">270 <i class="fas fa-eye"></i></span>
+                    <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                    <span class="stat">250 <i class="fas fa-comments"></i></span>
+                </div>
+                <div class="post-data post-actions" data-label="Ações">
+                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="post-item">
+                <div class="post-options-container">
+                    <button class="options-menu-btn">
+                        <i class="fas fa-ellipsis-v"></i> </button>
+                
+                    <div class="post-actions" data-label="Ações">
+                        <button class="action-btn edit">
+                            <i class="fas fa-pencil-alt"></i> <span>Editar</span>
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> <span>Excluir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="post-data post-id" data-label="Post ID">#111</div>
+                <div class="post-data post-date" data-label="Data">01/05/2025</div>
+                <div class="post-data post-title" data-label="Título">
+                    <img src="/public\assets\Audi-R8.jpg" alt="Audi R8" class="post-thumbnail">
+                    <span>Dia de testar os pneus...</span>
+                </div>
+                <div class="post-data post-author" data-label="Autor">Gustavo Corzino Caiafa</div>
+                <div class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                    <span class="stat">270 <i class="fas fa-eye"></i></span>
+                    <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                    <span class="stat">250 <i class="fas fa-comments"></i></span>
+                </div>
+                <div class="post-data post-actions" data-label="Ações">
+                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="post-item">
+                <div class="post-options-container">
+                    <button class="options-menu-btn">
+                        <i class="fas fa-ellipsis-v"></i> </button>
+                
+                    <div class="post-actions" data-label="Ações">
+                        <button class="action-btn edit">
+                            <i class="fas fa-pencil-alt"></i> <span>Editar</span>
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> <span>Excluir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="post-data post-id" data-label="Post ID">#222</div>
+                <div class="post-data post-date" data-label="Data">01/05/2025</div>
+                <div class="post-data post-title" data-label="Título">
+                     <img src="/public\assets\Nissan-Skyline.jpg" alt="Nissan Skyline R34" class="post-thumbnail">
+                    <span>Exposição de carros...</span>
+                </div>
+                <div class="post-data post-author" data-label="Autor">Marcos César Castilho</div>
+                <div class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                    <span class="stat"><i class="fas fa-eye"></i> 270</span>
+                    <span class="stat"><i class="fas fa-thumbs-up"></i> 100</span>
+                    <span class="stat"><i class="fas fa-comments"></i> 250</span>
+                </div>
+                <div class="post-data post-actions" data-label="Ações">
+                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div><div class="post-item">
+                <div class="post-options-container">
+                    <button class="options-menu-btn">
+                        <i class="fas fa-ellipsis-v"></i> </button>
+                
+                    <div class="post-actions" data-label="Ações">
+                        <button class="action-btn edit">
+                            <i class="fas fa-pencil-alt"></i> <span>Editar</span>
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> <span>Excluir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="post-data post-id" data-label="Post ID">#333</div>
+                <div class="post-data post-date" data-label="Data">15/04/2025</div>
+                <div class="post-data post-title" data-label="Título">
+                    <img src="/public\assets\Maverick.jpg" alt="Ford Maverick" class="post-thumbnail">
+                    <span>Meu primeiro carro...</span>
+                </div>
+                <div class="post-data post-author" data-label="Autor">Miguel Nogueira Pimentel</div>
+                <div class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                    <span class="stat"><i class="fas fa-eye"></i> 270</span>
+                    <span class="stat"><i class="fas fa-thumbs-up"></i> 100</span>
+                    <span class="stat"><i class="fas fa-comments"></i> 250</span>
+                </div>
+                <div class="post-data post-actions" data-label="Ações">
+                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="post-item">
+                <div class="post-options-container">
+                    <button class="options-menu-btn">
+                        <i class="fas fa-ellipsis-v"></i> </button>
+                
+                    <div class="post-actions" data-label="Ações">
+                        <button class="action-btn edit">
+                            <i class="fas fa-pencil-alt"></i> <span>Editar</span>
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> <span>Excluir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="post-data post-id" data-label="Post ID">#444</div>
+                <div class="post-data post-date" data-label="Data">01/05/2025</div>
+                <div class="post-data post-title" data-label="Título">
+                     <img src="/public\assets\Ford-Mustang-GT.jpg" alt="Carro Vermelho" class="post-thumbnail">
+                    <span>Minha primeira viagem...</span>
+                </div>
+                <div class="post-data post-author" data-label="Autor">Mickaell de Oliveira</div>
+                <div class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                    <span class="stat"><i class="fas fa-eye"></i> 270</span>
+                    <span class="stat"><i class="fas fa-thumbs-up"></i> 100</span>
+                    <span class="stat"><i class="fas fa-comments"></i> 250</span>
+                </div>
+                <div class="post-data post-actions" data-label="Ações">
+                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+
+            </main>
+
+        <nav class="pagination">
+            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="page-number">4</a>
+            <a href="#" class="page-number">5</a>
+            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+        </nav>
+    </div>
+    <script src="/public\js\PostChart.js"></script>
+</body>
+</html>
