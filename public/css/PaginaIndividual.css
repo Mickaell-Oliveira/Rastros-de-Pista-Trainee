@@ -14,116 +14,308 @@ colgroup {
 }
 
 
+/* Reset Básico e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Melhora a fluidez da rolagem */
+    scroll-behavior: smooth;
+}
 
 body {
-
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #890000,  #1A1A1A, #1A1A1A);            /* Fundo com Gradiente */
-    color: white;                                                      /* Cor do Texto */
-    margin: center;
-    padding: 0;
+    background: linear-gradient(135deg, #890000 0%, #1A1A1A 60%);
+    background-attachment: fixed; /* Mantém o gradiente fixo */
+    color: #f0f0f0;
 
-
-
+    /* --- CONTROLE DE LAYOUT PRINCIPAL --- */
+    display: flex; /* Habilita o Flexbox */
+    flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 2rem 1rem; /* Espaçamento superior/inferior e lateral para telas pequenas */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da tela */
 }
 
-/* quadrado em torno da postagem */
-
-.QuadradoPostagem {
-
-    width: 600px;
-    height: 400px;
-    background: rgba(36, 35, 35, 0.7);          /* RGBA para só ele transparente */
-    border-radius: 10px;                          /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   /* Sombra para dar profundidade */
-    margin: 20px auto;                            /* Centraliza o quadrado na página */
-    padding: 20px;                                /* Espaçamento interno */
+/* --- Barra de Busca Superior --- */
+.BarraBusca {
+    width: 100%; /* Ocupa 100% da largura do container pai */
+    max-width: 800px; /* Largura máxima, criando as margens em telas grandes */
+    background-color: #2c2c2c;
+    border-radius: 25px;
+    padding: 10px 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px; /* Espaço entre a busca e o post */
+}
+
+.BarraBusca i {
+    color: #a0a0a0;
+}
+
+.BarraBusca input {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+.BarraBusca input::placeholder {
+    color: #a0a0a0;
+}
+
+
+/* --- quadrado do post --- */
+.ContainerPostagem {
+    width: 100%;                         /* quanto q ocupa pros lados*/
+    max-width: 800px;                      /* largura maxima q ocupa com a barra*/
+    background: rgba(44, 44, 44, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 35px;                       /* espaçamento interno */
+}
+
+
+
+/* Cabeçalho do Post */
+.Cabecalho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.BotaoVoltar {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    font-size: 1.5rem; 
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.IconeContainer {
+    background-color: #555;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-
-
-
-
-.FotoPerfil {
-    width: 60px;
-    height: 60px;
-    border-radius: 0%; 
+    font-size: 20px;              
     margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 15px;
-    object-fit: cover;
-    border: 2px solid #fff;
+    flex-shrink: 0;            /* icone não encolhe */
 }
 
-
+.InfoUsuario {
+    display: flex;
+    flex-direction: column;
+}
 
 .NomeUsuario {
     font-family: 'Urbanist', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
+    font-size: 18px;     /* 18 pixel */
+    font-weight: 700;
     color: #FFFFFF;
-
-
 }
-
-
 
 .DataPostagem {
-    display: grid;
     font-family: 'Urbanist', sans-serif;
-    font-size: 14px;
+    font-size: 14px; 
     color: #CCCCCC;
-    margin-right: 380px;      /* Pro cabeçalho ficar pra esquerda */
-    margin-top: 5px;
-
-
 }
 
+/* conteudo principal do post */
 
-
-
-.ConteudoPostagem {
-    padding: 15px;
-    font-size: 16px;
-    align-items: flex-start;
-    color: #E0E0E0;
+.Postagem {
+    width: 100%;
 }
 
-
+.TituloPostagem {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
 
 .ImagemPostagem {
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    margin-top: 15px;
+    height: auto;                   /* auto pra manter a propor */
     border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;                 /* remove o espaço a mais embaixo da imagem */
 }
 
+.ConteudoPostagem {
+    font-size: 16px;
+    color: #d0d0d0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
 
-.Interacoes {
+/* Botões de Interação */
+.ContainerBotoes {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-top: 1px solid #ccc;
-    background-color: #2C2C2C;
     justify-content: flex-start;
 }
 
-button {
-    background: none;
-    border: none;
-    margin: 15px 0 0 0; /* apenas margem superior */
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.Interacoes {
+    background-color: #3D3D3D;
+    border-radius: 25px;
+    padding: 5px 10px;
+    display: inline-flex;
+    gap: 15px;
 }
 
-button:hover {
-    color: #FFD700; /* Cor ao passar o mouse */
+.Interacoes button {
+    background: none;
+    border: none;
+    color: #c0c0c0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.Interacoes button:hover {
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+
+
+
+
+/*
+================================================
+    PARTE DOS COMENTÁRISO 
+================================================
+*/
+
+.SecaoComentarios {
+    width: 100%;
+    max-width: 800px;    /* mesma largura maxima do post para alinhamento */
+    margin-top: 40px;    /* espaço entre o post e os comentarios */
+}
+
+.TituloSecao {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 24px;    
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-left: 10px; /* alinhamento visual */
+    border-left: 3px solid #890000; /* detalhe visual */
+}
+
+.Comentario {
+    background: rgba(30, 30, 30, 0.8); 
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px; /* espaço entre cada comentário */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.CabecalhoComentario {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Ajuste no tamanho da foto */
+.Comentario .IconeContainer {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.InfoUsuarioComentario {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espaço entre o nome e a data */
+    flex-wrap: wrap; /* arruma a data em tela de celular */
+}
+
+.NomeUsuarioComentario {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.DataComentario {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 13px;
+    color: #a0a0a0;
+}
+
+.TextoComentario {
+    font-size: 15px;
+    color: #d0d0d0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.InteracoesComentario {
+    background-color: #3D3D3D;
+    border-radius: 20px;
+    padding: 4px 8px;
+    display: inline-flex; /* xa caixinha tem a largura dos botões */
+    gap: 10px;
+}
+
+.InteracoesComentario button {
+    background: none;
+    border: none;
+    color: #c0c0c0;
+    font-size: 1rem; /* 16px, um pouco menor que os botões do post */
+    cursor: pointer;
+    padding: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.InteracoesComentario button:hover {
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 768px) {
+    body {
+    
+        padding: 1rem;      /* reduz o espaçamento geral em telas menores */
+    }
+
+    .ContainerPostagem {
+      
+        padding: 20px;    /* reduz o espaçamento interno do post */
+    }
+
+    .TituloPostagem {
+        font-size: 24px;    /* Diminui o tamanho do título principal */
+    }
+
+    .ConteudoPostagem {
+        font-size: 0.95rem; /* mais ou menos15px */
+    }
+
+    .Cabecalho {
+        /* pro cabeçalho caber bem  */
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }
