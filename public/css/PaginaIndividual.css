@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+colgroup {
+    background-color: #f2f2f2;
+    background-color: #1A1A1A;
+    background-color: #C0C0C0;
+    background-color: #000000;
+    background-color: #3D3D3D;
+    background-color: #890000;
+
+
+
+}
+
+
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #890000,  #1A1A1A, #1A1A1A);            /* Fundo com Gradiente */
+    color: white;                                                      /* Cor do Texto */
+    margin: center;
+    padding: 0;
+
+
+
+}
+
+/* quadrado em torno da postagem */
+
+.QuadradoPostagem {
+
+    width: 600px;
+    height: 400px;
+    background: rgba(36, 35, 35, 0.7);          /* RGBA para só ele transparente */
+    border-radius: 10px;                          /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   /* Sombra para dar profundidade */
+    margin: 20px auto;                            /* Centraliza o quadrado na página */
+    padding: 20px;                                /* Espaçamento interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+.FotoPerfil {
+    width: 60px;
+    height: 60px;
+    border-radius: 0%; 
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+
+
+.NomeUsuario {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #FFFFFF;
+
+
+}
+
+
+
+.DataPostagem {
+    display: grid;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    color: #CCCCCC;
+    margin-right: 380px;      /* Pro cabeçalho ficar pra esquerda */
+    margin-top: 5px;
+
+
+}
+
+
+
+
+.ConteudoPostagem {
+    padding: 15px;
+    font-size: 16px;
+    align-items: flex-start;
+    color: #E0E0E0;
+}
+
+
+
+.ImagemPostagem {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+
+.Interacoes {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background-color: #2C2C2C;
+    justify-content: flex-start;
+}
+
+button {
+    background: none;
+    border: none;
+    margin: 15px 0 0 0; /* apenas margem superior */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button:hover {
+    color: #FFD700; /* Cor ao passar o mouse */
+}
