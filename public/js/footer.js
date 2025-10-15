@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     } else {
+        
 
         console.error("Erro: Verifique se os IDs 'primary_footer' e 'footer_container' existem no seu HTML.");
     }
 });
+
+// função pra clicar e aparecer o menu do footer

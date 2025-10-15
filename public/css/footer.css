@@ -9,7 +9,7 @@
   --color-border: #333333;
 }
 
-
+/* cores */
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -23,6 +23,7 @@
 
 body {
     background-color: #f5f5f5; 
+    
     color: var(--color-text);
 }
 
@@ -53,6 +54,7 @@ body {
 #footer_social_media, #footer_code_jr {
     text-align: center;
 }
+
 
 
 
