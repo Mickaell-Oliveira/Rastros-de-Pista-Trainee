@@ -184,13 +184,34 @@ h1, h2, h3 {
     .container-imagem p { font-size: 1.2em; line-height: 1.5;}
     .ver-mais h1 {font-size: 2em;}
     .sobre-nos h1 { font-size: 3.5em; }
-    .sobre-nos p {font-size: 1,5em;}
+    .sobre-nos p {font-size: 1,8em;}
     .info-container h3 { font-size: 2em; }
     .info-container p { font-size: 1.2em; }
 
+     .fundo-do-carrossel {
+        width: 80%; /* Volta a ter a largura fixa */
+        height: 704px;
+        margin: auto;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Isso já centraliza na HORIZONTAL */
+    }
+
+    .carousel-container {
+        width: 80%; /* Largura para 3 cards + gaps */
+        height: auto;
+        margin: auto;
+    }
+     .carousel-track {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin: auto;
+       
+    }
 
 .card {
-    width: 70vh; 
+    width: 100%; 
     height: 50vh;
 }
 
@@ -239,7 +260,7 @@ h1, h2, h3 {
     }
 
     .carousel-container {
-        width: 80%; /* Largura para 3 cards + gaps */
+        width: 60%; /* Largura para 3 cards + gaps */
         height: auto;
         margin: auto;
     }
@@ -247,7 +268,8 @@ h1, h2, h3 {
     .card {
         width: 100%; /* Volta ao tamanho fixo original */
         height: 600px;
-        margin-right: 0; /* Remove a margem, pois o track controlará */
+        margin: auto;
+        
     }
 
     .carousel-track {
@@ -255,7 +277,7 @@ h1, h2, h3 {
         height: 100%;
         display: flex;
         margin: auto;
-        gap: 0px;
+        
     }
 
     .carousel-btn {
