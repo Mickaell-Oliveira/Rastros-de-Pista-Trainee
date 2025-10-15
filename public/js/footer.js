@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const footerContainer = document.getElementById('footer_container');
 
-    if (footerContainer) {
-        footerContainer.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {    // se for de celular, vai dar opção de click
-                this.classList.toggle('open');
+    const primaryFooter = document.getElementById('primary_footer');
+    const footerContainer = document.getElementById('footer_container'); 
+
+    
+    if (primaryFooter && footerContainer) {
+        
+    
+        primaryFooter.addEventListener('click', function(event) {
+            
+     
+            if (window.innerWidth <= 768) {
+                
+            
+                if (!event.target.closest('a')) {
+  
+                    footerContainer.classList.toggle('open');
+                }
             }
         });
+    } else {
+
+        console.error("Erro: Verifique se os IDs 'primary_footer' e 'footer_container' existem no seu HTML.");
     }
 });

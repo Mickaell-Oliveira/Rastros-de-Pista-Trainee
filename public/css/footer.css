@@ -167,6 +167,33 @@ body {
 }
 
 
+/* Centraliza o texto apenas nas colunas de Visão, Missão e Valores */
+#footer_content .footer-list:nth-child(2),
+#footer_content .footer-list:nth-child(3),
+#footer_content .footer-list:nth-child(4) {
+    text-align: center;
+}
+
+
+
+#footer_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3rem 3.5rem;
+    column-gap: 2.5rem; 
+}
+
+
+#footer_content .footer-list li {
+    line-height: 1.6; 
+}
+
+
+
+
+
+
+
 
 /* Responsividade (S.0.S) */
 
@@ -215,3 +242,6 @@ body {
     opacity: 1;
   }
 }
+
+
+
