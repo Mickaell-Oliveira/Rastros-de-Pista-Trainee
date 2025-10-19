@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue';
+    background: linear-gradient(135deg, #AE171C, #1A1A1A);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 48px;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 10px #1A1A1A;
+}
+
+section:first-of-type {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    max-width: 1200px;
+}
+
+input[type="search"] {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="search"]:focus {
+    border-color: #C0C0C0   ;
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border: 2px solid #1A1A1A;
+    border-radius: 0 25px 25px 0;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #C0C0C0;
+}
+
+/* Botão novo usuário */
+.toolbar, section.toolbar {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-new-user,
+section:first-of-type > a {
+    padding: 10px 14px;
+    background: #F5F5F5;
+    color: #1A1A1A;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    border: 2px solid rgba(0,0,0,0.2);
+}
+
+.btn-new-user:hover,
+section:first-of-type > a:hover {
+    background: #AE171C;
+    color: #F5F5F5;
+}
+
+/* Container da tabela */
+section:nth-of-type(2) {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: #F5F5F5;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px;
+    padding: 20px;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    background: #F5F5F5;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1A1A1A;
+    border-bottom: 3px solid #C0C0C0;
+}
+
+
+td {
+    padding: 15px;
+    color: #1A1A1A;
+    font-size: 16px;
+}
+
+/* Ações */
+td:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+td a[title], td button[type="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Paginação */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a, nav strong {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #F5F5F5;
+    color: #AE171C;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav a:hover {
+    background: #AE171C;
+    color: #F5F5F5;
+}
+
+/* Setas de navegação */
+nav a:first-child,
+nav a:last-child {
+    background: #B71C1C;
+    color: white;
+}
+
+nav a:first-child:hover,
+nav a:last-child:hover {
+    background: #D32F2F;
+}

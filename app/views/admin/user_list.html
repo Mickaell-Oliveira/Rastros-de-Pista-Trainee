@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="../admin/user_list.css" rel="stylesheet" />
+  <script src="../admin/user_list.js" defer></script>
   <title>Lista de Usuários</title>
 </head>
 <body>
   <h1>USUÁRIOS</h1>
 
-  <section>
+  <section class="toolbar">
     <form>
       <input type="search" placeholder="Pesquisar usuário" />
       <button type="submit">🔍</button>
     </form>
 
-    <button>➕ Novo usuário</button>
+    <a href="#">➕ Novo usuário</a>
   </section>
 
   <section>
@@ -27,19 +29,8 @@
           <th>Ações</th>
         </tr>
         <tr>
-          <td>#1234</td>
-          <td>15/04/2025</td>
-          <td>Yuri Marangon Gomes</td>
-          <td><a href="ymoranguinho@proton.com">ynmoranguinho@proton.com</a></td>
-          <td>
-            <button type="button" title="ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-        <tr>
           <td>#4567</td>
-          <td>01/05/2025</td>
+          <td>30/03/2025</td>
           <td>Gustavo Corzino Caiafa</td>
           <td><a href="gustavo.corzino@estudante.ufjf.br">gustavo.corzino@estudante.ufjf.br</a></td>
           <td>
@@ -49,6 +40,16 @@
           </td>
         </tr>
         <tr>
+          <td>#1234</td>
+          <td>15/04/2025</td>
+          <td>Yuri Marangon Gomes</td>
+          <td><a href="ymoranguinho@proton.me">ymarangon@proton.me</a></td>
+          <td>
+            <button type="button" title="Ver">👁️</button>
+            <button type="button" title="Editar">✏️</button>
+            <button type="button" title="Excluir">🗑️</button>
+          </td>
+        </tr>
           <td>#7890</td>
           <td>01/06/2025</td>
           <td>Marcos César Castilho</td>
@@ -74,7 +75,7 @@
           <td>#2468</td>
           <td>01/08/2025</td>
           <td>Mickaell De Oliveira</td>
-          <td><a href="bigMickas@proton.com">bigMickas@proton.com</a></td>
+          <td><a href="bigMickas@proton.me">mickaell@proton.me</a></td>
           <td>
             <button type="button" title="Ver">👁️</button>
             <button type="button" title="Editar">✏️</button>
@@ -84,14 +85,14 @@
     </table>
   </section>
 
-  <nav>
-    <a>&lt;</a>
-    <a>1</a>
-    <a>2</a>
-    <strong>3</strong>
-    <a>4</a>
-    <a>5</a>
-    <a>&gt;</a>
+  <nav class="pagination">
+    <a href="#" aria-label="Anterior">&lt;</a>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#" aria-label="Próxima">&gt;</a>
   </nav>
 </body>
 </html>
