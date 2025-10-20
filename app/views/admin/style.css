@@ -1,0 +1,68 @@
+body{
+padding: 0;
+margin: 0;
+background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A);
+}
+
+
+
+.lista-container{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.lista-container h1{
+  font-size: 2.5em;
+ 
+}
+
+
+.lista-de-post{
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista-de-post i {
+    color: #000000;    
+    font-size: 24px;
+}
+
+
+
+.lista-de-usuarios-container{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+.lista-usuarios-container h1{
+  font-size: 2.5em;
+    padding: 0; 
+    margin: 0;
+}
+
+
+.lista-de-usuarios{
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lista-de-usuarios i {
+    color: #000000;    
+    font-size: 24px;
+}
