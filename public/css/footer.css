@@ -233,7 +233,7 @@ body {
     display: none;
   }
 
-  /* Apenas a classe .open controla a visibilidade no mobile */
+
   #footer_container.open #footer_social_media,
   #footer_container.open #footer_code_jr {
     display: block;
@@ -242,6 +242,8 @@ body {
   #footer_container.open #secondary_footer {
     max-height: 500px; 
     opacity: 1;
+      overflow-y: auto;
+      height: 60vh;
   }
 }
 
