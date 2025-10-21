@@ -148,6 +148,22 @@ button[type="submit"]:hover {
     box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
+.home {
+    display: inline-block;
+    margin-top: 10px;
+    color: #F5F5F5;
+    font-size: 14px;
+    padding: 5px;
+    width: fit-content;
+    height: auto;
+}
+
+.home:hover {
+    color: #AE171C;
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
 /* Telas grandes/Desktop (acima de 1024px) */
 @media screen and (min-width: 1024px) {
     .logo-site {
