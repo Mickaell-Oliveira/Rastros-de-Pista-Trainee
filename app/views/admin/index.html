@@ -6,36 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-     <img src="../../../public/assets/img/Logo-rato-bandeira.jpg.png">
-       
-     <div class="lista-container">
-     <button class="lista-de-post">
-            <i class="fas fa-paper-plane">
-            </i>
-        </button>
-        <h1>Lista de post</h1>
-     </div>
+    <nav class="sidebar">
+        <div id="sidebar_content">
+     <img src="../../../public/assets/img/Logo-rato-bandeira.jpg.png" id="imagem">
+     
+     <ul id="side_itens">
+        <li class="item">
+            <a href="#">
+            <i class="fas fa-paper-plane"></i>
+            <span class="item-description">
+                Lista de posts
+            </span>
+            </a>
+        </li\>
 
-     <div class="lista-usuarios-container">
-        <button class="lista-de-usuarios">
-            <i class="fas fa-user">
-            </i>
-        </button>
-        <h1>Lista de usuarios</h1>
-     </div>
 
-     <div class="dashboard-container">
-     <button class="botao-sidebar-icone">
-            <i class="fas fa-th-large">
-            </i> 
-            </button>
-        <h1>Lista de post</h1>
-     </div>
+        <li class="item">
+       <a href="#">
+            <i class="fa-solid fa-user"></i>
+            <span class="item-description">
+                Lista usuarios
+            </span>
+        </a>
+        </li>
 
+
+        <li class="item">
+       <a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="item-description">
+                Dashboard
+            </span>
+        </a>
+        </li>
+
+    </ul>
+    <button id="open">
+        <i id="open_icon" class="fa-solid fa-chevron-right"></i>
+    </button>
+
+
+</div>
+
+<div id="logout">
+    <button id="logout_bt">
+        <i id="logout_icon" class="fa-solid fa-right-from-bracket"></i>
+        <span class="item-description">
+            Logout
+        </span>
+    </button>
+
+    </div>
+</nav>
+
+<script src="script.js"></script>
 </body>
 </html>
