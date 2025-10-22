@@ -1,18 +1,18 @@
 body{
-min-height: 100vh;
+min-height: 100%;
 padding: 0;
 margin: 0;
 display: flex;
  font-family: "Bebas Neue", sans-serif;
- 
+background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A); 
 }
 #imagem{
 width: 100%;
 height: 200px;
 object-fit: cover;
-    margin: 20px auto; /* Centraliza a imagem */
+    margin: 20px auto; 
     border-radius: 12px;
-    /* Adiciona uma transição suave para a mudança de tamanho */
+    
     transition: width 0.3s ease, height 0.3s ease;
 }
 .sidebar{
@@ -23,6 +23,7 @@ object-fit: cover;
     border-radius: 0px 18px 18px 0px;
     background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A);
     position: relative;
+    box-shadow: 0 8px 16px rgba(0,0,0,1);
 }
 
 #side_itens{
@@ -49,8 +50,9 @@ text-decoration: none;
 display: flex;
 align-items: center;
 justify-content: left;
-color: #1A1A1A;
+color: #FFFFFF;
 gap: 8px;
+font-size: 24px;
 }
 
 .item a i{
@@ -137,3 +139,44 @@ cursor: pointer;
     justify-content: center;
     gap: 0;
 }
+
+.main-content{
+    color: #FFFFFF;
+    padding: auto;
+    padding-left: 20px;
+}
+
+@media (max-width: 767px) 
+{
+
+    .sidebar {
+       position: relative;
+        
+        width: 280px; /* Largura da sidebar quando ABERTA */
+      
+        
+    }
+
+  
+    .sidebar.closed {
+        width: auto; 
+        transform: translateX(-100%); 
+    }
+
+
+
+#imagem{
+    width: auto;
+    margin: auto;
+    padding: auto;
+}
+
+.item a{
+    font-size: 18px;
+    white-space: nowrap;
+}
+ 
+
+}
+
+
