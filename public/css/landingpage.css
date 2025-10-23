@@ -249,8 +249,8 @@ h1, h2, h3 {
     }
 
     .fundo-do-carrossel {
-        width: 95%;
-        height: 50vh;
+        width: 70%;
+        height: 70vh;
         margin: auto;
         display: flex;
         align-items: center;
