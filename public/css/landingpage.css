@@ -314,7 +314,7 @@ h1, h2, h3 {
 }
 
 .card:hover .conteudo-carrossel {
-    filter: blur(2px);
+    filter: blur(0.5px);
 }
 
 .card:hover .info-container {
