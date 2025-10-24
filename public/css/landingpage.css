@@ -294,7 +294,7 @@ h1, h2, h3 {
  transition: opacity 0.3s ease, visibility 0.3s ease;
  display: flex;
  flex-direction: column; 
- justify-content: left; 
+ justify-content:end; 
  align-items: flex-start; 
  padding: 20px; 
  padding-left:75px;
@@ -302,7 +302,7 @@ h1, h2, h3 {
 }
 
 .card:hover .conteudo-carrossel {
-    filter: blur(4px);
+    filter: blur(2px);
 }
 
 .card:hover .info-container {
