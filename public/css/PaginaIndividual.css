@@ -28,7 +28,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #890000 0%, #1A1A1A 60%);
+    background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A); 
     background-attachment: fixed; /* deixa o gradiente fixo */
     color: #f0f0f0;
 
@@ -48,7 +48,7 @@ body {
 /* --- quadrado do post --- */
 .ContainerPostagem {
     width: 100%;                         /* quanto q ocupa pros lados*/
-    max-width: 800px;                      /* largura maxima q ocupa com a barra*/
+    max-width: 1200px;                      /* largura maxima q ocupa com a barra*/
     background: rgba(44, 44, 44, 0.85);
     backdrop-filter: blur(5px);
     border-radius: 15px;
@@ -173,11 +173,14 @@ body {
 ================================================
 */
 
+
+
 .SecaoComentarios {
     width: 100%;
     max-width: 800px;    /* mesma largura maxima do post para alinhamento */
     margin-top: 40px;    /* espaço entre o post e os comentarios */
 }
+
 
 .TituloSecao {
     font-family: 'Urbanist', sans-serif;
@@ -259,11 +262,6 @@ body {
     color: #FFFFFF;
     transform: scale(1.1);
 }
-
-
-
-
-
 
 
 /* --- RESPONSIVIDADE --- */
