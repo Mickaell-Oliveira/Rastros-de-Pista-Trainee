@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url('/public/assets/Walpapper.png');
+  background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
