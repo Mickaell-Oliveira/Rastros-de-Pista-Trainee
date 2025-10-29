@@ -681,8 +681,9 @@ nav a:hover {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 16px;
-        max-width: 600px; 
+        max-width: 800px; 
         margin: 0 auto 18px;
+        padding: 0;
     }
 
     .user-card {
