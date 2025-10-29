@@ -535,8 +535,8 @@ nav a:hover {
         margin-bottom: 12px;
     }
 
-    .user-card .email { font-size: 15px; color: #F5F5F5; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 14px; color: #F5F5F5; margin: 4px 0; }
+    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 20px; color: #F5F5F5; margin: 4px 0; }
 
     .card-actions { display: grid; gap: 12px; margin-top: 16px; }
 
@@ -598,13 +598,13 @@ nav a:hover {
 
 .user-card .email {
     color: #F5F5F5;
-    font-size: 12px;
+    font-size: 20px;
     margin-bottom: 6px; 
 }
 
 .user-card .meta {
     color: #F5F5F5;
-    font-size: 11px;
+    font-size: 20px;
     margin: 2px 0;
 }
 
@@ -694,12 +694,12 @@ nav a:hover {
         margin-bottom: 10px;
     }
 
-    .user-card .email { font-size: 14px; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 13px; margin: 3px 0; }
+    .user-card .email { font-size: 22px; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 22px; margin: 3px 0; }
     
     .btn-card {
         height: 32px;
-        font-size: 14px;
+        font-size: 22px;
     }
 }
 /* ================== FIM TABLET AJUSTES ================== */
