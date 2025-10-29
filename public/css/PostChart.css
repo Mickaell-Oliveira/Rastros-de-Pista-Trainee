@@ -254,8 +254,14 @@ body::before {
         text-align: center;
     }
 
+    #header-autor {
+        text-align: center;
+    }
+
+
     #header-titulo, #header-autor {
-        flex: 2;
+        flex: 1;
+       text-align: center;
     }
 
     #header-interacao {
@@ -295,7 +301,7 @@ body::before {
 
     .post-data {
         display: block;
-        flex: 1;
+        flex: 2;
         margin-bottom: 0;
         padding: 0 10px;
         text-align: center;
