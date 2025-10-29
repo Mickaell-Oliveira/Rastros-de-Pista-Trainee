@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     padding-top: 40px;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #ED1C24, #AE171C, #1a1a1a);
+    background-image: url(../../public/assets/iamgem-bernado-login.jpg);
 }
 
 .logo-back{
@@ -29,9 +29,9 @@ body{
 
 .login-container{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     width: 100%;
-    padding-left: 250px;
+    padding-left: 30px;
     padding-top: 50px;
 }
 
