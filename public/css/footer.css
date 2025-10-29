@@ -55,8 +55,16 @@ body {
     text-align: center;
 }
 
+#footer_spacer{
 
+  height:100vh; width:100%;
+}
 
+#footer_container{
+  position: static;
+  bottom: auto;
+
+}
 
 
 #footer_code_jr h4 {
