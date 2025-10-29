@@ -66,7 +66,7 @@ h1, h2, h3 {
 
 .carousel-track {
     display: flex;
-    height: 55vh;
+    height: auto;
     transition: transform 0.5s ease-in-out;
     border-radius: 16px;
 }
@@ -84,14 +84,14 @@ h1, h2, h3 {
 
 
 .conteudo-carrossel {
-    height: 180px; /* Imagem um pouco menor no celular */
+    height: 120px; /* Imagem um pouco menor no celular */
     width: 100%;
     background-size: cover; 
     background-position: center; 
 }
 
 .info-container {
-    padding: 20px;
+    padding: 15px;
 
 }
 
@@ -103,8 +103,10 @@ h1, h2, h3 {
 
 .info-container p {
     color: #ffffff;
-    font-size: 1em;
+    font-size: 0.9em;
     overflow-wrap: break-word;
+    width: 100%;
+    
 }
 
 /* Botões do Carrossel */
@@ -137,7 +139,7 @@ h1, h2, h3 {
     color: white;
 }
 .ver-mais h1 {
-    font-size: 0.5em;
+    font-size: 1.2em;
     margin: 0;
 }
 
@@ -163,10 +165,14 @@ h1, h2, h3 {
     line-height: 1.6;
 }
 
+.última-imagem{
+    display: none;
+}
+
 .última-imagem img {
     width: 100%; /* Imagem ocupa 100% da largura */
     height: auto;
-    display: flex;
+    display: block;
     border-radius: 16px;
 }
 
@@ -200,8 +206,12 @@ h1, h2, h3 {
         margin: auto;
         display: flex;
         align-items: center; /* Centraliza verticalmente */
-            justify-content: center; /* Isso já centraliza na HORIZONTAL */
+        justify-content: center; /* Isso já centraliza na HORIZONTAL */
     }
+
+    .conteudo-carrossel {
+     height: 250px;
+         }
 
     .carousel-container {
         width: 80%; /* Largura para 3 cards + gaps */
@@ -210,7 +220,7 @@ h1, h2, h3 {
     }
      .carousel-track {
         width: 100%;
-        height: 100%;
+        height: auto;
         display: flex;
         margin: auto;
        
@@ -218,11 +228,12 @@ h1, h2, h3 {
 
 .card {
     width: 100%; 
-    height: 50vh;
+    height: auto;
 }
 
 
-
+.prev { left: 40px; }
+.next { right: 40px; }
 
     /* Seção Sobre Nós fica lado a lado */
     .container-sobre-nos {
@@ -230,6 +241,7 @@ h1, h2, h3 {
         align-items: center;
     }
     .sobre-nos, .última-imagem {
+        display: block;
         flex: 1; /* Divide o espaço igualmente */
     }
     .sobre-nos {
@@ -364,6 +376,7 @@ line-height: 1.6;
     .última-imagem{
     
    flex: 1;
+   display: block;
    
 }
 
