@@ -676,11 +676,6 @@ nav a:hover {
         display: none !important;
     }
 
-    .cards_mobile {
-    flex: row;
-    justify-content: center;
-    }
-
 
     .user-cards {
         display: grid !important;
