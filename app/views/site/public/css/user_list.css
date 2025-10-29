@@ -251,19 +251,20 @@ body::before {
         width: 100%;
     }
     .header-col {
-        flex: 1;
-        padding: 0 10px;
-        text-align: left;
+        flex: 0.6;
+        padding: 0px 10px;
+        text-align: center;
     }
 
     #header-autor {
+        flex : 1;
         text-align: left;
     }
 
 
-    #header-titulo, #header-autor {
+    #header-titulo {
         flex: 1;
-       text-align: left;
+       text-align: center;
     }
 
     #header-interacao {
@@ -308,14 +309,14 @@ body::before {
 
     .post-data {
         display: block;
-        flex: 2;
+        flex: 10.5;
         margin-bottom: 0;
         padding: 0 10px;
         text-align: center;
         width: fit-content;
     }
 
-    .post-title, .post-author { flex: 2; text-align: left; }
+    .post-title, .post-author { flex: 0.5; text-align: center; }
     .post-stats { flex: 1.5; }
     
     .post-id, .post-actions { display: block; }
@@ -326,6 +327,7 @@ body::before {
     .new-post-btn span { display: inline; }
 
     .action-btn {
+        
         background: none;
         border: none;
         color: var(--gray-text-color);
@@ -384,12 +386,24 @@ body::before {
     display: block;
 }
 
-.post-actions .action-btn {
+ .action-btn {
+    display: flex;
+    align-items: right;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 75px;
+    text-align: right;
+    margin: 0;
+ }
+
+
+
+.post-actions {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 45px;
+    padding: 10px 15px;
     text-align: left;
     margin: 0;
 }
@@ -420,6 +434,8 @@ body::before {
     }
 }
 
+
+/* CONTROLE DE EXIBIÇÃO MOBILE*/
 .table-container { 
     display: none; 
 }
@@ -533,8 +549,8 @@ nav a:hover {
         margin-bottom: 12px;
     }
 
-    .user-card .email { font-size: 15px; color: #F5F5F5; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 14px; color: #F5F5F5; margin: 4px 0; }
+    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 20px; color: #F5F5F5; margin: 4px 0; }
 
     .card-actions { display: grid; gap: 12px; margin-top: 16px; }
 
@@ -596,13 +612,13 @@ nav a:hover {
 
 .user-card .email {
     color: #F5F5F5;
-    font-size: 12px;
+    font-size: 20px;
     margin-bottom: 6px; 
 }
 
 .user-card .meta {
     color: #F5F5F5;
-    font-size: 11px;
+    font-size: 20px;
     margin: 2px 0;
 }
 
@@ -621,7 +637,7 @@ nav a:hover {
     color: #F5F5F5;
     font-family: 'Bebas Neue';
     letter-spacing: 0.5px;
-    font-size: 12px;
+  
     cursor: pointer;
     box-shadow: 0 3px 8px #1A1A1A;
 }
@@ -630,37 +646,31 @@ nav a:hover {
 .btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
 
-/* ================== CELULAR PADRÃO ================== */
+/* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
+  
     .user-cards {
-         
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        max-width: 420px; 
-        gap: 12px;
-        margin: 10px auto; 
-        max-width: 580px;
-    }
-    nav {
         max-width: 420px;
+        gap: 12px;
     }
     
     .new-post-btn {
         display: none !important;
     }
-
     .fab-btn {
         display: flex !important; 
     }
-  
+
+    .user-card {
+        margin: 10px auto !important;
+        max-width: 580px;
+    }
     nav {
         max-width: 420px;
     }
 }
 
-/* ================== FIM CELULAR PADRÃO ================== */
-
-/* ================== AJUSTES PARA TABLET (600px a 991px) ================== */
+/* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
     .table-container { 
         display: none !important;
@@ -668,17 +678,23 @@ nav a:hover {
 
     .user-cards {
         display: grid !important;
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr !important;
         gap: 16px;
         max-width: 800px; 
         margin: 0 auto 18px;
     }
 
     .user-card {
-        margin: 0; 
-        max-width: none; 
+        margin: 0 !important; 
+        max-width: none !important;
     }
 
+    .new-post-btn {
+        display: flex !important;
+    }
+    .fab-btn {
+        display: none !important;
+    }
 
     nav {
         max-width: 800px; 
@@ -686,19 +702,10 @@ nav a:hover {
         justify-content: center;
     }
 
-   
-    .user-card .name {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
+    .user-card .name { font-size: 24px; margin-bottom: 10px; }
     .user-card .email { font-size: 14px; margin-bottom: 8px; }
     .user-card .meta  { font-size: 13px; margin: 3px 0; }
-    
-    .btn-card {
-        height: 32px;
-        font-size: 14px;
-    }
+    .btn-card { height: 32px; font-size: 14px; }
 }
 /* ================== FIM TABLET AJUSTES ================== */
 
