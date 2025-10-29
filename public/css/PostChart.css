@@ -143,14 +143,14 @@ body::before {
     border-radius: 0 5px 5px 0;
 }
 
-/* VERSÃO PARA CELULAR: CARDS (Configuração Padrão/Mobile-First) */
+/* VERSÃO PARA CELULAR: CARDS  */
 .posts-table-header {
     display: none; 
 }
 
 .posts-content {
     padding: 0 20px;
-    display: none; /* ESCONDE o container principal da tabela por padrão */
+    display: none; 
 }
 
 .post-item {
@@ -208,10 +208,10 @@ body::before {
 
 .pagination {
     display: flex;
-    justify-content: center; /* CENTRALIZAÇÃO */
+    justify-content: center; 
     align-items: center;
     padding: 30px 20px 10px;
-    margin: 0 auto; /* CENTRALIZAÇÃO DO CONTAINER */
+    margin: 0 auto; 
 }
 
 .pagination a {
@@ -278,7 +278,8 @@ body::before {
     .posts-content {
         padding: 0;
         margin: 0 20px;
-        display: block; /* MOSTRA a tabela no desktop */
+        display: block; 
+
     }
     
     .tabela {
@@ -287,7 +288,7 @@ body::before {
     }
 
     .table-container { 
-        display: block !important; /* MOSTRA o container da tabela no desktop */
+        display: block !important; 
     }
 
     .post-item {
@@ -334,7 +335,7 @@ body::before {
     }
     .action-btn:hover { color: var(--text-color); }
 
-    /* ESCONDE os cards no desktop */
+
     .user-cards {
         display: none !important;
     }
@@ -422,11 +423,11 @@ body::before {
 
 /* CONTROLE DE EXIBIÇÃO MOBILE-FIRST */
 .table-container { 
-    display: none; /* ESCONDE o container da tabela por padrão (mobile) */
+    display: none; 
 }
 
 .user-cards {
-    display: grid; /* MOSTRA os cards por padrão (mobile) */
+    display: grid; 
     gap: 12px;
     max-width: 420px;
     margin: 0 auto 18px;
@@ -453,52 +454,10 @@ nav a:hover {
     background: #AE171C;
 }
 
-/* ================== AJUSTES PARA TABLET (600px a 991px) ================== */
-@media screen and (min-width: 600px) and (max-width: 991px) {
-    .table-container { 
-        display: none !important;
-    }
 
-    .user-cards {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr; /* 2 Colunas */
-        gap: 16px;
-        max-width: 800px; 
-        margin: 0 auto 18px;
-    }
-
-    .user-card {
-        margin: 0; 
-        max-width: none; 
-    }
-
-    /* Centraliza a paginação neste intervalo */
-    nav {
-        max-width: 800px; 
-        margin: 0 auto 24px;
-        justify-content: center;
-    }
-
-    /* Estilos de tablet para melhor visualização */
-    .user-card .name {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .user-card .email { font-size: 14px; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 13px; margin: 3px 0; }
-    
-    .btn-card {
-        height: 32px;
-        font-size: 14px;
-    }
-}
-/* ================== FIM TABLET AJUSTES ================== */
-
-
-/* ================== AJUSTES ESPECÍFICOS PARA MOBILE (max-width: 935px) ================== */
+/* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
-    /* FORÇA cards a aparecerem e tabela a sumir em mobile */
+
     .user-cards {
         display: grid !important;
         gap: 16px;
@@ -510,7 +469,16 @@ nav a:hover {
     .table-container { 
         display: none !important; 
     }
-    
+
+    .new-post-btn {
+        display: none !important; 
+    }
+
+    .fab-btn {
+        display: flex !important; 
+    }           
+
+
     h1 {
         font-size: 36px;
         letter-spacing: 6px;
@@ -601,10 +569,8 @@ nav a:hover {
         background: #AE171C;
     }
 }
-/* ================== FIM MOBILE (max-width: 935px) ================== */
+/* ================== FIM MOBILE ================== */
 
-
-/* Estilos finais dos cards (aplicados por padrão e herdados no mobile) */
 .user-cards { 
     list-style: none; 
     padding: 0; 
@@ -665,3 +631,100 @@ nav a:hover {
 .btn-view   { background: #05AC4B; }
 .btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
+
+/* ================== CELULAR PADRÃO ================== */
+@media screen and (max-width: 599px) {
+    .user-cards {
+         
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        max-width: 420px; 
+        gap: 12px;
+        margin: 10px auto; 
+        max-width: 580px;
+    }
+    nav {
+        max-width: 420px;
+    }
+    
+    .new-post-btn {
+        display: none !important;
+    }
+
+    .fab-btn {
+        display: flex !important; 
+    }
+  
+    nav {
+        max-width: 420px;
+    }
+}
+
+/* ================== FIM CELULAR PADRÃO ================== */
+
+/* ================== AJUSTES PARA TABLET (600px a 991px) ================== */
+@media screen and (min-width: 600px) and (max-width: 991px) {
+    .table-container { 
+        display: none !important;
+    }
+
+    .user-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr; 
+        gap: 16px;
+        max-width: 800px; 
+        margin: 0 auto 18px;
+    }
+
+    .user-card {
+        margin: 0; 
+        max-width: none; 
+    }
+
+
+    nav {
+        max-width: 800px; 
+        margin: 0 auto 24px;
+        justify-content: center;
+    }
+
+   
+    .user-card .name {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .user-card .email { font-size: 14px; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 13px; margin: 3px 0; }
+    
+    .btn-card {
+        height: 32px;
+        font-size: 14px;
+    }
+}
+/* ================== FIM TABLET AJUSTES ================== */
+
+/* ================== BOTÃO FLUTUANTE DO CELULAR ================== */
+.fab-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--header-bg-color); 
+    color: var(--text-color);
+    border-radius: 50%;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.fab-btn:hover {
+    background-color: var(--red-accent-color);
+    transform: scale(1.05);
+}
