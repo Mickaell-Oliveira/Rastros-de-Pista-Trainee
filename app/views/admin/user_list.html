@@ -1,125 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="../../views/site/public/css/user_list.css" rel="stylesheet" />
-  <script src="../../views/site/public/js/user_list.js" defer></script>
-  <title>Lista de Usuários</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Tabela de Usuários - Admin</title>
+    <link rel="stylesheet" href="../../views/site/public/css/user_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-  <h1>USUÁRIOS</h1>
 
-  <section class="toolbar">
-    <form>
-      <input type="search" placeholder="Pesquisar usuário" />
-      <button type="submit">🔍</button>
-    </form>
 
-    <a href="#">➕ Novo usuário</a>
-  </section>
 
-  <section>
-    <table border="1">
-        <tr>
-          <th>User ID</th>
-          <th>Data de cadastro</th>
-          <th>Nome</th>
-          <th>E-mail</th>
-          <th>Ações</th>
-        </tr>
-        <tr>
-          <td>#4567</td>
-          <td>30/03/2025</td>
-          <td>Gustavo Corzino Caiafa</td>
-          <td><a href="gustavo.corzino@estudante.ufjf.br">gustavo.corzino@estudante.ufjf.br</a></td>
-          <td>
-            <button type="button" title="Ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-        <tr>
-          <td>#1234</td>
-          <td>15/04/2025</td>
-          <td>Yuri Marangon Gomes</td>
-          <td><a href="ymoranguinho@proton.me">ymarangon@proton.me</a></td>
-          <td>
-            <button type="button" title="Ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-          <td>#7890</td>
-          <td>01/06/2025</td>
-          <td>Marcos César Castilho</td>
-          <td><a href="marcos.castilho@estudante.ufjf.br">marcos.castilho@estudante.ufjf.br</a></td>
-          <td>
-            <button type="button" title="Ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-        <tr>
-          <td>#1357</td>
-          <td>01/07/2025</td>
-          <td>Miguel Nogueira Pimentel</td>
-          <td><a href="miguel.nogueira@estudante.ufjf.br">miguel.nogueira@estudante.ufjf.br</a></td>
-          <td>
-            <button type="button" title="Ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-        <tr>
-          <td>#2468</td>
-          <td>01/08/2025</td>
-          <td>Mickaell De Oliveira</td>
-          <td><a href="bigMickas@proton.me">mickaell@proton.me</a></td>
-          <td>
-            <button type="button" title="Ver">👁️</button>
-            <button type="button" title="Editar">✏️</button>
-            <button type="button" title="Excluir">🗑️</button>
-          </td>
-        </tr>
-    </table>
-  </section>
+    <section class="admin-panel">
+        <header class="main-header">
+            <h1>TABELA DE USUÁRIOS</h1>
+        </header>
 
-  <!-- Cards (Mobile) -->
+        <!-- Barra de Pesquisa, Nova Publicação-->
+        <div class="toolbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="">
+            </div>
+            <div class="actions-container">
+                <button class="new-post-btn">
+                    <i class="fas fa-plus-circle"></i> <span>Novo Usuário</span>
+                </button>
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        
+
+        <main class="posts-content">
+
+            <table class="tabela">
+
+
+                <!-- -------Header da Tabela----------- -->
+
+                <tr class="posts-table-header">
+                    <th class="header-col">User ID</th>
+                    <th class="header-col">Data de Cadastro</th>
+                    <th class="header-col" id="header-titulo">Nome</th> 
+                    <th class="header-col" id="header-autor">Email</th>
+                    <th class="header-col">Ações</th>
+                </tr>
+
+
+                 <!-- ---------Tabela #111--------------->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#4567</td>
+                    <td class="post-data post-date" data-label="Data">30/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Miguel Nogueira Pimentel</td>
+                    <td class="post-data post-date" data-label="Autor">miguelnogueirapimentel@gmail.com</td>
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+
+
+            </table>
+        </main>
+
+
+   
+
+
+<!-- Cards (Mobile) -->
+
   <ul class="user-cards">
+    
     <li class="user-card">
       <h2 class="name">Gustavo Corzino Caiafa</h2>
       <p class="email">gustavo.corzino@estudante.ufjf.br</p>
       <p class="meta">Data de cadastro: 30/03/2025</p>
       <p class="meta">USER ID: #0930</p>
       <div class="card-actions">
-        <button class="btn-card btn-delete" type="button">DELETAR USUÁRIO</button>
-        <button class="btn-card btn-view" type="button">VISUALIZAR USUÁRIO</button>
-        <button class="btn-card btn-edit" type="button">EDITAR USUÁRIO</button>
-      </div>
-    </li>
-
-    <li class="user-card">
-      <h2 class="name">Yuri Marangon Gomes</h2>
-      <p class="email">yuri.marangon@estudante.ufjf.br</p>
-      <p class="meta">Data de cadastro: 15/04/2025</p>
-      <p class="meta">USER ID: #0931</p>
-      <div class="card-actions">
-        <button class="btn-card btn-delete" type="button">DELETAR USUÁRIO</button>
-        <button class="btn-card btn-view" type="button">VISUALIZAR USUÁRIO</button>
-        <button class="btn-card btn-edit" type="button">EDITAR USUÁRIO</button>
+          <button class="btn-card btn-view" type="button">VISUALIZAR USUÁRIO</button>
+          <button class="btn-card btn-edit" type="button">EDITAR USUÁRIO</button>
+          <button class="btn-card btn-delete" type="button">DELETAR USUÁRIO</button>
       </div>
     </li>
   </ul>
 
-  <nav class="pagination">
-    <a href="#" aria-label="Anterior">&lt;</a>
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#" aria-label="Próxima">&gt;</a>
-  </nav>
+   <a href="#" class="fab-btn">
+                    <i class="fas fa-plus"></i> 
+    </a>
+
+
+
+
+        <nav class="pagination">
+            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="page-number">4</a>
+            <a href="#" class="page-number">5</a>
+            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+        </nav>
+    </section>
+
+       
+
+    <script src="/public\js\PostChart.js"></script>
 </body>
+
 </html>
