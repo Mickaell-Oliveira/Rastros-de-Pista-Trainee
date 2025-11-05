@@ -44,7 +44,7 @@ body::before {
 }
 
 .admin-panel {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     background-color: var(--darker-bg-color);
     position: relative;
@@ -134,13 +134,14 @@ body::before {
     background-color: var(--header-bg-color);
     color: var(--text-color);
     font-weight: 500;
-    border-radius: 0;
+    border-radius: 0 5px 5px 0; 
 }
 
 .menu-btn {
     background-color: var(--card-bg-color);
     color: var(--text-color);
     border-radius: 0 5px 5px 0;
+    display: none; 
 }
 
 /* VERSÃO PARA CELULAR: CARDS  */
@@ -222,6 +223,11 @@ body::before {
     margin: 0 4px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    
+ 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .pagination a.arrow {
     background-color: transparent;
@@ -237,7 +243,7 @@ body::before {
 /* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
     .admin-panel {
-        padding: 0 30px 30px;
+        padding: 0 40px 40px;
     }
 
     .posts-table-header {
@@ -462,6 +468,11 @@ nav a, nav strong {
     border: 1px solid #C0C0C0;
     box-shadow: none;
     font-size: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 nav a:hover {
@@ -490,7 +501,7 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important; 
-    }           
+    }         
 
 
     h1 {
@@ -577,6 +588,11 @@ nav a:hover {
         color: #AE171C;
         border: 1px solid #C0C0C0;
         box-shadow: none;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
     }
 
     nav a:hover { 
@@ -637,7 +653,7 @@ nav a:hover {
     color: #F5F5F5;
     font-family: 'Bebas Neue';
     letter-spacing: 0.5px;
-  
+ 
     cursor: pointer;
     box-shadow: 0 3px 8px #1A1A1A;
 }
@@ -648,10 +664,11 @@ nav a:hover {
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
-  
+ 
     .user-cards {
-        max-width: 420px;
+        max-width: 100%; 
         gap: 12px;
+        padding: 0 15px; 
     }
     
     .new-post-btn {
@@ -672,6 +689,11 @@ nav a:hover {
 
 /* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
+    .admin-panel { 
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .table-container { 
         display: none !important;
     }
@@ -735,4 +757,3 @@ nav a:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
 }
-
