@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Tabela de Usuários - Admin</title>
+    <link rel="stylesheet" href="../../views/site/public/css/user_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+
+
+    <section class="admin-panel">
+        <header class="main-header">
+            <h1>TABELA DE POST</h1>
+        </header>
+
+        <!-- Barra de Pesquisa, Nova Publicação-->
+        <div class="toolbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="">
+            </div>
+            <div class="actions-container">
+                <button class="new-post-btn">
+                    <i class="fas fa-plus-circle"></i> <span>Novo Usuário</span>
+                </button>
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        
+
+        <main class="posts-content">
+
+            <table class="tabela">
+
+
+                <!-- -------Header da Tabela----------- -->
+
+                <tr class="posts-table-header">
+                    <th class="header-col">User ID</th>
+                    <th class="header-col">Data de Cadastro</th>
+                    <th class="header-col" id="header-titulo">Nome</th> 
+                    <th class="header-col" id="header-autor">Email</th>
+                    <th class="header-col">Ações</th>
+                </tr>
+
+
+                 <!-- ---------Tabela #111--------------->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#4567</td>
+                    <td class="post-data post-date" data-label="Data">30/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Miguel Nogueira Pimentel</td>
+                    <td class="post-data post-date" data-label="Autor">miguelnogueirapimentel@gmail.com</td>
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+
+
+            </table>
+        </main>
+
+
+   
+
+
+<!-- Cards (Mobile) -->
+
+  
+  <ul class="user-cards">
+    
+    <li class="user-card">
+      <h2 class="name">Gustavo Corzino Caiafa</h2>
+      <p class="email">gustavo.corzino@estudante.ufjf.br</p>
+      <p class="meta">Data de cadastro: 30/03/2025</p>
+      <p class="meta">USER ID: #0930</p>
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button">VISUALIZAR USUÁRIO</button>
+          <button class="btn-card btn-edit" type="button">EDITAR USUÁRIO</button>
+          <button class="btn-card btn-delete" type="button">DELETAR USUÁRIO</button>
+      </div>
+    </li>
+
+    <li class="user-card">
+      <h2 class="name">Gustavo Corzino Caiafa</h2>
+      <p class="email">gustavo.corzino@estudante.ufjf.br</p>
+      <p class="meta">Data de cadastro: 30/03/2025</p>
+      <p class="meta">USER ID: #0930</p>
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button">VISUALIZAR USUÁRIO</button>
+          <button class="btn-card btn-edit" type="button">EDITAR USUÁRIO</button>
+          <button class="btn-card btn-delete" type="button">DELETAR USUÁRIO</button>
+      </div>
+    </li>
+
+  </ul>
+
+
+   <a href="#" class="fab-btn">
+                    <i class="fas fa-plus"></i> 
+    </a>
+
+
+
+
+        <nav class="pagination">
+            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="page-number">4</a>
+            <a href="#" class="page-number">5</a>
+            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+        </nav>
+    </section>
+
+       
+
+    <script src="/public\js\PostChart.js"></script>
+</body>
+
+</html>
