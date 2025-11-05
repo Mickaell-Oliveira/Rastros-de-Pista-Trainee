@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Tabela de Posts - Admin</title>
+    <link rel="stylesheet" href="/public/css/PostChart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+
+
+    <section class="admin-panel">
+        <header class="main-header">
+            <h1>TABELA DE POSTS</h1>
+        </header>
+
+        <!-- Barra de Pesquisa, Nova Publicação-->
+        <div class="toolbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="">
+            </div>
+            <div class="actions-container">
+                <button class="new-post-btn">
+                    <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
+                </button>
+                <button class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        
+
+        <main class="posts-content">
+
+            <table class="tabela">
+
+
+                <!-- -------Header da Tabela----------- -->
+
+                <tr class="posts-table-header">
+                    <th class="header-col">Post ID</th>
+                    <th class="header-col">Data</th>
+                    <th class="header-col" id="header-titulo">Título</th> 
+                    <th class="header-col" id="header-autor">Autor</th>
+                    <th class="header-col" id="header-interacao">Interações</th>
+                    <th class="header-col">Ações</th>
+                </tr>
+
+
+                 <!-- ---------Tabela #111--------------->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+           <!-- ---------Tabela #222---------- -->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">De 0 a 100 em 6s</td>
+                    <td class="post-data post-date" data-label="Autor">Mickael</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+                   <!-- ---------Tabela #333--------------->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Trocando o Motor</td>
+                    <td class="post-data post-date" data-label="Autor">Bruno</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+           <!-- ---------Tabela #444---------- -->
+
+                <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Dia de racha</td>
+                    <td class="post-data post-date" data-label="Autor">Yuri</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+
+
+
+
+
+
+            </table>
+        </main>
+
+
+   
+
+
+<!-- Cards (Mobile) -->
+
+  <ul class="user-cards">
+    
+    <li class="user-card">
+        <h2 class="name">ID: #000</h2>
+        <p class="email">Miguel</p>
+        <p class="email">Meu primeiro Carro...</p>
+        <p class="meta">ID: #000</p>
+      <p class="meta">30/03/2025</p>
+
+      <span class="stat">270 <i class="fas fa-eye"></i></span>
+      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+      <span class="stat">250 <i class="fas fa-comments"></i></span>
+
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button">EDITAR POST</button>
+          <button class="btn-card btn-delete" type="button">DELETAR POST</button>
+      </div>
+    </li>
+
+
+    <li class="user-card">
+        <h2 class="name">ID: #000</h2>
+        <p class="email">Miguel</p>
+        <p class="email">Meu primeiro Carro...</p>
+        <p class="meta">ID: #000</p>
+      <p class="meta">30/03/2025</p>
+
+      <span class="stat">270 <i class="fas fa-eye"></i></span>
+      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+      <span class="stat">250 <i class="fas fa-comments"></i></span>
+
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button">EDITAR POST</button>
+          <button class="btn-card btn-delete" type="button">DELETAR POST</button>
+      </div>
+    </li>
+
+  </ul>
+
+
+
+
+   <a href="#" class="fab-btn">
+                    <i class="fas fa-plus"></i> 
+    </a>
+
+        <nav class="pagination">
+            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="page-number">4</a>
+            <a href="#" class="page-number">5</a>
+            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+        </nav>
+    </section>
+
+       
+
+    <script src="/public\js\PostChart.js"></script>
+</body>
+
+</html>
