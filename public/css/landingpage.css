@@ -62,6 +62,10 @@ h1, h2, h3 {
     overflow: hidden;
     box-shadow: 8px 10px 3px 2px rgba(0,0,0,0.3);
     border-radius: 16px;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 .carousel-track {
@@ -69,6 +73,7 @@ h1, h2, h3 {
     height: auto;
     transition: transform 0.5s ease-in-out;
     border-radius: 16px;
+    transition: none;
 }
 
 .card {
@@ -79,12 +84,12 @@ h1, h2, h3 {
     width: 100%; /* O card agora ocupa 100% do container */
     transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
     flex-shrink: 0;
-    
+    scroll-snap-align: start;
 }
 
 
 .conteudo-carrossel {
-    height: 120px; /* Imagem um pouco menor no celular */
+    height: 200px; /* Imagem um pouco menor no celular */
     width: 100%;
     background-size: cover; 
     background-position: center; 
@@ -111,6 +116,7 @@ h1, h2, h3 {
 
 /* Botões do Carrossel */
 .carousel-btn {
+    display: none;
     position: absolute;
     top: 40%; /* Ajuste para a altura da imagem */
     transform: translateY(-50%);
@@ -269,7 +275,7 @@ h1, h2, h3 {
 
     .fundo-do-carrossel {
         width: 70%;
-        height: 70vh;
+        height: 60vh;
         margin: auto;
         display: flex;
         align-items: center;
@@ -352,6 +358,7 @@ h1, h2, h3 {
     font-size: 1em;
 }
     .carousel-btn {
+        display: block;
         top: 50%; /* Volta ao centro do container maior */
     }
     .prev { left: 15px; }
