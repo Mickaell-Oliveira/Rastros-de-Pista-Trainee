@@ -181,3 +181,51 @@ p{
     margin-bottom: 0;
     margin-left: 20px;
 }
+
+@media (max-width: 700px){
+    
+    .container{
+        flex-direction: column;
+        height: auto;
+        max-height: 90vh;
+        overflow: auto;
+    }
+
+    .modal-overlay{
+        padding: 0;
+    }
+
+    .ladoEsquesto, .ladoDireito{
+        width: 100%;
+        padding: 15px;
+    }
+
+    #img-rato{
+        margin: 20px auto;
+        display: block;
+    }
+
+    .inputs{
+        width: 100%;
+    }
+
+    .buttons{
+        width: 100%;
+        justify-content: center;
+    }
+
+    #imgPost{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #idPost{
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.hidden{
+    display: none;
+}
