@@ -17,20 +17,17 @@ body{
     background-image: url(../../public/assets/iamgem-bernado-login.jpg);
 }
 
-.logo-back{
-    position: absolute;
-    padding-top: 60px;
-    padding-left: 90px;
-    align-self: left;
-    width: 40vw;
+img{
+    width: 100px;
     height: auto;
-    z-index: 0;
+    margin: auto;    
 }
 
 .login-container{
     display: flex;
     justify-content: left;
     width: 100%;
+    height: auto;
     padding-left: 30px;
     padding-top: 50px;
 }
@@ -59,7 +56,6 @@ body{
 .input-group{
     margin-bottom: 20px;
     text-align: left;
-    padding-bottom: 20px;
 }
 
 .input-group label{
@@ -172,7 +168,6 @@ button[type="submit"]:hover {
     text-decoration: underline;
 }
 
-/* Telas grandes/Desktop (acima de 1024px) */
 @media screen and (min-width: 1025px) {
     
     body {
@@ -182,12 +177,11 @@ button[type="submit"]:hover {
 
     .login-form {
         width: 400px;
-        height: 400px;
+        height: auto;
         padding: 50px;
     }
 }
 
-/* Tablets (768px a 1023px) */
 @media screen and (max-width: 1024px) and (min-width: 768px) {
     body {
         display: flex;
@@ -197,16 +191,16 @@ button[type="submit"]:hover {
         padding-top: 24px;
     }
     .login-container {
-    order: 1;
-    padding-left: 0;
-    padding-top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+        order: 1;
+        padding-left: 0;
+        padding-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     .login-form { 
         width: 520px;
-        height: 480px;
+        height: auto;
     }
     .logo-back {
         order: 2;
@@ -219,7 +213,6 @@ button[type="submit"]:hover {
     }
 }
 
-/* Smartphones (até 767px) */
 @media screen and (max-width: 767px) {
     body {
         display: flex;
@@ -229,14 +222,14 @@ button[type="submit"]:hover {
     }
     
     .login-container {
-    position: relative;
-    z-index: 1;
-    padding-left: 0;
-    padding-top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    opacity: 0.92;
+        position: relative;
+        z-index: 1;
+        padding-left: 0;
+        padding-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        opacity: 0.92;
     }
 
     .login-form { 
