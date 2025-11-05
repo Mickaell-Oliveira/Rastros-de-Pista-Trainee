@@ -1,4 +1,4 @@
-const modal = document.getElementById('modalEditarPost');
+const modal = document.getElementById('modal-editar');
     const botaoAbrir = document.getElementById('abrir-modal-btn');
     const botaoSalvar = document.getElementById('btn-salvar');
     const botaoCancelar = document.getElementById('btn-cancelar');
