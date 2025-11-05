@@ -7,7 +7,7 @@
 
     
     <title>Tabela de Usuários - Admin</title>
-    <link rel="stylesheet" href="../../views/site/public/css/user_list.css">
+    <link rel="stylesheet" href="../../../public/css/UserList.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -17,7 +17,7 @@
 
     <section class="admin-panel">
         <header class="main-header">
-            <h1>TABELA DE POST</h1>
+            <h1>TABELA DE USUÁRIO</h1>
         </header>
 
         <!-- Barra de Pesquisa, Nova Publicação-->
@@ -62,7 +62,7 @@
                     <td class="post-data post-title" data-label="Título">Miguel Nogueira Pimentel</td>
                     <td class="post-data post-date" data-label="Autor">miguelnogueirapimentel@gmail.com</td>
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn view" onclick="AbrirModal('idModal','idFundo')"><i class="fas fa-eye"></i></button>
                         <button class="action-btn delete"><i class="fas fa-trash"></i></button>
                         <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
                     </td>
