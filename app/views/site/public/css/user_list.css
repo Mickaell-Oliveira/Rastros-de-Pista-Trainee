@@ -27,7 +27,7 @@ body {
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px 0;
 }
 
@@ -44,7 +44,7 @@ body::before {
 }
 
 .admin-panel {
-    max-width: 1300px;
+    max-width: 1600px;
     margin: auto;
     background-color: var(--darker-bg-color);
     position: relative;
@@ -392,24 +392,12 @@ body::before {
     display: block;
 }
 
- .action-btn {
-    display: flex;
-    align-items: right;
-    gap: 10px;
-    width: 100%;
-    padding: 10px 75px;
-    text-align: right;
-    margin: 0;
- }
-
-
-
-.post-actions {
+.post-actions .action-btn {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 15px;
+    padding: 10px 75px;
     text-align: left;
     margin: 0;
 }
@@ -501,7 +489,7 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important; 
-    }         
+    } 
 
 
     h1 {
@@ -557,13 +545,13 @@ nav a:hover {
     .user-card .name {
         font-size: 26px;
         color: #F5F5F5;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
 
-    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 20px; color: #F5F5F5; margin: 4px 0; }
+    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 12px; }
+    .user-card .meta { font-size: 20px; color: #F5F5F5; margin: 6px 0; }
 
-    .card-actions { display: grid; gap: 12px; margin-top: 16px; }
+    .card-actions { display: grid; gap: 12px; margin-top: 20px; }
 
     .btn-card {
         height: 36px;
@@ -623,25 +611,25 @@ nav a:hover {
     color: #F5F5F5;
     font-size: 20px;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .user-card .email {
     color: #F5F5F5;
     font-size: 20px;
-    margin-bottom: 6px; 
+    margin-bottom: 10px; 
 }
 
 .user-card .meta {
     color: #F5F5F5;
     font-size: 20px;
-    margin: 2px 0;
+    margin: 4px 0;
 }
 
 .card-actions {
     display: grid;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 .btn-card {
@@ -658,8 +646,8 @@ nav a:hover {
     box-shadow: 0 3px 8px #1A1A1A;
 }
 
-.btn-view   { background: #05AC4B; }
-.btn-edit   { background: #fff200b7; }
+.btn-view { background: #05AC4B; }
+.btn-edit { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
@@ -716,6 +704,9 @@ nav a:hover {
     .new-post-btn {
         display: flex !important;
     }
+    .new-post-btn span {
+        display: inline;
+    }
     .fab-btn {
         display: none !important;
     }
@@ -726,9 +717,9 @@ nav a:hover {
         justify-content: center;
     }
 
-    .user-card .name { font-size: 24px; margin-bottom: 10px; }
-    .user-card .email { font-size: 14px; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 13px; margin: 3px 0; }
+    .user-card .name { font-size: 24px; margin-bottom: 14px; }
+    .user-card .email { font-size: 14px; margin-bottom: 12px; }
+    .user-card .meta { font-size: 13px; margin: 5px 0; }
     .btn-card { height: 32px; font-size: 14px; }
 }
 /* ================== FIM TABLET AJUSTES ================== */
