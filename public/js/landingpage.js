@@ -36,3 +36,25 @@ prevButton.addEventListener('click', () => {
     }
     moveToCard(prevIndex);
 });
+//Para o deslisar funcionar agora 
+
+let touchStartX = 0;
+let touchEndX = 0;   
+track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+const handleSwipe = () => {
+    const swipeDistance = touchEndX - touchStartX;
+    const swipeThreshold = 50;
+
+    if (swipeDistance < -swipeThreshold) {
+        nextButton.click(); 
+    } 
+    else if (swipeDistance > swipeThreshold) {
+        prevButton.click();
+    }
+};
