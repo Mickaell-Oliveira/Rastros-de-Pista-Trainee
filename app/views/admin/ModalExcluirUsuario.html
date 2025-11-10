@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="../../../public/css/ModalExcluirUsuario.css" rel="stylesheet">
+    <link href="../../../public/css/modalExcluirUsuario.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -20,13 +20,13 @@
             <div class="caixa-texto">
                 <h1>Deseja excluir usuário</h1>
             </div>
-<img src="../../../public/assets/ratao-stop.png">
+<img src="../../../public/assets/RATO-PARADO.png" class="rato-gordo">
         <div class="botoes">
             <h1>Você não poderá reverter essa alteração</h1>
         <div class="sim" id="btn-sim">
             <h2>Sim</h2>
         </div>
-        <div class="nao" id="btn-nao">
+        <div class="nao" id="btn-nao" onclick="fecharModal('modal-excluir')">
             <h2>Não</h2>
         </div>
         </div>
@@ -34,6 +34,6 @@
         </section>
     
     
-</div> <script src="../../../public/js/ModalExcluir.js"></script>
+</div> <script src="../../../public/js/Modal.js"></script>
 </body>
 </html>
