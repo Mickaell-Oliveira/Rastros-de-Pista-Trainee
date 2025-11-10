@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../../public/css/modalComentar.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id="abrir-modal-btn"  onclick="abrirModal('modal-comentar')">
+        <i class="fa-regular fa-comment"></i>
+    </button>
+
+
+
+    
+    <div class="modal-overlay hidden" id="modal-comentar">
+        <section class="container">
+            <div class="ladoEsquerdo">
+                <div id="imgPost">
+                    <img src="../../../public/assets/imagemCarrinho.jpg" alt="Foto do usuário">
+                </div>
+                <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+            </div>
+
+            <div class="ladoDireito">
+                <h2>Nome</h2>
+                <div class="caixas-input">
+                    <input class="inputs" type="text" placeholder="Nome completo do usuário">
+                    <h2>Email</h2>
+                    <input class="inputs" type="email" placeholder="email@exemplo.com">
+                    <h2>Senha</h2>
+                    <input class="inputs" type="password" autocomplete="off" placeholder="Senha forte">
+                </div>
+
+                <div class="buttons">
+                    <button onclick="fecharModal('modal-comentar')" id="btn-cancelar">Cancelar</button>
+                    <button id="btn-salvar">Salvar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="../../../public/js/Modal.js"></script>
+</body>
+</html>

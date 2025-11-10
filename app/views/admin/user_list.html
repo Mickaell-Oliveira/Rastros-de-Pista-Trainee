@@ -7,10 +7,13 @@
 
     <title>Tabela de Usuários - Admin</title>
     <link rel="stylesheet" href="../../../public/css/UserList.css">
+
     <link rel="stylesheet" href="../../../public/css/modalVisualizarUsuario.css">
     <link rel="stylesheet" href="../../../public/css/modalEditarUsuario.css">
     <link rel="stylesheet" href="../../../public/css/ModalExcluirUsuario.css">
     <link rel="stylesheet" href="../../../public/css/modalCriarUsuario.css">
+    <link rel="stylesheet" href="../../../public/css/modalComentar.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -53,6 +56,7 @@
                     <td class="post-data post-title" data-label="Título">Miguel Nogueira Pimentel</td>
                     <td class="post-data post-date" data-label="Autor">miguelnogueirapimentel@gmail.com</td>
                     <td class="post-data post-actions" data-label="Ações">
+                        <button id="botaoComentar" class="action-btn comentar" onclick="abrirModal('modal-visualizar')"><i class="bi bi-chat-left-text"></i></button>
                         <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar')"><i class="fas fa-eye"></i></button>
                         <button id="botaoEditarUsuario" class="action-btn edit" onclick="abrirModal('modal-editar')"><i class="fas fa-pencil-alt"></i></button>
                         <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir')"><i class="fas fa-trash"></i></button>
@@ -102,6 +106,9 @@
             <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
         </nav>
     </section>
+
+
+
 
     <!-- MODAL VISUALIZAR USUÁRIO -->
 
@@ -213,6 +220,41 @@
             </div>
         </section>
     </div>
+
+
+    <!-- MODAL COMENTAR -->
+
+    <div class="modal-overlay hidden" id="modal-comentar">
+        <section class="container">
+            <div class="ladoEsquerdo">
+                <div id="imgPost">
+                    <img src="../../../public/assets/imagemCarrinho.jpg" alt="Foto do usuário">
+                </div>
+                <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+            </div>
+
+            <div class="ladoDireito">
+                <h2>Nome</h2>
+                <div class="caixas-input">
+                    <input class="inputs" type="text" placeholder="Nome completo do usuário">
+                    <h2>Email</h2>
+                    <input class="inputs" type="email" placeholder="email@exemplo.com">
+                    <h2>Senha</h2>
+                    <input class="inputs" type="password" autocomplete="off" placeholder="Senha forte">
+                </div>
+
+                <div class="buttons">
+                    <button onclick="fecharModal('modal-comentar')" id="btn-cancelar">Cancelar</button>
+                    <button id="btn-salvar">Salvar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
 
     <script src="/public\js\Modal.js"></script>
     <script src="/public\js\PostChart.js"></script>
