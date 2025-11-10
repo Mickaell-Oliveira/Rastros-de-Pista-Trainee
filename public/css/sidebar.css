@@ -122,14 +122,15 @@ body {
 #open {
     position: absolute;
     top: 30px;
-    right: -24px;
-    background: #64191B;
+    right: -24.5px;
+    background: rgba(100, 0, 0, 0.658);
     color: #FFFFFF;
     border: none;
     font-size: 20px;
     border-radius: 0% 100% 100% 0%;
-    box-shadow: 3px 7px 20px rgba(0, 0, 0, 1);
     cursor: pointer;
+    backdrop-filter: blur( 20.5px );
+    -webkit-backdrop-filter: blur( 20.5px );
 }
 
 #open_icon {
