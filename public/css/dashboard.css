@@ -109,7 +109,7 @@ body {
 .caixa-preta {
     background-color: rgba(0,0,0,0.7);
     width: 55%;
-    height: 70vh;
+    height: 100%;
     border: 4px solid rgba(255,255,255,0.7);
     border-radius: 20px;
     box-shadow: 0 0 0 6px #000;
