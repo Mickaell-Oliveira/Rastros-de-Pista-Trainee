@@ -278,7 +278,7 @@ body {
     }
 
     .TituloPostagem {
-        font-size: 24px;    /* Diminui o tamanho do título principal */
+        font-size: 24px;    /* diminui o tamanho do título principal */
     }
 
     .ConteudoPostagem {
@@ -288,6 +288,6 @@ body {
     .Cabecalho {
         /* pro cabeçalho caber bem  */
         flex-wrap: wrap;
-        gap: 10px;
-    }
+        gap: 10px;
+        }
 }
