@@ -644,6 +644,7 @@ nav a:hover {
 .btn-view { background: #05AC4B; }
 .btn-edit { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
+.btn-comentarios { background: #322d4d; }
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
