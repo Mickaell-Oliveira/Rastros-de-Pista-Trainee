@@ -170,7 +170,10 @@ body::before {
     margin-bottom: 10px;
 }
 
-.post-data { margin-bottom: 10px; }
+.post-data { 
+    margin-bottom: 10px; 
+    text-align: center;
+}
 
 .post-title span, .post-author, .post-date {
     display: block;
@@ -262,13 +265,15 @@ body::before {
 
     #header-autor {
         flex : 1;
-        text-align: left;
+        text-align: center;
     }
 
 
     #header-titulo {
         flex: 1;
-       text-align: center;
+        text-align: center;
+        margin-left: -10px;
+        
     }
 
     #header-interacao {
@@ -320,12 +325,28 @@ body::before {
         width: fit-content;
     }
 
-    .post-title, .post-author { flex: 0.5; text-align: center; }
+    .post-title, .post-author { 
+        
+        flex: 0.5;
+        text-align: center;
+    
+    }
+    .post-title{
+
+     padding-inline: 60px;
+        text-align: center;
+
+
+  }
+
+
+
+
     .post-stats { flex: 1.5; }
     
     .post-id, .post-actions { display: block; }
     .post-stats { justify-content: center; gap: 20px; }
-    .post-title span, .post-author, .post-date { text-align: left; }
+    .post-title span, .post-author, .post-date { text-align: center; }
     .post-thumbnail { display: none; }
     .post-item::after { display: none; }
     .new-post-btn span { display: inline; }
