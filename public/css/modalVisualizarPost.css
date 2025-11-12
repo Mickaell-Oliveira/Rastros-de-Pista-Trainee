@@ -213,7 +213,12 @@ p{
     }
     
     .infos{
-        width: 100%;
+        width: 90%;
+        margin: 0px 20px;
+    }
+
+    .textos-info-visualizar{
+        margin-left: 20px;
     }
 
     .buttons{
@@ -230,6 +235,10 @@ p{
         margin-left: 0;
         width: 100%;
         text-align: center;
+    }
+
+    #descricao-info{
+        height: 200px;
     }
 }
 

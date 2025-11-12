@@ -171,7 +171,7 @@
 
   </ul>
 
-   <a href="#" class="fab-btn">
+   <a href="#" class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
     </a>
 
@@ -203,15 +203,15 @@
         </div>
 
         <div class="ladoDireito">
-        <h2>Autor</h2>
+        <h2 class="textos-info-visualizar">Autor</h2>
         <div class="infos">
             <p>Usuário</p>
         </div>
-        <h2>Titulo</h2>
+        <h2 class="textos-info-visualizar">Titulo</h2>
         <div class="infos">
             <p>Titulo do Post</p>
         </div>
-        <h2>Descrição</h2>
+        <h2 class="textos-info-visualizar">Descrição</h2>
         <div class="infos" id="descricao-info">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
@@ -244,13 +244,13 @@
         </div>
 
         <div class="ladoDireito">
-            <h2>Autor</h2>
+            <h2 class="texto-infos">Autor</h2>
             <div class="info-autor-caixa">Usuário</div>
             
-            <h2>Titulo</h2>
+            <h2 class="texto-infos">Titulo</h2>
             <input class="inputs" type="text" value="Titulo">
             
-            <h2>Descrição</h2>
+            <h2 class="texto-infos">Descrição</h2>
             <textarea class="inputs" id="inputDesc" type="text" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
             
             <p id="dataPost">05/11/2025</p>
@@ -296,13 +296,13 @@
 
 
         <div class="ladoDireito">
-        <h2>Autor</h2>
+        <h2 class="textos-info-criar">Autor</h2>
         <div class="info-caixa">Usuário</div>
 
-        <h2>Titulo</h2>
+        <h2 class="textos-info-criar">Titulo</h2>
         <input class="campo-editavel" type="text" placeholder="Digite o título">
         
-        <h2>Descrição</h2>
+        <h2 class="textos-info-criar">Descrição</h2>
         <textarea id="descricao-editavel" placeholder="Digite a descrição"></textarea>
         
         <p id="dataPost">05/11/2025</p>

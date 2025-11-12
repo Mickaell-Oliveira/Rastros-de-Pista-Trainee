@@ -179,28 +179,42 @@ p{
     .container{
         flex-direction: column;
         height: auto;
-        max-height: 90vh;
         overflow: auto;
     }
 
-    .modal-overlay{
-        padding: 0;
+    .info-post{
+        margin-top: 20px;
     }
 
-    .ladoEsquesto, .ladoDireito{
-        width: 100%;
-        padding: 15px;
+    .modal-overlay{
+        padding: 20px !important; 
     }
-    
-    .info-caixa, .campo-editavel, #descricao-editavel, #dataPost {
+
+    .ladoEsquerdo, .ladoDireito{
         width: 100%;
-        margin-left: 0;
+    }
+
+    #img-rato{
+        display: none;
+    }
+
+    .info-autor-caixa{
+        width: 90%;
+        margin: 0px 20px;
+    }
+
+    .inputs{
+        width: 90%;
+        margin: 0px 20px;
+    }
+
+    .texto-infos{
+        margin-left: 20px;
     }
 
     .buttons{
         width: 100%;
         justify-content: center;
-        margin-left: 0;
     }
 
     #imgPost{
@@ -212,6 +226,29 @@ p{
         margin-left: 0;
         width: 100%;
         text-align: center;
+    }
+
+    #descricao-editavel{
+        height: 200px;
+        margin: 0px 20px;
+    }
+
+    .campo-editavel{
+        margin: 0px 20px;
+    }
+
+    .info-caixa{
+        margin: 0px 20px;
+    }
+
+    .textos-info-criar{
+        margin-left: 20px;
+    }
+
+    #dataPost{
+        margin-top: 0;
+        width: 100%;
+        justify-content: center;
     }
 }
 

@@ -199,26 +199,37 @@ p{
     .container{
         flex-direction: column;
         height: auto;
-        max-height: 90vh;
         overflow: auto;
     }
 
-    .modal-overlay{
-        padding: 0;
+    .info-post{
+        margin-top: 20px;
     }
 
-    .ladoEsquesto, .ladoDireito{
+    .modal-overlay{
+        padding: 20px !important; 
+    }
+
+    .ladoEsquerdo, .ladoDireito{
         width: 100%;
-        padding: 15px;
     }
 
     #img-rato{
-        margin: 20px auto;
-        display: block;
+        display: none;
+    }
+
+    .info-autor-caixa{
+        width: 90%;
+        margin: 0px 20px;
     }
 
     .inputs{
-        width: 100%;
+        width: 90%;
+        margin: 0px 20px;
+    }
+
+    .texto-infos{
+        margin-left: 20px;
     }
 
     .buttons{
@@ -236,4 +247,18 @@ p{
         width: 100%;
         text-align: center;
     }
+
+    #inputDesc{
+        height: 200px;
+    }
+
+    #dataPost{
+        margin-top: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.hidden{
+    display: none;
 }
