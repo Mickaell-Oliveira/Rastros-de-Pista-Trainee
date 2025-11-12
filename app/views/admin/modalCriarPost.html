@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../../public/css/modalEditarPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalCriarPost.css">
     <title>Document</title>
 </head>
 <body>
@@ -19,37 +19,29 @@
         <img src="../../../public/assets/fotoPost.jpg" alt="#">
         </div>
         <p id="idPost">#0000000</p>
-
-        <div class="info-post">
-        <i class="bi bi-hand-thumbs-up-fill">47</i>
-        <i class="bi bi-hand-thumbs-down-fill">8</i>
-        <i class="bi bi-chat-fill">12</i>
-        </div>
-
-        <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
         </div>
 
 
         <div class="ladoDireito">
         <h2>Autor</h2>
-        <div class="caixas-input">
-        <input class="inputs" type="text">
-        <h2>Titulo</h2>
-        <input class="inputs" type="text">
-        <h2>Descrição</h2>
-        <textarea class="inputs" id="inputDesc" type="text" autocomplete="off"></textarea>
-        <p id="dataPost">05/11/2025</p>
-        </div>
-        
+        <div class="info-caixa">Usuário</div>
 
+        <h2>Titulo</h2>
+        <input class="campo-editavel" type="text" placeholder="Digite o título">
+        
+        <h2>Descrição</h2>
+        <textarea id="descricao-editavel" placeholder="Digite a descrição"></textarea>
+        
+        <p id="dataPost">05/11/2025</p>
+        
         <div class="buttons">
         <button id="btn-cancelar">Cancelar</button>
-        <button id="btn-salvar">Salvar</button>
+        <button id="btn-salvar">Publicar</button>
         </div>
         </div>
         </section>
     </div>
 
-    <script src="../../../public/js/Modal.js"></script>
+    <script src="../../../public/js/ModalEditar.js"></script>
 </body>
 </html>
