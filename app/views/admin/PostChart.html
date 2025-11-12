@@ -8,12 +8,15 @@
     
     <title>Tabela de Posts - Admin</title>
     <link rel="stylesheet" href="/public/css/PostChart.css">
+    <link rel="stylesheet" href="../../../public/css/modalVisualizarPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalEditarPost.css">
+    <link rel="stylesheet" href="../../../public/css/ModalExcluirPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalCriarPost.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
 </head>
 
 <body>
-
-
 
     <section class="admin-panel">
         <header class="main-header">
@@ -27,7 +30,7 @@
                 <input type="text" class="search-bar" placeholder="">
             </div>
             <div class="actions-container">
-                <button class="new-post-btn">
+                <button class="new-post-btn" onclick="abrirModal('modalCriarPost')">
                     <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
                 </button>
                 <button class="menu-btn">
@@ -36,14 +39,9 @@
             </div>
         </div>
 
-        
-
         <main class="posts-content">
 
             <table class="tabela">
-
-
-                <!-- -------Header da Tabela----------- -->
 
                 <tr class="posts-table-header">
                     <th class="header-col">Post ID</th>
@@ -53,9 +51,6 @@
                     <th class="header-col" id="header-interacao">Interações</th>
                     <th class="header-col">Ações</th>
                 </tr>
-
-
-                 <!-- ---------Tabela #111--------------->
 
                 <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID">#000</td>
@@ -69,14 +64,12 @@
                     </td>
                         
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
                     </td>
                 </tr>
-
-
-           <!-- ---------Tabela #222---------- -->
 
                 <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID">#000</td>
@@ -90,14 +83,12 @@
                     </td>
                         
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
                     </td>
                 </tr>
-
-
-                   <!-- ---------Tabela #333--------------->
 
                 <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID">#000</td>
@@ -111,14 +102,12 @@
                     </td>
                         
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
                     </td>
                 </tr>
-
-
-           <!-- ---------Tabela #444---------- -->
 
                 <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID">#000</td>
@@ -132,25 +121,15 @@
                     </td>
                         
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn view"><i class="fas fa-eye"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
                     </td>
                 </tr>
 
-
-
-
-
-
             </table>
         </main>
-
-
-   
-
-
-<!-- Cards (Mobile) -->
 
   <ul class="user-cards">
     
@@ -158,26 +137,24 @@
         <h2 class="name">ID: #000</h2>
         <p class="email">Miguel</p>
         <p class="email">Meu primeiro Carro...</p>
-        <p class="meta">ID: #000</p>
       <p class="meta">30/03/2025</p>
 
-      <span class="stat">270 <i class="fas fa-eye"></i></span>
+      <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>
 
       <div class="card-actions">
-          <button class="btn-card btn-view" type="button">VISUALIZAR </button>
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
           <button class="btn-card btn-edit" type="button">EDITAR POST</button>
           <button class="btn-card btn-delete" type="button">DELETAR POST</button>
+          <button class="btn-card btn-comentarios" type="button">VER COMENTÁRIOS</button>
       </div>
     </li>
-
 
     <li class="user-card">
         <h2 class="name">ID: #000</h2>
         <p class="email">Miguel</p>
         <p class="email">Meu primeiro Carro...</p>
-        <p class="meta">ID: #000</p>
       <p class="meta">30/03/2025</p>
 
       <span class="stat">270 <i class="fas fa-eye"></i></span>
@@ -185,35 +162,162 @@
       <span class="stat">250 <i class="fas fa-comments"></i></span>
 
       <div class="card-actions">
-          <button class="btn-card btn-view" type="button">VISUALIZAR </button>
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
           <button class="btn-card btn-edit" type="button">EDITAR POST</button>
           <button class="btn-card btn-delete" type="button">DELETAR POST</button>
+          <button class="btn-card btn-comentarios" type="button">VER COMENTÁRIOS</button>
       </div>
     </li>
 
   </ul>
 
-
-
-
    <a href="#" class="fab-btn">
-                    <i class="fas fa-plus"></i> 
+        <i class="fas fa-plus"></i> 
     </a>
 
-        <nav class="pagination">
-            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
-            <a href="#" class="page-number active">1</a>
-            <a href="#" class="page-number">2</a>
-            <a href="#" class="page-number">3</a>
-            <a href="#" class="page-number">4</a>
-            <a href="#" class="page-number">5</a>
-            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
-        </nav>
+    <nav class="pagination">
+        <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+        <a href="#" class="page-number active">1</a>
+        <a href="#" class="page-number">2</a>
+        <a href="#" class="page-number">3</a>
+        <a href="#" class="page-number">4</a>
+        <a href="#" class="page-number">5</a>
+        <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+    </nav>
     </section>
 
-       
+    <!--Modal Visualizar Post-->
+     <div class="modal-overlay hidden" id="modalVisualizarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+        <div id="imgPost">
+        <img src="../../../public/assets/fotoPost.jpg" alt="#">
+        </div>
+        <p id="idPost">#0000000</p>
 
-    <script src="/public\js\PostChart.js"></script>
+        <div class="info-post">
+        <i class="bi bi-hand-thumbs-up-fill">47</i>
+        <i class="bi bi-hand-thumbs-down-fill">8</i>
+        <i class="bi bi-chat-fill">12</i>
+        </div>
+
+        <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+        </div>
+
+        <div class="ladoDireito">
+        <h2>Autor</h2>
+        <div class="infos">
+            <p>Usuário</p>
+        </div>
+        <h2>Titulo</h2>
+        <div class="infos">
+            <p>Titulo do Post</p>
+        </div>
+        <h2>Descrição</h2>
+        <div class="infos" id="descricao-info">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <p id="dataPost">05/11/2025</p>
+        
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
+        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Salvar</button>
+        </div>
+        </div>
+        </section>
+    </div>
+
+    <!-- Modal Editar Post-->
+    <div class="modal-overlay hidden" id="modalEditarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+            <div id="imgPost">
+                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+            </div>
+            <p id="idPost">#0000000</p>
+
+            <div class="info-post">
+                <i class="bi bi-hand-thumbs-up-fill">47</i>
+                <i class="bi bi-hand-thumbs-down-fill">8</i>
+                <i class="bi bi-chat-fill">12</i>
+            </div>
+
+            <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+        </div>
+
+        <div class="ladoDireito">
+            <h2>Autor</h2>
+            <div class="info-autor-caixa">Usuário</div>
+            
+            <h2>Titulo</h2>
+            <input class="inputs" type="text" value="Titulo">
+            
+            <h2>Descrição</h2>
+            <textarea class="inputs" id="inputDesc" type="text" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+            
+            <p id="dataPost">05/11/2025</p>
+            
+            <div class="buttons">
+                <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
+                <button id="btn-salvar" onclick="fecharModal('modalEditarPost')">Salvar</button>
+            </div>
+        </div>
+        </section>
+    </div>
+
+    <!--Modal Excluir Post-->
+    <div class="modal-overlay hidden" id="modalExcluirPost">
+        <section class="container">
+            <div class="borda">
+                <div class="caixa-texto">
+                    <h1>Deseja excluir Post</h1>
+                </div>
+                <img src="../../../public/assets/RATO-PARADO.png">
+                <div class="botoes">
+                    <h1>Você não poderá reverter essa alteração</h1>
+                    <div class="sim" id="btn-sim" onclick="fecharModal('modalExcluirPost')">
+                        <h2>Sim</h2>
+                    </div>
+                    <div class="nao" id="btn-nao" onclick="fecharModal('modalExcluirPost')">
+                        <h2>Não</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Modal Criar Post-->
+    <div class="modal-overlay hidden" id="modalCriarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+        <div id="imgPost">
+        <img src="../../../public/assets/fotoPost.jpg" alt="#">
+        </div>
+        <p id="idPost">#0000000</p>
+        </div>
+
+
+        <div class="ladoDireito">
+        <h2>Autor</h2>
+        <div class="info-caixa">Usuário</div>
+
+        <h2>Titulo</h2>
+        <input class="campo-editavel" type="text" placeholder="Digite o título">
+        
+        <h2>Descrição</h2>
+        <textarea id="descricao-editavel" placeholder="Digite a descrição"></textarea>
+        
+        <p id="dataPost">05/11/2025</p>
+        
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalCriarPost')">Cancelar</button>
+        <button id="btn-salvar" onclick="fecharModal('modalCriarPost')">Publicar</button>
+        </div>
+        </div>
+        </section>
+    </div>
+
+    <script src="../../../public/js/Modal.js"></script>
+    <script src="/public/js/PostChart.js"></script>
 </body>
-
 </html>

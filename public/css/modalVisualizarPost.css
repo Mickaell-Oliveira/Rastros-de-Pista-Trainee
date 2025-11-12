@@ -135,6 +135,7 @@ h2{
     align-items: center;
     padding: 20px;
     overflow-y: auto;
+    z-index: 9999;
 }
 
 .info-post{
@@ -230,4 +231,8 @@ p{
         width: 100%;
         text-align: center;
     }
+}
+
+.hidden {
+    display: none;
 }
