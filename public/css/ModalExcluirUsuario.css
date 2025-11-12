@@ -13,7 +13,6 @@
     box-sizing: border-box;
 }
 
-/* Alterado para #modal-excluir .container */
 #modal-excluir .container {
     display: flex;
     width: 538px;
@@ -23,9 +22,9 @@
     padding: 10px;
     box-sizing: border-box;
     margin: auto;
+    box-shadow: 3px 3px 3px #ae171c;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .borda {
     display: flex;
     flex-direction: column;
@@ -40,7 +39,6 @@
     padding: 0;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .caixa-texto {
     display: flex;
     align-items: center;
@@ -53,7 +51,6 @@
     border-top-right-radius: 10px;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .caixa-texto h1 {
     color: #FFFFFF;
     font-size: 42px;
@@ -61,7 +58,6 @@
     padding: 0 15px;
 }
 
-/* Alterado de img para .rato-gordo */
 #modal-excluir .rato-gordo {
     display: block;
     height: auto;
@@ -69,7 +65,6 @@
     margin: 20px auto;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .botoes {
     display: flex;
     flex-wrap: wrap;
@@ -81,7 +76,6 @@
     width: 100%;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .botoes h1 {
     width: 100%;
     text-align: center;
@@ -91,7 +85,6 @@
     box-sizing: border-box;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .sim {
     background-color: #363636;
     border-radius: 16px;
@@ -105,21 +98,18 @@
     align-items: center;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .sim:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .sim h2 {
     color: #FFFFFF;
     margin: 0;
     font-size: 20px;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .nao {
     background-color: #ae171c;
     border-radius: 16px;
@@ -133,14 +123,12 @@
     align-items: center;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .nao:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-/* Alterado para #modal-excluir */
 #modal-excluir .nao h2 {
     color: #FFFFFF;
     margin: 0;
@@ -150,7 +138,6 @@
 
 @media (max-width: 700px) {
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .container {
         width: 100%;
         height: auto;
@@ -160,34 +147,28 @@
         overflow-y: auto;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .borda {
         border: none;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .caixa-texto {
         height: auto;
         padding: 25px 15px;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .caixa-texto h1 {
         font-size: 30px;
     }
 
-    /* Alterado de img para .rato-gordo */
     #modal-excluir .rato-gordo {
         width: 130px;
         margin: 25px auto;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .botoes h1 {
         font-size: 18px;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .sim,
     #modal-excluir .nao {
         width: 120px;
@@ -196,7 +177,6 @@
         margin-bottom: 15px;
     }
 
-    /* Alterado para #modal-excluir */
     #modal-excluir .sim h2,
     #modal-excluir .nao h2 {
         font-size: 18px;

@@ -1,299 +1,204 @@
-:root {
-    --main-bg-color: #1a1a1a;
-    --header-bg-color: #b71c1c;
-    --card-bg-color: #2c2c2c;
-    --text-color: #e53935;
-    --gray-text-color: #b0b0b0;
-    --red-accent-color: #e53935;
-    --table-header-bg: #b0b0b0;
-    --table-header-text: #000000;
-}
+/*
+  Usamos o ID #modalVerComentarios para "isolar" todas as regras.
+  Agora, .modal-overlay, .container, h2, etc., só serão
+  afetados se estiverem DENTRO de #modalVerComentarios.
+*/
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    
-    min-height: 100vh;
-    font-family: 'Oswald', 'Bebas Neue', sans-serif;
+#modalVerComentarios.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 20px 0;
-   
+    align-items: center;
+    padding: 20px;
 }
 
-
-.post-data{
-    color: #b0b0b0;
+/* Esconde o modal por padrão (baseado no seu HTML) */
+#modalVerComentarios.hidden {
+    display: none;
 }
 
-.admin-panel {
-    width: 670px;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 20px;
-}
-img{
-    width: 70%;
-    height: 20%;
-}
-
-
-.main-header {
-    text-align: center;
-    padding: 40px 20px 30px;
-    
+#modalVerComentarios .container {
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 3px #AE171C;
+    font-family: sans-serif;
+    color: #f0f0f0;
 }
 
-.main-header h1 {
-    font-family: 'Oswald';
-    font-size: 4.5rem;
-    font-weight: 550;
-    letter-spacing: 4px;
-    position: relative;
-    z-index: 1;
+#modalVerComentarios .container h2 {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
 }
 
-.toolbar {
+#modalVerComentarios .comments-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-right: -10px;
+    padding-right: 10px;
+}
+
+#modalVerComentarios .comment-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 20px 30px;
-    gap: 0;
-    position: relative;
-    z-index: 1;
-    
-
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
 }
 
-.search-container {
-    position: relative;
-    flex-grow: 1;
-    
+#modalVerComentarios .comment-item:last-child {
+    border-bottom: none;
 }
 
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #333;
-    font-size: 1.2rem;
+#modalVerComentarios .comment-content {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
 }
 
-.search-bar {
-    width: 100%;
-    padding: 12px 10px 12px 50px;
-    background-color: var(--text-color);
-    border: none;
-    border-radius: 5px 0 0 5px;
-    color: var(--darker-bg-color);
-    font-size: 1rem;
-    height: 45px;
+#modalVerComentarios .comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
 }
 
-.actions-container {
+#modalVerComentarios .comment-text {
+    flex: 1;
+}
+
+#modalVerComentarios .comment-text .comment-username {
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#modalVerComentarios .comment-text p {
+    color: #dcdcdc;
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+#modalVerComentarios .comment-feedback {
     display: flex;
     align-items: center;
+    gap: 15px;
+    margin-top: 12px;
 }
 
-.new-post-btn,
-.menu-btn {
-    padding: 10px 15px;
+#modalVerComentarios .feedback-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+#modalVerComentarios .feedback-item span {
+    font-size: 0.85rem;
+}
+
+#modalVerComentarios .feedback-item.like-data i,
+#modalVerComentarios .feedback-item.like-data span {
+    color: #888;
+}
+
+#modalVerComentarios .feedback-item.dislike-data i,
+#modalVerComentarios .feedback-item.dislike-data span {
+    color: #888;
+}
+
+#modalVerComentarios .comment-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+#modalVerComentarios .icon-btn {
+    background: none;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 45px;
-    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #888;
+    transition: color 0.2s;
+    font-family: inherit;
 }
 
-.new-post-btn {
-    background-color: var(--header-bg-color);
-    color: var(--text-color);
-    font-weight: 500;
-    border-radius: 0;
+#modalVerComentarios .icon-btn.edit-btn:hover {
+    color: #fff;
 }
 
-.menu-btn {
-    background-color: var(--card-bg-color);
-    color: var(--text-color);
-    border-radius: 0 5px 5px 0;
+#modalVerComentarios .icon-btn.delete-btn:hover {
+    color: #AE171C;
 }
 
-/* ================== DESKTOP: TABELA (min-width: 992px) ================== */
-@media (min-width: 992px) {
-    .admin-panel {
-        padding: 0 30px 30px;
-    }
-
-    .posts-table-header {
-        display: flex;
-        background-color: var(--table-header-bg);
-        color: var(--table-header-text);
-        padding: 15px 10px;
-        font-weight: 700;
-        border-radius: 5px;
-        margin: 0;
-        width: 100%;
-    }
-
-    .header-col {
-        flex: 1;
-        padding: 0 10px;
-        text-align: center;
-    }
-
-    #header-autor {
-        text-align: center;
-    }
-
-    #header-titulo,
-    #header-autor {
-        flex: 1;
-        text-align: center;
-    }
-
-    #header-interacao {
-        flex: 1;
-
-    }
-
-    .header-col:nth-child(3),
-    .header-col:nth-child(4) {
-        text-align: center; 
-    }
-
-    .posts-content {
-        padding: 0;
-        margin: 0 20px;
-        display: block;
-        border: 7px solid #b71c1c;
-        border-radius: 14px;
-    }
-
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .table-container {
-        display: block !important;
-    }
-
-    .post-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: left;
-        margin-bottom: 0;
-        border-radius: 0;
-        padding: 20px 10px;
-        background-color: var(--card-bg-color);
-        border-bottom: 1px solid var(--text-color);
-    }
-
-    .post-item:last-child {
-        border-bottom: none;
-    }
-
-    .post-data {
-        display: block;
-        flex: 1;
-        margin-bottom: 0;
-        padding: 0 10px;
-        text-align: center;
-        width: fit-content;
-        
-    }
-
-    .post-title,
-    .post-author {
-        flex: 1; 
-        text-align: center; 
-    }
-
-    .post-stats {
-        flex: 1.5;
-    }
-
-    .post-id,
-    .post-actions {
-        display: block;
-    }
-
-    .post-stats {
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .post-title span,
-    .post-author,
-    .post-date {
-        text-align: center; 
-    }
-
-    .post-thumbnail {
-        display: none;
-    }
-
-    .post-item::after {
-        display: none;
-    }
-
-    .new-post-btn span {
-        display: inline;
-    }
-
-    .action-btn {
-        background: none;
-        border: none;
-        color: var(--gray-text-color);
-        font-size: 1rem;
-        cursor: pointer;
-        margin: 0 5px;
-        justify-content: center;
-    }
-
-    .action-btn:hover {
-        color: var(--text-color);
-    }
-
-    .user-cards {
-        display: none !important;
-    }
-}
-/* ================== FIM DESKTOP ================== */
-
-
-
-/* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
-@media (min-width: 992px) {
-    .options-menu-btn {
-        display: none;
-    }
-
-    .post-options-container {
-        display: none;
-    }
-
-    .post-actions {
-        display: block;
-        position: static;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .post-actions .action-btn span {
-        display: none;
-    }
+#modalVerComentarios .caixa-btn {
+    margin-top: 25px;
+    text-align: right;
 }
 
+#modalVerComentarios .btn-fechar {
+    background: #363636;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 3px 3px 3px #AE171C;
+    transition: background-image 0.2s;
+    font-family: inherit;
+}
 
+#modalVerComentarios .btn-fechar:hover {
+    background-color: #c0c0c0;
+    box-shadow:3px 3px 3px #AE171C;
+}
+
+#modalVerComentarios .comments-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#modalVerComentarios .comments-list::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 4px;
+}
+
+#modalVerComentarios .comments-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+#modalVerComentarios .comments-list::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+#modalVerComentarios .edit-textarea {
+    width: 100%;
+    background-color: #333;
+    border: 1px solid #AE171C;
+    border-radius: 4px;
+    color: #f0f0f0;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 8px;
+    margin-top: 5px;
+    min-height: 60px;
+    resize: vertical;
+}

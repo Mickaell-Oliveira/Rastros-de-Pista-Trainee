@@ -1,82 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Posts - Admin</title>
-    <link rel="stylesheet" href="/public/css/modalVerComentarios.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Modal de Comentários</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../../public/css/modalVerComentarios.css">
 </head>
-
 <body>
 
-    <section class="admin-panel">
-        
-        <main class="posts-content">
-            <table class="tabela">
+    <div class="modal-overlay hidden">
+        <div class="container">
+            
+            <h2>Comentários</h2>
+            
+            <div class="comments-list">
+                
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Mickael #3333</span>
+                            <p>Meu UNO é bem melhor que essa ferrari!!</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>12</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>2</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Miguel #8922</span>
+                            <p>Que ferrari linda meu Deus</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>42</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
 
-                <tr class="posts-table-header">
-                    <th class="header-col">Usuário</th>
-                    <th class="header-col">Data</th>
-                    <th class="header-col" id="header-titulo">Comentários</th>
-                    <th class="header-col" id="header-autor">ID</th>
-                    <th class="header-col">Ações</th>
-                </tr>
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Bruno #4002</span>
+                            <p>Achei incrivel, so trocaria a cor, deixaria preta</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>8</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>1</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
 
-                <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><img src="../../../public/assets/ICONE USUARIO.png" alt=""></td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Achei top, mas deixaria o motor aspirado</td>
-                    <td class="post-data post-date" data-label="Autor">#0000</td>
-                    <td class="post-data post-actions" data-label="Ações">
-                       
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                </tr>
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Marcos #1111</span>
+                            <p>Prefiro os modelos da Lamborghini</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>5</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>7</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="caixa-btn">
+                <button class="btn-fechar">Fechar</button>
+            </div>
+            
+        </div>
+    </div>
 
-                <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><img src="../../../public/assets/ICONE USUARIO.png" alt=""></td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">O barulho da turbina ficou massa</td>
-                    <td class="post-data post-date" data-label="Autor">#1111</td>
-                    <td class="post-data post-actions" data-label="Ações">
-                        
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                </tr>
-
-                <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><img src="../../../public/assets/ICONE USUARIO.png" alt=""></td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Meu UNO com escada ganharia desse astra fácil</td>
-                    <td class="post-data post-date" data-label="Autor">#2222</td>
-                    <td class="post-data post-actions" data-label="Ações">
-                        
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                </tr>
-
-                <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><img src="../../../public/assets/ICONE USUARIO.png" alt=""></td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Já tive um desse</td>
-                    <td class="post-data post-date" data-label="Autor">#3333</td>
-                    <td class="post-data post-actions" data-label="Ações">
-                        
-                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                </tr>
-
-            </table>
-        </main>
-
-     
-    <script src="/public\js\PostChart.js"></script>
 </body>
-
 </html>

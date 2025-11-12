@@ -1,13 +1,4 @@
-*{
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.container{
+#modalCriarPost .container{
     display: flex;
     max-width: 633px;
     width: 100%;
@@ -18,7 +9,7 @@ body {
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#imgPost{
+#modalCriarPost #imgPost{
     width: 250px;
     height: 200px;
     margin-top: 20px;
@@ -30,7 +21,7 @@ body {
     overflow: hidden;
 }
 
-#imgPost img {
+#modalCriarPost #imgPost img {
     border: none;
     outline: none;
     display: block;
@@ -39,7 +30,7 @@ body {
     object-fit: cover;
 }
 
-h2{
+#modalCriarPost h2{
     color: #FFFF;
     font-family: "Oswald", sans-serif;
     font-weight: bold;
@@ -49,7 +40,7 @@ h2{
     margin-right: 0;
 }
 
-.info-caixa {
+#modalCriarPost .info-caixa {
     background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
@@ -64,7 +55,7 @@ h2{
     align-items: center;
 }
 
-.campo-editavel, #descricao-editavel {
+#modalCriarPost .campo-editavel, #modalCriarPost #descricao-editavel {
     background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
@@ -75,11 +66,11 @@ h2{
     font-size: 14px; 
 }
 
-.campo-editavel {
+#modalCriarPost .campo-editavel {
     height: 40px;
 }
 
-#descricao-editavel {
+#modalCriarPost #descricao-editavel {
     height: 270px;
     resize: none;
     overflow-y: auto;
@@ -87,16 +78,16 @@ h2{
     -ms-overflow-style: none;
 }
 
-#descricao-editavel::-webkit-scrollbar {
+#modalCriarPost #descricao-editavel::-webkit-scrollbar {
     display: none;
 }
 
-.campo-editavel:focus, #descricao-editavel:focus {
+#modalCriarPost .campo-editavel:focus, #modalCriarPost #descricao-editavel:focus {
     outline: none;
 }
 
 
-.buttons{
+#modalCriarPost .buttons{
     display: flex;
     justify-content: flex-end;
     gap: 20px;
@@ -105,7 +96,7 @@ h2{
     margin-top: 13px;
 }
 
-#btn-cancelar{
+#modalCriarPost #btn-cancelar{
     width: 100px;
     height: 40px;
     background-color: #363636;
@@ -115,7 +106,7 @@ h2{
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#btn-salvar{
+#modalCriarPost #btn-salvar{
     width: 100px;
     height: 40px;
     background-color: #AE171C;
@@ -125,18 +116,18 @@ h2{
     box-shadow:3px 3px 3px #363636;
 }
 
-#btn-cancelar:hover{
+#modalCriarPost #btn-cancelar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #AE171C;
 }
-#btn-salvar:hover{
+#modalCriarPost #btn-salvar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #363636;
 }
 
-.modal-overlay {
+#modalCriarPost.modal-overlay {
     position: fixed; 
     top: 0;
     left: 0;
@@ -150,11 +141,11 @@ h2{
     overflow-y: auto;
 }
 
-p{
+#modalCriarPost p{
     color: white;
 }
 
-#dataPost{
+#modalCriarPost #dataPost{
     font-family: "Oswald", sans-serif;;
     font-weight: lighter;
     margin: 0;
@@ -164,7 +155,7 @@ p{
     margin-top: 10px;
 }
 
-#idPost{
+#modalCriarPost #idPost{
     font-family: "Oswald", sans-serif;
     font-weight: lighter;
     width: 250px;
@@ -176,82 +167,82 @@ p{
 
 @media (max-width: 700px){
     
-    .container{
+    #modalCriarPost .container{
         flex-direction: column;
         height: auto;
         overflow: auto;
     }
 
-    .info-post{
+    #modalCriarPost .info-post{
         margin-top: 20px;
     }
 
-    .modal-overlay{
+    #modalCriarPost.modal-overlay{
         padding: 20px !important; 
     }
 
-    .ladoEsquerdo, .ladoDireito{
+    #modalCriarPost .ladoEsquerdo, #modalCriarPost .ladoDireito{
         width: 100%;
     }
 
-    #img-rato{
+    #modalCriarPost #img-rato{
         display: none;
     }
 
-    .info-autor-caixa{
+    #modalCriarPost .info-autor-caixa{
         width: 90%;
         margin: 0px 20px;
     }
 
-    .inputs{
+    #modalCriarPost .inputs{
         width: 90%;
         margin: 0px 20px;
     }
 
-    .texto-infos{
+    #modalCriarPost .texto-infos{
         margin-left: 20px;
     }
 
-    .buttons{
+    #modalCriarPost .buttons{
         width: 100%;
         justify-content: center;
     }
 
-    #imgPost{
+    #modalCriarPost #imgPost{
         margin-left: auto;
         margin-right: auto;
     }
 
-    #idPost{
+    #modalCriarPost #idPost{
         margin-left: 0;
         width: 100%;
         text-align: center;
     }
 
-    #descricao-editavel{
+    #modalCriarPost #descricao-editavel{
         height: 200px;
         margin: 0px 20px;
     }
 
-    .campo-editavel{
+    #modalCriarPost .campo-editavel{
         margin: 0px 20px;
     }
 
-    .info-caixa{
+    #modalCriarPost .info-caixa{
         margin: 0px 20px;
     }
 
-    .textos-info-criar{
+    #modalCriarPost .textos-info-criar{
         margin-left: 20px;
     }
 
-    #dataPost{
+    #modalCriarPost #dataPost{
         margin-top: 0;
         width: 100%;
         justify-content: center;
     }
 }
 
-.hidden{
+#modalCriarPost.hidden{
     display: none;
 }

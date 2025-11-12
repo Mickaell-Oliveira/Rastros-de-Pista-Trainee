@@ -1,13 +1,4 @@
-*{
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.container{
+#modalVisualizarPost .container{
     display: flex;
     max-width: 633px;
     width: 100%;
@@ -18,7 +9,7 @@ body {
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#imgPost{
+#modalVisualizarPost #imgPost{
     width: 250px;
     height: 200px;
     margin-top: 20px;
@@ -30,7 +21,7 @@ body {
     overflow: hidden;
 }
 
-#imgPost img {
+#modalVisualizarPost #imgPost img {
     border: none;
     outline: none;
     display: block;
@@ -39,7 +30,7 @@ body {
     object-fit: cover;
 }
 
-h2{
+#modalVisualizarPost h2{
     color: #FFFF;
     font-family: "Oswald", sans-serif;
     font-weight: bold;
@@ -49,7 +40,7 @@ h2{
     margin-right: 0;
 }
 
-.infos{
+#modalVisualizarPost .infos{
     background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
@@ -63,12 +54,12 @@ h2{
     font-size: 14px;
 }
 
-.infos p {
+#modalVisualizarPost .infos p {
     margin: 0;
     line-height: 1.3;
 }
 
-#descricao-info {
+#modalVisualizarPost #descricao-info {
     height: 270px;
     align-items: flex-start;
     overflow-y: auto;
@@ -76,15 +67,15 @@ h2{
     -ms-overflow-style: none;
 }
 
-#descricao-info p {
+#modalVisualizarPost #descricao-info p {
     width: 100%;
 }
 
-#descricao-info::-webkit-scrollbar{
+#modalVisualizarPost #descricao-info::-webkit-scrollbar{
     display: none;
 }
 
-.buttons{
+#modalVisualizarPost .buttons{
     display: flex;
     justify-content: flex-end;
     gap: 20px;
@@ -92,7 +83,7 @@ h2{
     margin-top: 50px;
 }
 
-#btn-cancelar{
+#modalVisualizarPost #btn-cancelar{
     width: 100px;
     height: 40px;
     background-color: #363636;
@@ -102,7 +93,7 @@ h2{
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#btn-salvar{
+#modalVisualizarPost #btn-salvar{
     width: 100px;
     height: 40px;
     background-color: #AE171C;
@@ -112,18 +103,18 @@ h2{
     box-shadow:3px 3px 3px #363636;
 }
 
-#btn-cancelar:hover{
+#modalVisualizarPost #btn-cancelar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #AE171C;
 }
-#btn-salvar:hover{
+#modalVisualizarPost #btn-salvar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #363636;
 }
 
-.modal-overlay {
+#modalVisualizarPost.modal-overlay {
     position: fixed; 
     top: 0;
     left: 0;
@@ -138,7 +129,7 @@ h2{
     z-index: 9999;
 }
 
-.info-post{
+#modalVisualizarPost .info-post{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -149,29 +140,29 @@ h2{
     margin-top: 60px;
 }
 
-.info-post i{
+#modalVisualizarPost .info-post i{
     color: #FFFFFF;
     display: flex;
     align-items: center;
     gap: 7px;
 }
 
-.info-post i::before{
+#modalVisualizarPost .info-post i::before{
     color: black;
     font-size: 25px;
 }
 
-#img-rato{
+#modalVisualizarPost #img-rato{
     margin-left: 55px;
     margin-top: 60px;
     width: 170px;
 }
 
-p{
+#modalVisualizarPost p{
     color: white;
 }
 
-#dataPost{
+#modalVisualizarPost #dataPost{
     display: flex;
     font-family: "Oswald", sans-serif;;
     font-weight: lighter;
@@ -179,7 +170,7 @@ p{
     justify-content: end;
 }
 
-#idPost{
+#modalVisualizarPost #idPost{
     font-family: "Oswald", sans-serif;
     font-weight: lighter;
     width: 250px;
@@ -191,57 +182,57 @@ p{
 
 @media (max-width: 700px){
     
-    .container{
+    #modalVisualizarPost .container{
         flex-direction: column;
         height: auto;
         max-height: 90vh;
         overflow: auto;
     }
 
-    .modal-overlay{
+    #modalVisualizarPost.modal-overlay{
         padding: 0;
     }
 
-    .ladoEsquesto, .ladoDireito{
+    #modalVisualizarPost .ladoEsquesto, #modalVisualizarPost .ladoDireito{
         width: 100%;
         padding: 15px;
     }
 
-    #img-rato{
+    #modalVisualizarPost #img-rato{
         margin: 20px auto;
         display: block;
     }
     
-    .infos{
+    #modalVisualizarPost .infos{
         width: 90%;
         margin: 0px 20px;
     }
 
-    .textos-info-visualizar{
+    #modalVisualizarPost .textos-info-visualizar{
         margin-left: 20px;
     }
 
-    .buttons{
+    #modalVisualizarPost .buttons{
         width: 100%;
         justify-content: center;
     }
 
-    #imgPost{
+    #modalVisualizarPost #imgPost{
         margin-left: auto;
         margin-right: auto;
     }
 
-    #idPost{
+    #modalVisualizarPost #idPost{
         margin-left: 0;
         width: 100%;
         text-align: center;
     }
 
-    #descricao-info{
+    #modalVisualizarPost #descricao-info{
         height: 200px;
     }
 }
 
-.hidden {
+#modalVisualizarPost.hidden {
     display: none;
 }
