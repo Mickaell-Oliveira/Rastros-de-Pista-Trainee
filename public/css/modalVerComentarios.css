@@ -1,0 +1,302 @@
+#modalVerComentarios {
+
+
+
+:root {
+    --main-bg-color: #1a1a1a;
+    --header-bg-color: #b71c1c;
+    --card-bg-color: #2c2c2c;
+    --text-color: #e53935;
+    --gray-text-color: #b0b0b0;
+    --red-accent-color: #e53935;
+    --table-header-bg: #b0b0b0;
+    --table-header-text: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    min-height: 100vh;
+    font-family: 'Oswald', 'Bebas Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0;
+   
+}
+
+
+.post-data{
+    color: #b0b0b0;
+}
+
+.admin-panel {
+    width: 670px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+img{
+    width: 70%;
+    height: 20%;
+}
+
+
+.main-header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    
+}
+
+.main-header h1 {
+    font-family: 'Oswald';
+    font-size: 4.5rem;
+    font-weight: 550;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 30px;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+    
+
+}
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+    
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 12px 10px 12px 50px;
+    background-color: var(--text-color);
+    border: none;
+    border-radius: 5px 0 0 5px;
+    color: var(--darker-bg-color);
+    font-size: 1rem;
+    height: 45px;
+}
+
+.actions-container {
+    display: flex;
+    align-items: center;
+}
+
+.new-post-btn,
+.menu-btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 45px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.new-post-btn {
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+    font-weight: 500;
+    border-radius: 0;
+}
+
+.menu-btn {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border-radius: 0 5px 5px 0;
+}
+
+/* ================== DESKTOP: TABELA (min-width: 992px) ================== */
+@media (min-width: 992px) {
+    .admin-panel {
+        padding: 0 30px 30px;
+    }
+
+    .posts-table-header {
+        display: flex;
+        background-color: var(--table-header-bg);
+        color: var(--table-header-text);
+        padding: 15px 10px;
+        font-weight: 700;
+        border-radius: 5px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .header-col {
+        flex: 1;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    #header-autor {
+        text-align: center;
+    }
+
+    #header-titulo,
+    #header-autor {
+        flex: 1;
+        text-align: center;
+    }
+
+    #header-interacao {
+        flex: 1;
+
+    }
+
+    .header-col:nth-child(3),
+    .header-col:nth-child(4) {
+        text-align: center; 
+    }
+
+    .posts-content {
+        padding: 0;
+        margin: 0 20px;
+        display: block;
+        border: 7px solid #b71c1c;
+        border-radius: 14px;
+    }
+
+    .tabela {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table-container {
+        display: block !important;
+    }
+
+    .post-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: left;
+        margin-bottom: 0;
+        border-radius: 0;
+        padding: 20px 10px;
+        background-color: var(--card-bg-color);
+        border-bottom: 1px solid var(--text-color);
+    }
+
+    .post-item:last-child {
+        border-bottom: none;
+    }
+
+    .post-data {
+        display: block;
+        flex: 1;
+        margin-bottom: 0;
+        padding: 0 10px;
+        text-align: center;
+        width: fit-content;
+        
+    }
+
+    .post-title,
+    .post-author {
+        flex: 1; 
+        text-align: center; 
+    }
+
+    .post-stats {
+        flex: 1.5;
+    }
+
+    .post-id,
+    .post-actions {
+        display: block;
+    }
+
+    .post-stats {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .post-title span,
+    .post-author,
+    .post-date {
+        text-align: center; 
+    }
+
+    .post-thumbnail {
+        display: none;
+    }
+
+    .post-item::after {
+        display: none;
+    }
+
+    .new-post-btn span {
+        display: inline;
+    }
+
+    .action-btn {
+        background: none;
+        border: none;
+        color: var(--gray-text-color);
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0 5px;
+        justify-content: center;
+    }
+
+    .action-btn:hover {
+        color: var(--text-color);
+    }
+
+    .user-cards {
+        display: none !important;
+    }
+}
+/* ================== FIM DESKTOP ================== */
+
+
+
+/* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
+@media (min-width: 992px) {
+    .options-menu-btn {
+        display: none;
+    }
+
+    .post-options-container {
+        display: none;
+    }
+
+    .post-actions {
+        display: block;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .post-actions .action-btn span {
+        display: none;
+    }
+}
+}

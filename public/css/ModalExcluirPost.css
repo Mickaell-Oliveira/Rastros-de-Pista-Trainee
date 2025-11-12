@@ -13,7 +13,7 @@
     box-sizing: border-box;
 }
 
-.container {
+#modalExcluirPost .container {
     display: flex;
     width: 538px;
     height: 577px;
@@ -106,7 +106,7 @@
 #modalExcluirPost .sim h2 {
     color: #FFFFFF;
     margin: 0;
-    font-size: 20px; 
+    font-size: 20px;
 }
 
 #modalExcluirPost .nao {
@@ -131,47 +131,46 @@
 #modalExcluirPost .nao h2 {
     color: #FFFFFF;
     margin: 0;
-    font-size: 20px; 
+    font-size: 20px;
 }
 
 
 @media (max-width: 700px) {
 
     #modalExcluirPost .container {
-        width: 100%; 
-        height: auto; 
+        width: 100%;
+        height: auto;
         padding: 0;
-        max-width: 538px; 
-        max-height: 95vh; 
+        max-width: 538px;
+        max-height: 95vh;
         overflow-y: auto;
     }
 
     #modalExcluirPost .borda {
-        border: none; 
+        border: none;
     }
 
     #modalExcluirPost .caixa-texto {
-        height: auto; 
+        height: auto;
         padding: 25px 15px;
     }
 
-    
     #modalExcluirPost .caixa-texto h1 {
-        font-size: 30px; 
+        font-size: 30px;
     }
 
     #modalExcluirPost img {
-        width: 130px; 
+        width: 130px;
         margin: 25px auto;
     }
 
     #modalExcluirPost .botoes h1 {
-        font-size: 18px; 
+        font-size: 18px;
     }
 
     #modalExcluirPost .sim,
     #modalExcluirPost .nao {
-        width: 120px; 
+        width: 120px;
         height: 60px;
         margin: 0 10px;
         margin-bottom: 15px;
@@ -179,7 +178,7 @@
 
     #modalExcluirPost .sim h2,
     #modalExcluirPost .nao h2 {
-        font-size: 18px; 
+        font-size: 18px;
     }
 }
 
