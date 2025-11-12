@@ -38,12 +38,13 @@ box-sizing: border-box; /
 .caixa-texto h1{
     color: #FFFFFF;
     font-size: 42px;
+    margin: auto;
 }
 
 img{
     display: flex;
-    height: 187px;
-    width: 187px;
+    height: auto;
+    width: 150px;
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -55,7 +56,7 @@ img{
     flex-wrap: wrap;        
     justify-content: center; 
     margin: auto;
-    padding-top: 50px;
+    padding-top: 10px;
     gap: 20px;
 }
 
@@ -63,36 +64,44 @@ img{
     width: 100%;            
     text-align: center;      
     color: #FFFFFF;
-    font-size: 18px;         
+    font-size: 24px;         
 }
 .sim{
     background-color: #363636;
     border-radius: 16px;
     width: 133px;
+    height: 65px; 
     text-align: center;
     box-shadow: 3px 3px 3px #ae171c;
+    margin: 0px 20px;
 }
 .sim:hover{
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
+    cursor: pointer;
 }
 .sim h2{
     color: #FFFFFF;
+    margin: 20px 5px;
 }
 
 .nao{
     background-color: #ae171c;
     border-radius: 16px;
     width: 133px;
+    height: 65px;
     text-align: center;
     box-shadow: 3px 3px 3px #363636;
+    margin: 0px 20px;
 }
 .nao:hover{
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
+    cursor: pointer;
 }
 .nao h2{
     color: #FFFFFF;
+    margin: 20px 5px;
 }
 
 .modal-overlay {
