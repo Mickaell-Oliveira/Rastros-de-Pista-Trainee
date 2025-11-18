@@ -42,6 +42,12 @@ body {
     object-fit: cover;
 }
 
+#img-rato{
+    margin-left: 90px !important;
+    margin-top: 10px !important;
+    width: 110px;
+}
+
 h2{
     color: #FFFF;
     font-family: "Oswald", sans-serif;
@@ -60,6 +66,7 @@ h2{
     width: 320px;
     height: 40px;
     resize: none;
+    padding: 10px 8px;
 }
 
 .inputs:focus{
@@ -219,6 +226,10 @@ p{
         margin-left: 0;
         width: 100%;
         text-align: center;
+    }
+
+    #img-rato{
+        display: none;
     }
 }
 
