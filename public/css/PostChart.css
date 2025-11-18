@@ -17,7 +17,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #990101 0%, #1A1A1A 60%);
+   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -245,109 +245,113 @@ body::before {
 
 /* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
-    .admin-panel {
-        padding: 0 30px 30px;
-    }
+  .admin-panel {
+    padding: 0 30px 30px;
+}
 
-    .posts-table-header {
-        display: flex;
-        background-color: var(--table-header-bg);
-        color: var(--table-header-text);
-        padding: 15px 10px;
-        font-weight: 700;
-        border-radius: 5px;
-        margin: 0;
-        width: 100%;
-    }
-    .header-col {
-        flex: 1;
-        padding: 0 10px;
-        text-align: center;
-    }
+.posts-table-header,
+.post-item {
+    display: flex;
+    width: 100%;
+    padding: 15px 10px;
+    align-items: center;
+    justify-content: center;
+}
 
-    #header-autor {
-        text-align: center;
-    }
+.posts-table-header {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 0;
+}
 
+.post-item {
+    background-color: var(--card-bg-color);
+    border-bottom: 1px solid var(--text-color);
+    margin-bottom: 0;
+    border-radius: 0;
+}
 
-    #header-titulo, #header-autor {
-        flex: 1;
-       text-align: center;
-    }
+.post-item:last-child {
+    border-bottom: none;
+}
 
-    #header-interacao {
-        flex: 1.5;
-    }
+.header-col,
+.post-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding: 0 20px;
+    overflow: hidden;
+}
 
+#header-titulo, 
+.post-title {
+    flex: 2; 
+}
+#header-autor{
+    flex: 1.5;
+}
 
-    .header-col:nth-child(3), .header-col:nth-child(4) {
-        text-align: left;
-    }
+#header-veiculo, .post-veiculo { flex: 1.5; }
+#header-ano, .post-date { flex: 1.5; }
+#header-tipo, .post-tipo { flex: 1.5; }
 
-    .posts-content {
-        padding: 0;
-        margin: 0 20px;
-        display: block; 
+#header-interacao { flex: 2; }
+.post-stats {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
-    }
-    
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-    }
+.post-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
 
-    .table-container { 
-        display: block !important; 
-    }
+.post-title span, 
+.post-author span, 
+.post-date, 
+.post-veiculo, 
+.post-tipo {
+    width: 100%;
+    text-align: center;
+}
 
-    .post-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: left;
-        margin-bottom: 0;
-        border-radius: 0;
-        padding: 20px 10px;
-        background-color: var(--card-bg-color);
-        border-bottom: 1px solid var(--text-color);
-    }
-    .post-item:last-child {
-        border-bottom: none;
-    }
+.post-id { display: block; }
+.post-thumbnail { display: none; }
+.post-item::after { display: none; }
+.new-post-btn span { display: inline; }
+.table-container { display: block !important; }
+.posts-content { padding: 0; margin: 0 20px; display: block; }
+.tabela { width: 100%; border-collapse: collapse; }
 
-    .post-data {
-        display: block;
-        flex: 2;
-        margin-bottom: 0;
-        padding: 0 10px;
-        text-align: center;
-        width: fit-content;
-    }
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--gray-text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .post-title, .post-author { flex: 2; text-align: left; }
-    .post-stats { flex: 1.5; }
-    
-    .post-id, .post-actions { display: block; }
-    .post-stats { justify-content: center; gap: 20px; }
-    .post-title span, .post-author, .post-date { text-align: left; }
-    .post-thumbnail { display: none; }
-    .post-item::after { display: none; }
-    .new-post-btn span { display: inline; }
+.action-btn:hover { color: var(--text-color); }
 
-    .action-btn {
-        background: none;
-        border: none;
-        color: var(--gray-text-color);
-        font-size: 1rem;
-        cursor: pointer;
-        margin: 0 5px;
-    }
-    .action-btn:hover { color: var(--text-color); }
-
-
-    .user-cards {
-        display: none !important;
-    }
+.user-cards {
+    display: none !important;
+}
 }
 /* ================== FIM DESKTOP ================== */
 
