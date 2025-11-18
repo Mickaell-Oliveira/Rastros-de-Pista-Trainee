@@ -227,6 +227,7 @@
     </div>
 
     <!-- Modal Editar Post-->
+    <form action="/editarPost" method="get">
     <div class="modal-overlay hidden" id="modalEditarPost">
         <section class="container"> 
         <div class="ladoEsquerdo">
@@ -263,8 +264,10 @@
         </div>
         </section>
     </div>
-
+    </form>
     <!--Modal Excluir Post-->
+
+    <form action="/excluirPost" method="get">
     <div class="modal-overlay hidden" id="modalExcluirPost">
         <section class="container">
             <div class="borda">
@@ -284,8 +287,9 @@
             </div>
         </section>
     </div>
-
+    </form>
     <!--Modal Criar Post-->
+    <form action="criarPost" method="get">
     <div class="modal-overlay hidden" id="modalCriarPost">
         <section class="container"> 
         <div class="ladoEsquerdo">
@@ -315,8 +319,9 @@
         </div>
         </section>
     </div>
-
+    </form>
     <!--Modal Ver Comentarios-->
+    <form action="/verComentarios" method="get">
     <div class="modal-overlay hidden" id="modalVerComentarios">
         <div class="container">
             
@@ -428,7 +433,7 @@
             
         </div>
     </div>
-
+    </form>
     <script src="../../../public/js/Modal.js"></script>
     <script src="/public/js/PostChart.js"></script>
 </body>
