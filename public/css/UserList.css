@@ -27,7 +27,7 @@ body {
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px 0;
 }
 
@@ -44,7 +44,8 @@ body::before {
 }
 
 .admin-panel {
-    max-width: 1300px;
+    max-width: 1600px;
+    width: 960px;
     margin: auto;
     background-color: var(--darker-bg-color);
     position: relative;
@@ -134,7 +135,7 @@ body::before {
     background-color: var(--header-bg-color);
     color: var(--text-color);
     font-weight: 500;
-    border-radius: 0 5px 5px 0; 
+    border-radius: 0 5px 5px 0;
 }
 
 .menu-btn {
@@ -223,8 +224,6 @@ body::before {
     margin: 0 4px;
     border-radius: 5px;
     transition: background-color 0.3s;
-    
- 
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +242,7 @@ body::before {
 /* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
     .admin-panel {
-        padding: 0 40px 40px;
+        padding: 0 30px 30px;
     }
 
     .posts-table-header {
@@ -257,18 +256,17 @@ body::before {
         width: 100%;
     }
     .header-col {
-        flex: 0.6;
-        padding: 0px 10px;
+        flex: 1;
+        padding: 0 10px;
         text-align: center;
     }
 
     #header-autor {
-        flex : 1;
-        text-align: left;
+        text-align: center;
     }
 
 
-    #header-titulo {
+    #header-titulo, #header-autor {
         flex: 1;
        text-align: center;
     }
@@ -315,25 +313,27 @@ body::before {
 
     .post-data {
         display: block;
-        flex: 10.5;
+        flex: 2;
         margin-bottom: 0;
         padding: 0 10px;
         text-align: center;
         width: fit-content;
     }
 
-    .post-title, .post-author { flex: 0.5; text-align: center; }
+    .post-title { flex: 2; text-align: left; }
+    .post-author { flex: 2; text-align: center; }
     .post-stats { flex: 1.5; }
     
     .post-id, .post-actions { display: block; }
     .post-stats { justify-content: center; gap: 20px; }
-    .post-title span, .post-author, .post-date { text-align: left; }
+    .post-title span, .post-date { text-align: left; }
+    .post-author { text-align: center; }
+    
     .post-thumbnail { display: none; }
     .post-item::after { display: none; }
     .new-post-btn span { display: inline; }
 
     .action-btn {
-        
         background: none;
         border: none;
         color: var(--gray-text-color);
@@ -392,33 +392,21 @@ body::before {
     display: block;
 }
 
- .action-btn {
-    display: flex;
-    align-items: right;
-    gap: 10px;
-    width: 100%;
-    padding: 10px 75px;
-    text-align: right;
-    margin: 0;
- }
-
-
-
-.post-actions {
+.post-actions .action-btn {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 15px;
+    padding: 10px 45px;
     text-align: left;
     margin: 0;
 }
-
 .post-actions .action-btn span {
     display: inline;
 }
 
 /* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
+
 @media (min-width: 992px) {
     .options-menu-btn {
         display: none;
@@ -440,8 +428,6 @@ body::before {
     }
 }
 
-
-/* CONTROLE DE EXIBIÇÃO MOBILE*/
 .table-container { 
     display: none; 
 }
@@ -468,7 +454,6 @@ nav a, nav strong {
     border: 1px solid #C0C0C0;
     box-shadow: none;
     font-size: 12px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -501,7 +486,7 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important; 
-    }         
+    } 
 
 
     h1 {
@@ -557,13 +542,13 @@ nav a:hover {
     .user-card .name {
         font-size: 26px;
         color: #F5F5F5;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
 
-    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 20px; color: #F5F5F5; margin: 4px 0; }
+    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 12px; }
+    .user-card .meta { font-size: 20px; color: #F5F5F5; margin: 6px 0; }
 
-    .card-actions { display: grid; gap: 12px; margin-top: 16px; }
+    .card-actions { display: grid; gap: 12px; margin-top: 20px; }
 
     .btn-card {
         height: 36px;
@@ -588,7 +573,6 @@ nav a:hover {
         color: #AE171C;
         border: 1px solid #C0C0C0;
         box-shadow: none;
-
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -612,7 +596,7 @@ nav a:hover {
     background: #1A1A1A;
     border: 1px solid #C0C0C0;
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: 14px 60px;
     margin: 10px auto;
     box-shadow: 0 6px 18px #1A1A1A;
     text-align: center;
@@ -623,25 +607,25 @@ nav a:hover {
     color: #F5F5F5;
     font-size: 20px;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .user-card .email {
     color: #F5F5F5;
     font-size: 20px;
-    margin-bottom: 6px; 
+    margin-bottom: 10px; 
 }
 
 .user-card .meta {
     color: #F5F5F5;
     font-size: 20px;
-    margin: 2px 0;
+    margin: 4px 0;
 }
 
 .card-actions {
     display: grid;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 .btn-card {
@@ -653,22 +637,38 @@ nav a:hover {
     color: #F5F5F5;
     font-family: 'Bebas Neue';
     letter-spacing: 0.5px;
- 
+
     cursor: pointer;
     box-shadow: 0 3px 8px #1A1A1A;
 }
 
-.btn-view   { background: #05AC4B; }
-.btn-edit   { background: #fff200b7; }
+.btn-view { background: #05AC4B; }
+.btn-edit { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
+.btn-comentarios { background: #322d4d; }
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
- 
+
+   
+    body {
+        padding: 0;
+        display: block; 
+    }
+
+    .admin-panel {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        padding-bottom: 80px; 
+    }
+    /* ===== FIM DAS ALTERAÇÕES ===== */
+
     .user-cards {
         max-width: 100%; 
         gap: 12px;
-        padding: 0 15px; 
+        padding: 0 15px;
     }
     
     .new-post-btn {
@@ -689,6 +689,7 @@ nav a:hover {
 
 /* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
+    
     .admin-panel { 
         padding-left: 20px;
         padding-right: 20px;
@@ -698,7 +699,6 @@ nav a:hover {
         display: none !important;
     }
 
-
     .user-cards {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
@@ -707,7 +707,7 @@ nav a:hover {
         margin: 0 auto 18px;
         padding: 0;
     }
-
+    
     .user-card {
         margin: 0 !important; 
         max-width: none !important;
@@ -715,6 +715,9 @@ nav a:hover {
 
     .new-post-btn {
         display: flex !important;
+    }
+    .new-post-btn span {
+        display: inline;
     }
     .fab-btn {
         display: none !important;
@@ -726,9 +729,9 @@ nav a:hover {
         justify-content: center;
     }
 
-    .user-card .name { font-size: 24px; margin-bottom: 10px; }
-    .user-card .email { font-size: 14px; margin-bottom: 8px; }
-    .user-card .meta  { font-size: 13px; margin: 3px 0; }
+    .user-card .name { font-size: 24px; margin-bottom: 14px; }
+    .user-card .email { font-size: 14px; margin-bottom: 12px; }
+    .user-card .meta { font-size: 13px; margin: 5px 0; }
     .btn-card { height: 32px; font-size: 14px; }
 }
 /* ================== FIM TABLET AJUSTES ================== */
@@ -756,4 +759,8 @@ nav a:hover {
 .fab-btn:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
 }
