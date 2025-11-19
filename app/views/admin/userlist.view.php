@@ -53,13 +53,13 @@
 
 
                 <!-- ---------Tabela #4567--------------->
-                <?php foreach($users as $user): ?>
+                <?php foreach($usuarios as $user): ?>
 
                 <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><?= $user->id ?></td>
-                    <td class="post-data post-date" data-label="Data"><?= $user->data ?></td>
-                    <td class="post-data post-title" data-label="Título"><?= $user->nome ?></td>
-                    <td class="post-data post-date" data-label="Autor"><?= $user->email ?></td>
+                    <td class="post-data post-id" data-label="Post ID"><?= $usuarios->id ?></td>
+                    <td class="post-data post-date" data-label="Data"><?= $usuarios->data ?></td>
+                    <td class="post-data post-title" data-label="Título"><?= $usuarios->nome ?></td>
+                    <td class="post-data post-date" data-label="Autor"><?= $usuarios->email ?></td>
                     <td class="post-data post-actions" data-label="Ações">
                         <button id="botaoComentar" class="action-btn comentar" onclick="abrirModal('modal-visualizar')"><i class="bi bi-chat-left-text"></i></button>
                         <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar')"><i class="fas fa-eye"></i></button>
@@ -79,9 +79,9 @@
 
         <ul class="user-cards">
             <li class="user-card">
-                <h2 class="name"><?= $user->nome ?></h2>
-                <p class="email"><?= $user->email ?></p>
-                <p class="meta">Data de cadastro: <?= $user->data ?></p>
+                <h2 class="name"><?= $usuarios->nome ?></h2>
+                <p class="email"><?= $usuarios->email ?></p>
+                <p class="meta">Data de cadastro: <?= $usuarios->data ?></p>
                 <p class="meta">USER ID: <?= $user->id ?></p>
                 <div class="card-actions">
                     <button class="btn-card btn-view" type="button" onclick="abrirModal('modal-visualizar')">VISUALIZAR USUÁRIO</button>
@@ -220,13 +220,13 @@
 
                 <form class="caixas-input" method="POST" action="user/create">
                     <h2>Nome</h2>
-                    <input required class="inputs" name ="name" type="text" placeholder="Nome completo do usuário" value="<?= $user->nome ?>">
+                    <input required class="inputs" name ="name" type="text" placeholder="Nome completo do usuário" value="<?= $usuarios->nome ?>">
                     <h2>Email</h2>
-                    <input required class="inputs" type="email" name ="email" placeholder="email@exemplo.com" value="<?= $user->email ?>">
+                    <input required class="inputs" type="email" name ="email" placeholder="email@exemplo.com" value="<?= $usuarios->email ?>">
                     <h2>Senha</h2>
 
                     <div class="input-senha">
-                        <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Nova senha" value="<?= $user->senha ?>">
+                        <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Nova senha" value="<?= $usuarios->senha ?>">
                         <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
                     </div>
                 </form>

@@ -5,16 +5,16 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-class ExampleController
+class AdminController
 {
 
     public function index()
     {
-        $users = App::get('database')->selectAll('users');
+        $usuarios = App::get('database')->selectAll('usuarios');
 
 
 
-        return view('admin/index', compact('users'));
+        return view('admin/userlist', compact('usuarios'));
     }
 
     public function create()
@@ -26,9 +26,9 @@ class ExampleController
         ];
 
 
-        App::get('database')->insert('users', $parameters);
+        App::get('database')->insert('usuarios', $parameters);
 
-        header('Location: /users');
+        header('Location: /usuarios');
 
     }
 
@@ -43,9 +43,9 @@ class ExampleController
 
         $id = $_POST['id'];  // pegar o id do calabreso
 
-        App::get('database')->update('users', $id, $parameters);
+        App::get('database')->update('usuarios', $id, $parameters);
 
-        header('Location: /users');
+        header('Location: /usuarios');
 
 
 
@@ -57,9 +57,9 @@ class ExampleController
     {
         $id = $_POST['id'];  // pegar o id do calabreso
 
-        App::get('database')->delete('users', $id);
+        App::get('database')->delete('usuarios', $id);
 
-        header('Location: /users');
+        header('Location: /usuarios');
 
     }
 
