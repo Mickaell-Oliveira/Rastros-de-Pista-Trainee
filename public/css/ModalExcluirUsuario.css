@@ -184,3 +184,6 @@
     }
 }
 
+.hidden{
+    display: none;
+}
