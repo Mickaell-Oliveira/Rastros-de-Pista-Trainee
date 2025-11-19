@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Tabela de Posts - Admin</title>
+    <link rel="stylesheet" href="../../../public/css/PostPage.css">
+    <link rel="stylesheet" href="../../../public/css/modalVisualizarPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalEditarPost.css">
+    <link rel="stylesheet" href="../../../public/css/ModalExcluirPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalCriarPost.css">
+    <link rel="stylesheet" href="../../../public/css/modalVerComentarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
+</head>
+
+<body>
+
+    <section class="admin-painel">
+        <header class="main-header">
+            <h1>TABELA DE POSTS</h1>
+        </header>
+
+        <!-- Barra de Pesquisa, Nova Publicação-->
+        <div class="toolbar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="">
+            </div>
+            <div class="actions-container">
+                <button class="new-post-btn" onclick="abrirModal('modalCriarPost')">
+                    <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
+                </button>
+               
+            </div>
+        </div>
+
+        <main class="posts-content">
+
+            <table class="tabela">
+
+                 <tr class="posts-table-header">
+                    <th class="header-col">Post ID</th>
+                    <th class="header-col">Data</th>
+                    <th class="header-col" id="header-titulo">Título</th> 
+                    <th class="header-col" id="header-autor">Autor</th>
+                    <th class="header-col" id="header-veiculo">Veículo</th>
+                    <th class="header-col" id="header-ano">Ano do Veículo</th>
+                    <th class="header-col" id="header-tipo">Tipo do post</th>
+                    <th class="header-col" id="header-interacao">Interações</th>
+                    <th class="header-col" id="header-açao">Ações</th>
+                </tr>
+
+
+                 <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
+                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
+                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                    </td>
+                </tr>
+
+                  <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
+                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
+                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                    </td>
+                </tr>
+
+                  <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
+                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
+                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                    </td>
+                </tr>
+
+                 <tr class="post-item">
+                    <td class="post-data post-id" data-label="Post ID">#000</td>
+                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
+                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
+                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
+                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
+                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
+                        <span class="stat">270 <i class="fas fa-eye"></i></span>
+                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    </td>
+                        
+                    <td class="post-data post-actions" data-label="Ações">
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                    </td>
+                </tr>
+
+            </table>
+        </main>
+
+  <ul class="user-cards">
+    
+    <li class="user-card">
+        <h2 class="name">ID: #000</h2>
+        <p class="email">Miguel</p>
+        <p class="email">Meu primeiro Carro...</p>
+      <p class="meta">30/03/2025</p>
+
+      <span class="stat">270 <i class="fas fa-eye" ></i></span>
+      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+      <span class="stat">250 <i class="fas fa-comments"></i></span>
+
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
+          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
+          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
+      </div>
+    </li>
+
+    <li class="user-card">
+        <h2 class="name">ID: #000</h2>
+        <p class="email">Miguel</p>
+        <p class="email">Meu primeiro Carro...</p>
+      <p class="meta">30/03/2025</p>
+
+      <span class="stat">270 <i class="fas fa-eye"></i></span>
+      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+      <span class="stat">250 <i class="fas fa-comments"></i></span>
+
+      <div class="card-actions">
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
+          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
+          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
+      </div>
+    </li>
+
+  </ul>
+
+   <a href="#" class="fab-btn" onclick="abrirModal('modalCriarPost')">
+        <i class="fas fa-plus"></i> 
+    </a>
+
+    <nav class="pagination">
+        <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+        <a href="#" class="page-number active">1</a>
+        <a href="#" class="page-number">2</a>
+        <a href="#" class="page-number">3</a>
+        <a href="#" class="page-number">4</a>
+        <a href="#" class="page-number">5</a>
+        <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+    </nav>
+    </section>
+
+    <!--Modal Visualizar Post-->
+     <div class="modal-overlay hidden" id="modalVisualizarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+        <div id="imgPost">
+        <img src="../../../public/assets/fotoPost.jpg" alt="#">
+        </div>
+        <p id="idPost">#0000000</p>
+
+        <div class="info-post">
+        <i class="bi bi-hand-thumbs-up-fill">47</i>
+        <i class="bi bi-hand-thumbs-down-fill">8</i>
+        <i class="bi bi-chat-fill">12</i>
+        </div>
+        </div>
+
+        <div class="ladoDireito">
+        <h2 class="textos-info-visualizar">Autor</h2>
+        <div class="infos">
+            <p>Usuário</p>
+        </div>
+        <h2 class="textos-info-visualizar">Titulo</h2>
+        <div class="infos">
+            <p>Titulo do Post</p>
+        </div>
+        <h2 class="textos-info-visualizar">Descrição</h2>
+        <div class="infos" id="descricao-info">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <p id="dataPost">05/11/2025</p>
+        
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
+        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Sair</button>
+        </div>
+        </div>
+        </section>
+    </div>
+
+    <!-- Modal Editar Post-->
+    <form action="/editarPost" method="get">
+    <div class="modal-overlay hidden" id="modalEditarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+            <div id="imgPost">
+                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+            </div>
+            <p id="idPost">#0000000</p>
+
+            <div class="info-post">
+                <i class="bi bi-hand-thumbs-up-fill">47</i>
+                <i class="bi bi-hand-thumbs-down-fill">8</i>
+                <i class="bi bi-chat-fill">12</i>
+            </div>
+
+            <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+        </div>
+
+        <div class="ladoDireito">
+            <h2 class="texto-infos">Autor</h2>
+            <div class="info-autor-caixa">Usuário</div>
+            
+            <h2 class="texto-infos">Titulo</h2>
+            <input class="inputs" type="text" value="Titulo">
+            
+            <h2 class="texto-infos">Descrição</h2>
+            <textarea class="inputs" id="inputDesc" type="text" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+            
+            <p id="dataPost">05/11/2025</p>
+            
+            <div class="buttons">
+                <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
+                <button id="btn-salvar" onclick="fecharModal('modalEditarPost')">Salvar</button>
+            </div>
+        </div>
+        </section>
+    </div>
+    </form>
+    <!--Modal Excluir Post-->
+
+    <form action="/excluirPost" method="get">
+    <div class="modal-overlay hidden" id="modalExcluirPost">
+        <section class="container">
+            <div class="borda">
+                <div class="caixa-texto">
+                    <h1>Deseja excluir o Post?</h1>
+                </div>
+                <img src="../../../public/assets/RATO-PARADO.png">
+                <div class="botoes">
+                    <h1>Você não poderá reverter essa alteração</h1>
+                    <div class="sim" id="btn-sim" onclick="fecharModal('modalExcluirPost')">
+                        <h2>Sim</h2>
+                    </div>
+                    <div class="nao" id="btn-nao" onclick="fecharModal('modalExcluirPost')">
+                        <h2>Não</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </form>
+    <!--Modal Criar Post-->
+    <form action="criarPost" method="get">
+    <div class="modal-overlay hidden" id="modalCriarPost">
+        <section class="container"> 
+        <div class="ladoEsquerdo">
+        <div id="imgPost">
+        <img src="../../../public/assets/fotoPost.jpg" alt="#">
+        </div>
+        <p id="idPost">#0000000</p>
+        </div>
+
+
+        <div class="ladoDireito">
+        <h2 class="textos-info-criar">Autor</h2>
+        <div class="info-caixa">Usuário</div>
+
+        <h2 class="textos-info-criar">Titulo</h2>
+        <input class="campo-editavel" type="text" placeholder="Digite o título">
+        
+        <h2 class="textos-info-criar">Descrição</h2>
+        <textarea id="descricao-editavel" placeholder="Digite a descrição"></textarea>
+        
+        <p id="dataPost">05/11/2025</p>
+        
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalCriarPost')">Cancelar</button>
+        <button id="btn-salvar" onclick="fecharModal('modalCriarPost')">Publicar</button>
+        </div>
+        </div>
+        </section>
+    </div>
+    </form>
+    <!--Modal Ver Comentarios-->
+    <form action="/verComentarios" method="get">
+    <div class="modal-overlay hidden" id="modalVerComentarios">
+        <div class="container">
+            
+            <h2>Comentários</h2>
+        
+            <div class="comments-list">
+                
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Mickael #3333</span>
+                            <p>Meu UNO é bem melhor que essa ferrari!!</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>12</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>2</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Miguel #8922</span>
+                            <p>Que ferrari linda meu Deus</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>42</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Bruno #4002</span>
+                            <p>Achei incrivel, so trocaria a cor, deixaria preta</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>8</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>1</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <div class="comment-content">
+                        <img src="#" alt="Avatar" class="comment-avatar">
+                        <div class="comment-text">
+                            <span class="comment-username">Marcos #1111</span>
+                            <p>Prefiro os modelos da Lamborghini</p>
+                            <div class="comment-feedback">
+                                <span class="feedback-item like-data">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span>5</span>
+                                </span>
+                                <span class="feedback-item dislike-data">
+                                    <i class="fas fa-thumbs-down"></i>
+                                    <span>7</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="caixa-btn">
+                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios')">Fechar</button>
+            </div>
+            
+        </div>
+    </div>
+    </form>
+    <script src="../../../public/js/Modal.js"></script>
+    <script src="/public/js/PostChart.js"></script>
+</body>
+</html>
