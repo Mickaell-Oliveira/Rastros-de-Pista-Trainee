@@ -14,7 +14,6 @@
     height: 200px;
     margin-top: 20px;
     margin-right: 20px;
-    margin-left: 20px;
     margin-bottom: 0;
     border: 2px solid #AE171C;
     border-radius: 10px;
@@ -62,6 +61,7 @@
     padding: 8px 10px 8px 10px;
 }
 
+
 #modalEditarPost .inputs:focus{
     border: 2px solid #AE171C;
     outline: none;
@@ -75,6 +75,30 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
+
+#modalEditarPost #input-veiculo{
+    width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+   
+}
+
+#modalEditarPost #input-ano{
+   width: 80px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalEditarPost .ladoEsquerdo{
+    padding-left:10px ;
+}
+
+
 
 #modalEditarPost #inputDesc::-webkit-scrollbar{
     display: none;
@@ -182,74 +206,92 @@
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 20px;
 }
 
-@media (max-width: 700px){
+#modalEditarPost #tipo{
+     background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    height: 40px;
+}
+
+@media (max-width: 700px) {
     
-    #modalEditarPost .container{
+    #modalEditarPost.modal-overlay {
+        padding: 20px !important;
+    }
+
+    #modalEditarPost .container {
         flex-direction: column;
         height: auto;
-        overflow: auto;
+        overflow-y: auto;
+        max-height: 90vh;
     }
 
-    #modalEditarPost .info-post{
-        margin-top: 20px;
-    }
-
-    #modalEditarPost.modal-overlay{
-        padding: 20px !important; 
-    }
-
-    #modalEditarPost .ladoEsquerdo, #modalEditarPost .ladoDireito{
+    #modalEditarPost .ladoEsquerdo, 
+    #modalEditarPost .ladoDireito {
         width: 100%;
     }
 
-    #modalEditarPost #img-rato{
-        display: none;
+    #modalEditarPost .ladoEsquerdo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    #modalEditarPost .info-autor-caixa{
+    #modalEditarPost .inputs,
+    #modalEditarPost select,
+    #modalEditarPost .texto-infos,
+    #modalEditarPost .info-autor-caixa {
         width: 90%;
-        margin: 0px 20px;
-    }
-
-    #modalEditarPost .inputs{
-        width: 90%;
-        margin: 0px 20px;
-    }
-
-    #modalEditarPost .texto-infos{
-        margin-left: 20px;
-    }
-
-    #modalEditarPost .buttons{
-        width: 100%;
-        justify-content: center;
-    }
-
-    #modalEditarPost #imgPost{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #modalEditarPost #idPost{
         margin-left: 0;
-        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
         text-align: center;
     }
 
-    #modalEditarPost #inputDesc{
-        height: 200px;
+    #modalEditarPost .texto-infos {
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
-    #modalEditarPost #dataPost{
-        margin-top: 0;
-        width: 100%;
+    #modalEditarPost #imgPost {
+        margin: 0 auto;
+        display: flex;
         justify-content: center;
     }
-}
 
-#modalEditarPost.hidden{
-    display: none;
+    #modalEditarPost #idPost {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    #modalEditarPost .ladoDireito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modalEditarPost #inputDesc {
+        height: 150px;
+        text-align: left;
+        padding: 10px;
+    }
+
+    #modalEditarPost .buttons {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        padding-bottom: 30px;
+    
+    }
+
+    #modalEditarPost #img-rato {
+        display: none;
+    }
 }
