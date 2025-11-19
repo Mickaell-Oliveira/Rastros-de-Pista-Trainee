@@ -743,3 +743,5 @@ nav a:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
 }
+
+.btn-comentarios{background-color: blueviolet;}
