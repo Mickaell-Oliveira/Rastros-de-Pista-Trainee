@@ -224,24 +224,30 @@
 
             <div class="ladoDireito">
                 <h2>Nome</h2>
-                <form class="caixas-input">
+                
+                <div class="caixas-input">
                     <input class="inputs" type="text" placeholder="Novo nome de usuario">
+                    
                     <h2>Email</h2>
                     <input class="inputs" type="email" placeholder="Novo email">
+                    
                     <h2>Senha</h2>
-                    <input class="inputs" type="password" autocomplete="off" placeholder="Nova senha">
-                    <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
-                </form>
+                    
+                    <div class="input-senha">
+                        <input class="inputs" type="password" autocomplete="off" placeholder="Nova senha">
+                        <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
+                    </div>
+
+                </div>
 
                 <div class="buttons">
-                    <button onclick="fecharModal('modal-editar')" id="btn-cancelar">Cancelar</button>
-                    <button id="btn-salvar">Salvar</button>
+                    <button type="button" onclick="fecharModal('modal-editar')" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" id="btn-salvar">Salvar</button>
                 </div>
             </div>
         </section>
-        </form>
     </div>
-
+</form>
 
 
     <!-- MODAL DELETAR USUÁRIO -->
