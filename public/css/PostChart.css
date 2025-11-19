@@ -24,7 +24,6 @@ body {
     color: white;
     min-height: 100vh;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -38,13 +37,11 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: brightness(0.8);
     z-index: -1;
 }
 
 .admin-painel {
-    max-width: 1200px;
     margin: auto;
     background-color: var(--darker-bg-color);
     position: relative;
@@ -103,6 +100,10 @@ body::before {
     font-size: 1.2rem;
 }
 
+.search-icon:hover{
+color: #AE171C;
+}
+
 .search-bar {
     width: 100%;
     padding: 12px 10px 12px 50px;
@@ -130,6 +131,10 @@ body::before {
     height: 45px;
     font-family: 'Oswald', sans-serif;
    
+}
+
+.new-post-btn:hover{
+    background-color: #e74c3c;
 }
 
 .new-post-btn {
