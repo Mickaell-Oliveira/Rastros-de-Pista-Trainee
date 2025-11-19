@@ -87,7 +87,16 @@
 }
 
 #modalCriarPost #input-ano{
-   width: 80px;
+   width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCriarPost #input-marca{
+    width: 200px;
     resize: none;
     padding: 8px 10px 8px 10px;
     overflow-y: auto;
@@ -114,8 +123,8 @@
     justify-content: flex-end;
     gap: 20px;
     width: 320px;
-    margin-left: 5px;
-    margin-top: 13px;
+    margin-right: 5px;
+    margin-top: 20px;
 }
 
 #modalCriarPost #btn-cancelar{
@@ -188,7 +197,9 @@
 }
 
 #modalCriarPost #tipo{
-     background-color: #1A1A1A;
+    width: 200px;
+    resize: none;
+    background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
@@ -284,6 +295,6 @@
     }
 }
 
-#modalCriarPost.hidden {
-    display: none !important;
+#modalCriarPost.hidden{
+    display: none;
 }

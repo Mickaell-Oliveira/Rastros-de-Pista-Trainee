@@ -56,13 +56,13 @@
 
                 <?php foreach($posts as $post): ?>
                  <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><?- $post->id ?></td>
-                    <td class="post-data post-date" data-label="Data"><?- $post->data ?></td>
-                    <td class="post-data post-title" data-label="Título"><?- $post->titulo ?></td>
-                    <td class="post-data post-date" data-label="Autor"><?- $post->autor ?></td>
-                    <td class="post-data post-veiculo" data-label="Veículo"><?- $post->veiculo ?></td>
-                    <td class="post-data post-date" data-label="Ano do Veículo"><?- $post->ano_veiculo ?></td>
-                    <td class="post-data post-tipo" data-label="Tipo do post"><?- $post->categoria ?></td>
+                    <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
+                    <td class="post-data post-date" data-label="Data"><?= $post->data ?></td>
+                    <td class="post-data post-title" data-label="Título"><?= $post->titulo ?></td>
+                    <td class="post-data post-date" data-label="Autor"><?= $post->autor ?></td>
+                    <td class="post-data post-veiculo" data-label="Veículo"><?= $post->veiculo ?></td>
+                    <td class="post-data post-date" data-label="Ano do Veículo"><?= $post->ano_veiculo ?></td>
+                    <td class="post-data post-tipo" data-label="Tipo do post"><?= $post->categoria ?></td>
                     <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
                         <span class="stat">270 <i class="fas fa-eye"></i></span>
                         <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -84,10 +84,10 @@
   <ul class="user-cards">
     
     <li class="user-card">
-        <h2 class="name"><?- $posts->id ?> #000</h2>
-        <p class="email"><?- $posts->autor ?></p>
-        <p class="email"><?- $posts->titulo ?></p>
-      <p class="meta"><?- $posts->data ?></p>
+        <h2 class="name"><?= $posts->id ?> #000</h2>
+        <p class="email"><?= $posts->autor ?></p>
+        <p class="email"><?= $posts->titulo ?></p>
+      <p class="meta"><?= $posts->data ?></p>
 
       <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -102,10 +102,10 @@
     </li>
 
     <li class="user-card">
-        <h2 class="name"><?- $posts->id ?> #000</h2>
-        <p class="email"><?- $posts->autor ?></p>
-        <p class="email"><?- $posts->titulo ?></p>
-      <p class="meta"><?- $posts->data ?></p>
+        <h2 class="name"><?= $posts->id ?> #000</h2>
+        <p class="email"><?= $posts->autor ?></p>
+        <p class="email"><?= $posts->titulo ?></p>
+      <p class="meta"><?= $posts->data ?></p>
 
       <span class="stat">270 <i class="fas fa-eye"></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -121,9 +121,9 @@
 
   </ul>
 
-   <a href="#" class="fab-btn" onclick="abrirModal('modalCriarPost')">
+   <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
-    </a>
+    </button>
 
     <nav class="pagination">
         <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
@@ -136,7 +136,7 @@
     </nav>
     </section>
 
-     <!--Modal Visualizar Post-->
+     <<!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost">
         <section class="container"> 
       <div class="ladoEsquerdo">
@@ -171,6 +171,23 @@
         <div class="infos">
             <p>Usuário</p>
         </div>
+        <h2 class="textos-info-visualizar">Titulo</h2>
+        <div class="infos">
+            <p>Titulo do Post</p>
+        </div>
+        <h2 class="textos-info-visualizar">Descrição</h2>
+        <div class="infos" id="descricao-info">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <p id="dataPost">05/11/2025</p>
+        
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
+        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Sair</button>
+        </div>
+        </div>
+        </section>
+    </div>
 
     <!-- Modal Editar Post-->
     <form action="/editarPost" method="get">
@@ -243,19 +260,21 @@
     </div>
     </form>
     <!--Modal Criar Post-->
-    <form action="criarPost" method="POST">
+    
     <div class="modal-overlay hidden" id="modalCriarPost">
+    <form action="/tabelaposts/criar" method="POST">
         <section class="container"> 
         <div class="ladoEsquerdo">
             <div id="imgPost">
                 <img src="../../../public/assets/fotoPost.jpg" alt="#">
             </div>
-            <p id="idPost"><?- $posts->id ?></p>
 
             <h2 class="texto-infos">Veiculo</h2>
-            <input class="campo-editavel" id="input-veiculo" type="text" placeholder="Digite o veículo" value="<?- $posts->veiculo ?>">
+            <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo">
             <h2 class="texto-infos">Ano</h2>
-            <input class="campo-editavel" id="input-ano" type="text" placeholder="Ano" value="ano_veiculo">
+            <input class="campo-editavel" id="input-ano" name="ano_veiculo" type="text" placeholder="Ano">
+            <h2 class="texto-infos">Marca</h2>
+            <input class="campo-editavel" id="input-marca" name="marca" type="text" placeholder="Marca do carro">
 
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo" value="categoria">
@@ -272,19 +291,17 @@
 
         <div class="ladoDireito">
         <h2 class="textos-info-criar">Autor</h2>
-        <div class="info-caixa">Usuário</div>
+        <div class="info-caixa">Usuario</div>
 
         <h2 class="textos-info-criar">Titulo</h2>
-        <input class="campo-editavel" type="text" placeholder="Digite o título">
+        <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título">
         
         <h2 class="textos-info-criar">Descrição</h2>
-        <textarea id="descricao-editavel" placeholder="Digite a descrição"></textarea>
-        
-        <p id="dataPost">05/11/2025</p>
+        <textarea id="descricao-editavel" name="descricao" placeholder="Digite a descrição"></textarea>
         
         <div class="buttons">
         <button id="btn-cancelar" onclick="fecharModal('modalCriarPost')">Cancelar</button>
-        <button id="btn-salvar" onclick="fecharModal('modalCriarPost')">Publicar</button>
+        <button id="btn-salvar">Publicar</button>
         </div>
         </div>
         </section>
