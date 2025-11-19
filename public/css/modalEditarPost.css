@@ -216,6 +216,9 @@
     height: 40px;
 }
 
+#modalEditarPost.hidden {
+    display: none ;
+}
 @media (max-width: 700px) {
     
     #modalEditarPost.modal-overlay {
