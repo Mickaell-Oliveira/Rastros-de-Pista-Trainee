@@ -137,6 +137,7 @@
 }
 
 
+
 @media (max-width: 700px) {
 
     #modalExcluirPost .container {
@@ -184,3 +185,6 @@
     }
 }
 
+.hidden{
+    display: none;
+}
