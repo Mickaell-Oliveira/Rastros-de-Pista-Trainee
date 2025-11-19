@@ -17,19 +17,19 @@
 }
 
 body {
-    background: linear-gradient(135deg, #990101 0%, #1A1A1A 60%);
+   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: white;
     min-height: 100vh;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
-
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 0;
 }
+
 
 body::before {
     content: '';
@@ -38,19 +38,19 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: brightness(0.8);
     z-index: -1;
 }
 
 .admin-panel {
-    max-width: 1600px;
-    width: 960px;
-    margin: auto;
+    margin: 20px;
     background-color: var(--darker-bg-color);
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
+    border-radius: 16px;
+    
+    
 }
 
 .admin-panel::before {
@@ -64,6 +64,7 @@ body::before {
     z-index: 0;
     filter: blur(20px);
 }
+
 
 .main-header {
     text-align: center;
@@ -103,12 +104,16 @@ body::before {
     font-size: 1.2rem;
 }
 
+.search-icon:hover{
+color: #AE171C;
+}
+
 .search-bar {
     width: 100%;
     padding: 12px 10px 12px 50px;
     background-color: var(--text-color);
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 16px 0 0 16px;
     color: var(--darker-bg-color);
     font-size: 1rem;
     height: 45px;
@@ -129,20 +134,18 @@ body::before {
     gap: 8px;
     height: 45px;
     font-family: 'Oswald', sans-serif;
+   
+}
+
+.new-post-btn:hover{
+    background-color: #e74c3c;
 }
 
 .new-post-btn {
     background-color: var(--header-bg-color);
     color: var(--text-color);
     font-weight: 500;
-    border-radius: 0 5px 5px 0;
-}
-
-.menu-btn {
-    background-color: var(--card-bg-color);
-    color: var(--text-color);
-    border-radius: 0 5px 5px 0;
-    display: none; 
+    border-radius: 0px 16px 16px 0px;
 }
 
 /* VERSÃO PARA CELULAR: CARDS  */
@@ -218,25 +221,45 @@ body::before {
 
 .pagination a {
     color: var(--text-color);
-    background-color: var(--red-accent-color);
+    background-color: #333;
     text-decoration: none;
     padding: 8px 14px;
     margin: 0 4px;
     border-radius: 5px;
     transition: background-color 0.3s;
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50px;
+    border: none;
+}
+
+.pagination a:hover{
+    background-color: #c0392b;
+   
 }
 .pagination a.arrow {
-    background-color: transparent;
-    color: var(--red-accent-color);
+    background-color: #c0392b;
+    color: #ffffff;
     font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
 }
+
+.pagination a.arrow:hover{
+    background-color: #e74c3c;
+}
+
 .pagination a.page-number.active {
     background-color: var(--text-color);
     color: var(--darker-bg-color);
     font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
 }
 
 /* ================== DESKTOP: TABELA (min-width: 992px) ================== */
@@ -255,10 +278,17 @@ body::before {
         margin: 0;
         width: 100%;
     }
-    .header-col {
-        flex: 1;
+    .header-col,
+    .post-data {
+        display: flex;
+        align-items: center;
         padding: 0 10px;
+        justify-content: center; 
         text-align: center;
+        flex: 1; 
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     #header-autor {
