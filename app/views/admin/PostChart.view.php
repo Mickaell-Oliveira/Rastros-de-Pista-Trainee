@@ -18,7 +18,7 @@
 </head>
 
 <body>
-
+    
     <section class="admin-painel">
         <header class="main-header">
             <h1>TABELA DE POSTS</h1>
@@ -34,10 +34,10 @@
                 <button class="new-post-btn" onclick="abrirModal('modalCriarPost')">
                     <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
                 </button>
-               
             </div>
         </div>
 
+        
         <main class="posts-content">
 
             <table class="tabela">
@@ -54,15 +54,15 @@
                     <th class="header-col" id="header-açao">Ações</th>
                 </tr>
 
-
+                <?php foreach($posts as $post): ?>
                  <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID">#000</td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
+                    <td class="post-data post-id" data-label="Post ID"><?- $post->id ?></td>
+                    <td class="post-data post-date" data-label="Data"><?- $post->data ?></td>
+                    <td class="post-data post-title" data-label="Título"><?- $post->titulo ?></td>
                     <td class="post-data post-date" data-label="Autor">Miguel</td>
-                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
-                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
-                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
+                    <td class="post-data post-veiculo" data-label="Veículo"><?- $post->veiculo ?></td>
+                    <td class="post-data post-date" data-label="Ano do Veículo"><?- $post->ano_veiculo ?></td>
+                    <td class="post-data post-tipo" data-label="Tipo do post"><?- $post->categoria ?></td>
                     <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
                         <span class="stat">270 <i class="fas fa-eye"></i></span>
                         <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -76,73 +76,8 @@
                         <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
                     </td>
                 </tr>
-
-                  <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID">#000</td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
-                    <td class="post-data post-date" data-label="Autor">Miguel</td>
-                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
-                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
-                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
-                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
-                        <span class="stat">270 <i class="fas fa-eye"></i></span>
-                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-                        <span class="stat">250 <i class="fas fa-comments"></i></span>
-                    </td>
-                        
-                    <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
-                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
-                    </td>
-                </tr>
-
-                  <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID">#000</td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
-                    <td class="post-data post-date" data-label="Autor">Miguel</td>
-                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
-                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
-                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
-                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
-                        <span class="stat">270 <i class="fas fa-eye"></i></span>
-                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-                        <span class="stat">250 <i class="fas fa-comments"></i></span>
-                    </td>
-                        
-                    <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
-                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
-                    </td>
-                </tr>
-
-                 <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID">#000</td>
-                    <td class="post-data post-date" data-label="Data">15/04/2025</td>
-                    <td class="post-data post-title" data-label="Título">Meu Primeiro Carro...</td>
-                    <td class="post-data post-date" data-label="Autor">Miguel</td>
-                    <td class="post-data post-veiculo" data-label="Veículo">Mustang GT</td>
-                    <td class="post-data post-date" data-label="Ano do Veículo">2020</td>
-                    <td class="post-data post-tipo" data-label="Tipo do post">encontro</td>
-                    <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
-                        <span class="stat">270 <i class="fas fa-eye"></i></span>
-                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-                        <span class="stat">250 <i class="fas fa-comments"></i></span>
-                    </td>
-                        
-                    <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
-                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
-                    </td>
-                </tr>
-
+                <?php endforeach ?>
+                
             </table>
         </main>
 
@@ -448,6 +383,7 @@
         </div>
     </div>
     </form>
+
     <script src="../../../public/js/Modal.js"></script>
     <script src="/public/js/PostChart.js"></script>
 </body>
