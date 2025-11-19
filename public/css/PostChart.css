@@ -17,7 +17,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #990101 0%, #1A1A1A 60%);
+   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -27,7 +27,7 @@ body {
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 0;
 }
 
@@ -43,17 +43,17 @@ body::before {
     z-index: -1;
 }
 
-.admin-panel {
-    max-width: 1600px;
-    width: 960px;
+.admin-painel {
+    max-width: 1200px;
     margin: auto;
     background-color: var(--darker-bg-color);
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
+    border-radius: 16px;
 }
 
-.admin-panel::before {
+.admin-painel::before {
     content: '';
     position: absolute;
     top: 0;
@@ -108,7 +108,7 @@ body::before {
     padding: 12px 10px 12px 50px;
     background-color: var(--text-color);
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 16px 0 0 16px;
     color: var(--darker-bg-color);
     font-size: 1rem;
     height: 45px;
@@ -129,20 +129,20 @@ body::before {
     gap: 8px;
     height: 45px;
     font-family: 'Oswald', sans-serif;
+   
 }
 
 .new-post-btn {
     background-color: var(--header-bg-color);
     color: var(--text-color);
     font-weight: 500;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0px 16px 16px 0px;
 }
 
 .menu-btn {
     background-color: var(--card-bg-color);
     color: var(--text-color);
     border-radius: 0 5px 5px 0;
-    display: none; 
 }
 
 /* VERSÃO PARA CELULAR: CARDS  */
@@ -218,135 +218,157 @@ body::before {
 
 .pagination a {
     color: var(--text-color);
-    background-color: var(--red-accent-color);
+    background-color: #333;
     text-decoration: none;
     padding: 8px 14px;
     margin: 0 4px;
     border-radius: 5px;
     transition: background-color 0.3s;
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50px;
+    border: none;
+}
+
+.pagination a:hover{
+    background-color: #c0392b;
+   
 }
 .pagination a.arrow {
-    background-color: transparent;
-    color: var(--red-accent-color);
+    background-color: #c0392b;
+    color: #ffffff;
     font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
 }
+
+.pagination a.arrow:hover{
+    background-color: #e74c3c;
+}
+
 .pagination a.page-number.active {
     background-color: var(--text-color);
     color: var(--darker-bg-color);
     font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
 }
 
 /* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
-    .admin-panel {
-        padding: 0 30px 30px;
-    }
+  .admin-panel {
+    padding: 0 30px 30px;
+}
 
-    .posts-table-header {
-        display: flex;
-        background-color: var(--table-header-bg);
-        color: var(--table-header-text);
-        padding: 15px 10px;
-        font-weight: 700;
-        border-radius: 5px;
-        margin: 0;
-        width: 100%;
-    }
-    .header-col {
-        flex: 1;
-        padding: 0 10px;
-        text-align: center;
-    }
-
-    #header-autor {
-        text-align: center;
-    }
+.posts-table-header,
+.post-item {
+    display: flex;
+    width: 100%;
+    padding: 15px 10px;
+    align-items: center;
+    justify-content: center;
+}
 
 
-    #header-titulo, #header-autor {
-        flex: 1;
-       text-align: center;
-    }
+.posts-table-header {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 0;
+}
 
-    #header-interacao {
-        flex: 1.5;
-    }
+.post-item {
+    background-color: var(--card-bg-color);
+    border-bottom: 1px solid var(--text-color);
+    margin-bottom: 0;
+    border-radius: 0;
+}
 
+.post-item:last-child {
+    border-bottom: none;
+}
 
-    .header-col:nth-child(3), .header-col:nth-child(4) {
-        text-align: left;
-    }
+.header-col,
+.post-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding: 0 20px;
+    overflow: hidden;
+}
 
-    .posts-content {
-        padding: 0;
-        margin: 0 20px;
-        display: block; 
+#header-titulo, 
+.post-title {
+    flex: 2; 
+}
+#header-autor{
+    flex: 1.5;
+}
 
-    }
-    
-    .tabela {
-        width: 100%;
-        border-collapse: collapse;
-    }
+#header-veiculo, .post-veiculo { flex: 1.5; }
+#header-ano, .post-date { flex: 1.5; }
+#header-tipo, .post-tipo { flex: 1.5; }
 
-    .table-container { 
-        display: block !important; 
-    }
+#header-interacao { flex: 2; }
+.post-stats {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
-    .post-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: left;
-        margin-bottom: 0;
-        border-radius: 0;
-        padding: 20px 10px;
-        background-color: var(--card-bg-color);
-        border-bottom: 1px solid var(--text-color);
-    }
-    .post-item:last-child {
-        border-bottom: none;
-    }
+.post-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
 
-    .post-data {
-        display: block;
-        flex: 2;
-        margin-bottom: 0;
-        padding: 0 10px;
-        text-align: center;
-        width: fit-content;
-    }
+.post-title span, 
+.post-author span, 
+.post-date, 
+.post-veiculo, 
+.post-tipo {
+    width: 100%;
+    text-align: center;
+}
 
-    .post-title { flex: 2; text-align: left; }
-    .post-author { flex: 2; text-align: center; }
-    .post-stats { flex: 1.5; }
-    
-    .post-id, .post-actions { display: block; }
-    .post-stats { justify-content: center; gap: 20px; }
-    .post-title span, .post-date { text-align: left; }
-    .post-author { text-align: center; }
-    
-    .post-thumbnail { display: none; }
-    .post-item::after { display: none; }
-    .new-post-btn span { display: inline; }
+.post-id { display: block; }
+.post-thumbnail { display: none; }
+.post-item::after { display: none; }
+.new-post-btn span { display: inline; }
+.table-container { display: block !important; }
+.posts-content { padding: 0; margin: 0 20px; display: block; }
+.tabela { width: 100%; border-collapse: collapse; }
 
-    .action-btn {
-        background: none;
-        border: none;
-        color: var(--gray-text-color);
-        font-size: 1rem;
-        cursor: pointer;
-        margin: 0 5px;
-    }
-    .action-btn:hover { color: var(--text-color); }
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--gray-text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.action-btn:hover { color: var(--text-color); }
 
-    .user-cards {
-        display: none !important;
-    }
+.user-cards {
+    display: none !important;
+}
 }
 /* ================== FIM DESKTOP ================== */
 
@@ -364,18 +386,6 @@ body::before {
     z-index: 2;
 }
 
-.options-menu-btn {
-    background: none;
-    border: none;
-    color: var(--gray-text-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.options-menu-btn:hover {
-    color: var(--text-color);
-}
 
 .post-actions {
     display: none;
@@ -397,16 +407,16 @@ body::before {
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 10px 45px;
+    padding: 10px 15px;
     text-align: left;
     margin: 0;
 }
+
 .post-actions .action-btn span {
     display: inline;
 }
 
 /* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
-
 @media (min-width: 992px) {
     .options-menu-btn {
         display: none;
@@ -428,6 +438,8 @@ body::before {
     }
 }
 
+
+/* CONTROLE DE EXIBIÇÃO MOBILE-FIRST */
 .table-container { 
     display: none; 
 }
@@ -454,10 +466,6 @@ nav a, nav strong {
     border: 1px solid #C0C0C0;
     box-shadow: none;
     font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
 }
 
 nav a:hover {
@@ -486,7 +494,7 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important; 
-    } 
+    }           
 
 
     h1 {
@@ -542,13 +550,13 @@ nav a:hover {
     .user-card .name {
         font-size: 26px;
         color: #F5F5F5;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }
 
-    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 12px; }
-    .user-card .meta { font-size: 20px; color: #F5F5F5; margin: 6px 0; }
+    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 20px; color: #F5F5F5; margin: 4px 0; }
 
-    .card-actions { display: grid; gap: 12px; margin-top: 20px; }
+    .card-actions { display: grid; gap: 12px; margin-top: 16px; }
 
     .btn-card {
         height: 36px;
@@ -573,10 +581,6 @@ nav a:hover {
         color: #AE171C;
         border: 1px solid #C0C0C0;
         box-shadow: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
     }
 
     nav a:hover { 
@@ -596,7 +600,7 @@ nav a:hover {
     background: #1A1A1A;
     border: 1px solid #C0C0C0;
     border-radius: 14px;
-    padding: 14px 60px;
+    padding: 14px 16px;
     margin: 10px auto;
     box-shadow: 0 6px 18px #1A1A1A;
     text-align: center;
@@ -607,25 +611,25 @@ nav a:hover {
     color: #F5F5F5;
     font-size: 20px;
     line-height: 1;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .user-card .email {
     color: #F5F5F5;
     font-size: 20px;
-    margin-bottom: 10px; 
+    margin-bottom: 6px; 
 }
 
 .user-card .meta {
     color: #F5F5F5;
     font-size: 20px;
-    margin: 4px 0;
+    margin: 2px 0;
 }
 
 .card-actions {
     display: grid;
     gap: 8px;
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 .btn-card {
@@ -642,33 +646,16 @@ nav a:hover {
     box-shadow: 0 3px 8px #1A1A1A;
 }
 
-.btn-view { background: #05AC4B; }
-.btn-edit { background: #fff200b7; }
+.btn-view   { background: #05AC4B; }
+.btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
-.btn-comentarios { background: #322d4d; }
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
-
-   
-    body {
-        padding: 0;
-        display: block; 
-    }
-
-    .admin-panel {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        border-radius: 0;
-        padding-bottom: 80px; 
-    }
-    /* ===== FIM DAS ALTERAÇÕES ===== */
-
+  
     .user-cards {
-        max-width: 100%; 
+        max-width: 420px;
         gap: 12px;
-        padding: 0 15px;
     }
     
     .new-post-btn {
@@ -689,12 +676,6 @@ nav a:hover {
 
 /* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
-    
-    .admin-panel { 
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
     .table-container { 
         display: none !important;
     }
@@ -707,7 +688,7 @@ nav a:hover {
         margin: 0 auto 18px;
         padding: 0;
     }
-    
+
     .user-card {
         margin: 0 !important; 
         max-width: none !important;
@@ -715,9 +696,6 @@ nav a:hover {
 
     .new-post-btn {
         display: flex !important;
-    }
-    .new-post-btn span {
-        display: inline;
     }
     .fab-btn {
         display: none !important;
@@ -729,9 +707,9 @@ nav a:hover {
         justify-content: center;
     }
 
-    .user-card .name { font-size: 24px; margin-bottom: 14px; }
-    .user-card .email { font-size: 14px; margin-bottom: 12px; }
-    .user-card .meta { font-size: 13px; margin: 5px 0; }
+    .user-card .name { font-size: 24px; margin-bottom: 10px; }
+    .user-card .email { font-size: 14px; margin-bottom: 8px; }
+    .user-card .meta  { font-size: 13px; margin: 3px 0; }
     .btn-card { height: 32px; font-size: 14px; }
 }
 /* ================== FIM TABLET AJUSTES ================== */
@@ -759,8 +737,4 @@ nav a:hover {
 .fab-btn:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
-}
-
-.hidden {
-    display: none;
 }
