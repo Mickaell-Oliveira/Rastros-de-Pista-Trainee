@@ -14,7 +14,6 @@
     height: 200px;
     margin-top: 20px;
     margin-right: 20px;
-    margin-left: 20px;
     margin-bottom: 0;
     border: 2px solid #AE171C;
     border-radius: 10px;
@@ -77,6 +76,29 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
+
+#modalCriarPost #input-veiculo{
+    width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+   
+}
+
+#modalCriarPost #input-ano{
+   width: 80px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCriarPost .ladoEsquerdo{
+    padding-left:10px ;
+}
+
 
 #modalCriarPost #descricao-editavel::-webkit-scrollbar {
     display: none;
@@ -162,87 +184,105 @@
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 20px;
 }
 
-@media (max-width: 700px){
+#modalCriarPost #tipo{
+     background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    height: 40px;
+}
+
+@media (max-width: 700px) {
     
-    #modalCriarPost .container{
+    #modalCriarPost.modal-overlay {
+        padding: 20px !important;
+    }
+
+    #modalCriarPost .container {
         flex-direction: column;
         height: auto;
-        overflow: auto;
+        overflow-y: auto;
+        max-height: 90vh;
     }
 
-    #modalCriarPost .info-post{
-        margin-top: 20px;
-    }
-
-    #modalCriarPost.modal-overlay{
-        padding: 20px !important; 
-    }
-
-    #modalCriarPost .ladoEsquerdo, #modalCriarPost .ladoDireito{
+    #modalCriarPost .ladoEsquerdo, 
+    #modalCriarPost .ladoDireito {
         width: 100%;
     }
 
-    #modalCriarPost #img-rato{
-        display: none;
+    #modalCriarPost .ladoEsquerdo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    #modalCriarPost .info-autor-caixa{
+    #modalCriarPost .inputs,
+    #modalCriarPost .campo-editavel,
+    #modalCriarPost .info-caixa,
+    #modalCriarPost .textos-info-criar,
+    #modalCriarPost .info-autor-caixa {
         width: 90%;
-        margin: 0px 20px;
-    }
-
-    #modalCriarPost .inputs{
-        width: 90%;
-        margin: 0px 20px;
-    }
-
-    #modalCriarPost .texto-infos{
-        margin-left: 20px;
-    }
-
-    #modalCriarPost .buttons{
-        width: 100%;
-        justify-content: center;
-    }
-
-    #modalCriarPost #imgPost{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #modalCriarPost #idPost{
         margin-left: 0;
-        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
         text-align: center;
     }
 
-    #modalCriarPost #descricao-editavel{
-        height: 200px;
-        margin: 0px 20px;
+    #modalCriarPost .textos-info-criar {
+        margin-top: 15px;
+        margin-bottom: 5px;
     }
 
-    #modalCriarPost .campo-editavel{
-        margin: 0px 20px;
+    #modalCriarPost #imgPost {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 
-    #modalCriarPost .info-caixa{
-        margin: 0px 20px;
+    #modalCriarPost #idPost {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
     }
 
-    #modalCriarPost .textos-info-criar{
-        margin-left: 20px;
+    #modalCriarPost .ladoDireito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    #modalCriarPost #dataPost{
+    #modalCriarPost #descricao-editavel {
+        width: 90%;
+        height: 150px;
+        text-align: left;
+        padding: 10px;
+        margin: 0 0 10px 0;
+    }
+
+    #modalCriarPost #dataPost {
         margin-top: 0;
         width: 100%;
+        display: flex;
         justify-content: center;
+    }
+
+    #modalCriarPost .buttons {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    #modalCriarPost #img-rato {
+        display: none;
     }
 }
 
-#modalCriarPost.hidden{
-    display: none;
+#modalCriarPost.hidden {
+    display: none ;
 }
