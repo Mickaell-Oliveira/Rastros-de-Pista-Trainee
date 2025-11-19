@@ -204,17 +204,30 @@
     <!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost">
         <section class="container"> 
-        <div class="ladoEsquerdo">
-        <div id="imgPost">
-        <img src="../../../public/assets/fotoPost.jpg" alt="#">
-        </div>
-        <p id="idPost">#0000000</p>
+      <div class="ladoEsquerdo">
+            <div id="imgPost">
+                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+            </div>
+            <p id="idPost">#0000000</p>
 
-        <div class="info-post">
-        <i class="bi bi-hand-thumbs-up-fill">47</i>
-        <i class="bi bi-hand-thumbs-down-fill">8</i>
-        <i class="bi bi-chat-fill">12</i>
-        </div>
+            <h2 class="texto-infos">Veiculo</h2>
+            <div class="info-veiculo">
+            <p>Veículo</p>
+            </div>
+            <h2 class="texto-infos">Ano</h2>
+            <div class="info-ano">
+                <p>Ano</p>
+                
+      </div>
+            <h2 class="texto-infos">Tipo de post</h2>
+            <select name="post-tipo" id="tipo" disabled>
+  <option value="">Selecione uma opção</option>
+  <option value="passeio">Passeio</option>
+  <option value="daytracker" selected>Day Tracker</option>
+  <option value="viagem">Viagem</option>
+  <option value="encontro">Encontro</option> 
+</select>
+           
         </div>
 
         <div class="ladoDireito">
