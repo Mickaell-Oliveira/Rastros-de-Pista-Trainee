@@ -74,6 +74,7 @@
     padding-top: 10px;
     gap: 20px;
     width: 100%;
+    padding-bottom: 30px;
 }
 
 #modalExcluirPost .botoes h1 {
@@ -183,6 +184,3 @@
     }
 }
 
-.hidden {
-    display: none;
-}
