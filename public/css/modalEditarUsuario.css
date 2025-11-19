@@ -173,6 +173,28 @@ p{
     color: white;
 }
 
+.input-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C0C0C0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.toggle-password:hover {
+    color: #ED1C24;
+}
+
 #dataPost{
     display: flex;
     font-family: "Oswald", sans-serif;;
