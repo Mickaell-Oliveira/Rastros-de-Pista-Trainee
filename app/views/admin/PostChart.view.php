@@ -59,7 +59,7 @@
                     <td class="post-data post-id" data-label="Post ID"><?- $post->id ?></td>
                     <td class="post-data post-date" data-label="Data"><?- $post->data ?></td>
                     <td class="post-data post-title" data-label="Título"><?- $post->titulo ?></td>
-                    <td class="post-data post-date" data-label="Autor">Miguel</td>
+                    <td class="post-data post-date" data-label="Autor"><?- $post->autor ?></td>
                     <td class="post-data post-veiculo" data-label="Veículo"><?- $post->veiculo ?></td>
                     <td class="post-data post-date" data-label="Ano do Veículo"><?- $post->ano_veiculo ?></td>
                     <td class="post-data post-tipo" data-label="Tipo do post"><?- $post->categoria ?></td>
@@ -84,10 +84,10 @@
   <ul class="user-cards">
     
     <li class="user-card">
-        <h2 class="name">ID: #000</h2>
-        <p class="email">Miguel</p>
-        <p class="email">Meu primeiro Carro...</p>
-      <p class="meta">30/03/2025</p>
+        <h2 class="name"><?- $posts->id ?> #000</h2>
+        <p class="email"><?- $posts->autor ?></p>
+        <p class="email"><?- $posts->titulo ?></p>
+      <p class="meta"><?- $posts->data ?></p>
 
       <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -102,10 +102,10 @@
     </li>
 
     <li class="user-card">
-        <h2 class="name">ID: #000</h2>
-        <p class="email">Miguel</p>
-        <p class="email">Meu primeiro Carro...</p>
-      <p class="meta">30/03/2025</p>
+        <h2 class="name"><?- $posts->id ?> #000</h2>
+        <p class="email"><?- $posts->autor ?></p>
+        <p class="email"><?- $posts->titulo ?></p>
+      <p class="meta"><?- $posts->data ?></p>
 
       <span class="stat">270 <i class="fas fa-eye"></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
@@ -136,20 +136,34 @@
     </nav>
     </section>
 
-    <!--Modal Visualizar Post-->
+     <!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost">
         <section class="container"> 
-        <div class="ladoEsquerdo">
-        <div id="imgPost">
-        <img src="../../../public/assets/fotoPost.jpg" alt="#">
-        </div>
-        <p id="idPost">#0000000</p>
+      <div class="ladoEsquerdo">
+            <div id="imgPost">
+                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+            </div>
+            <p id="idPost">#0000000</p>
 
-        <div class="info-post">
-        <i class="bi bi-hand-thumbs-up-fill">47</i>
-        <i class="bi bi-hand-thumbs-down-fill">8</i>
-        <i class="bi bi-chat-fill">12</i>
-        </div>
+            <h2 class="texto-infos">Veiculo</h2>
+            <div class="info-veiculo">
+            <p>Veículo</p>
+            </div>
+            <h2 class="texto-infos">Ano</h2>
+            <div class="info-ano">
+                <p>Ano</p>
+                
+      </div>
+            <h2 class="texto-infos">Tipo de post</h2>
+            <select name="post-tipo" id="tipo" disabled>
+  <option value="">Selecione uma opção</option>
+  <option value="passeio">Passeio</option>
+  <option value="trackday" selected>Tack day</option>
+  <option value="viagem">Viagem</option>
+  <option value="encontro">Encontro</option> 
+  <option value="momentos">Momentos</option>
+</select>
+           
         </div>
 
         <div class="ladoDireito">
@@ -157,23 +171,6 @@
         <div class="infos">
             <p>Usuário</p>
         </div>
-        <h2 class="textos-info-visualizar">Titulo</h2>
-        <div class="infos">
-            <p>Titulo do Post</p>
-        </div>
-        <h2 class="textos-info-visualizar">Descrição</h2>
-        <div class="infos" id="descricao-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <p id="dataPost">05/11/2025</p>
-        
-        <div class="buttons">
-        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
-        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Sair</button>
-        </div>
-        </div>
-        </section>
-    </div>
 
     <!-- Modal Editar Post-->
     <form action="/editarPost" method="get">
@@ -185,13 +182,21 @@
             </div>
             <p id="idPost">#0000000</p>
 
-            <div class="info-post">
-                <i class="bi bi-hand-thumbs-up-fill">47</i>
-                <i class="bi bi-hand-thumbs-down-fill">8</i>
-                <i class="bi bi-chat-fill">12</i>
-            </div>
+            <h2 class="texto-infos">Veiculo</h2>
+            <input class="inputs" id="input-veiculo" type="text" value="<?- $post->veiculo ?>">
+            <h2 class="texto-infos">Ano</h2>
+            <input class="inputs" id="input-ano" type="text" value="<?- $post->ano_veiculo ?>">
 
-            <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
+            <h2 class="texto-infos">Tipo de post</h2>
+            <select name="post-tipo" id="tipo" value="<?- $post->categoria ?>">
+  <option value="">Selecione uma opção</option>
+  <option value="passeio">Passeio</option>
+  <option value="trackday">Track day</option>
+  <option value="viagem">Viagem</option>
+  <option value="encontro">Encontro</option> 
+  <option value="momentos">Momentos</option>
+</select>
+           
         </div>
 
         <div class="ladoDireito">
@@ -199,10 +204,10 @@
             <div class="info-autor-caixa">Usuário</div>
             
             <h2 class="texto-infos">Titulo</h2>
-            <input class="inputs" type="text" value="Titulo">
+            <input class="inputs" type="text" value="<?- $post->titulo ?>">
             
             <h2 class="texto-infos">Descrição</h2>
-            <textarea class="inputs" id="inputDesc" type="text" autocomplete="off">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+            <textarea class="inputs" id="inputDesc" type="text" autocomplete="off" value="<?- $post->descricao ?>">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
             
             <p id="dataPost">05/11/2025</p>
             
@@ -238,14 +243,30 @@
     </div>
     </form>
     <!--Modal Criar Post-->
-    <form action="criarPost" method="get">
+    <form action="criarPost" method="POST">
     <div class="modal-overlay hidden" id="modalCriarPost">
         <section class="container"> 
         <div class="ladoEsquerdo">
-        <div id="imgPost">
-        <img src="../../../public/assets/fotoPost.jpg" alt="#">
-        </div>
-        <p id="idPost">#0000000</p>
+            <div id="imgPost">
+                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+            </div>
+            <p id="idPost"><?- $posts->id ?></p>
+
+            <h2 class="texto-infos">Veiculo</h2>
+            <input class="campo-editavel" id="input-veiculo" type="text" placeholder="Digite o veículo" value="<?- $posts->veiculo ?>">
+            <h2 class="texto-infos">Ano</h2>
+            <input class="campo-editavel" id="input-ano" type="text" placeholder="Ano" value="ano_veiculo">
+
+            <h2 class="texto-infos">Tipo de post</h2>
+            <select name="post-tipo" id="tipo" value="categoria">
+  <option value="">Selecione uma opção</option>
+  <option value="passeio">Passeio</option>
+  <option value="trackday">Track day</option>
+  <option value="viagem">Viagem</option>
+  <option value="encontro">Encontro</option> 
+  <option value="momentos">Momentos</option>
+</select>
+           
         </div>
 
 
@@ -384,7 +405,7 @@
     </div>
     </form>
 
-    <script src="../../../public/js/Modal.js"></script>
+    <script src="/public/js/Modal.js"></script>
     <script src="/public/js/PostChart.js"></script>
 </body>
 </html>

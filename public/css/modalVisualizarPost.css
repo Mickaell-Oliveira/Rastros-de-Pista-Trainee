@@ -14,7 +14,6 @@
     height: 200px;
     margin-top: 20px;
     margin-right: 20px;
-    margin-left: 20px;
     margin-bottom: 0;
     border: 2px solid #AE171C;
     border-radius: 10px;
@@ -28,6 +27,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+#modalVisualizarPost .ladoEsquerdo{
+    margin: 10px;
 }
 
 #modalVisualizarPost h2{
@@ -52,6 +54,35 @@
     align-items: center;
     font-family: "Oswald", sans-serif;
     font-size: 14px;
+}
+
+#modalVisualizarPost .info-veiculo{
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+#modalVisualizarPost .info-ano{
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 80px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+
 }
 
 #modalVisualizarPost .infos p {
@@ -177,62 +208,107 @@
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 20px;
 }
 
-@media (max-width: 700px){
+#modalVisualizarPost #tipo{
+     background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    height: 40px;
+}
+@media (max-width: 700px) {
     
-    #modalVisualizarPost .container{
-        flex-direction: column;
-        height: auto;
-        max-height: 90vh;
-        overflow: auto;
+    #modalVisualizarPost.modal-overlay {
+        padding: 20px ;
     }
 
-    #modalVisualizarPost.modal-overlay{
+    #modalVisualizarPost .container {
+       flex-direction: column;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto; 
+        overflow-x: hidden; 
+        width: 95%; 
+        max-width: 100%; 
+        margin: 0 auto;
+    }
+
+    #modalVisualizarPost .ladoEsquerdo, 
+    #modalVisualizarPost .ladoDireito {
+        width: 100%;
         padding: 0;
     }
 
-    #modalVisualizarPost .ladoEsquesto, #modalVisualizarPost .ladoDireito{
-        width: 100%;
-        padding: 15px;
+    #modalVisualizarPost .ladoEsquerdo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    #modalVisualizarPost #img-rato{
-        margin: 20px auto;
-        display: block;
-    }
-    
-    #modalVisualizarPost .infos{
+    #modalVisualizarPost .infos,
+    #modalVisualizarPost .textos-info-visualizar {
         width: 90%;
-        margin: 0px 20px;
-    }
-
-    #modalVisualizarPost .textos-info-visualizar{
-        margin-left: 20px;
-    }
-
-    #modalVisualizarPost .buttons{
-        width: 100%;
-        justify-content: center;
-    }
-
-    #modalVisualizarPost #imgPost{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #modalVisualizarPost #idPost{
         margin-left: 0;
-        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
         text-align: center;
     }
 
-    #modalVisualizarPost #descricao-info{
-        height: 200px;
+    #modalVisualizarPost .textos-info-visualizar {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    #modalVisualizarPost #imgPost {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    #modalVisualizarPost #idPost {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    #modalVisualizarPost .ladoDireito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modalVisualizarPost #descricao-info {
+        width: 90%;
+        height: 150px;
+        text-align: left;
+        padding: 10px;
+        margin: 0 0 10px 0;
+        overflow-y: auto;
+    }
+
+    #modalVisualizarPost #dataPost {
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #modalVisualizarPost .buttons {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    #modalVisualizarPost #img-rato {
+        display: none;
     }
 }
 
 #modalVisualizarPost.hidden {
-    display: none;
+    display: none ;
 }
