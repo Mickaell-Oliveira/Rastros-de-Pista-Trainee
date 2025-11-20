@@ -48,7 +48,7 @@
                 <?php foreach($posts as $post): ?>
                  <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
-                    <td class="post-data post-date" data-label="Data"><?= $post->data ?></td>
+                    <td class="post-data post-date"><?= date('d/m/Y', strtotime($post->data)) ?></td>
                     <td class="post-data post-title" data-label="Título"><?= $post->titulo ?></td>
                     <td class="post-data post-date" data-label="Autor"><?= $post->autor ?></td>
                     <td class="post-data post-veiculo" data-label="Veículo"><?= $post->veiculo ?></td>
@@ -114,39 +114,34 @@
             <div id="imgPost">
                 <img src="/<?= $post->imagem ?>" alt="">
             </div>
-            <p id="idPost">#0000000</p>
+            <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
             <div class="info-veiculo">
-            <p>Veículo</p>
+            <p><?=$post->veiculo;?></p>
             </div>
             <h2 class="texto-infos">Ano</h2>
             <div class="info-ano">
-                <p>Ano</p>
+                <p><?=$post->ano_veiculo;?></p>
       </div>
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo" disabled>
-                <option value="">Selecione uma opção</option>
-                <option value="passeio">Passeio</option>
-                <option value="trackday" selected>Tack day</option>
-                <option value="viagem">Viagem</option>
-                <option value="encontro">Encontro</option> 
-                <option value="momentos">Momentos</option>
+                <option value=""> <?=$post->categoria?></option>
             </select>
         </div>
         <div class="ladoDireito">
         <h2 class="textos-info-visualizar">Autor</h2>
         <div class="infos">
-            <p>Usuário</p>
+            <p><?=$post->autor;?></p>
         </div>
         <h2 class="textos-info-visualizar">Titulo</h2>
         <div class="infos">
-            <p>Titulo do Post</p>
+            <p><?=$post->titulo;?></p>
         </div>
         <h2 class="textos-info-visualizar">Descrição</h2>
         <div class="infos" id="descricao-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><?=$post->descricao;?></p>
         </div>
-        <p id="dataPost">05/11/2025</p>
+        <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
         
         <div class="buttons">
         <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
@@ -163,13 +158,13 @@
         <section class="container">
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                 <input type="file" name="imagem" accept="imagem/" id="img" required>
+                 <input type="file" name="imagem" accept="imagem/" id="img" >
             </div>
             <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
             <input class="inputs" name = "veiculo" id="input-veiculo" type="text" value="<?=$post->veiculo;?>">
             <h2 class="texto-infos">Ano</h2>
-            <input class="inputs" name = "ano" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
+            <input class="inputs" name = "ano_veiculo" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo">
                 <option value="passeio"<?php if($post->categoria == 'passeio') echo 'selected'; ?>>Passeio</option>
@@ -182,12 +177,12 @@
         </div>
         <div class="ladoDireito">
             <h2 class="texto-infos">Autor</h2>
-            <div class="info-autor-caixa">Usuário</div>
+            <div class="info-autor-caixa"><?=$post->autor;?></div>
             <h2 class="texto-infos">Titulo</h2>
             <input class="inputs" name = "titulo" type="text" value="<?=$post->titulo;?>">
             <h2 class="texto-infos">Descrição</h2>
             <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
-            <p id="dataPost">Data de criação: <?=$post->data;?></p>
+            <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
             <div class="buttons">
             <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
             <button id="btn-salvar" type="submit">Publicar</button>

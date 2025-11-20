@@ -70,8 +70,11 @@ class AdminController
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['imagem']['tmp_name'];
             $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            
             $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . $extensao;
+
             $caminhodaimagem = "public/assets/imagemPosts/" . $nomeimagem;
+
             move_uploaded_file($temporario, $caminhodaimagem);
         }
             
