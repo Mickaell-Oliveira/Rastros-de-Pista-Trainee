@@ -14,7 +14,7 @@ class AdminController
 
 
 
-        return view('admin/userlist', compact('usuarios'));
+        return view('admin/userlist', ['usuarios' => $usuarios]);
     }
 
     public function create()
@@ -36,18 +36,17 @@ class AdminController
     {
     
              $parameters = [
-            'nome' => $_POST['name'],
-            'email' => $_POST['email'],
-            'senha' => $_POST['senha']
+                'nome' => $_POST['name'],
+                'email' => $_POST['email'],
+                'senha' => $_POST['senha'],
+                'data' => date('Y-m-d H:i:s')
         ];
 
-        $id = $_POST['id'];  // pegar o id do calabreso
+        $id = $_POST['id'];  
 
         App::get('database')->update('usuarios', $id, $parameters);
 
         header('Location: /usuarios');
-
-
 
 
         

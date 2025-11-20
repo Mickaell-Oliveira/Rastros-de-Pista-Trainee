@@ -53,13 +53,14 @@
 
 
                 <!-- ---------Tabela #4567--------------->
-                <?php foreach($usuarios as $user): ?>
+
+<?php foreach($usuarios as $user): ?>
 
                 <tr class="post-item">
-                    <td class="post-data post-id" data-label="Post ID"><?= $usuarios->id ?></td>
-                    <td class="post-data post-date" data-label="Data"><?= $usuarios->data ?></td>
-                    <td class="post-data post-title" data-label="Título"><?= $usuarios->nome ?></td>
-                    <td class="post-data post-date" data-label="Autor"><?= $usuarios->email ?></td>
+                    <td class="post-data post-id" data-label="Post ID"><?= $user->id ?></td>
+                    <td class="post-data post-date" data-label="Data"><?= date('d/m/Y', strtotime($user->data)) ?></td>
+                    <td class="post-data post-title" data-label="Título"><?= $user->nome ?></td>
+                    <td class="post-data post-date" data-label="Autor"><?= $user->email ?></td>
                     <td class="post-data post-actions" data-label="Ações">
                         <button id="botaoComentar" class="action-btn comentar" onclick="abrirModal('modal-visualizar')"><i class="bi bi-chat-left-text"></i></button>
                         <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar')"><i class="fas fa-eye"></i></button>
@@ -67,38 +68,37 @@
                         <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir')"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
-
-
-
-
-                
+    <?php endforeach; ?>
             </table>
+
         </main>
 
+
+
+<?php foreach($usuarios as $user): ?>
         <!-- Cards (Mobile) -->
 
         <ul class="user-cards">
             <li class="user-card">
-                <h2 class="name"><?= $usuarios->nome ?></h2>
-                <p class="email"><?= $usuarios->email ?></p>
-                <p class="meta">Data de cadastro: <?= $usuarios->data ?></p>
+                <h2 class="name"><?= $user->nome ?></h2>
+                <p class="email"><?= $user->email ?></p>
+                <p class="meta">Data de cadastro: <?= date('d/m/Y', strtotime($user->data)) ?></p>
                 <p class="meta">USER ID: <?= $user->id ?></p>
                 <div class="card-actions">
                     <button class="btn-card btn-view" type="button" onclick="abrirModal('modal-visualizar')">VISUALIZAR USUÁRIO</button>
                     <button class="btn-card btn-edit" type="button" onclick="abrirModal('modal-editar')">EDITAR USUÁRIO</button>
                     <button class="btn-card btn-delete" type="button" onclick="abrirModal('modal-excluir')">DELETAR USUÁRIO</button>
                 </div>
-            </li>
-
-         
-            
+            </li> 
         </ul>
 
         <a href="#" class="fab-btn" onclick="abrirModal('modal-criar')">
             <i class="fas fa-plus"></i>
         </a>
+<?php endforeach; ?>
 
-        <nav class="pagination">
+
+    <nav class="pagination">
             <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
             <a href="#" class="page-number active">1</a>
             <a href="#" class="page-number">2</a>
@@ -106,41 +106,44 @@
             <a href="#" class="page-number">4</a>
             <a href="#" class="page-number">5</a>
             <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
-        </nav>
-    </section>
-
-
-
-
+    </nav>
+  </section>
     <!-- MODAL VISUALIZAR USUÁRIO -->
-
-    <div class="modal-overlay hidden" id="modal-visualizar">
+<?php foreach($usuarios as $user): ?>
+    <div class="modal-overlay hidden" id="modal-visualizar" method="get">
         <section class="container">
-            <div class="ladoEsquerdo"></div>
-            <div id="imgPost">
-                <img src="../../../public/assets/fotoPost.jpg" alt="Foto do usuário">
+            <div class="ladoEsquerdo">
+
+                <div id="imgPost">
+                   <img src="../../../public/assets/fotoPost.jpg" alt="Foto do usuário">
+                </div>
+                <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
             </div>
 
+
             <div class="ladoDireito">
-                <h2>Nome</h2>
+                
                 <div class="caixas-input">
-                    <input class="inputs" type="text" disabled>
+                    <h2>Nome</h2>
+                    <p class="inputs" type="text" disabled><?= $user->nome ?></p>
+
                     <h2>Email</h2>
-                    <input class="inputs" type="text" disabled>
+                    <p class="inputs" type="text" disabled><?= $user->email ?></p>
                 </div>
 
                 <div class="buttons">
-                    <button onclick="fecharModal('modal-visualizar')" id="btn-cancelar">Cancelar</button>
-                    <button id="btn-salvar">Salvar</button>
+                    <button onclick="fecharModal('modal-visualizar')" id="btn-cancelar">Fechar</button>
                 </div>
+
             </div>
         </section>
     </div>
+<?php endforeach; ?>
 
 
-
+<?php foreach($usuarios as $user): ?>
     <!-- MODAL EDITAR USUÁRIO -->
-    <form action="/user/edit" method="post">
+    <form action="/user/edit" method="POST">
     <div class="modal-overlay hidden" id="modal-editar">
         <section class="container">
             <div class="ladoEsquerdo">
@@ -176,10 +179,11 @@
         </section>
     </div>
 </form>
+<?php endforeach; ?>
 
-
+<?php foreach($usuarios as $user): ?>
     <!-- MODAL DELETAR USUÁRIO -->
-    <form action="/user/delete" method="get">
+    <form action="/user/delete" method="POST">
     <div class="modal-overlay hidden" id="modal-excluir">
         <section class="container">
             <div class="borda">
@@ -200,86 +204,48 @@
         </section>
         </form>
     </div>
-
+<?php endforeach; ?>
 
     
     <!-- MODAL CRIAR USUÁRIO -->
-    <form action="/user/create" method="post">
+    <form action="/user/create" method="POST">
     <div class="modal-overlay hidden" id="modal-criar">
         <section class="container">
             <div class="ladoEsquerdo">
                 <div id="imgPost">
                     <img src="../../../public/assets/imagemPerfil.jpg" alt="Foto do usuário">
                 </div>
-                
             </div>
 
             <div class="ladoDireito">
+                    <form class="caixas-input" method="POST" action="user/create">
+                    
+                        <h2>Nome</h2>
+                        <input required class="inputs" name ="name" type="text" placeholder="Nome completo do usuário" value="<?= $usuarios->nome ?>">
 
-        
+                        <h2>Email</h2>
+                        <input required class="inputs" type="email" name ="email" placeholder="email@exemplo.com" value="<?= $usuarios->email ?>">
+                        
+                        <h2>Senha</h2>
+                        <div class="input-senha">
+                            <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Nova senha" value="<?= $usuarios->senha ?>">
+                            <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
+                        </div>
+                    </form>
 
-                <form class="caixas-input" method="POST" action="user/create">
-                    <h2>Nome</h2>
-                    <input required class="inputs" name ="name" type="text" placeholder="Nome completo do usuário" value="<?= $usuarios->nome ?>">
-                    <h2>Email</h2>
-                    <input required class="inputs" type="email" name ="email" placeholder="email@exemplo.com" value="<?= $usuarios->email ?>">
-                    <h2>Senha</h2>
-
-                    <div class="input-senha">
-                        <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Nova senha" value="<?= $usuarios->senha ?>">
-                        <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
+                    <div class="buttons">
+                        <button onclick="fecharModal('modal-criar')" id="btn-cancelar">Cancelar</button>
+                        <button id="btn-salvar">Salvar</button>
                     </div>
-                </form>
-
-                <div class="buttons">
-                    <button onclick="fecharModal('modal-criar')" id="btn-cancelar">Cancelar</button>
-                    <button id="btn-salvar">Salvar</button>
                 </div>
-            </div>
-        </section>
+            </section>
         </form>
     </div>
+
+
+
 
     
-
-
-    <!-- MODAL COMENTAR -->
-    <form action="/comentar" method="get">
-    <div class="modal-overlay hidden" id="modal-comentar">
-        <section class="container">
-            <div class="ladoEsquerdo">
-                <div id="imgPost">
-                    <img src="../../../public/assets/imagemCarrinho.jpg" alt="Foto do usuário">
-                </div>
-                <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
-            </div>
-
-            <div class="ladoDireito">
-                <h2>Nome</h2>
-                <div class="caixas-input">
-                    <input class="inputs" type="text" placeholder="Nome completo do usuário">
-                    <h2>Email</h2>
-                    <input class="inputs" type="email" placeholder="email@exemplo.com">
-                    <h2>Senha</h2>
-                    <input class="inputs" type="password" autocomplete="off" placeholder="Senha forte">
-                </div>
-
-                <div class="buttons">
-                    <button onclick="fecharModal('modal-comentar')" id="btn-cancelar">Cancelar</button>
-                    <button id="btn-salvar">Salvar</button>
-                </div>
-            </div>
-        </section>
-        </form>
-
-
-
-    </div>
-
-
-    <?php endforeach; ?>
-
-
 
     <script src="/public\js\Modal.js"></script>
     <script src="/public\js\PostChart.js"></script>
