@@ -28,6 +28,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 20px 0;
+    
 }
 
 body::before {
@@ -48,6 +49,7 @@ body::before {
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
+    width: 96%;
 }
 
 .admin-painel::before {
@@ -55,7 +57,7 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40%;
+    width: 90%;
     height: 40%;
     background: radial-gradient(circle, rgba(183, 28, 28, 0.3), transparent 70%);
     z-index: 0;

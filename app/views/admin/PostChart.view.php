@@ -171,26 +171,26 @@
     </div>
     
     <!-- Modal Editar Post-->
-    <form action="/editarPost" method="get">
+    <form action="/editarPost" method="POST">
     <div class="modal-overlay hidden" id="modalEditarPost">
-        <section class="container"> 
+        <input type="hidden" name = "id" value="<?=$post->id;?>">
+        <section class="container">
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+                 <input type="file" name="imagem" accept="imagem/" id="img" required>
             </div>
-            <p id="idPost">#0000000</p>
+            <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
-            <input class="inputs" id="input-veiculo" type="text" value="<?- $post->veiculo ?>">
+            <input class="inputs" name = "veiculo" id="input-veiculo" type="text" value="<?=$post->veiculo;?>">
             <h2 class="texto-infos">Ano</h2>
-            <input class="inputs" id="input-ano" type="text" value="<?- $post->ano_veiculo ?>">
+            <input class="inputs" name = "ano" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
             <h2 class="texto-infos">Tipo de post</h2>
-            <select name="post-tipo" id="tipo" value="<?- $post->categoria ?>">
-                <option value="">Selecione uma opção</option>
-                <option value="passeio">Passeio</option>
-                <option value="trackday">Track day</option>
-                <option value="viagem">Viagem</option>
-                <option value="encontro">Encontro</option> 
-                <option value="momentos">Momentos</option>
+            <select name="post-tipo" id="tipo">
+                <option value="passeio"<?php if($post->categoria == 'passeio') echo 'selected'; ?>>Passeio</option>
+                <option value="trackday"<?php if($post->categoria == 'trackday') echo 'selected'; ?>>Track day</option>
+                <option value="viagem"<?php if($post->categoria == 'viagem') echo 'selected'; ?>>Viagem</option>
+                <option value="encontro"<?php if($post->categoria == 'encontro') echo 'selected'; ?>>Encontro</option> 
+                <option value="momentos"<?php if($post->categoria == 'momentos') echo 'selected'; ?>>Momentos</option>
 </select>
            
         </div>
@@ -198,14 +198,14 @@
             <h2 class="texto-infos">Autor</h2>
             <div class="info-autor-caixa">Usuário</div>
             <h2 class="texto-infos">Titulo</h2>
-            <input class="inputs" type="text" value="<?- $post->titulo ?>">
+            <input class="inputs" name = "titulo" type="text" value="<?=$post->titulo;?>">
             <h2 class="texto-infos">Descrição</h2>
-            <textarea class="inputs" id="inputDesc" type="text" autocomplete="off" value="<?- $post->descricao ?>">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-            <p id="dataPost">05/11/2025</p>
+            <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
+            <p id="dataPost">Data de criação: <?=$post->data;?></p>
             <div class="buttons">
-                <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
-                <button id="btn-salvar" onclick="fecharModal('modalEditarPost')">Salvar</button>
-            </div>
+            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
+            <button id="btn-salvar" type="submit">Publicar</button>
+        </div>
         </div>
         </section>
     </div>
@@ -224,7 +224,7 @@
                 <div class="botoes">
                     <h1>Você não poderá reverter essa alteração</h1>
                    <button class="sim" id="btn-sim" type="submit">Sim</button>
-                   <button class="nao" id="btn-nao" type="submit">cancelar</button>
+                   <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">cancelar</button>
                 </div>
             </div>
         </section>

@@ -48,13 +48,31 @@ class QueryBuilder
 
     public function delete($table, $id)
     {
-        $sql = sprintf('DELETE FROM %s WHERE %s',
+        $sql = sprintf('DELETE FROM %s   WHERE %s',
         $table,
         'id = :id'
     );
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(compact('id'));
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+  public function update($table, $id, $parameters)
+    {
+        $setPart = implode(', ', array_map(function ($key) {
+            return "{$key} = :{$key}";
+        }, array_keys($parameters)));
+
+        $sql = "UPDATE {$table} SET {$setPart} WHERE id = :id";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $parameters['id'] = $id;
+            $stmt->execute($parameters);
 
         } catch (Exception $e) {
             die($e->getMessage());
