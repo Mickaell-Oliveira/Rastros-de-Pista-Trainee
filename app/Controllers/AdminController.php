@@ -49,7 +49,18 @@ class AdminController
 
      
         header('Location: /tabelaposts');
+
       
     }
+  public function delete()
+        {
+         $id = $_POST['id'];
 
+          App::get('database')->delete('posts', $id);
+
+          header('Location: /tabelaposts');
+        }
+      
 } 
+
+?>

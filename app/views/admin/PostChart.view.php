@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
     <title>Tabela de Posts - Admin</title>
     <link rel="stylesheet" href="../../../public/css/PostPage.css">
     <link rel="stylesheet" href="../../../public/css/modalVisualizarPost.css">
@@ -18,12 +16,10 @@
 </head>
 
 <body>
-    
     <section class="admin-painel">
         <header class="main-header">
             <h1>TABELA DE POSTS</h1>
         </header>
-
         <!-- Barra de Pesquisa, Nova Publicação-->
         <div class="toolbar">
             <div class="search-container">
@@ -36,12 +32,8 @@
                 </button>
             </div>
         </div>
-
-        
         <main class="posts-content">
-
             <table class="tabela">
-
                  <tr class="posts-table-header">
                     <th class="header-col">Post ID</th>
                     <th class="header-col">Data</th>
@@ -53,7 +45,6 @@
                     <th class="header-col" id="header-interacao">Interações</th>
                     <th class="header-col" id="header-açao">Ações</th>
                 </tr>
-
                 <?php foreach($posts as $post): ?>
                  <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
@@ -68,7 +59,6 @@
                         <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
                         <span class="stat">250 <i class="fas fa-comments"></i></span>
                     </td>
-                        
                     <td class="post-data post-actions" data-label="Ações">
                         <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
                         <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
@@ -82,17 +72,15 @@
         </main>
 
   <ul class="user-cards">
-    
+
     <li class="user-card">
         <h2 class="name"><?= $posts->id ?> #000</h2>
         <p class="email"><?= $posts->autor ?></p>
         <p class="email"><?= $posts->titulo ?></p>
       <p class="meta"><?= $posts->data ?></p>
-
       <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>
-
       <div class="card-actions">
           <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
           <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
@@ -100,7 +88,6 @@
           <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
       </div>
     </li>
-
     <li class="user-card">
         <h2 class="name"><?= $posts->id ?> #000</h2>
         <p class="email"><?= $posts->autor ?></p>
@@ -118,13 +105,10 @@
           <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
       </div>
     </li>
-
   </ul>
-
    <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
     </button>
-
     <nav class="pagination">
         <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
         <a href="#" class="page-number active">1</a>
@@ -136,6 +120,7 @@
     </nav>
     </section>
 
+    <?php foreach($posts as $post): ?>
      <<!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost">
         <section class="container"> 
@@ -144,7 +129,6 @@
                 <img src="/<?= $post->imagem ?>" alt="">
             </div>
             <p id="idPost">#0000000</p>
-
             <h2 class="texto-infos">Veiculo</h2>
             <div class="info-veiculo">
             <p>Veículo</p>
@@ -152,20 +136,17 @@
             <h2 class="texto-infos">Ano</h2>
             <div class="info-ano">
                 <p>Ano</p>
-                
       </div>
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo" disabled>
-  <option value="">Selecione uma opção</option>
-  <option value="passeio">Passeio</option>
-  <option value="trackday" selected>Tack day</option>
-  <option value="viagem">Viagem</option>
-  <option value="encontro">Encontro</option> 
-  <option value="momentos">Momentos</option>
-</select>
-           
+                <option value="">Selecione uma opção</option>
+                <option value="passeio">Passeio</option>
+                <option value="trackday" selected>Tack day</option>
+                <option value="viagem">Viagem</option>
+                <option value="encontro">Encontro</option> 
+                <option value="momentos">Momentos</option>
+            </select>
         </div>
-
         <div class="ladoDireito">
         <h2 class="textos-info-visualizar">Autor</h2>
         <div class="infos">
@@ -188,7 +169,7 @@
         </div>
         </section>
     </div>
-
+    
     <!-- Modal Editar Post-->
     <form action="/editarPost" method="get">
     <div class="modal-overlay hidden" id="modalEditarPost">
@@ -198,36 +179,29 @@
                 <img src="../../../public/assets/fotoPost.jpg" alt="#">
             </div>
             <p id="idPost">#0000000</p>
-
             <h2 class="texto-infos">Veiculo</h2>
             <input class="inputs" id="input-veiculo" type="text" value="<?- $post->veiculo ?>">
             <h2 class="texto-infos">Ano</h2>
             <input class="inputs" id="input-ano" type="text" value="<?- $post->ano_veiculo ?>">
-
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo" value="<?- $post->categoria ?>">
-  <option value="">Selecione uma opção</option>
-  <option value="passeio">Passeio</option>
-  <option value="trackday">Track day</option>
-  <option value="viagem">Viagem</option>
-  <option value="encontro">Encontro</option> 
-  <option value="momentos">Momentos</option>
+                <option value="">Selecione uma opção</option>
+                <option value="passeio">Passeio</option>
+                <option value="trackday">Track day</option>
+                <option value="viagem">Viagem</option>
+                <option value="encontro">Encontro</option> 
+                <option value="momentos">Momentos</option>
 </select>
            
         </div>
-
         <div class="ladoDireito">
             <h2 class="texto-infos">Autor</h2>
             <div class="info-autor-caixa">Usuário</div>
-            
             <h2 class="texto-infos">Titulo</h2>
             <input class="inputs" type="text" value="<?- $post->titulo ?>">
-            
             <h2 class="texto-infos">Descrição</h2>
             <textarea class="inputs" id="inputDesc" type="text" autocomplete="off" value="<?- $post->descricao ?>">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-            
             <p id="dataPost">05/11/2025</p>
-            
             <div class="buttons">
                 <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
                 <button id="btn-salvar" onclick="fecharModal('modalEditarPost')">Salvar</button>
@@ -236,86 +210,77 @@
         </section>
     </div>
     </form>
-    <!--Modal Excluir Post-->
 
-    <form action="/excluirPost" method="get">
-    <div class="modal-overlay hidden" id="modalExcluirPost">
-        <section class="container">
-            <div class="borda">
+    <!--Modal Excluir Post-->
+    <form action="/excluirPost" method="POST">
+        <div class="modal-overlay hidden" id="modalExcluirPost">
+            <input type="hidden" name = "id" value="<?=$post->id;?>">
+            <section class="container">
+                <div class="borda">
                 <div class="caixa-texto">
                     <h1>Deseja excluir o Post?</h1>
                 </div>
                 <img src="../../../public/assets/RATO-PARADO.png">
                 <div class="botoes">
                     <h1>Você não poderá reverter essa alteração</h1>
-                    <div class="sim" id="btn-sim" onclick="fecharModal('modalExcluirPost')">
-                        <h2>Sim</h2>
-                    </div>
-                    <div class="nao" id="btn-nao" onclick="fecharModal('modalExcluirPost')">
-                        <h2>Não</h2>
-                    </div>
+                   <button class="sim" id="btn-sim" type="submit">Sim</button>
+                   <button class="nao" id="btn-nao" type="submit">cancelar</button>
                 </div>
             </div>
         </section>
     </div>
     </form>
-    <!--Modal Criar Post-->
-    
+    <?php endforeach ?>
+
+    <!--Modal Criar Post-->    
     <div class="modal-overlay hidden" id="modalCriarPost">
     <form action="/tabelaposts/criar" method="POST">
         <section class="container"> 
         <div class="ladoEsquerdo">
             <div id="imgPost">
-               <input type="file" name="imagem" accept="imagem/" id="img">
+               <input type="file" name="imagem" accept="imagem/" id="img" required>
             </div>
-
             <h2 class="texto-infos">Veiculo</h2>
-            <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo">
+            <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo" required>
             <h2 class="texto-infos">Ano</h2>
-            <input class="campo-editavel" id="input-ano" name="ano_veiculo" type="text" placeholder="Ano">
+            <input class="campo-editavel" id="input-ano" name="ano_veiculo" type="text" placeholder="Ano" required>
             <h2 class="texto-infos">Marca</h2>
-            <input class="campo-editavel" id="input-marca" name="marca" type="text" placeholder="Marca do carro">
-
+            <input class="campo-editavel" id="input-marca" name="marca" type="text" placeholder="Marca do carro" required>
             <h2 class="texto-infos">Tipo de post</h2>
-            <select name="post-tipo" id="tipo" value="categoria">
-  <option value="">Selecione uma opção</option>
-  <option value="passeio">Passeio</option>
-  <option value="trackday">Track day</option>
-  <option value="viagem">Viagem</option>
-  <option value="encontro">Encontro</option> 
-  <option value="momentos">Momentos</option>
+            <select name="post-tipo" id="tipo" value="categoria"required>
+                <option value="">Selecione uma opção</option>
+                <option value="passeio">Passeio</option>
+                <option value="trackday">Track day</option>
+                <option value="viagem">Viagem</option>
+                <option value="encontro">Encontro</option> 
+                <option value="momentos">Momentos</option>
 </select>
            
         </div>
-
-
         <div class="ladoDireito">
         <h2 class="textos-info-criar">Autor</h2>
         <div class="info-caixa">Usuario</div>
-
         <h2 class="textos-info-criar">Titulo</h2>
-        <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título">
-        
+        <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título" required>
         <h2 class="textos-info-criar">Descrição</h2>
-        <textarea id="descricao-editavel" name="descricao" placeholder="Digite a descrição"></textarea>
-        
+        <textarea id="descricao-editavel" name="descricao" placeholder="Digite a descrição" required></textarea>
         <div class="buttons">
         <button id="btn-cancelar" onclick="fecharModal('modalCriarPost')">Cancelar</button>
-        <button id="btn-salvar">Publicar</button>
+        <button id="btn-salvar" type="submit">Publicar</button>
         </div>
         </div>
         </section>
     </div>
     </form>
+
+    <?php foreach($posts as $post): ?>
+
     <!--Modal Ver Comentarios-->
     <form action="/verComentarios" method="get">
     <div class="modal-overlay hidden" id="modalVerComentarios">
-        <div class="container">
-            
+        <div class="container">            
             <h2>Comentários</h2>
-        
             <div class="comments-list">
-                
                 <div class="comment-item">
                     <div class="comment-content">
                         <img src="#" alt="Avatar" class="comment-avatar">
@@ -339,7 +304,6 @@
                         <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
-                
                 <div class="comment-item">
                     <div class="comment-content">
                         <img src="#" alt="Avatar" class="comment-avatar">
@@ -363,7 +327,6 @@
                         <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
-
                 <div class="comment-item">
                     <div class="comment-content">
                         <img src="#" alt="Avatar" class="comment-avatar">
@@ -421,6 +384,8 @@
         </div>
     </div>
     </form>
+     <?php endforeach ?>
+
 
     <script src="/public/js/Modal.js"></script>
     <script src="/public/js/PostChart.js"></script>
