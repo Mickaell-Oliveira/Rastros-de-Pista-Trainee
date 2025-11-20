@@ -71,13 +71,15 @@
             </table>
         </main>
 
+
+<?php foreach($posts as $post): ?>
   <ul class="user-cards">
 
     <li class="user-card">
-        <h2 class="name"><?= $posts->id ?> #000</h2>
-        <p class="email"><?= $posts->autor ?></p>
-        <p class="email"><?= $posts->titulo ?></p>
-      <p class="meta"><?= $posts->data ?></p>
+        <h2 class="name"><?=$post->id?></h2>
+        <p class="email"><?=$post->autor?></p>
+        <p class="email"><?=$post->titulo?></p>
+      <p class="meta"><?= $post->data ?></p>
       <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>
@@ -88,24 +90,8 @@
           <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
       </div>
     </li>
-    <li class="user-card">
-        <h2 class="name"><?= $posts->id ?> #000</h2>
-        <p class="email"><?= $posts->autor ?></p>
-        <p class="email"><?= $posts->titulo ?></p>
-      <p class="meta"><?= $posts->data ?></p>
-
-      <span class="stat">270 <i class="fas fa-eye"></i></span>
-      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-      <span class="stat">250 <i class="fas fa-comments"></i></span>
-
-      <div class="card-actions">
-          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
-          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
-          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
-          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
-      </div>
-    </li>
-  </ul>
+  </ul> 
+  <?php endforeach ?>
    <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
     </button>
