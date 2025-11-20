@@ -141,7 +141,7 @@
         <section class="container"> 
       <div class="ladoEsquerdo">
             <div id="imgPost">
-                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+                <img src="/<?= $post->imagem ?>" alt="">
             </div>
             <p id="idPost">#0000000</p>
 
@@ -266,7 +266,7 @@
         <section class="container"> 
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                <img src="../../../public/assets/fotoPost.jpg" alt="#">
+               <input type="file" name="imagem" accept="imagem/" id="img">
             </div>
 
             <h2 class="texto-infos">Veiculo</h2>
