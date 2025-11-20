@@ -28,9 +28,6 @@ class AdminController
             'foto' => $_POST[''] ?? null,
             'marca' => $_POST['marca'] ?? null,
             'id' => $_POST['id'] ?? null
-
-
-
         ];
 
         App::get('database')->insert('posts',$parameters);
