@@ -1,4 +1,4 @@
-#modal-editar {
+.modal-editar {
 
 
 *{
@@ -21,7 +21,7 @@ body {
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#imgPost{
+.imgPost{
     width: 250px;
     height: 200px;
     margin-top: 20px;
@@ -33,7 +33,7 @@ body {
     overflow: hidden;
 }
 
-#imgPost img {
+.imgPost img {
     border: none;
     outline: none;
     display: block;
@@ -70,7 +70,7 @@ h2{
 
 
 
-#inputDesc::-webkit-scrollbar{
+.inputDesc::-webkit-scrollbar{
     display: none;
 }
 
@@ -83,7 +83,7 @@ h2{
     margin-top: 50px;
 }
 
-#btn-cancelar{
+.btn-cancelar{
     width: 100px;
     height: 40px;
     background-color: #363636;
@@ -93,7 +93,7 @@ h2{
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#btn-salvar{
+.btn-salvar{
     width: 100px;
     height: 40px;
     background-color: #AE171C;
@@ -103,12 +103,12 @@ h2{
     box-shadow:3px 3px 3px #363636;
 }
 
-#btn-cancelar:hover{
+.btn-cancelar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #AE171C;
 }
-#btn-salvar:hover{
+.btn-salvar:hover{
     cursor: pointer;
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #363636;
@@ -163,7 +163,7 @@ h2{
     cursor: pointer;
 }
 
-#img-rato{
+.img-rato{
     margin-left: 90px;
     margin-top: 10px;
     width: 110px;
@@ -195,7 +195,7 @@ p{
     color: #ED1C24;
 }
 
-#dataPost{
+.dataPost{
     display: flex;
     font-family: "Oswald", sans-serif;;
     font-weight: lighter;
@@ -203,7 +203,7 @@ p{
     justify-content: end;
 }
 
-#idPost{
+.idPost{
     font-family: "Oswald", sans-serif;
     font-weight: lighter;
     width: 250px;
@@ -212,6 +212,13 @@ p{
     margin-bottom: 0;
     margin-left: 20px;
 }
+
+.fotoPerfil {
+
+    width: fit-content;
+}
+
+
 
 @media (max-width: 700px){
     

@@ -65,10 +65,9 @@
                     <td class="post-data post-title" data-label="Título"><?= $user->nome ?></td>
                     <td class="post-data post-date" data-label="Autor"><?= $user->email ?></td>
                     <td class="post-data post-actions" data-label="Ações">
-                        <button id="botaoComentar" class="action-btn comentar" onclick="abrirModal('modal-visualizar')"><i class="bi bi-chat-left-text"></i></button>
-                        <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar')"><i class="fas fa-eye"></i></button>
-                        <button id="botaoEditarUsuario" class="action-btn edit" onclick="abrirModal('modal-editar')"><i class="fas fa-pencil-alt"></i></button>
-                        <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir')"><i class="fas fa-trash"></i></button>
+                        <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar-<?= $user->id ?>')"><i class="fas fa-eye"></i></button>
+                        <button id="botaoEditarUsuario" class="action-btn edit" onclick="abrirModal('modal-editar-<?= $user->id ?>')"><i class="fas fa-pencil-alt"></i></button>
+                        <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir-<?= $user->id ?>')"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
 
@@ -125,14 +124,15 @@
 
 
     <?php foreach($usuarios as $user): ?>
-            <div class="modal-overlay hidden" id="modal-visualizar" method="get">
+            <div class="modal-overlay hidden" id="modal-visualizar-<?= $user->id ?>" method="get">
                 <section class="container">
 
                     <div class="ladoEsquerdo">
-                        <div id="imgPost"><img src="../../../public/assets/fotoPost.jpg" alt="Foto do usuário"></div>
+                    <div id="imgPost">
+                    <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
                         <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
                     </div>
-
+                    </div>
         
                     <div class="ladoDireito">
                         <div class="caixas-input">
@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="buttons">
-                            <button onclick="fecharModal('modal-visualizar')" id="btn-cancelar">Fechar</button></div>
+                            <button onclick="fecharModal('modal-visualizar-<?= $user->id ?>')" id="btn-cancelar">Fechar</button></div>
                         </div>
                 </section>
             </div>
@@ -153,35 +153,33 @@
     <!-- --------- MODAL: EDITAR --------- -->
 
     <?php foreach($usuarios as $user): ?>
-        <form action="/user/edit" method="POST">
-            <div class="modal-overlay hidden" id="modal-editar">
+        <form action="/user/edit" method="POST"  >
+            <div class="modal-overlay modal-editar hidden" id="modal-editar-<?= $user->id ?>">
+                <input type="hidden" name="id" value="<?= $user->id ?>">
+
                 <section class="container">
-
-                    <div class="ladoEsquerdo">
-
-                        <div id="imgPost"><img src="../../../public/assets/fotoPost.jpg" alt="Foto do usuário"></div>      
-                        <img id="img-rato" src="../../../public/assets/ratao-editor.png" alt="">
-
+                    <div id="imgPost">
+                    <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
+                        <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
                     </div>
 
                     <div class="ladoDireito">
-
                         <div class="caixas-input">
-                            <h2>Nome</h2><input class="inputs" type="text" placeholder="Novo nome de usuario">
-                            <h2>Email</h2><input class="inputs" type="email" placeholder="Novo email">
-                    
+                            <h2>Nome</h2>
+                            <input class="inputs" name="name" type="text"  value="<?= $user->nome ?>">
+                            <h2>Email</h2>
+                            <input class="inputs" name="email" type="email" placeholder="Novo email"  value="<?= $user->email ?>">
+                            <h2>Senha</h2>
                             <div class="input-senha">
-                                <h2>Senha</h2><input class="inputs" type="password" autocomplete="off" placeholder="Nova senha">
+                                <input class="inputs" name="senha" type="password" autocomplete="off"  value="<?= $user->senha ?>">
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
                             </div>
                         </div>
-
-                        <div class="buttons">
-                            <button type="button" onclick="fecharModal('modal-editar')" id="btn-cancelar">Cancelar</button>
+                        <div class="buttons">   
+                            <button type="button" onclick="fecharModal('modal-editar-<?= $user->id ?>')" id="btn-cancelar">Cancelar</button>
                             <button type="submit" id="btn-salvar">Salvar</button>
                         </div>
                     </div>
-
                 </section>
             </div>
         </form>
@@ -194,20 +192,17 @@
 
     <?php foreach($usuarios as $user): ?>
         <form action="/user/delete" method="POST">
-            <div class="modal-overlay hidden" id="modal-excluir">
-
+            <div class="modal-overlay modal-excluir hidden" id="modal-excluir-<?= $user->id ?>">
+                <input type="hidden" name="id" value="<?= $user->id ?>">
                 <section class="container">
-
                     <div class="borda">
                         <div class="caixa-texto"> <h1>Deseja excluir usuário</h1></div>
-                        <img src="../../../public/assets/RATO-PARADO.png" class="rato-gordo" alt="">
-                
+                        <img src="../../../public/assets/RatoPare.png" class="rato-gordo" alt="">
                         <div class="botoes">
                             <h1>Você não poderá reverter essa alteração</h1>
-                            <div class="sim" id="btn-sim"> <h2>Sim</h2> </div> 
-                            <div class="nao" id="btn-nao" onclick="fecharModal('modal-excluir')"> <h2>Não</h2> </div>
+                            <button type="submit" class="sim" id="btn-sim"><h2 class="sim" id="btn-sim">Sim</h2></button>
+                            <button class="nao" id="btn-nao" type="button" onclick="fecharModal('modal-excluir-<?= $user->id ?>')"><h2 class="nao" id="btn-nao">Não</h2></button>
                         </div>
-
                     </div>
                 </section>
             </div>
@@ -219,13 +214,13 @@
     <!---------------------------------------------->
     <!-- --------- MODAL: CRIAR USUARIO --------- -->
 
-    <form action="/user/create" method="POST">
+    <form action="/user/create" method="POST" enctype="multipart/form-data">
         <div class="modal-overlay hidden" id="modal-criar">
 
             <section class="container">
 
                 <div class="ladoEsquerdo">
-                    <div id="imgPost"> <img src="../../../public/assets/imagemPerfil.jpg" alt="Foto do usuário"> </div>
+                    <div id="imgPost"> <input type="file" name="imagem" accept="imagem/*" id="img" required> </div>
                 </div>
 
 
@@ -233,21 +228,21 @@
                     <form class="caixas-input" method="POST" action="user/create">
                     
                         <h2>Nome</h2> 
-                            <input required class="inputs" name ="name" type="text" placeholder="Nome completo do usuário" value="<?= $user->nome ?>">
+                            <input required class="inputs" name ="name" type="text" placeholder="Nome de usuário" >
 
                         <h2>Email</h2> 
-                            <input required class="inputs" name ="email" type="email" placeholder="email@exemplo.com" value="<?= $user->email ?>">
+                            <input required class="inputs" name ="email" type="email" placeholder="email@exemplo.com" >
 
                         <h2>Senha</h2> 
                             <div class="input-senha">
-                                <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Nova senha" value="<?= $user->senha ?>">
+                                <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Insira sua Senha" >
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
                     
                     </form>
 
                     <div class="buttons">
                         <button onclick="fecharModal('modal-criar')" id="btn-cancelar">Cancelar</button>
-                        <button id="btn-salvar">Salvar</button>
+                        <button type="submit" id="btn-salvar">Salvar</button>
                     </div>
 
                 </div>

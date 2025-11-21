@@ -13,7 +13,7 @@
     box-sizing: border-box;
 }
 
-#modal-excluir .container {
+ .modal-excluir .container {
     display: flex;
     width: 538px;
     height: 577px;
@@ -25,7 +25,7 @@
     box-shadow: 3px 3px 3px #ae171c;
 }
 
-#modal-excluir .borda {
+ .modal-excluir .borda {
     display: flex;
     flex-direction: column;
     border: 5px solid #ae171c;
@@ -39,7 +39,7 @@
     padding: 0;
 }
 
-#modal-excluir .caixa-texto {
+ .modal-excluir .caixa-texto {
     display: flex;
     align-items: center;
     text-align: center;
@@ -51,21 +51,21 @@
     border-top-right-radius: 10px;
 }
 
-#modal-excluir .caixa-texto h1 {
+ .modal-excluir .caixa-texto h1 {
     color: #FFFFFF;
     font-size: 42px;
     margin: auto;
     padding: 0 15px;
 }
 
-#modal-excluir .rato-gordo {
+ .modal-excluir .rato-gordo {
     display: block;
     height: auto;
     width: 150px;
     margin: 20px auto;
 }
 
-#modal-excluir .botoes {
+ .modal-excluir .botoes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -77,7 +77,7 @@
     padding-bottom: 30px;
 }
 
-#modal-excluir .botoes h1 {
+ .modal-excluir .botoes h1 {
     width: 100%;
     text-align: center;
     color: #FFFFFF;
@@ -86,7 +86,7 @@
     box-sizing: border-box;
 }
 
-#modal-excluir .sim {
+ .modal-excluir .sim {
     background-color: #363636;
     border-radius: 16px;
     width: 133px;
@@ -99,19 +99,19 @@
     align-items: center;
 }
 
-#modal-excluir .sim:hover {
+ .modal-excluir .sim:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-#modal-excluir .sim h2 {
+ .modal-excluir .sim h2 {
     color: #FFFFFF;
     margin: 0;
     font-size: 20px;
 }
 
-#modal-excluir .nao {
+ .modal-excluir .nao {
     background-color: #ae171c;
     border-radius: 16px;
     width: 133px;
@@ -124,13 +124,13 @@
     align-items: center;
 }
 
-#modal-excluir .nao:hover {
+ .modal-excluir .nao:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-#modal-excluir .nao h2 {
+ .modal-excluir .nao h2 {
     color: #FFFFFF;
     margin: 0;
     font-size: 20px;
@@ -139,7 +139,7 @@
 
 @media (max-width: 700px) {
 
-    #modal-excluir .container {
+    .modal-excluir .container {
         width: 100%;
         height: auto;
         padding: 0;
@@ -148,38 +148,38 @@
         overflow-y: auto;
     }
 
-    #modal-excluir .borda {
+    .modal-excluir .borda {
         border: none;
     }
 
-    #modal-excluir .caixa-texto {
+    .modal-excluir .caixa-texto {
         height: auto;
         padding: 25px 15px;
     }
 
-    #modal-excluir .caixa-texto h1 {
+    .modal-excluir .caixa-texto h1 {
         font-size: 30px;
     }
 
-    #modal-excluir .rato-gordo {
+    .modal-excluir .rato-gordo {
         width: 130px;
         margin: 25px auto;
     }
 
-    #modal-excluir .botoes h1 {
+    .modal-excluir .botoes h1 {
         font-size: 18px;
     }
 
-    #modal-excluir .sim,
-    #modal-excluir .nao {
+    .modal-excluir .sim,
+    .modal-excluir .nao {
         width: 120px;
         height: 60px;
         margin: 0 10px;
         margin-bottom: 15px;
     }
 
-    #modal-excluir .sim h2,
-    #modal-excluir .nao h2 {
+    .modal-excluir .sim h2,
+    .modal-excluir .nao h2 {
         font-size: 18px;
     }
 }

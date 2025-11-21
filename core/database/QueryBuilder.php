@@ -40,6 +40,8 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
    
         } catch (Exception $e) {
             die($e->getMessage());
@@ -47,14 +49,19 @@ class QueryBuilder
 
     }
 
+
+
+
+
     public function update($table, $id, $parameters)
     {
         
-        $sql = sprintf('UPDATE %s SET %s WHERE id = :id',
+        $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
             $table,
             implode(', ', array_map(function ($param) {
-                return "{$param} = :{$param}";
-            }, array_keys($parameters)))
+                return $param . ' = :' .$param;
+            }, array_keys($parameters))),
+            $id
         );
 
 
@@ -62,11 +69,16 @@ class QueryBuilder
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($parameters);
    
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }
 
     }
+
+
+
 
     public function delete($table, $id)
     {
@@ -78,6 +90,8 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
    
         } catch (Exception $e) {
             die($e->getMessage());
@@ -86,6 +100,8 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(compact('id'));
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
    
         } catch (Exception $e) {
             die($e->getMessage());

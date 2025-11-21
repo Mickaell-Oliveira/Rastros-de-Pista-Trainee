@@ -17,51 +17,66 @@ class AdminController
         return view('admin/userlist', ['usuarios' => $usuarios]);
     }
 
+
+
+
     public function create()
     {
+
+         $nomeimagem = 'default.png'; 
+
+      
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            
+            $temporario = $_FILES['imagem']['tmp_name'];
+            $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            
+            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . $extensao;
+
+            $caminhodaimagem = "public/assets/imagemUsuario/" . $nomeimagem;
+
+            move_uploaded_file($temporario, $caminhodaimagem);
+        }
+
         $parameters = [
             'nome' => $_POST['name'],
             'email' => $_POST['email'],
-            'senha' => $_POST['senha']
+            'senha' => $_POST['senha'],
+            'data' => date('Y-m-d H:i:s'),
+            'foto' => $nomeimagem
         ];
 
 
         App::get('database')->insert('usuarios', $parameters);
-
         header('Location: /usuarios');
-
     }
 
     public function edit()
     {
     
-             $parameters = [
-                'nome' => $_POST['name'],
-                'email' => $_POST['email'],
-                'senha' => $_POST['senha'],
-                'data' => date('Y-m-d H:i:s')
+
+        $parameters = [
+            'id'    => $_POST['id'] ?? '',
+            'nome'  => $_POST['name'] ?? '',
+            'email' => $_POST['email'] ?? '',
+            'senha' => $_POST['senha'] ?? '',
+            'data'  => date('Y-m-d H:i:s')
         ];
 
-        $id = $_POST['id'];  
+        $id = $_POST['id'] ?? '';
 
         App::get('database')->update('usuarios', $id, $parameters);
-
         header('Location: /usuarios');
-
 
         
     }
 
     public function delete()
     {
-        $id = $_POST['id'];  // pegar o id do calabreso
+        $id = $_POST['id'];  
 
         App::get('database')->delete('usuarios', $id);
-
         header('Location: /usuarios');
 
     }
-
-
-
 }

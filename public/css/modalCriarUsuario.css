@@ -253,6 +253,19 @@ p{
     }
 }
 
+.selecionarFoto {
+
+    width: 100px;
+    height: 40px;
+    background-color: #AE171C;
+    color: #FFFF;
+    border: #AE171C;
+    border-radius: 20px;
+    box-shadow:3px 3px 3px #363636;
+
+}
+
+
 .hidden{
     display: none;
 } }
