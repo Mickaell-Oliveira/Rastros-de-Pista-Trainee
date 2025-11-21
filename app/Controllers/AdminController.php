@@ -15,7 +15,8 @@ class AdminController
 
     public function create()
     {
-        
+        $caminhoNoBanco = 'public/assets/imagemPosts/default.jpg';
+        if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
             $temporario = $_FILES['foto']['tmp_name'];
             $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
             
@@ -24,6 +25,8 @@ class AdminController
             $caminhodaimagem = "public/assets/imagemPosts/" . $nomeimagem;
 
             move_uploaded_file($temporario, $caminhodaimagem);
+
+    }
         
   
         $parameters = [
@@ -61,11 +64,11 @@ class AdminController
 
         $nomeimagem = $_POST['foto_atual'] ?? 'default.png';
 
-        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-            $temporario = $_FILES['imagem']['tmp_name'];
-            $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+        if (isset($_FILES['foto']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $temporario = $_FILES['foto']['tmp_name'];
+            $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
             
-            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . $extensao;
+            $nomeimagem = sha1(uniqid($_FILES['foto']['name'], true)) . "." . $extensao;
 
             $caminhodaimagem = "public/assets/imagemPosts/" . $nomeimagem;
 

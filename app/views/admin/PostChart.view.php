@@ -218,11 +218,13 @@
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
         <section class="container"> 
         <div class="ladoEsquerdo">
-            <div id="imgPost">
+            <div id="imgPost">              
+               <input type="file" name="foto" accept="imagem/*" id="img-do-post" required>
                <label for="img-do-post" class="upload-label">
                 <span><i class="fas fa-pencil-alt"></i></span>
                </label>
-               <input type="file" name="foto" accept="imagem/*" id="img-do-post" required>
+
+               <img src="#" alt="Preview" id="post-thumbnail">
 
             </div>
             <h2 class="texto-infos">Veiculo</h2>
@@ -261,7 +263,7 @@
     <?php foreach($posts as $post): ?>
 
     <!--Modal Ver Comentarios-->
-    <form action="/verComentarios" method="get">
+    <form action="/tabelaposts/verComentarios" method="POST">
     <div class="modal-overlay hidden" id="modalVerComentarios">
         <div class="container">            
             <h2>Comentários</h2>

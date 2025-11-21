@@ -12,32 +12,35 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', handlePaginationClick);
     }
   });
+    const inputArquivo = document.getElementById('img-do-post');
+    const imagemPreview = document.getElementById('post-thumbnail');
 
-  const inputImagem = document.getElementById('img-do-post');
-  const imagemPreview = document.getElementById('image-post');
-  const labelTexto = document.querySelector('.upload-label span');
+    // Só executa se os elementos existirem na tela
+    if (inputArquivo && imagemPreview) {
+        
+        inputArquivo.addEventListener('change', function(e) {
+            const arquivo = e.target.files[0];
 
-  if (inputImagem && imagemPreview){
-    
-    inputImagem.addEventListener('change', function(e){
-      const file = e.target.files[0];
+            if (arquivo) {
+                const leitor = new FileReader();
 
-      if (file){
-        const reader = new FileReader();
+                // Quando terminar de ler o arquivo...
+                leitor.onload = function(evento) {
+                    // ... coloca o resultado no src da imagem
+                    imagemPreview.src = evento.target.result;
+                    
+                    // (Opcional) Garante que a imagem preencha a div corretamente
+                    imagemPreview.style.display = 'block'; 
+                    imagemPreview.style.width = '100%';
+                    imagemPreview.style.height = '100%';
+                    imagemPreview.style.objectFit = 'cover';
+                }
 
-        reader.onload = function(event){
-          imagemPreview.src = event.target.result;
-
-          imagemPreview.style.display = 'block';
-
-          if (labelTexto) labelTexto.innerHTML = "Trocar foto";
-
-          
-        }
-
-        reader.readAsDataURL(file);
-      }
-    });
-  }
+                leitor.readAsDataURL(arquivo);
+            }
+        });
+    }
+  
+  
 });
 
