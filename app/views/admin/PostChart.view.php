@@ -107,12 +107,12 @@
     </section>
 
     <?php foreach($posts as $post): ?>
-     <<!--Modal Visualizar Post-->
+     <!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost">
         <section class="container"> 
       <div class="ladoEsquerdo">
             <div id="imgPost">
-                <img src="/<?= $post->imagem ?>" alt="">
+                <img src="<?= $post->foto ?>" alt="">
             </div>
             <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
@@ -152,13 +152,14 @@
     </div>
     
     <!-- Modal Editar Post-->
-    <form action="/editarPost" method="POST">
+    <form action="/editarPost" method="POST" enctype="multipart/form-data">
     <div class="modal-overlay hidden" id="modalEditarPost">
         <input type="hidden" name = "id" value="<?=$post->id;?>">
         <section class="container">
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                 <input type="file" name="imagem" accept="imagem/" id="img" >
+                 <input type="file" name="foto" accept="imagem/*" id="img" >
+                 <img src="<?= $post->foto ?>" alt="">
             </div>
             <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
@@ -184,7 +185,7 @@
             <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
             <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
             <div class="buttons">
-            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')">Cancelar</button>
+            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')" type="button">Cancelar</button>
             <button id="btn-salvar" type="submit">Publicar</button>
         </div>
         </div>
@@ -219,13 +220,14 @@
         <section class="container"> 
         <div class="ladoEsquerdo">
             <div id="imgPost">              
-               <input type="file" name="foto" accept="imagem/*" id="img-do-post" required>
-               <label for="img-do-post" class="upload-label">
+               <input type="file" name="foto" accept="image/*" id="img-do-post" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
+                <label for="img-do-post" id="labelCriarPost" class="upload-label">
                 <span><i class="fas fa-pencil-alt"></i></span>
-               </label>
-
-               <img src="#" alt="Preview" id="post-thumbnail">
-
+                <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt="">
+                </label>
+            
+            
+                <img src="#" alt="Preview" id="previewCriar" style="display: none;">
             </div>
             <h2 class="texto-infos">Veiculo</h2>
             <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo" required>
@@ -375,6 +377,6 @@
 
 
     <script src="/public/js/Modal.js"></script>
-    <script src="/public/js/PostChart.js"></script>
+    <script src="../../../public/js/PostPage.js"></script>
 </body>
 </html>

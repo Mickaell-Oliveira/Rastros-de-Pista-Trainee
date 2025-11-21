@@ -12,35 +12,31 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', handlePaginationClick);
     }
   });
-    const inputArquivo = document.getElementById('img-do-post');
-    const imagemPreview = document.getElementById('post-thumbnail');
-
-    // Só executa se os elementos existirem na tela
-    if (inputArquivo && imagemPreview) {
-        
-        inputArquivo.addEventListener('change', function(e) {
-            const arquivo = e.target.files[0];
-
-            if (arquivo) {
-                const leitor = new FileReader();
-
-                // Quando terminar de ler o arquivo...
-                leitor.onload = function(evento) {
-                    // ... coloca o resultado no src da imagem
-                    imagemPreview.src = evento.target.result;
-                    
-                    // (Opcional) Garante que a imagem preencha a div corretamente
-                    imagemPreview.style.display = 'block'; 
-                    imagemPreview.style.width = '100%';
-                    imagemPreview.style.height = '100%';
-                    imagemPreview.style.objectFit = 'cover';
-                }
-
-                leitor.readAsDataURL(arquivo);
-            }
-        });
-    }
   
   
 });
 
+function exibirPreview(inputElement, previewId, imgPadraoId, labelId) {
+    
+    const previewElement = document.getElementById(previewId);
+    const imgPadraoElement = document.getElementById(imgPadraoId);
+    const labelElement = document.getElementById(labelId);
+    const arquivo = inputElement.files[0];    
+      if (arquivo) {
+        const reader = new FileReader();
+        reader.onload = function(e){
+          previewElement.src = e.target.result;
+          previewElement.style.display = 'block';
+          imgPadraoElement.style.display = 'none';
+        };
+
+        reader.readAsDataURL(arquivo);
+          labelElement.textContent = 'Imagem Selecionada';
+        } 
+      else{
+          previewElement.style.display = 'none';
+          previewElement.src = '';
+          imgPadraoElement.style.display = 'block';
+          labelElement.textContent = 'Selecione uma Imagem';
+        }
+} 

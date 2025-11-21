@@ -49,32 +49,26 @@ class AdminController
 
       
     }
-  public function delete()
-        {
-         $id = $_POST['id'];
 
-          App::get('database')->delete('posts', $id);
-
-          header('Location: /tabelaposts');
-        }
+    public function delete()
+    {
+      $id = $_POST['id'];
+      App::get('database')->delete('posts', $id);
+      header('Location: /tabelaposts');
+    }
       
-        public function edit()
-        {
+    public function edit()
+    {
         $id = $_POST['id'];
-
         $nomeimagem = $_POST['foto_atual'] ?? 'default.png';
-
-        if (isset($_FILES['foto']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
             $temporario = $_FILES['foto']['tmp_name'];
             $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
-            
+
             $nomeimagem = sha1(uniqid($_FILES['foto']['name'], true)) . "." . $extensao;
-
             $caminhodaimagem = "public/assets/imagemPosts/" . $nomeimagem;
-
             move_uploaded_file($temporario, $caminhodaimagem);
         }
-            
 
             $parameters = [
             'veiculo'     => $_POST['veiculo'] ?? null,
@@ -88,11 +82,10 @@ class AdminController
             'foto'        => $caminhodaimagem,
             'marca'       => $_POST['marca'] ?? null
         ];
-
         App::get('database')->update('posts', $id, $parameters);
         header('Location: /tabelaposts');
-        
-        }
+
+    }
 
 } 
 
