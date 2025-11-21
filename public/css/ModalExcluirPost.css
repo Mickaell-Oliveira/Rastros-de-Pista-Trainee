@@ -89,6 +89,8 @@
 #modalExcluirPost .sim {
     background-color: #363636;
     border-radius: 16px;
+    color: white;
+    border: none;
     width: 133px;
     height: 65px;
     text-align: center;
@@ -97,6 +99,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }
 
 #modalExcluirPost .sim:hover {
@@ -114,6 +117,8 @@
 #modalExcluirPost .nao {
     background-color: #ae171c;
     border-radius: 16px;
+    color: white;
+    border: none;
     width: 133px;
     height: 65px;
     text-align: center;
@@ -122,6 +127,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }
 
 #modalExcluirPost .nao:hover {

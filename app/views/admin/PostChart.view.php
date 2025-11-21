@@ -201,7 +201,7 @@
                 <div class="caixa-texto">
                     <h1>Deseja excluir o Post?</h1>
                 </div>
-                <img src="../../../public/assets/RATO-PARADO.png">
+                <img src="../../../public/assets/RATAO-STOP.png">
                 <div class="botoes">
                     <h1>Você não poderá reverter essa alteração</h1>
                    <button class="sim" id="btn-sim" type="submit">Sim</button>
