@@ -16,20 +16,14 @@ class AdminController
     public function create()
     {
         
-        $nomeimagem = 'default.png'; 
-
-      
-        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $temporario = $_FILES['foto']['tmp_name'];
+            $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
             
-            $temporario = $_FILES['imagem']['tmp_name'];
-            $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-            
-            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . $extensao;
+            $nomeimagem = sha1(uniqid($_FILES['foto']['name'], true)) . "." . $extensao;
 
             $caminhodaimagem = "public/assets/imagemPosts/" . $nomeimagem;
 
             move_uploaded_file($temporario, $caminhodaimagem);
-        }
         
   
         $parameters = [
@@ -41,7 +35,7 @@ class AdminController
             'id_usuario'  => 1, 
             'autor'       => $_POST['autor'] ?? 'Admin',
             'data'        => date('Y-m-d H:i:s'),
-            'foto'        => $nomeimagem,
+            'foto'        => $caminhodaimagem,
             'marca'       => $_POST['marca'] ?? null
         ];
 
@@ -88,7 +82,7 @@ class AdminController
             'id_usuario'  => 1, 
             'autor'       => $_POST['autor'] ?? 'Admin',
             'data'        => date('Y-m-d H:i:s'),
-            'foto'        => $nomeimagem,
+            'foto'        => $caminhodaimagem,
             'marca'       => $_POST['marca'] ?? null
         ];
 

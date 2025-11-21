@@ -205,7 +205,7 @@
                 <div class="botoes">
                     <h1>Você não poderá reverter essa alteração</h1>
                    <button class="sim" id="btn-sim" type="submit">Sim</button>
-                   <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">cancelar</button>
+                   <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">Cancelar</button>
                 </div>
             </div>
         </section>
@@ -215,11 +215,15 @@
 
     <!--Modal Criar Post-->    
     <div class="modal-overlay hidden" id="modalCriarPost">
-    <form action="/tabelaposts/criar" method="POST">
+    <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
         <section class="container"> 
         <div class="ladoEsquerdo">
             <div id="imgPost">
-               <input type="file" name="imagem" accept="imagem/" id="img" required>
+               <label for="img-do-post" class="upload-label">
+                <span><i class="fas fa-pencil-alt"></i></span>
+               </label>
+               <input type="file" name="foto" accept="imagem/*" id="img-do-post" required>
+
             </div>
             <h2 class="texto-infos">Veiculo</h2>
             <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo" required>
