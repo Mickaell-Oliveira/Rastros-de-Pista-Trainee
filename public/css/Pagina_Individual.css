@@ -48,6 +48,7 @@ body {
 /* --- quadrado do post --- */
 .ContainerPostagem {
     width: 100%;                         /* quanto q ocupa pros lados*/
+    margin-top: 20px !important;
     max-width: 1200px;                      /* largura maxima q ocupa com a barra*/
     background: rgba(44, 44, 44, 0.85);
     backdrop-filter: blur(5px);
@@ -120,10 +121,14 @@ body {
 }
 
 .ImagemPostagem {
+    display: flex;
     width: 100%;
+    max-width: 1250px;
     height: auto;                   /* auto pra manter a propor */
     border-radius: 10px;
     margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
     display: block;                 /* remove o espaço a mais embaixo da imagem */
 }
 
@@ -179,6 +184,9 @@ body {
     width: 100%;
     max-width: 1200px;    /* mesma largura maxima do post para alinhamento */
     margin-top: 40px;    /* espaço entre o post e os comentarios */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -189,9 +197,13 @@ body {
     margin-bottom: 20px;
     padding-left: 10px; /* alinhamento visual */
     border-left: 3px solid #64191B; /* detalhe visual */
+    text-align: left;
+    width: 100%;
 }
 
 .Comentario {
+    width: 100%;
+    max-width: 1200px;
     background: rgba(30, 30, 30, 0.8); 
     backdrop-filter: blur(5px);
     border-radius: 15px;
@@ -238,6 +250,9 @@ body {
     color: #d0d0d0;
     line-height: 1.6;
     margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .InteracoesComentario {
