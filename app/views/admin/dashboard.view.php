@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['id'])){
+        header('Location: /login');
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,12 +43,15 @@
                     </div>
                     <span>Usuários</span>
                 </button>
+
+                <form action="/logout" method="POST">
                 <button class="botao-sair">
                     <div class="imagem-botao">
                         <img src="../../../public/assets/loggoutbotao.png" alt="Ícone Sair">
                     </div>
                     <span>Logout</span>
                 </button>
+                </form>
             </div>
         </div>
     <div class="barra-vertical direita"></div>

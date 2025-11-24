@@ -22,10 +22,21 @@
             <div class="input-group">
                 <label for="password">Senha</label>
                 <div class="password-container">
-                    <input type="password" id="password" name="password" placeholder="Insira sua senha" required>
+                    <input type="password" id="password" name="senha" placeholder="Insira sua senha" required>
                     <i class="fas fa-eye-slash toggle-password"></i>
                 </div>
             </div>
+            
+            <div class="mensagemErro">
+                <p>
+                    <?php
+                        if(isset($_SESSION['mensagemErro']))
+                            echo $_SESSION['mensagemErro'];
+                        unset($_SESSION['mensagemErro']);
+                    ?>
+                </p>
+            </div>
+
             <button type="submit">ENTRAR</button>
         </form>
     </div>

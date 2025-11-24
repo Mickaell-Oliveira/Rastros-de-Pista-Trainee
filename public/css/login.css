@@ -168,6 +168,10 @@ button[type="submit"]:hover {
     color: #AE171C;
 }
 
+.mensagemErro{
+        color: rgba(239, 68, 68, 0.9) !important;
+    }
+
 
 @media screen and (min-width: 1025px) {
     
