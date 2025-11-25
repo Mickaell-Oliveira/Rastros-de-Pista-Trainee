@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title>Rastros de Pista | Posts</title>
+  <link rel="stylesheet" href="../../../public/css/PostPage.css" />
+</head>
+<body>
+  
+  <div id="page-container">
+        <search class="search-section">
+      <form class="search-bar">
+<button type="submit" class="search-button" aria-label="Buscar"> 
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+        <input type="text" placeholder="Buscar">
+      </form>
+        <form class="select-filtro">
+          <select name="filtro" id="id-filtro">
+            <option value="" ></option>
+             <option value="passeio">Passeio</option>
+                <option value="trackday">Track day</option>
+                <option value="viagem">Viagem</option>
+                <option value="encontro">Encontro</option> 
+                <option value="momentos">Momentos</option>
+          </select>
+
+        </form>
+
+    </search>
+
+
+
+    <main class="posts-grid">
+      <article class="card">
+        <img src="../../../public/assets/Ford-Mustang-GT.jpg" alt="Carro 1">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+
+      <article class="card">
+        <img src="../../../public\assets\Lambo-Urus.jpg" alt="Carro 2">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+
+      <article class="card">
+        <img src="../../../public\assets\Nissan-Skyline.jpg" alt="Carro 3">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+
+      <article class="card">
+        <img src="../../../public\assets\Lamborguini-Huracan.jpg" alt="Carro 4">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+
+      <article class="card">
+        <img src="../../../public\assets\Audi-R8.jpg" alt="Carro 5">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+
+      <article class="card">
+        <img src="../../../public\assets\Maverick.jpg" alt="Carro 6">
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum is placeholder text commonly used in the graphic...</p>
+      </article>
+    </main>
+
+    <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
+ </div>
+
+  <script src="../../../public/js/PostPage.js"></script>
+</body>
+</html>

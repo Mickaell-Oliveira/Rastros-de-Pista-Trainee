@@ -27,8 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px 0;
-    
+    padding: 20px 0; 
 }
 
 body::before {
@@ -328,6 +327,7 @@ color: #AE171C;
 @media (min-width: 992px) {
   .admin-panel {
     padding: 0 30px 30px;
+    
 }
 
 .posts-table-header,
@@ -540,6 +540,16 @@ nav a:hover {
 
 /* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
+.admin-painel {
+    margin: 20px;
+    background-color: var(--darker-bg-color);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-radius: 16px;
+    width: auto;
+
+}
 
     .user-cards {
         display: grid !important;
@@ -714,6 +724,7 @@ nav a:hover {
 .btn-view   { background: #05AC4B; }
 .btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
+.btn-comentarios{background-color: #3C096C;}
 
 /* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
