@@ -8,9 +8,25 @@ use Exception;
 class AdminController
 {
     public function index()
-    {
-        $posts = App::get('database')->selectAll('posts');
-        return view('admin/PostChart', compact('posts'));
+    { 
+        $page = 1; 
+        if(isset($_GET['paginacaoNumero']) && !empty($_GET['paginacaoNumero'])){
+        $page = intval($_GET['paginacaoNumero']);
+        if($page <= 0){
+            return redirect('admin/PostChart');
+        }
+        }
+        $itensPage = 5;
+        $inicio = $itensPage * $page - $itensPage;
+
+        $rows_count = App::get('database')->countAll('posts');
+
+        if($inicio > $rows_count){
+            return redirect('admin/PostChart');
+        }
+        $posts = App::get('database')->selectAll('posts',$inicio,$itensPage);
+        $total_pages = ceil($rows_count/$itensPage);
+        return view('admin/PostChart', compact('posts', 'page', 'total_pages'));
     }
 
     public function create()

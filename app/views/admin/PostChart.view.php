@@ -69,6 +69,7 @@
                 <?php endforeach ?>
                 
             </table>
+
         </main>
 
 
@@ -95,15 +96,7 @@
    <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
     </button>
-    <nav class="pagination">
-        <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
-        <a href="#" class="page-number active">1</a>
-        <a href="#" class="page-number">2</a>
-        <a href="#" class="page-number">3</a>
-        <a href="#" class="page-number">4</a>
-        <a href="#" class="page-number">5</a>
-        <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
-    </nav>
+    <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
     </section>
 
     <?php foreach($posts as $post): ?>

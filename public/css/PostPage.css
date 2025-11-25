@@ -803,3 +803,12 @@ nav a:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
 }
+
+
+ul {
+    list-style: none;
+}
+.pagination a.page-number.active {
+    background-color: #b0b0b0 ; /* Força o vermelho */
+  
+}
