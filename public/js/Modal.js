@@ -29,4 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
+window.onclick = function(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            event.target.classList.add('hidden');
+            event.target.style.display = '';
+        }
+    }
+
+
+
 });
