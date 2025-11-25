@@ -53,8 +53,16 @@ class AdminController
     public function delete()
     {
       $id = $_POST['id'];
-      App::get('database')->delete('posts', $id);
+     $post = App::get('database')->selectOne('posts', $id);
       header('Location: /tabelaposts');
+
+    $caminhodaimagem = $post->imagem;
+    if(file_exists($caminhodaimagem)){
+                unlink($caminhodaimagem);
+            }
+    App::get('database')->delete('posts', $id);
+    header('Location: /tabelaposts');
+
     }
       
     public function edit()

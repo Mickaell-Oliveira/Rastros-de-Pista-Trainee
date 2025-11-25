@@ -86,7 +86,7 @@
       <div class="card-actions">
           <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
           <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
-          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
+          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id; ?>')">DELETAR POST</button>
           <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
       </div>
     </li>
@@ -194,24 +194,26 @@
     </form>
 
     <!--Modal Excluir Post-->
-    <form action="/excluirPost" method="POST">
+        <form action="/excluirPost" method="POST">
         <div class="modal-overlay hidden" id="modalExcluirPost">
-            <input type="hidden" name = "id" value="<?=$post->id;?>">
-            <section class="container">
-                <div class="borda">
+            <input type="hidden" name="id" value="<?= $post->id ?>">
+        
+        <section class="container">
+            <div class="borda">
                 <div class="caixa-texto">
                     <h1>Deseja excluir o Post?</h1>
                 </div>
-                <img src="../../../public/assets/RATAO-STOP.png">
+                <img src="../../public/assets/RATAO-STOP.PNG">
                 <div class="botoes">
                     <h1>Você não poderá reverter essa alteração</h1>
-                   <button class="sim" id="btn-sim" type="submit">Sim</button>
-                   <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">Cancelar</button>
+                    <button class="sim" id="btn-sim" type="submit">Sim</button>
+                    
+                    <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">Cancelar</button>
                 </div>
             </div>
         </section>
-    </div>
-    </form>
+</div>
+  </form>
     <?php endforeach ?>
 
     <!--Modal Criar Post-->    
