@@ -174,6 +174,13 @@
                                 <input class="inputs" name="senha" type="password" autocomplete="off"  value="<?= $user->senha ?>">
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i>
                             </div>
+                            <h2>Confirme sua Senha</h2> 
+                            <div class="input-senha">
+                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" >
+                                <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
+                    
+
+
                         </div>
                         <div class="buttons">   
                             <button type="button" onclick="fecharModal('modal-editar-<?= $user->id ?>')" id="btn-cancelar">Cancelar</button>
@@ -238,6 +245,12 @@
                                 <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Insira sua Senha" >
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
                     
+                        <h2>Confirme sua Senha</h2> 
+                            <div class="input-senha">
+                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" >
+                                <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
+                    
+
                     </form>
 
                     <div class="buttons">

@@ -23,6 +23,16 @@ class AdminController
     public function create()
     {
 
+
+      if ($_POST['senha'] !== $_POST['senhaConfirmar']) {
+        $_SESSION['form_error'] = 'As senhas não conferem.';
+        $_SESSION['open_modal'] = 'modal-criar'; 
+
+        header('Location: /usuarios');
+        exit;
+    }
+
+
          $nomeimagem = 'default.png'; 
 
       
@@ -38,10 +48,14 @@ class AdminController
             move_uploaded_file($temporario, $caminhodaimagem);
         }
 
+        
+
+
         $parameters = [
             'nome' => $_POST['name'],
             'email' => $_POST['email'],
             'senha' => $_POST['senha'],
+            'senhaConfirmar' => $_POST['senhaConfirmar'],
             'data' => date('Y-m-d H:i:s'),
             'foto' => $nomeimagem
         ];
@@ -54,12 +68,21 @@ class AdminController
     public function edit()
     {
     
+        if ($_POST['senha'] !== $_POST['senhaConfirmar']) {
+        $_SESSION['form_error'] = 'As senhas não conferem.';
+        $_SESSION['open_modal'] = 'modal-criar'; 
+
+        header('Location: /usuarios');
+        exit;
+    }
+
 
         $parameters = [
             'id'    => $_POST['id'] ?? '',
             'nome'  => $_POST['name'] ?? '',
             'email' => $_POST['email'] ?? '',
             'senha' => $_POST['senha'] ?? '',
+            'senhaConfirmar' => $_POST['senhaConfirmar'] ?? '',
             'data'  => date('Y-m-d H:i:s')
         ];
 
