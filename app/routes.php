@@ -9,4 +9,6 @@ $router->post('user/create', 'AdminController@create');
 $router->post('user/edit', 'AdminController@edit');
 $router->post('user/delete', 'AdminController@delete');
 
+$router->get('admin/userlist', 'AdminController@index');
+
 ?>

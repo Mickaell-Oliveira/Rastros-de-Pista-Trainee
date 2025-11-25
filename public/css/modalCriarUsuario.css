@@ -53,6 +53,7 @@ h2{
     font-family: "Oswald", sans-serif;
     font-weight: bold;
     margin-top: 15px;
+    font-size: medium;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 0;
@@ -60,7 +61,7 @@ h2{
 
 .inputs{
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
