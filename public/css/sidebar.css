@@ -61,7 +61,8 @@ body {
     background-color: #CE1A20;
 }
 
-.item a {
+.item a 
+ {
     text-decoration: none;
     display: flex;
     align-items: center;
