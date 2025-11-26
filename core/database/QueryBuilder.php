@@ -110,6 +110,22 @@ public function selectOne($table, $id)
             die($e->getMessage());
         }
     }
+
+    public function selectAllComentariosComNomes()
+{
+    
+    $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
+            FROM comentarios 
+            JOIN usuarios ON comentarios.id_usuario = usuarios.id";
+
+    try{
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    } catch (Exception $e) {
+        die("Erro ao buscar comentários: " . $e->getMessage());
+    }
+}
 }
 
 ?>

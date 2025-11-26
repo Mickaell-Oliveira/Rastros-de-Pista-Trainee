@@ -26,7 +26,8 @@ class AdminController
         }
         $posts = App::get('database')->selectAll('posts',$inicio,$itensPage);
         $total_pages = ceil($rows_count/$itensPage);
-        return view('admin/PostChart', compact('posts', 'page', 'total_pages'));
+        $comentarios = App::get('database')->selectAllComentariosComNomes();
+        return view('admin/PostChart', compact('posts', 'page', 'total_pages', 'comentarios'));
     }
 
     public function create()
@@ -109,6 +110,28 @@ class AdminController
         App::get('database')->update('posts', $id, $parameters);
         header('Location: /tabelaposts');
 
+    }
+
+    public function updateComment()
+    {
+        $id = $_POST['id_comentario'];
+        $texto = $_POST['novo_texto'];
+
+        App::get('database')->update('comentarios', $id, [
+            'comentario' => $texto
+        ]);
+
+        header('Location: /tabelaposts');
+    }
+
+    public function deleteComment()
+    {
+        
+    $id = $_POST['id'];
+
+    App::get('database')->delete('comentarios', $id);
+
+    http_response_code(200);
     }
 
 } 

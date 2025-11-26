@@ -156,8 +156,15 @@
         <section class="container">
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                 <input type="file" name="foto" accept="imagem/*" id="img-<?= $post->id ?>" >
-                 <img src="<?= $post->foto ?>" alt="">
+
+            <input type="file" name="foto" accept="image/*" id="img-do-post-editar" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
+
+            <img src="#" alt="Preview" id="previewEditar" style="display: none;">
+            <img src="<?= $post -> foto ?>" id="imagemPadraoEditar" alt="">
+
+            <label for="img-do-post-editar" id="labelPost" class="upload-label">
+                    <span><i class="fas fa-pencil-alt"></i></span>               
+            </label>
             </div>
             <p id="idPost">ID: <?=$post->id;?></p>
             <h2 class="texto-infos">Veiculo</h2>
@@ -221,16 +228,18 @@
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
         <section class="container"> 
         <div class="ladoEsquerdo">
-            <div id="imgPost">              
-               <input type="file" name="foto" accept="image/*" id="img-do-post" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
-                <label for="img-do-post" id="labelCriarPost" class="upload-label">
-                <span><i class="fas fa-pencil-alt"></i></span>
-                <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt="">
-                </label>
-            
-            
-                <img src="#" alt="Preview" id="previewCriar" style="display: none;">
+            <div id="imgPost">
+
+            <input type="file" name="foto" accept="image/*" id="img-do-post" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
+
+            <img src="#" alt="Preview" id="previewCriar" style="display: none;">
+            <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt="">
+
+            <label for="img-do-post" id="labelCriarPost" class="upload-label">
+            <span><i class="fas fa-pencil-alt"></i></span>               
+            </label>
             </div>
+
             <h2 class="texto-infos">Veiculo</h2>
             <input class="campo-editavel" id="input-veiculo" name="veiculo" type="text" placeholder="Digite o veículo" required>
             <h2 class="texto-infos">Ano</h2>
@@ -264,118 +273,92 @@
     </div>
     </form>
 
-    <?php foreach($posts as $post): ?>
+    
 
     <!--Modal Ver Comentarios-->
-    <form action="/tabelaposts/verComentarios" method="POST">
-    <div class="modal-overlay hidden" id="modalVerComentarios-<?= $post->id ?>">
-        <div class="container">            
-            <h2>Comentários</h2>
-            <div class="comments-list">
-                <div class="comment-item">
-                    <div class="comment-content">
-                        <img src="#" alt="Avatar" class="comment-avatar">
-                        <div class="comment-text">
-                            <span class="comment-username">Mickael #3333</span>
-                            <p>Meu UNO é bem melhor que essa ferrari!!</p>
-                            <div class="comment-feedback">
-                                <span class="feedback-item like-data">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    <span>12</span>
-                                </span>
-                                <span class="feedback-item dislike-data">
-                                    <i class="fas fa-thumbs-down"></i>
-                                    <span>2</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-actions">
-                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-                <div class="comment-item">
-                    <div class="comment-content">
-                        <img src="#" alt="Avatar" class="comment-avatar">
-                        <div class="comment-text">
-                            <span class="comment-username">Miguel #8922</span>
-                            <p>Que ferrari linda meu Deus</p>
-                            <div class="comment-feedback">
-                                <span class="feedback-item like-data">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    <span>42</span>
-                                </span>
-                                <span class="feedback-item dislike-data">
-                                    <i class="fas fa-thumbs-down"></i>
-                                    <span>0</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-actions">
-                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-                <div class="comment-item">
-                    <div class="comment-content">
-                        <img src="#" alt="Avatar" class="comment-avatar">
-                        <div class="comment-text">
-                            <span class="comment-username">Bruno #4002</span>
-                            <p>Achei incrivel, so trocaria a cor, deixaria preta</p>
-                            <div class="comment-feedback">
-                                <span class="feedback-item like-data">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    <span>8</span>
-                                </span>
-                                <span class="feedback-item dislike-data">
-                                    <i class="fas fa-thumbs-down"></i>
-                                    <span>1</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-actions">
-                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
 
-                <div class="comment-item">
-                    <div class="comment-content">
-                        <img src="#" alt="Avatar" class="comment-avatar">
-                        <div class="comment-text">
-                            <span class="comment-username">Marcos #1111</span>
-                            <p>Prefiro os modelos da Lamborghini</p>
-                            <div class="comment-feedback">
-                                <span class="feedback-item like-data">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    <span>5</span>
-                                </span>
-                                <span class="feedback-item dislike-data">
-                                    <i class="fas fa-thumbs-down"></i>
-                                    <span>7</span>
-                                </span>
+    <?php foreach ($posts as $post): ?>
+
+<div class="modal-overlay hidden" id="modalVerComentarios-<?= $post->id ?>">
+    <div class="container">            
+        <h2>Comentários</h2>
+        
+        <div class="comments-list">
+            
+            <?php $algumComentarioExibido = false; ?>
+            
+            <?php if (isset($comentarios) && (is_array($comentarios) || is_object($comentarios))): ?>
+                <?php foreach ($comentarios as $comentario): ?>
+                    
+                    <?php if (isset($comentario->id_post) && $comentario->id_post == $post->id): ?>
+                        <?php $algumComentarioExibido = true; ?>
+                        
+                        <div class="comment-item">
+                            <div class="comment-content">
+                                <img src="#" alt="Avatar" class="comment-avatar"> 
+                                
+                                <div class="comment-text">
+                                    <span class="comment-username">
+                                        <?= $comentario->nome_usuario ?? 'Anônimo' ?> #<?= $comentario->id_usuario ?>
+                                    </span>
+                                    
+                                    <div id="view-comentario-<?= $comentario->id ?>">
+                                        <p><?= $comentario->comentario ?></p>
+                                        <div class="comment-feedback">
+                                            <span class="feedback-item like-data"><i class="fas fa-thumbs-up"></i><span>12</span></span>
+                                            <span class="feedback-item dislike-data"><i class="fas fa-thumbs-down"></i><span>2</span></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <form action="/tabelaposts/atualizarComentario" method="POST" 
+                                          id="edit-comentario-<?= $comentario->id ?>" 
+                                          style="display: none; margin-top: 10px;">
+                                        
+                                        <input type="hidden" name="id_comentario" value="<?= $comentario->id ?>">
+                                        <textarea name="novo_texto" class="edit-input" rows="2" required><?= $comentario->comentario ?></textarea>
+                                        
+                                        <div class="edit-actions" style="margin-top: 5px; display: flex; gap: 5px;">
+                                            <button type="submit" class="btn-save-mini">Salvar</button>
+                                            <button type="button" class="btn-cancel-mini btn-cancelar-edicao" data-id="<?= $comentario->id ?>">Cancelar</button>
+                                        </div>
+                                    </form>
+
+                                    <div id="delete-confirm-<?= $comentario->id ?>" class="delete-alert" style="display: none;">
+                                        <p><strong>Tem certeza que deseja excluir?</strong></p>
+                                        <div class="delete-actions">
+                                            <button type="button" class="btn-sim-mini" onclick="confirmarExclusaoAJAX(<?= $comentario->id ?>)">Sim</button>
+                                            <button type="button" class="btn-nao-mini" onclick="cancelarExclusao(<?= $comentario->id ?>)">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                </div> </div> <div class="comment-actions" id="actions-comentario-<?= $comentario->id ?>">
+                                <button type="button" class="icon-btn edit-btn btn-editar-comentario" title="Editar" data-id="<?= $comentario->id ?>">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+
+                                <button type="button" class="icon-btn delete-btn" title="Excluir" onclick="chamarConfirmacao(<?= $comentario->id ?>)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="comment-actions">
-                        <button class="icon-btn edit-btn" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="icon-btn delete-btn" title="Excluir"><i class="fas fa-trash"></i></button>
-                    </div>
+
+                        </div> <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if (!$algumComentarioExibido): ?>
+                <div style="padding: 20px; text-align: center; color: #666;">
+                    <p>Nenhum comentário encontrado para este post.</p>
                 </div>
-                
-            </div>
-            
-            <div class="caixa-btn">
-                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios-<?= $post->id ?>')">Fechar</button>
-            </div>
-            
+            <?php endif; ?>
+
+        </div> <div class="caixa-btn">
+            <button type="button" class="btn-fechar" onclick="fecharModal('modalVerComentarios-<?= $post->id ?>')">Fechar</button>
+            <button id="btn-salvar" type="button" onclick="window.location.reload()">Salvar</button>
         </div>
+        
     </div>
-    </form>
-     <?php endforeach ?>
+</div>
+<?php endforeach ?>
 
 
     <script src="/public/js/Modal.js"></script>
