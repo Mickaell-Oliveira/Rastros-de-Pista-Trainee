@@ -62,17 +62,18 @@ public function index()
          $nomeimagem = 'default.png'; 
 
       
-        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $caminhoNoBanco = 'public/assets/imagemUsuario/default.jpg';
+            if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
+            $temporario = $_FILES['foto']['tmp_name'];
+            $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
             
-            $temporario = $_FILES['imagem']['tmp_name'];
-            $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-            
-            $nomeimagem = sha1(uniqid($_FILES['imagem']['name'], true)) . "." . $extensao;
+            $nomeimagem = sha1(uniqid($_FILES['foto']['name'], true)) . "." . $extensao;
 
             $caminhodaimagem = "public/assets/imagemUsuario/" . $nomeimagem;
 
             move_uploaded_file($temporario, $caminhodaimagem);
-        }
+
+    }
 
         
 
@@ -81,7 +82,6 @@ public function index()
             'nome' => $_POST['name'],
             'email' => $_POST['email'],
             'senha' => $_POST['senha'],
-
             'data' => date('Y-m-d H:i:s'),
             'foto' => $nomeimagem
         ];
@@ -103,12 +103,33 @@ public function index()
     }
 
 
+             $nomeimagem = 'default.png'; 
+
+      
+            $caminhoNoBanco = 'public/assets/imagemUsuario/default.jpg';
+            if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
+            $temporario = $_FILES['foto']['tmp_name'];
+            $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+            
+            $nomeimagem = sha1(uniqid($_FILES['foto']['name'], true)) . "." . $extensao;
+
+            $caminhodaimagem = "public/assets/imagemUsuario/" . $nomeimagem;
+
+            move_uploaded_file($temporario, $caminhodaimagem);
+ 
+            }
+
+
+
+
+
         $parameters = [
             'id'    => $_POST['id'] ?? '',
             'nome'  => $_POST['name'] ?? '',
             'email' => $_POST['email'] ?? '',
             'senha' => $_POST['senha'] ?? '',
-            'data'  => date('Y-m-d H:i:s')
+            'data'  => date('Y-m-d H:i:s'),
+            'foto' => $nomeimagem
         ];
 
         $id = $_POST['id'] ?? '';

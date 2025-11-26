@@ -21,19 +21,20 @@ body {
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#imgPost{
+#imgUser {
+    position: relative;
     width: 250px;
     height: 200px;
     margin-top: 0px;
     margin-right: 20px;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-bottom: 0;
-    border: 1px solid #AE171C;
+    border: 2px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
 
-#imgPost img {
+#imgUser img {
     border: none;
     outline: none;
     display: block;
@@ -41,6 +42,93 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+
+
+#modalCriarUser #imgUser{
+    position: relative;
+    width: 250px;
+    height: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    border: 2px solid #AE171C;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#labelCriarUser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#labelCriarUser span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: 15;
+    transition: opacity 0.3s ease;
+}
+
+#labelCriarUser span i {
+    color: white;
+    font-size: 20px;
+}
+
+#imgUser:hover #labelCriarUser span {
+    opacity: 1;
+}
+
+#imagemPadraoCriar, #previewCriar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+#previewCriar {
+    z-index: 2;
+}
+
+#imagemPadraoCriar {
+    z-index: 1;
+}
+
+#imgUser img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#img-do-user{
+    display: none;
+}
+
 
 h2{
     color: #FFFF;
@@ -218,15 +306,25 @@ p{
         height: auto;
         max-height: 90vh;
         overflow: auto;
+        align-items: center;
     }
 
     .modal-overlay{
         padding: 0;
     }
 
+
+
     .ladoEsquesto, .ladoDireito{
         width: 100%;
         padding: 15px;
+        text-align: center;
+        
+    }
+
+    .nomeFotoPerfil {
+        text-align: center;
+        margin-right: 20px;
     }
 
     #img-rato{
@@ -269,6 +367,10 @@ p{
     border-radius: 20px;
     box-shadow:3px 3px 3px #363636;
 
+
+
+
+    
 }
 
 

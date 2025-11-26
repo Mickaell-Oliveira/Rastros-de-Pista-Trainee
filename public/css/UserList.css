@@ -51,8 +51,6 @@ body::before {
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
-    
-    
 }
 
 
@@ -73,6 +71,7 @@ body::before {
     text-align: center;
     padding: 40px 20px 30px;
 }
+
 
 .main-header h1 {
     font-family: 'Oswald';
@@ -155,6 +154,8 @@ color: #AE171C;
     list-style: none; 
     display: inline-block; 
 }
+
+
 
 
 /* VERSÃO PARA CELULAR: CARDS  */
@@ -527,6 +528,10 @@ nav a:hover {
         display: flex !important; 
     } 
 
+    .search-bar {
+        border-radius: 10px;
+
+    }
 
     h1 {
         font-size: 36px;

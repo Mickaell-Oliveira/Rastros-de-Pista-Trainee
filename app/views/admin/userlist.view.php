@@ -130,7 +130,7 @@
         </li>
 
     </ul>
-</nav>
+    </nav>
 
 
 
@@ -181,14 +181,19 @@
                 <input type="hidden" name="id" value="<?= $user->id ?>">
 
                 <section class="container">
-                     <div class="ladoEsquerdo">
-                        <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
-                            <div id="imgPost">
-                                <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
-                            <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
-                     </div>
-                     </div>
 
+                     <div class="ladoEsquerdo">
+                                <div class="ladoEsquerdo">
+                                     <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
+                                        <div id="imgUser">              
+                                            <input type="file" name="foto" accept="image/*" id="img-do-user" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarUser')" required>
+                                             <label for="img-do-user" id="labelCriarUser" class="upload-label">
+                                             <span><i class="fas fa-pencil-alt"></i></span>
+                                             <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt=""></label>
+                                            <img src="#" alt="Preview" id="previewCriar" style="display: none;">
+                                        </div>
+                                </div>
+                     </div>
                     <div class="ladoDireito">
                         <div class="caixas-input">
                             <h2>Nome</h2>
@@ -253,10 +258,15 @@
             <section class="container">
 
                 <div class="ladoEsquerdo">
-                    <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
-                    <div id="imgPost"> <input type="file" name="imagem" accept="imagem/*" id="img" required> </div>
+                        <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
+                        <div id="imgUser">              
+                        <input type="file" name="foto" accept="image/*" id="img-do-user" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarUser')" required>
+                        <label for="img-do-user" id="labelCriarUser" class="upload-label">
+                            <span><i class="fas fa-pencil-alt"></i></span>
+                            <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt=""></label>
+                        <img src="#" alt="Preview" id="previewCriar" style="display: none;">
+                        </div>
                 </div>
-
 
                 <div class="ladoDireito">
                     <form class="caixas-input" method="POST" action="user/create">
@@ -297,6 +307,7 @@
 
         <script src="/public\js\Modal.js"></script>
         <script src="/public\js\PostChart.js"></script>
+        <script src="/public\js\PreviewImagemUser.js"></script>
 
     </body>
 </html>
