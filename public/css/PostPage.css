@@ -530,13 +530,15 @@ nav a:hover {
 /* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
 .admin-painel {
-    margin: 20px;
+    margin: 20px auto;
+    width: 94%;
+    max-width: 700px;
     background-color: var(--darker-bg-color);
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
-    width: auto;
+    box-sizing: border-box;
 
 }
 

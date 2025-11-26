@@ -157,12 +157,12 @@
         <div class="ladoEsquerdo">
             <div id="imgPost">
 
-            <input type="file" name="foto" accept="image/*" id="img-do-post-editar" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
+            <input type="file" name="foto" accept="image/*" id="img-do-post-editar-<?= $post->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $post->id ?>', 'imagemPadraoEditar-<?= $post->id ?>', 'labelCriarEditar-<?= $post->id ?>')" required>
 
-            <img src="#" alt="Preview" id="previewEditar" style="display: none;">
-            <img src="<?= $post -> foto ?>" id="imagemPadraoEditar" alt="">
+            <img src="#" alt="Preview" id="previewEditar-<?= $post->id ?>" style="display: none;">
+            <img src="<?= $post -> foto ?>" id="imagemPadraoEditar-<?= $post->id ?>" alt="">
 
-            <label for="img-do-post-editar" id="labelPost" class="upload-label">
+            <label for="img-do-post-editar-<?= $post->id ?>" id="labelPost-<?= $post->id ?>" class="upload-label">
                     <span><i class="fas fa-pencil-alt"></i></span>               
             </label>
             </div>
