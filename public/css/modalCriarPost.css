@@ -16,7 +16,7 @@
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 0;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -52,7 +52,7 @@
 
 #modalCriarPost .info-caixa {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -67,7 +67,7 @@
 
 #modalCriarPost .campo-editavel, #modalCriarPost #descricao-editavel {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -134,8 +134,9 @@
     justify-content: flex-end;
     gap: 20px;
     width: 320px;
-    margin-right: 5px;
+    margin-right: 50px;
     margin-top: 20px;
+
 }
 
 #modalCriarPost #btn-cancelar{
@@ -211,7 +212,7 @@
     width: 200px;
     resize: none;
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     height: 40px;

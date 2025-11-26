@@ -32,7 +32,7 @@ div[id^="modalVisualizarPost"] #imgPost {
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 0;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -62,7 +62,7 @@ div[id^="modalVisualizarPost"] h2 {
 
 div[id^="modalVisualizarPost"] .infos {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -76,7 +76,7 @@ div[id^="modalVisualizarPost"] .infos {
 
 div[id^="modalVisualizarPost"] .info-veiculo {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 200px;
@@ -90,7 +90,7 @@ div[id^="modalVisualizarPost"] .info-veiculo {
 
 div[id^="modalVisualizarPost"] .info-ano {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 200px;
@@ -104,7 +104,7 @@ div[id^="modalVisualizarPost"] .info-ano {
 
 div[id^="modalVisualizarPost"] .info-marca {
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 200px;
@@ -229,7 +229,7 @@ div[id^="modalVisualizarPost"] #idPost {
 div[id^="modalVisualizarPost"] #tipo {
     width: 200px;
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     height: 40px;

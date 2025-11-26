@@ -15,7 +15,7 @@ div[id^="modalEditarPost"] #imgPost{
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 0;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -41,7 +41,7 @@ div[id^="modalEditarPost"] h2{
 
 div[id^="modalEditarPost"] .info-autor-caixa{
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -52,7 +52,7 @@ div[id^="modalEditarPost"] .info-autor-caixa{
 
 div[id^="modalEditarPost"] .inputs{
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -220,7 +220,7 @@ div[id^="modalEditarPost"] #idPost{
 div[id^="modalEditarPost"] #tipo{
     width: 200px;
      background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     height: 40px;
