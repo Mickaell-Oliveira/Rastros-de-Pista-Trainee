@@ -55,6 +55,7 @@ body::before {
     
 }
 
+
 .admin-panel::before {
     content: '';
     position: absolute;
@@ -149,6 +150,12 @@ color: #AE171C;
     font-weight: 500;
     border-radius: 0px 16px 16px 0px;
 }
+
+.pagination .page-item {
+    list-style: none; 
+    display: inline-block; 
+}
+
 
 /* VERSÃO PARA CELULAR: CARDS  */
 .posts-table-header {

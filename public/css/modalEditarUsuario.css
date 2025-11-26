@@ -14,7 +14,7 @@ body {
     display: flex;
     max-width: 633px;
     width: 100%;
-    height: 465px;
+    height: 430px;
     margin: auto;
     background-color: #1A1A1A;
     border-radius: 15px;
@@ -22,13 +22,13 @@ body {
 }
 
 .imgPost{
-    width: 250px;
+    width: 2501px;
     height: 200px;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 0;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -47,14 +47,27 @@ h2{
     font-family: "Oswald", sans-serif;
     font-weight: bold;
     margin-top: 15px;
+    font-size: medium;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 0;
 }
 
+.nomeFotoPerfil{
+
+    color: #FFFF;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: medium;
+    margin-left: 25px;
+    margin-right: 0;
+
+}
+
 .inputs{
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -79,8 +92,8 @@ h2{
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    width: 300px;
-    margin-top: 50px;
+    width: 315px;
+    margin-top: 30px;
 }
 
 .btn-cancelar{

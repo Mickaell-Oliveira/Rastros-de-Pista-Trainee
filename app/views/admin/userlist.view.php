@@ -103,15 +103,37 @@
         <!-- ---------- PAGINAÇÃO ------------ -->
 
 
-        <nav class="pagination">
-            <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
-            <a href="#" class="page-number active">1</a>
-            <a href="#" class="page-number">2</a>
-            <a href="#" class="page-number">3</a>
-            <a href="#" class="page-number">4</a>
-            <a href="#" class="page-number">5</a>
-            <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
-        </nav>
+      <nav class="pagination" style="display: flex; justify-content: center;">
+        <ul class="pagination">
+
+        <li class="page-item <?= $page <= 1 ? "disabled" : "" ?>">
+            <a href="?paginacaoNumero=<?= $page - 1 ?>" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
+        </li>
+
+        <?php 
+
+            $max_links = 2; 
+            $start = max(1, $page - $max_links);
+            $end = min($total_pages, $page + $max_links);
+        ?>
+
+        <?php for($pagenumber = $start; $pagenumber <= $end; $pagenumber++): ?>
+            <li class="page-item"> 
+                <a class="page-number <?= $pagenumber == $page ? "active" : "" ?>" href="?paginacaoNumero=<?=$pagenumber ?>">
+                    <?= $pagenumber ?>
+                </a> 
+            </li>
+        <?php endfor ?>
+
+        <li class="page-item <?= $page >= $total_pages ? "disabled" : "" ?>">
+            <a href="?paginacaoNumero=<?= $page + 1 ?>" class="arrow next"><i class="fas fa-chevron-right"></i></a>
+        </li>
+
+    </ul>
+</nav>
+
+
+
 
     </section>
     <!------------------------------------------->
@@ -128,9 +150,10 @@
                 <section class="container">
 
                     <div class="ladoEsquerdo">
-                    <div id="imgPost">
-                    <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
-                        <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
+                        <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
+                        <div id="imgPost">
+                        <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
+                             <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
                     </div>
                     </div>
         
@@ -158,10 +181,13 @@
                 <input type="hidden" name="id" value="<?= $user->id ?>">
 
                 <section class="container">
-                    <div id="imgPost">
-                    <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
-                        <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
-                    </div>
+                     <div class="ladoEsquerdo">
+                        <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
+                            <div id="imgPost">
+                                <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário: <?= $user->nome ?>">
+                            <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
+                     </div>
+                     </div>
 
                     <div class="ladoDireito">
                         <div class="caixas-input">
@@ -176,7 +202,7 @@
                             </div>
                             <h2>Confirme sua Senha</h2> 
                             <div class="input-senha">
-                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" >
+                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" required>
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
                     
 
@@ -227,6 +253,7 @@
             <section class="container">
 
                 <div class="ladoEsquerdo">
+                    <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
                     <div id="imgPost"> <input type="file" name="imagem" accept="imagem/*" id="img" required> </div>
                 </div>
 
@@ -235,19 +262,19 @@
                     <form class="caixas-input" method="POST" action="user/create">
                     
                         <h2>Nome</h2> 
-                            <input required class="inputs" name ="name" type="text" placeholder="Nome de usuário" >
+                            <input required class="inputs" name ="name" type="text" placeholder="Nome de usuário" required >
 
                         <h2>Email</h2> 
-                            <input required class="inputs" name ="email" type="email" placeholder="email@exemplo.com" >
+                            <input required class="inputs" name ="email" type="email" placeholder="email@exemplo.com" required>
 
                         <h2>Senha</h2> 
                             <div class="input-senha">
-                                <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Insira sua Senha" >
+                                <input class="inputs" type="password" name ="senha" autocomplete="off" placeholder="Insira sua Senha" required >
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
                     
                         <h2>Confirme sua Senha</h2> 
                             <div class="input-senha">
-                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" >
+                                <input class="inputs" type="password" name ="senhaConfirmar" autocomplete="off" placeholder="Insira sua Senha" required>
                                 <i class="fas fa-eye-slash toggle-password" id="olhoMostrarSenha"></i> </div>
                     
 

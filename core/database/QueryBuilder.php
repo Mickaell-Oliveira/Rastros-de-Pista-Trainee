@@ -14,7 +14,7 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function selectAll($table, $inicio = null, $rows_count = null)
+   public function selectAll($table, $inicio = null, $rows_count = null)
     {
         $sql = "select * from {$table}";
 
@@ -32,6 +32,7 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
 
     public function countAll($table)
     {

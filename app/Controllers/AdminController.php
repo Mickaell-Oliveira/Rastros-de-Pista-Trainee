@@ -8,12 +8,38 @@ use Exception;
 class AdminController
 {
 
-    public function index()
-    {
+
+public function index()
+    { 
+        
+
+        $page = 1; 
+        if(isset($_GET['paginacaoNumero']) && !empty($_GET['paginacaoNumero'])){
+        $page = intval($_GET['paginacaoNumero']);
+        if($page <= 0){
+            return redirect('admin/userlist');
+        }
+        }
+        $itensPage = 5;
+        $inicio = $itensPage * $page - $itensPage;
+
+        $rows_count = App::get('database')->countAll('usuarios');
+        $usuarios = App::get('database')->selectAll('usuarios', $inicio, $itensPage); 
+
+        $total_pages = ceil($rows_count / $itensPage);
+
+        if($inicio > $rows_count){
+            return redirect('admin/userlist');
+        }
+        $posts = App::get('database')->selectAll('usuarios',$inicio,$itensPage);
+        $total_pages = ceil($rows_count/$itensPage);
+        return view('admin/userlist', compact('usuarios', 'page', 'total_pages'));
+    
+        
+
+
+        
         $usuarios = App::get('database')->selectAll('usuarios');
-
-
-
         return view('admin/userlist', ['usuarios' => $usuarios]);
     }
 
@@ -55,7 +81,7 @@ class AdminController
             'nome' => $_POST['name'],
             'email' => $_POST['email'],
             'senha' => $_POST['senha'],
-            'senhaConfirmar' => $_POST['senhaConfirmar'],
+
             'data' => date('Y-m-d H:i:s'),
             'foto' => $nomeimagem
         ];
@@ -82,7 +108,6 @@ class AdminController
             'nome'  => $_POST['name'] ?? '',
             'email' => $_POST['email'] ?? '',
             'senha' => $_POST['senha'] ?? '',
-            'senhaConfirmar' => $_POST['senhaConfirmar'] ?? '',
             'data'  => date('Y-m-d H:i:s')
         ];
 

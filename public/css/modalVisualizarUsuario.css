@@ -21,11 +21,11 @@ body {
 #imgPost{
     width: 250px;
     height: 200px;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 0;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -44,6 +44,7 @@ h2{
     font-family: "Oswald", sans-serif;
     font-weight: bold;
     margin-top: 15px;
+    font-size: medium;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 0;
@@ -51,7 +52,7 @@ h2{
 
 .inputs{
     background-color: #1A1A1A;
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     width: 320px;
@@ -60,11 +61,21 @@ h2{
 }
 
 .inputs:focus{
-    border: 2px solid #AE171C;
+    border: 1px solid #AE171C;
     outline: none;
 }
 
+.nomeFotoPerfil{
 
+    color: #FFFF;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 25px;
+    font-size: medium;
+    margin-right: 0;
+
+}
 
 #inputDesc::-webkit-scrollbar{
     display: none;
@@ -75,7 +86,7 @@ h2{
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    width: 300px;
+    width: 315px;
     margin-top: 50px;
 }
 
