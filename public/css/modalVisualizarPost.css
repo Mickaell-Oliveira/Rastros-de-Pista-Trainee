@@ -75,7 +75,22 @@
     border: 2px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
-    width: 80px;
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+
+}
+
+#modalVisualizarPost .info-marca{
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 200px;
     height: 40px;
     padding: 8px 10px;
     display: flex;
@@ -110,7 +125,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    width: 300px;
+    width: auto;
     margin-top: 50px;
 }
 
@@ -211,6 +226,7 @@
 }
 
 #modalVisualizarPost #tipo{
+    width: 200px;
      background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;

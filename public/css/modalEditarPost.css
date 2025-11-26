@@ -86,7 +86,16 @@
 }
 
 #modalEditarPost #input-ano{
-   width: 80px;
+   width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalEditarPost #input-marca{
+   width: 200px;
     resize: none;
     padding: 8px 10px 8px 10px;
     overflow-y: auto;
@@ -109,7 +118,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    width: 300px;
+    width: auto;
     margin-top: 50px;
 }
 
@@ -209,6 +218,7 @@
 }
 
 #modalEditarPost #tipo{
+    width: 200px;
      background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
@@ -291,7 +301,7 @@
         gap: 10px;
         margin-top: 10px;
         padding-bottom: 30px;
-    
+        
     }
 
     #modalEditarPost #img-rato {

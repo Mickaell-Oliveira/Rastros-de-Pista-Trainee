@@ -87,7 +87,7 @@
       <div class="card-actions">
           <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
           <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
-          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id; ?>')">DELETAR POST</button>
+          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
           <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
       </div>
     </li>
@@ -116,6 +116,12 @@
             <div class="info-ano">
                 <p><?=$post->ano_veiculo;?></p>
       </div>
+
+       <h2 class="texto-infos">Marca</h2>
+            <div class="info-marca">
+                <p><?=$post->marca;?></p>
+      </div>
+
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo" disabled>
                 <option value=""> <?=$post->categoria?></option>
@@ -159,6 +165,8 @@
             <input class="inputs" name = "veiculo" id="input-veiculo" type="text" value="<?=$post->veiculo;?>">
             <h2 class="texto-infos">Ano</h2>
             <input class="inputs" name = "ano_veiculo" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
+            <h2 class="texto-infos">Marca</h2>
+            <input class="inputs" id="input-marca" name="marca" type="text" value="<?=$post->marca;?>">
             <h2 class="texto-infos">Tipo de post</h2>
             <select name="post-tipo" id="tipo">
                 <option value="passeio"<?php if($post->categoria == 'passeio') echo 'selected'; ?>>Passeio</option>
@@ -187,9 +195,9 @@
     </form>
 
     <!--Modal Excluir Post-->
-        <form action="/excluirPost" method="POST">
+    <form action="/excluirPost" method="POST">
         <div class="modal-overlay hidden" id="modalExcluirPost">
-            <input type="hidden" name="id" value="<?= $post->id ?>">
+            <input type="hidden" name="id" value="<?= $post->id;?>">
         
         <section class="container">
             <div class="borda">
