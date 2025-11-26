@@ -60,10 +60,10 @@
                         <span class="stat">250 <i class="fas fa-comments"></i></span>
                     </td>
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
-                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')"></i></button>
                     </td>
                 </tr>
                 <?php endforeach ?>
@@ -101,7 +101,7 @@
 
     <?php foreach($posts as $post): ?>
      <!--Modal Visualizar Post-->
-     <div class="modal-overlay hidden" id="modalVisualizarPost">
+     <div class="modal-overlay hidden" id="modalVisualizarPost-<?= $post->id; ?>">
         <section class="container"> 
       <div class="ladoEsquerdo">
             <div id="imgPost">
@@ -143,8 +143,7 @@
         <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
         
         <div class="buttons">
-        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
-        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Sair</button>
+        <button onclick="fecharModal('modalVisualizarPost-<?= $post->id ?>')" id="btn-salvar">Sair</button>
         </div>
         </div>
         </section>
@@ -152,12 +151,12 @@
     
     <!-- Modal Editar Post-->
     <form action="/editarPost" method="POST" enctype="multipart/form-data">
-    <div class="modal-overlay hidden" id="modalEditarPost">
+    <div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
         <input type="hidden" name = "id" value="<?=$post->id;?>">
         <section class="container">
         <div class="ladoEsquerdo">
             <div id="imgPost">
-                 <input type="file" name="foto" accept="imagem/*" id="img" >
+                 <input type="file" name="foto" accept="imagem/*" id="img-<?= $post->id ?>" >
                  <img src="<?= $post->foto ?>" alt="">
             </div>
             <p id="idPost">ID: <?=$post->id;?></p>
@@ -186,7 +185,7 @@
             <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
             <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
             <div class="buttons">
-            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')" type="button">Cancelar</button>
+            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost-<?= $post->id ?>')" type="button">Cancelar</button>
             <button id="btn-salvar" type="submit">Publicar</button>
         </div>
         </div>
@@ -196,7 +195,7 @@
 
     <!--Modal Excluir Post-->
     <form action="/excluirPost" method="POST">
-        <div class="modal-overlay hidden" id="modalExcluirPost">
+        <div class="modal-overlay hidden" id="modalExcluirPost-<?= $post->id ?>">
             <input type="hidden" name="id" value="<?= $post->id;?>">
         
         <section class="container">
@@ -209,7 +208,7 @@
                     <h1>Você não poderá reverter essa alteração</h1>
                     <button class="sim" id="btn-sim" type="submit">Sim</button>
                     
-                    <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">Cancelar</button>
+                    <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost-<?= $post->id ?>')">Cancelar</button>
                 </div>
             </div>
         </section>
@@ -269,7 +268,7 @@
 
     <!--Modal Ver Comentarios-->
     <form action="/tabelaposts/verComentarios" method="POST">
-    <div class="modal-overlay hidden" id="modalVerComentarios">
+    <div class="modal-overlay hidden" id="modalVerComentarios-<?= $post->id ?>">
         <div class="container">            
             <h2>Comentários</h2>
             <div class="comments-list">
@@ -370,7 +369,7 @@
             </div>
             
             <div class="caixa-btn">
-                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios')">Fechar</button>
+                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios-<?= $post->id ?>')">Fechar</button>
             </div>
             
         </div>

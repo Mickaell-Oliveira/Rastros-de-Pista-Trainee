@@ -1,10 +1,10 @@
 /*
-  Usamos o ID #modalVerComentarios para "isolar" todas as regras.
+  Usamos o ID div[id^="modalVerComentarios"] para "isolar" todas as regras.
   Agora, .modal-overlay, .container, h2, etc., só serão
-  afetados se estiverem DENTRO de #modalVerComentarios.
+  afetados se estiverem DENTRO de div[id^="modalVerComentarios"].
 */
 
-#modalVerComentarios.modal-overlay {
+div[id^="modalVerComentarios"].modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,11 +18,11 @@
 }
 
 /* Esconde o modal por padrão (baseado no seu HTML) */
-#modalVerComentarios.hidden {
+div[id^="modalVerComentarios"].hidden {
     display: none;
 }
 
-#modalVerComentarios .container {
+div[id^="modalVerComentarios"] .container {
     background-color: #1A1A1A;
     border-radius: 12px;
     padding: 24px;
@@ -34,7 +34,7 @@
     color: #f0f0f0;
 }
 
-#modalVerComentarios .container h2 {
+div[id^="modalVerComentarios"] .container h2 {
     color: #fff;
     font-weight: bold;
     margin-top: 0;
@@ -43,14 +43,14 @@
     border-bottom: 1px solid #444;
 }
 
-#modalVerComentarios .comments-list {
+div[id^="modalVerComentarios"] .comments-list {
     max-height: 400px;
     overflow-y: auto;
     margin-right: -10px;
     padding-right: 10px;
 }
 
-#modalVerComentarios .comment-item {
+div[id^="modalVerComentarios"] .comment-item {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -58,17 +58,17 @@
     border-bottom: 1px solid #333;
 }
 
-#modalVerComentarios .comment-item:last-child {
+div[id^="modalVerComentarios"] .comment-item:last-child {
     border-bottom: none;
 }
 
-#modalVerComentarios .comment-content {
+div[id^="modalVerComentarios"] .comment-content {
     display: flex;
     align-items: flex-start;
     flex: 1;
 }
 
-#modalVerComentarios .comment-avatar {
+div[id^="modalVerComentarios"] .comment-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -76,11 +76,11 @@
     object-fit: cover;
 }
 
-#modalVerComentarios .comment-text {
+div[id^="modalVerComentarios"] .comment-text {
     flex: 1;
 }
 
-#modalVerComentarios .comment-text .comment-username {
+div[id^="modalVerComentarios"] .comment-text .comment-username {
     color: #fff;
     display: block;
     margin-bottom: 5px;
@@ -88,48 +88,48 @@
     font-weight: bold;
 }
 
-#modalVerComentarios .comment-text p {
+div[id^="modalVerComentarios"] .comment-text p {
     color: #dcdcdc;
     margin: 0;
     line-height: 1.4;
     font-size: 0.9rem;
 }
 
-#modalVerComentarios .comment-feedback {
+div[id^="modalVerComentarios"] .comment-feedback {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-top: 12px;
 }
 
-#modalVerComentarios .feedback-item {
+div[id^="modalVerComentarios"] .feedback-item {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
 }
 
-#modalVerComentarios .feedback-item span {
+div[id^="modalVerComentarios"] .feedback-item span {
     font-size: 0.85rem;
 }
 
-#modalVerComentarios .feedback-item.like-data i,
-#modalVerComentarios .feedback-item.like-data span {
+div[id^="modalVerComentarios"] .feedback-item.like-data i,
+div[id^="modalVerComentarios"] .feedback-item.like-data span {
     color: #888;
 }
 
-#modalVerComentarios .feedback-item.dislike-data i,
-#modalVerComentarios .feedback-item.dislike-data span {
+div[id^="modalVerComentarios"] .feedback-item.dislike-data i,
+div[id^="modalVerComentarios"] .feedback-item.dislike-data span {
     color: #888;
 }
 
-#modalVerComentarios .comment-actions {
+div[id^="modalVerComentarios"] .comment-actions {
     display: flex;
     gap: 10px;
     margin-left: 15px;
 }
 
-#modalVerComentarios .icon-btn {
+div[id^="modalVerComentarios"] .icon-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -139,20 +139,20 @@
     font-family: inherit;
 }
 
-#modalVerComentarios .icon-btn.edit-btn:hover {
+div[id^="modalVerComentarios"] .icon-btn.edit-btn:hover {
     color: #fff;
 }
 
-#modalVerComentarios .icon-btn.delete-btn:hover {
+div[id^="modalVerComentarios"] .icon-btn.delete-btn:hover {
     color: #AE171C;
 }
 
-#modalVerComentarios .caixa-btn {
+div[id^="modalVerComentarios"] .caixa-btn {
     margin-top: 25px;
     text-align: right;
 }
 
-#modalVerComentarios .btn-fechar {
+div[id^="modalVerComentarios"] .btn-fechar {
     background: #363636;
     border: none;
     color: #FFFFFF;
@@ -166,30 +166,30 @@
     font-family: inherit;
 }
 
-#modalVerComentarios .btn-fechar:hover {
+div[id^="modalVerComentarios"] .btn-fechar:hover {
     background-color: #c0c0c0;
     box-shadow:3px 3px 3px #AE171C;
 }
 
-#modalVerComentarios .comments-list::-webkit-scrollbar {
+div[id^="modalVerComentarios"] .comments-list::-webkit-scrollbar {
     width: 8px;
 }
 
-#modalVerComentarios .comments-list::-webkit-scrollbar-track {
+div[id^="modalVerComentarios"] .comments-list::-webkit-scrollbar-track {
     background: #222;
     border-radius: 4px;
 }
 
-#modalVerComentarios .comments-list::-webkit-scrollbar-thumb {
+div[id^="modalVerComentarios"] .comments-list::-webkit-scrollbar-thumb {
     background: #555;
     border-radius: 4px;
 }
 
-#modalVerComentarios .comments-list::-webkit-scrollbar-thumb:hover {
+div[id^="modalVerComentarios"] .comments-list::-webkit-scrollbar-thumb:hover {
     background: #777;
 }
 
-#modalVerComentarios .edit-textarea {
+div[id^="modalVerComentarios"] .edit-textarea {
     width: 100%;
     background-color: #333;
     border: 1px solid #AE171C;

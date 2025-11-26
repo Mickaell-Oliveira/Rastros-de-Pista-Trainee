@@ -1,166 +1,6 @@
-#modalVisualizarPost .container{
-    display: flex;
-    max-width: 633px;
-    width: 100%;
-    height: 633px;
-    margin: auto;
-    background-color: #1A1A1A;
-    border-radius: 15px;
-    box-shadow:3px 3px 3px #AE171C;
-}
+/* Modal Visualizar Post (Dinâmico) */
 
-#modalVisualizarPost #imgPost{
-    width: 250px;
-    height: 200px;
-    margin-top: 20px;
-    margin-right: 20px;
-    margin-bottom: 0;
-    border: 2px solid #AE171C;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#modalVisualizarPost #imgPost img {
-    border: none;
-    outline: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-#modalVisualizarPost .ladoEsquerdo{
-    margin: 10px;
-}
-
-#modalVisualizarPost h2{
-    color: #FFFF;
-    font-family: "Oswald", sans-serif;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 0;
-}
-
-#modalVisualizarPost .infos{
-    background-color: #1A1A1A;
-    border: 2px solid #AE171C;
-    border-radius: 5px;
-    color: #FFFF;
-    width: 320px;
-    height: 40px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
-}
-
-#modalVisualizarPost .info-veiculo{
-    background-color: #1A1A1A;
-    border: 2px solid #AE171C;
-    border-radius: 5px;
-    color: #FFFF;
-    width: 200px;
-    height: 40px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
-}
-
-#modalVisualizarPost .info-ano{
-    background-color: #1A1A1A;
-    border: 2px solid #AE171C;
-    border-radius: 5px;
-    color: #FFFF;
-    width: 200px;
-    height: 40px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
-
-}
-
-#modalVisualizarPost .info-marca{
-    background-color: #1A1A1A;
-    border: 2px solid #AE171C;
-    border-radius: 5px;
-    color: #FFFF;
-    width: 200px;
-    height: 40px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    font-family: "Oswald", sans-serif;
-    font-size: 14px;
-
-}
-
-#modalVisualizarPost .infos p {
-    margin: 0;
-    line-height: 1.3;
-}
-
-#modalVisualizarPost #descricao-info {
-    height: 270px;
-    align-items: flex-start;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-#modalVisualizarPost #descricao-info p {
-    width: 100%;
-}
-
-#modalVisualizarPost #descricao-info::-webkit-scrollbar{
-    display: none;
-}
-
-#modalVisualizarPost .buttons{
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    width: auto;
-    margin-top: 50px;
-}
-
-#modalVisualizarPost #btn-cancelar{
-    width: 100px;
-    height: 40px;
-    background-color: #363636;
-    color: #FFFF;
-    border: #363636;
-    border-radius: 20px;
-    box-shadow:3px 3px 3px #AE171C;
-}
-
-#modalVisualizarPost #btn-salvar{
-    width: 100px;
-    height: 40px;
-    background-color: #AE171C;
-    color: #FFFF;
-    border: #AE171C;
-    border-radius: 20px;
-    box-shadow:3px 3px 3px #363636;
-}
-
-#modalVisualizarPost #btn-cancelar:hover{
-    cursor: pointer;
-    background-color: #c0c0c0;
-    box-shadow:3px 3px 3px #AE171C;
-}
-#modalVisualizarPost #btn-salvar:hover{
-    cursor: pointer;
-    background-color: #c0c0c0;
-    box-shadow:3px 3px 3px #363636;
-}
-
-#modalVisualizarPost.modal-overlay {
+div[id^="modalVisualizarPost"].modal-overlay {
     position: fixed; 
     top: 0;
     left: 0;
@@ -175,7 +15,168 @@
     z-index: 9999;
 }
 
-#modalVisualizarPost .info-post{
+div[id^="modalVisualizarPost"] .container {
+    display: flex;
+    max-width: 633px;
+    width: 100%;
+    height: 633px;
+    margin: auto;
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px #AE171C;
+}
+
+div[id^="modalVisualizarPost"] #imgPost {
+    width: 250px;
+    height: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    border: 2px solid #AE171C;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div[id^="modalVisualizarPost"] #imgPost img {
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div[id^="modalVisualizarPost"] .ladoEsquerdo {
+    margin: 10px;
+}
+
+div[id^="modalVisualizarPost"] h2 {
+    color: #FFFF;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+div[id^="modalVisualizarPost"] .infos {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 320px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+div[id^="modalVisualizarPost"] .info-veiculo {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+div[id^="modalVisualizarPost"] .info-ano {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+div[id^="modalVisualizarPost"] .info-marca {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 200px;
+    height: 40px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+div[id^="modalVisualizarPost"] .infos p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+div[id^="modalVisualizarPost"] #descricao-info {
+    height: 270px;
+    align-items: flex-start;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+div[id^="modalVisualizarPost"] #descricao-info p {
+    width: 100%;
+}
+
+div[id^="modalVisualizarPost"] #descricao-info::-webkit-scrollbar {
+    display: none;
+}
+
+div[id^="modalVisualizarPost"] .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: auto;
+    margin-top: 50px;
+}
+
+div[id^="modalVisualizarPost"] #btn-cancelar {
+    width: 100px;
+    height: 40px;
+    background-color: #363636;
+    color: #FFFF;
+    border: #363636;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px #AE171C;
+}
+
+div[id^="modalVisualizarPost"] #btn-salvar {
+    width: 100px;
+    height: 40px;
+    background-color: #AE171C;
+    color: #FFFF;
+    border: #AE171C;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px #363636;
+}
+
+div[id^="modalVisualizarPost"] #btn-cancelar:hover {
+    cursor: pointer;
+    background-color: #c0c0c0;
+    box-shadow: 3px 3px 3px #AE171C;
+}
+div[id^="modalVisualizarPost"] #btn-salvar:hover {
+    cursor: pointer;
+    background-color: #c0c0c0;
+    box-shadow: 3px 3px 3px #363636;
+}
+
+div[id^="modalVisualizarPost"] .info-post {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -186,37 +187,37 @@
     margin-top: 60px;
 }
 
-#modalVisualizarPost .info-post i{
+div[id^="modalVisualizarPost"] .info-post i {
     color: #FFFFFF;
     display: flex;
     align-items: center;
     gap: 7px;
 }
 
-#modalVisualizarPost .info-post i::before{
+div[id^="modalVisualizarPost"] .info-post i::before {
     color: black;
     font-size: 25px;
 }
 
-#modalVisualizarPost #img-rato{
+div[id^="modalVisualizarPost"] #img-rato {
     margin-left: 55px;
     margin-top: 60px;
     width: 170px;
 }
 
-#modalVisualizarPost p{
+div[id^="modalVisualizarPost"] p {
     color: white;
 }
 
-#modalVisualizarPost #dataPost{
+div[id^="modalVisualizarPost"] #dataPost {
     display: flex;
-    font-family: "Oswald", sans-serif;;
+    font-family: "Oswald", sans-serif;
     font-weight: lighter;
     margin: 0;
     justify-content: end;
 }
 
-#modalVisualizarPost #idPost{
+div[id^="modalVisualizarPost"] #idPost {
     font-family: "Oswald", sans-serif;
     font-weight: lighter;
     width: 250px;
@@ -225,22 +226,23 @@
     margin-bottom: 0;
 }
 
-#modalVisualizarPost #tipo{
+div[id^="modalVisualizarPost"] #tipo {
     width: 200px;
-     background-color: #1A1A1A;
+    background-color: #1A1A1A;
     border: 2px solid #AE171C;
     border-radius: 5px;
     color: #FFFF;
     height: 40px;
 }
+
 @media (max-width: 700px) {
     
-    #modalVisualizarPost.modal-overlay {
-        padding: 20px ;
+    div[id^="modalVisualizarPost"].modal-overlay {
+        padding: 20px;
     }
 
-    #modalVisualizarPost .container {
-       flex-direction: column;
+    div[id^="modalVisualizarPost"] .container {
+        flex-direction: column;
         height: auto;
         max-height: 90vh;
         overflow-y: auto; 
@@ -250,21 +252,21 @@
         margin: 0 auto;
     }
 
-    #modalVisualizarPost .ladoEsquerdo, 
-    #modalVisualizarPost .ladoDireito {
+    div[id^="modalVisualizarPost"] .ladoEsquerdo, 
+    div[id^="modalVisualizarPost"] .ladoDireito {
         width: 100%;
         padding: 0;
     }
 
-    #modalVisualizarPost .ladoEsquerdo {
+    div[id^="modalVisualizarPost"] .ladoEsquerdo {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
     }
 
-    #modalVisualizarPost .infos,
-    #modalVisualizarPost .textos-info-visualizar {
+    div[id^="modalVisualizarPost"] .infos,
+    div[id^="modalVisualizarPost"] .textos-info-visualizar {
         width: 90%;
         margin-left: 0;
         margin-right: 0;
@@ -272,30 +274,30 @@
         text-align: center;
     }
 
-    #modalVisualizarPost .textos-info-visualizar {
+    div[id^="modalVisualizarPost"] .textos-info-visualizar {
         margin-top: 15px;
         margin-bottom: 5px;
     }
 
-    #modalVisualizarPost #imgPost {
+    div[id^="modalVisualizarPost"] #imgPost {
         margin: 0 auto;
         display: flex;
         justify-content: center;
     }
 
-    #modalVisualizarPost #idPost {
+    div[id^="modalVisualizarPost"] #idPost {
         width: 100%;
         text-align: center;
         margin: 10px 0;
     }
 
-    #modalVisualizarPost .ladoDireito {
+    div[id^="modalVisualizarPost"] .ladoDireito {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    #modalVisualizarPost #descricao-info {
+    div[id^="modalVisualizarPost"] #descricao-info {
         width: 90%;
         height: 150px;
         text-align: left;
@@ -304,14 +306,14 @@
         overflow-y: auto;
     }
 
-    #modalVisualizarPost #dataPost {
+    div[id^="modalVisualizarPost"] #dataPost {
         margin-top: 0;
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
-    #modalVisualizarPost .buttons {
+    div[id^="modalVisualizarPost"] .buttons {
         width: 90%;
         display: flex;
         justify-content: center;
@@ -320,11 +322,12 @@
         padding-bottom: 30px;
     }
 
-    #modalVisualizarPost #img-rato {
+    div[id^="modalVisualizarPost"] #img-rato {
         display: none;
     }
 }
 
-#modalVisualizarPost.hidden {
+/* Regra de ocultação (Importante) */
+div[id^="modalVisualizarPost"].hidden {
     display: none ;
 }
