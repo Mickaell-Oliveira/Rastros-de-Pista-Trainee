@@ -181,19 +181,16 @@
                 <input type="hidden" name="id" value="<?= $user->id ?>">
 
                 <section class="container">
-
-                     <div class="ladoEsquerdo">
-                                <div class="ladoEsquerdo">
-                                     <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
-                                        <div id="imgUser">              
-                                            <input type="file" name="foto" accept="image/*" id="img-do-user" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarUser')" required>
-                                             <label for="img-do-user" id="labelCriarUser" class="upload-label">
-                                             <span><i class="fas fa-pencil-alt"></i></span>
-                                             <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt=""></label>
-                                            <img src="#" alt="Preview" id="previewCriar" style="display: none;">
-                                        </div>
-                                </div>
-                     </div>
+                <div class="ladoEsquerdo">
+                        <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
+                        <div id="imgUser">              
+                        <input type="file" name="foto" accept="image/*" id="img-do-user" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarUser')" required>
+                        <label for="img-do-user" id="labelCriarUser" class="upload-label">
+                            <span><i class="fas fa-pencil-alt"></i></span>
+                            <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt=""></label>
+                        <img src="#" alt="Preview" id="previewCriar" style="display: none;">
+                        </div>
+                </div>
                     <div class="ladoDireito">
                         <div class="caixas-input">
                             <h2>Nome</h2>

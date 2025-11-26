@@ -1,6 +1,5 @@
 .modal-editar {
-
-
+}
 *{
     box-sizing: border-box;
 }
@@ -22,7 +21,7 @@ body {
 }
 
 .imgPost{
-    width: 2501px;
+    width: 250px;
     height: 200px;
     margin-top: 0px;
     margin-right: 20px;
@@ -54,7 +53,6 @@ h2{
 }
 
 .nomeFotoPerfil{
-
     color: #FFFF;
     font-family: "Oswald", sans-serif;
     font-weight: bold;
@@ -62,16 +60,21 @@ h2{
     font-size: medium;
     margin-left: 25px;
     margin-right: 0;
-
 }
 
-
+.ladoEsquesto {
+    /* Adicionado para garantir o alinhamento central da imagem e texto no layout desktop, se .container for flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
 
 #imgUser {
     position: relative;
     width: 250px;
     height: 200px;
     margin-top: 0px;
+    /* Valores originais mantidos, que estavam fora da centralização: */
     margin-right: 20px;
     margin-left: 10px;
     margin-bottom: 0;
@@ -88,7 +91,6 @@ h2{
     height: 100%;
     object-fit: cover;
 }
-
 
 
 #modalCriarUser #imgUser{
@@ -176,7 +178,6 @@ h2{
 }
 
 
-
 .inputs{
     background-color: #1A1A1A;
     border: 1px solid #AE171C;
@@ -192,7 +193,6 @@ h2{
     border: 2px solid #AE171C;
     outline: none;
 }
-
 
 
 .inputDesc::-webkit-scrollbar{
@@ -305,7 +305,6 @@ p{
 }
 
 
-
 .toggle-password {
     position: absolute;
     right: 15px;
@@ -339,10 +338,8 @@ p{
 }
 
 .fotoPerfil {
-
     width: fit-content;
 }
-
 
 
 @media (max-width: 700px){
@@ -358,7 +355,20 @@ p{
         padding: 0;
     }
 
-    .ladoEsquesto, .ladoDireito{
+    .nomeFotoPerfil{
+
+        margin-right: 20px;
+    }
+
+    .ladoEsquerdo{
+
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ladoEsquerdo, .ladoDireito{
         width: 100%;
         padding: 15px;
     }
@@ -380,6 +390,12 @@ p{
         margin-left: auto;
         margin-right: auto;
     }
+    
+
+    #imgUser {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     #idPost{
         margin-left: 0;
@@ -390,4 +406,4 @@ p{
 
 .hidden{
     display: none;
-} }
+}
