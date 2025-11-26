@@ -85,10 +85,10 @@
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>
       <div class="card-actions">
-          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
-          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
-          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost')">DELETAR POST</button>
-          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
+          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')">DELETAR POST</button>
+          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
       </div>
     </li>
   </ul> 
