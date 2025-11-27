@@ -304,7 +304,7 @@
 
         <script src="/public\js\Modal.js"></script>
         <script src="/public\js\PostChart.js"></script>
-        <script src="/public\js\PreviewImagemUser.js"></script>
+        <script src="../../../public/js/PreviewImagemUser.js"></script>
 
     </body>
 </html>

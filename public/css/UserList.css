@@ -45,6 +45,7 @@ body::before {
 }
 
 .admin-panel {
+    width: 97%;
     margin: 20px;
     background-color: var(--darker-bg-color);
     position: relative;

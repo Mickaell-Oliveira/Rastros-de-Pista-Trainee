@@ -13,12 +13,10 @@ function exibirPreview(inputElement, previewId, imgPadraoId, labelId) {
         };
 
         reader.readAsDataURL(arquivo);
-          labelElement.textContent = 'Imagem Selecionada';
         } 
       else{
           previewElement.style.display = 'none';
           previewElement.src = '';
           imgPadraoElement.style.display = 'block';
-          labelElement.textContent = 'Selecione uma Imagem';
         }
 } 
