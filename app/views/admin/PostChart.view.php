@@ -324,7 +324,7 @@
                                     </form>
 
                                     <div id="delete-confirm-<?= $comentario->id ?>" class="delete-alert" style="display: none;">
-                                        <p><strong>Tem certeza que deseja excluir?</strong></p>
+                                        <p>Tem certeza que deseja excluir?</p>
                                         <div class="delete-actions">
                                             <button type="button" class="btn-sim-mini" onclick="confirmarExclusaoAJAX(<?= $comentario->id ?>)">Sim</button>
                                             <button type="button" class="btn-nao-mini" onclick="cancelarExclusao(<?= $comentario->id ?>)">Cancelar</button>
