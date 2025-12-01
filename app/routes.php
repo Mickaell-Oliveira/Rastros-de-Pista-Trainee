@@ -9,4 +9,8 @@ use App\Core\Router;
     $router->post('login', 'LoginController@efetuaLogin');
     $router->POST('logout', 'LoginController@logout');
 
+    $router->get('tabelaposts', 'AdminController@index');
+    $router->post('tabelaposts/criar', 'AdminController@create');
+    $router->post('excluirPost', 'AdminController@delete');
+    $router->post('editarPost', 'AdminController@edit');
 ?>

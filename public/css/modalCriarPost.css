@@ -1,0 +1,311 @@
+#modalCriarPost .container{
+    display: flex;
+    max-width: 633px;
+    width: 100%;
+    height: 633px;
+    margin: auto;
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    box-shadow:3px 3px 3px #AE171C;
+}
+
+#modalCriarPost #imgPost{
+    position: relative;
+    width: 250px;
+    height: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    border: 2px solid #AE171C;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#previewCriar{
+    z-index: 2;
+}
+
+#imagemPadraoCriar {
+    z-index: 1;
+}
+
+#modalCriarPost #imgPost img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#modalCriarPost h2{
+    color: #FFFF;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+#modalCriarPost .info-caixa {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 320px;
+    height: 40px;
+    padding: 8px 10px;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+#modalCriarPost .campo-editavel, #modalCriarPost #descricao-editavel {
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    width: 320px;
+    padding: 8px 10px;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px; 
+}
+
+#modalCriarPost .campo-editavel {
+    height: 40px;
+}
+
+#modalCriarPost #descricao-editavel {
+    height: 270px;
+    resize: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCriarPost #input-veiculo{
+    width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+   
+}
+
+#modalCriarPost #input-ano{
+   width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCriarPost #input-marca{
+    width: 200px;
+    resize: none;
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#modalCriarPost .ladoEsquerdo{
+    padding-left:10px ;
+}
+
+
+#modalCriarPost #descricao-editavel::-webkit-scrollbar {
+    display: none;
+}
+
+#modalCriarPost .campo-editavel:focus, #modalCriarPost #descricao-editavel:focus {
+    outline: none;
+}
+
+
+#modalCriarPost .buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 320px;
+    margin-right: 5px;
+    margin-top: 20px;
+}
+
+#modalCriarPost #btn-cancelar{
+    width: 100px;
+    height: 40px;
+    background-color: #363636;
+    color: #FFFF;
+    border: #363636;
+    border-radius: 20px;
+    box-shadow:3px 3px 3px #AE171C;
+}
+
+#modalCriarPost #btn-salvar{
+    width: 100px;
+    height: 40px;
+    background-color: #AE171C;
+    color: #FFFF;
+    border: #AE171C;
+    border-radius: 20px;
+    box-shadow:3px 3px 3px #363636;
+}
+
+#modalCriarPost #btn-cancelar:hover{
+    cursor: pointer;
+    background-color: #c0c0c0;
+    box-shadow:3px 3px 3px #AE171C;
+}
+#modalCriarPost #btn-salvar:hover{
+    cursor: pointer;
+    background-color: #c0c0c0;
+    box-shadow:3px 3px 3px #363636;
+}
+
+#modalCriarPost.modal-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+#modalCriarPost p{
+    color: white;
+}
+
+#modalCriarPost #dataPost{
+    font-family: "Oswald", sans-serif;;
+    font-weight: lighter;
+    margin: 0;
+    width: 320px; 
+    margin-left: 5px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+#modalCriarPost #idPost{
+    font-family: "Oswald", sans-serif;
+    font-weight: lighter;
+    width: 250px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#modalCriarPost #tipo{
+    width: 200px;
+    resize: none;
+    background-color: #1A1A1A;
+    border: 2px solid #AE171C;
+    border-radius: 5px;
+    color: #FFFF;
+    height: 40px;
+}
+
+@media (max-width: 700px) {
+    
+    #modalCriarPost.modal-overlay {
+        padding: 20px !important;
+    }
+
+    #modalCriarPost .container {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+        max-height: 90vh;
+    }
+
+    #modalCriarPost .ladoEsquerdo, 
+    #modalCriarPost .ladoDireito {
+        width: 100%;
+    }
+
+    #modalCriarPost .ladoEsquerdo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #modalCriarPost .inputs,
+    #modalCriarPost .campo-editavel,
+    #modalCriarPost .info-caixa,
+    #modalCriarPost .textos-info-criar,
+    #modalCriarPost .info-autor-caixa {
+        width: 90%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    #modalCriarPost .textos-info-criar {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    #modalCriarPost #imgPost {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    #modalCriarPost #idPost {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    #modalCriarPost .ladoDireito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modalCriarPost #descricao-editavel {
+        width: 90%;
+        height: 150px;
+        text-align: left;
+        padding: 10px;
+        margin: 0 0 10px 0;
+    }
+
+    #modalCriarPost #dataPost {
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #modalCriarPost .buttons {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    #modalCriarPost #img-rato {
+        display: none;
+    }
+}
+
+#modalCriarPost.hidden{
+    display: none;
+}
