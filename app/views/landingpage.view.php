@@ -20,11 +20,11 @@
     </head>
 
     <body>
-         
+   <?php require 'app/views/site/navbar.view.php'; ?>
    <div class="container-imagem">
         <div class="texto-centralizado " >
-            <h1>Lorem Ipsum</h1>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            <h1>Cada Carro Conta uma História. Qual é a Sua?</h1>
+            <p>No Rastros de Pista, não importam os cavalos do motor, mas a paixão de quem dirige. Criamos este espaço para unir gerações de entusiastas — do fã de clássicos ao admirador de modernos — em uma comunidade que valoriza cada história. Junte-se a nós para ir além da ficha técnica: aqui celebramos a liberdade sobre quatro rodas, trocamos experiências e descobrimos juntos que a verdadeira magia da estrada está na conexão entre o motorista, a máquina e o mundo ao redor.</p>
         </div>
     
     </div>
@@ -87,6 +87,8 @@
 
     </div>
     <script src="../../../public/js/landingpage.js"></script>
+
+    <?php require 'app/views/site/footer.view.php'; ?>
     </body>
 
 

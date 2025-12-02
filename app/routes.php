@@ -10,4 +10,5 @@ $router->post('excluirPost', 'AdminController@delete');
 $router->post('editarPost', 'AdminController@edit');
 $router->post('tabelaposts/atualizarComentario', 'AdminController@updateComment');
 $router->post('tabelaposts/deletarComentario', 'AdminController@deleteComment');
+$router->get('home', 'HomeController@index');
 ?>
