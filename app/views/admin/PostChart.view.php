@@ -141,7 +141,7 @@
             <p><?=$post->descricao;?></p>
         </div>
         <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
-        
+            
         <div class="buttons">
         <button onclick="fecharModal('modalVisualizarPost-<?= $post->id ?>')" id="btn-salvar">Sair</button>
         </div>
