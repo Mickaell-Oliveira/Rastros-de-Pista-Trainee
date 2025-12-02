@@ -31,12 +31,14 @@
                 </div>
             </div>
             <div class="caixa-botoes centralizar-botoes">
+                <form action="/tabelaposts" method="POST">
                 <button class="botao-motor">
                     <div class="imagem-botao">
                         <img src="../../../public/assets/fotomotor.png" alt="Ícone Motor">
                     </div>
                     <span>Posts</span>
                 </button>
+                </form>
                 <button class="botao-garagem">
                     <div class="imagem-botao">
                         <img src="../../../public/assets/garegem.png" alt="Ícone Garagem">
