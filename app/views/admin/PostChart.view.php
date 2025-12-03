@@ -79,7 +79,7 @@ if ($result) {
             
             <form class="search-container" action="">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-bar" name="busca" value ="<?= htmlspecialchars($busca); ?>">
+                <input id="searchInput" type="text" class="search-bar" name="busca" value ="<?= htmlspecialchars($busca); ?>">
             </form>
 
 
@@ -117,7 +117,7 @@ if ($result) {
                 <?php foreach($posts as $post): ?>
 
                     
-                 <tr class="post-item">
+                 <tr class="post-item" data-title="<?= htmlspecialchars($post->titulo) ?>">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
                     <td class="post-data post-date"><?= date('d/m/Y', strtotime($post->data)) ?></td>
                     <td class="post-data post-title" data-label="Título"><?= $post->titulo ?></td>
@@ -170,15 +170,10 @@ if ($result) {
    <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
         <i class="fas fa-plus"></i> 
     </button>
-    <nav class="pagination">
-        <a href="#" class="arrow prev"><i class="fas fa-chevron-left"></i></a>
-        <a href="#" class="page-number active">1</a>
-        <a href="#" class="page-number">2</a>
-        <a href="#" class="page-number">3</a>
-        <a href="#" class="page-number">4</a>
-        <a href="#" class="page-number">5</a>
-        <a href="#" class="arrow next"><i class="fas fa-chevron-right"></i></a>
-    </nav>
+
+        <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
+  
+
     </section>
 
     <?php foreach($posts as $post): ?>
@@ -449,6 +444,10 @@ if ($result) {
 
 
     <script src="/public/js/Modal.js"></script>
+    <script src="/public/js/BarraPesquisa.js"></script>
     <script src="../../../public/js/PostPage.js"></script>
+
+
+
 </body>
 </html>
