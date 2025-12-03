@@ -2,7 +2,8 @@
 
 namespace App\Core\Database;
 
-use PDO, Exception;
+use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -47,7 +48,7 @@ class QueryBuilder
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
+    } 
 
     public function countAll($table)
     {
@@ -84,8 +85,8 @@ class QueryBuilder
 
     public function delete($table, $id)
     {
-        $sql = sprintf('DELETE FROM %s WHERE id = :id', $table);
-
+        $sql = "DELETE FROM {$table} WHERE id = :id";
+        
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
@@ -97,7 +98,7 @@ class QueryBuilder
 
     public function selectOne($table, $id)
     {
-        $sql = sprintf('SELECT * FROM %s WHERE id=:id LIMIT 1', $table);
+        $sql = "SELECT * FROM {$table} WHERE id=:id LIMIT 1";
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -126,6 +127,21 @@ class QueryBuilder
         }
     }
 
+    public function selectAllComentariosComNomes()
+    {
+        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
+                FROM comentarios 
+                JOIN usuarios ON comentarios.id_usuario = usuarios.id";
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die("Erro ao buscar comentários: " . $e->getMessage());
+        }
+    }
+
     public function selectComentariosPorPost($postId)
     {
         $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
@@ -138,7 +154,7 @@ class QueryBuilder
             $statement->execute(['post_id' => $postId]);
             return $statement->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
-            die("Erro ao buscar comentários: " . $e->getMessage());
+            die("Erro: " . $e->getMessage());
         }
     }
 }
