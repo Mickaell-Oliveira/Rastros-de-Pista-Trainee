@@ -69,7 +69,9 @@
             </div>
         
           <div class="ver-mais">
+            <a href="/postspage">
             <h1><u> Ver Mais </u></h1>
+            </a>
           </div>
 
         <div class="container-sobre-nos">

@@ -29,7 +29,7 @@
                         <a href="/home" class="navbar-home">Home</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="/publicacoes" class="navbar-pub">Publicações</a>
+                        <a href="/postspage" class="navbar-pub">Publicações</a>
                     </li>
                     <li class="navbar-item">
                         <a href="/login" class="navbar-login">Login</a>
