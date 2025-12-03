@@ -4,11 +4,11 @@ namespace App\Controllers;
 use App\Controllers\ExampleController;
 use App\Core\Router;
 
-$router->get('usuarios', 'AdminController@index');
-$router->post('user/create', 'AdminController@create');
-$router->post('user/edit', 'AdminController@edit');
-$router->post('user/delete', 'AdminController@delete');
+$router->get('usuarios', 'userAdminController@index');
+$router->post('user/create', 'userAdminController@create');
+$router->post('user/edit', 'userAdminController@edit');
+$router->post('user/delete', 'userAdminController@delete');
 
-$router->get('admin/userlist', 'AdminController@index');
+$router->get('admin/userlist', 'userAdminController@index');
 
 ?>
