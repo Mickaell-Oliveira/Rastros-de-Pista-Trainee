@@ -22,4 +22,11 @@ $router->post('tabelaposts/deletarComentario', 'AdminController@deleteComment');
 
 $router->get('home', 'HomeController@index');
 
+$router->get('usuarios', 'userAdminController@index');
+$router->post('user/create', 'userAdminController@create');
+$router->post('user/edit', 'userAdminController@edit');
+$router->post('user/delete', 'userAdminController@delete');
+
+$router->get('admin/userlist', 'userAdminController@index');
+
 ?>
