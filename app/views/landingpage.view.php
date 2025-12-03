@@ -34,32 +34,33 @@
             
      <div class="carousel-container">
         <div class="carousel-track">
-            
-            <div class="card">
-                <div class="conteudo-carrossel img-1"></div>
-                <div class="info-container">
-                    <h3>Lorem Ipsum</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="conteudo-carrossel img-2"></div>
-                <div class="info-container">
-                    <h3>Lorem Ipsum</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="conteudo-carrossel img-3"></div>
-                <div class="info-container">
-                    <h3>Lorem Ipsum</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                </div>
-            </div>
-
-        </div>
+                    
+                    <?php if(!empty($posts)): ?>
+                        <?php foreach($posts as $post): ?>
+                            <div class="card">
+                                <div class="conteudo-carrossel" 
+                                     style="background-image: url('/<?= !empty($post->foto) ? $post->foto : 'public/assets/fotoPost.jpg' ?>');">
+                                </div>
+                                
+                                <div class="info-container">
+                                    <h3><?= htmlspecialchars($post->titulo) ?></h3>
+                                    
+                                    <p>
+                                        <?= htmlspecialchars(substr($post->descricao, 0, 150)) . (strlen($post->descricao) > 150 ? '...' : '') ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="card">
+                             <div class="conteudo-carrossel"> </div>
+                             <div class="info-container">
+                                <h3>Sem posts</h3>
+                                <p>Nenhuma publicação encontrada no momento.</p>
+                             </div>
+                        </div>
+                    <?php endif; ?>
+                    </div>
 
         <button id="prevBtn" class="carousel-btn prev">&#10094;</button>
         <button id="nextBtn" class="carousel-btn next">&#10095;</button>

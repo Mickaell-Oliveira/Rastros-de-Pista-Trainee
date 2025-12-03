@@ -11,13 +11,17 @@
     <link rel="stylesheet" href="../../../public/css/ModalExcluirPost.css">
     <link rel="stylesheet" href="../../../public/css/modalCriarPost.css">
     <link rel="stylesheet" href="../../../public/css/modalVerComentarios.css">
+    <link rel="stylesheet" href="/public/css/sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
 </head>
 
 <body>
+
+<?php require 'app/views/admin/sidebar.view.php'; ?>
+    <main>
     <section class="admin-painel">
-        <header class="main-header">
+       <header class="main-header">
             <h1>TABELA DE POSTS</h1>
         </header>
         <!-- Barra de Pesquisa, Nova Publicação-->
@@ -360,7 +364,7 @@
 </div>
 <?php endforeach ?>
 
-
+            </main>
     <script src="/public/js/Modal.js"></script>
     <script src="../../../public/js/PostPage.js"></script>
 </body>

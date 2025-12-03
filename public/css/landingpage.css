@@ -40,7 +40,7 @@ h1, h2, h3 {
 
 /* --- Seção Degradê e Carrossel --- */
 .degrade {
-    background: linear-gradient(135deg, #1A1A1A, #64191B,#AE171C);
+      background: linear-gradient(360deg, #B91C22, #64191B,#1A1A1A);
     padding: 40px 20px; /* Espaçamento vertical */
     
 }
@@ -276,7 +276,7 @@ h1, h2, h3 {
 
     .fundo-do-carrossel {
         width: 70%;
-        height: 60vh;
+        height: 72vh;
         margin: auto;
         display: flex;
         align-items: center;

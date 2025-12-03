@@ -29,7 +29,6 @@
             </a>
         </li\>
 
-
         <li class="item">
        <a href="#">
             <i class="fa-solid fa-users"></i>
@@ -68,10 +67,6 @@
     </div>
     
 </nav>
-
-<main class="main-content">
-        <h1>Meu Conteúdo Principal</h1>
-    </main>
 
 <script src="../../../public/js/sidebar.js"></script>
 </body>
