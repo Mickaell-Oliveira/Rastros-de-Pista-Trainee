@@ -1,8 +1,10 @@
-const sidebar = document.querySelector('.sidebar');
-const openButton = document.querySelector('#open');
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('.sidebar');
+    const openButton = document.querySelector('#open');
 
-
-openButton.addEventListener('click', () => {
-    
-    sidebar.classList.toggle('closed');
+    if (openButton && sidebar) {
+        openButton.addEventListener('click', () => {
+            sidebar.classList.toggle('closed');
+        });
+    }
 });
