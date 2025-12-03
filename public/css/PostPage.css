@@ -17,7 +17,7 @@
 }
 
 body {
-   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
+    background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -132,7 +132,7 @@ color: #AE171C;
     gap: 8px;
     height: 45px;
     font-family: 'Oswald', sans-serif;
-   
+    
 }
 
 .new-post-btn:hover{
@@ -152,7 +152,6 @@ color: #AE171C;
     border-radius: 0 5px 5px 0;
 }
 
-/* VERSÃO PARA CELULAR: CARDS  */
 .posts-table-header {
     display: none; 
 }
@@ -230,18 +229,17 @@ color: #AE171C;
     text-decoration: none;
     padding: 8px 14px;
     margin: 0 4px;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: background-color 0.3s;
     justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: 50px;
     border: none;
 }
 
 .pagination a:hover{
     background-color: #c0392b;
-   
+    
 }
 .pagination a.arrow {
     background-color: #c0392b;
@@ -325,7 +323,6 @@ color: #AE171C;
 
 
 
-/* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
   .admin-panel {
     padding: 0 30px 30px;
@@ -436,10 +433,7 @@ color: #AE171C;
     display: none !important;
 }
 }
-/* ================== FIM DESKTOP ================== */
 
-
-/* ================== MENU DE OPÇÕES PARA CELULAR (3 PONTINHOS) ================== */
 
 .post-item {
     position: relative;
@@ -482,7 +476,6 @@ color: #AE171C;
     display: inline;
 }
 
-/* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
 @media (min-width: 992px) {
     .options-menu-btn {
         display: none;
@@ -505,7 +498,6 @@ color: #AE171C;
 }
 
 
-/* CONTROLE DE EXIBIÇÃO MOBILE-FIRST */
 .table-container { 
     display: none; 
 }
@@ -539,8 +531,46 @@ nav a:hover {
 }
 
 
-/* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
+    .toolbar {
+        background-color: var(--header-bg-color);
+        border-radius: 16px;
+        padding: 0;
+        margin: 0 auto 18px;
+        max-width: 660px;
+        overflow: hidden; 
+    }
+    
+    .search-bar {
+
+        border-radius: 0;
+        border-right: none;
+        background-color: var(--text-color); 
+        height: 45px;
+    }
+    
+    .search-container {
+        flex-grow: 1;
+    }
+    
+    .filter-btn {
+        background-color: var(--header-bg-color); 
+        border-right: none;
+        border-radius: 0;
+        color: var(--text-color);
+    }
+    
+    .filter-btn:hover {
+        background-color: #e74c3c;
+    }
+
+    .search-icon {
+        color: #333;
+    }
+    
+    .search-icon:hover {
+        color: var(--header-bg-color);
+    }
 
     .user-cards {
         display: grid !important;
@@ -573,7 +603,7 @@ nav a:hover {
     .toolbar {
         max-width: 660px;
         margin: 0 auto 18px;
-        gap: 10px;
+        gap: 0;
         flex-wrap: nowrap;
     }
 
@@ -653,7 +683,6 @@ nav a:hover {
         background: #AE171C;
     }
 }
-/* ================== FIM MOBILE ================== */
 
 .user-cards { 
     list-style: none; 
@@ -716,9 +745,8 @@ nav a:hover {
 .btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
 
-/* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
-  
+    
     .user-cards {
         max-width: 420px;
         gap: 12px;
@@ -740,7 +768,6 @@ nav a:hover {
     }
 }
 
-/* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
     .table-container { 
         display: none !important;
@@ -778,9 +805,7 @@ nav a:hover {
     .user-card .meta  { font-size: 13px; margin: 3px 0; }
     .btn-card { height: 32px; font-size: 14px; }
 }
-/* ================== FIM TABLET AJUSTES ================== */
 
-/* ================== BOTÃO FLUTUANTE DO CELULAR ================== */
 .fab-btn {
     position: fixed;
     bottom: 25px;
@@ -804,3 +829,43 @@ nav a:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
 }
+
+
+
+
+
+
+.filter-btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 45px; 
+    font-family: 'Oswald', sans-serif;
+    
+    background-color: #424242; 
+    color: var(--text-color);
+    font-weight: 500;
+    
+    border-radius: 0; 
+    border-right: 1px solid #333; 
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #616161; 
+}
+
+
+@media (max-width: 992px) {
+    .filter-btn span {
+        display: none;
+    }
+    
+    
+}
+
+
