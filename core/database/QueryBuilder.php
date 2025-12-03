@@ -18,12 +18,7 @@ class QueryBuilder
     {
         $sql = "select * from {$table}";
 
-        if ($inicio !== null && $rows_count > 0) {
-   public function selectAll($table, $inicio = null, $rows_count = null)
-    {
-        $sql = "select * from {$table}";
-
-        if($inicio >= 0 && $rows_count > 0 ){
+        if($inicio !== null && $rows_count > 0 ){
             $sql .= " LIMIT {$inicio}, {$rows_count}";
         }
 
@@ -65,21 +60,18 @@ class QueryBuilder
 
             $result = $stmt->fetch(PDO::FETCH_NUM);
             return $result ? intval($result[0]) : 0;
-            return intval($stmt -> fetch(PDO::FETCH_NUM)[0]);
 
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    
     public function insert($table, $parameters)
     {
         $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
             $table,
             implode(', ', array_keys($parameters)),
             ':' . implode(', :', array_keys($parameters))
-             ':' . implode(', :', array_keys($parameters))
         );
 
         try {
@@ -129,35 +121,6 @@ class QueryBuilder
             $stmt = $this->pdo->prepare($sql);
             $parameters['id'] = $id;
             $stmt->execute($parameters);
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-   
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-
-    }
-
-
-
-
-
-    public function update($table, $id, $parameters)
-    {
-        
-        $sql = sprintf('UPDATE %s SET %s WHERE id = %s',
-            $table,
-            implode(', ', array_map(function ($param) {
-                return $param . ' = :' .$param;
-            }, array_keys($parameters))),
-            $id
-        );
-
-
-    try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($parameters);
-   
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -195,46 +158,4 @@ class QueryBuilder
         }
     }
 }
-
-
-    }
-
-
-
-
-    public function delete($table, $id)
-    {
-        $sql = sprintf('DELETE FROM %s WHERE %s',
-            $table,
-            'id = :id'
-        );
-
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(['id' => $id]);
-
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-   
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(compact('id'));
-
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-   
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-
-
-
-
-    }
-
-
-}
-
 ?>
