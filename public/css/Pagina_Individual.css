@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
 
-colgroup {
-    background-color: #f2f2f2;
-    background-color: #1A1A1A;
-    background-color: #C0C0C0;
-    background-color: #000000;
-    background-color: #3D3D3D;
-    background-color: #890000;
-
-
-
+/* Correção: Definição de variáveis de cor corretamente */
+:root {
+    --color-light: #f2f2f2;
+    --color-dark: #1A1A1A;
+    --color-gray: #C0C0C0;
+    --color-black: #000000;
+    --color-dark-gray: #3D3D3D;
+    --color-red: #890000;
+    --gradient-bg: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
 }
 
-
-/* Reset Básico e Estilos Globais */
+/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
@@ -22,41 +20,31 @@ colgroup {
 }
 
 html {
-    /* melhora a fluidez da rolagem */
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A); 
-    background-attachment: fixed; /* deixa o gradiente fixo */
+    background: var(--gradient-bg);
+    background-attachment: fixed;
     color: #f0f0f0;
-
-    /* --- CONTROLE DE LAYOUT PRINCIPAL --- */
-    display: flex;                       /* habilita o Flexbox */
-    flex-direction: column;             /* organiza os itens em coluna (um abaixo do outro) */
-    align-items: center;                /* centraliza os itens horizontalmente */
-    padding: 2rem 1rem;                 /* espaçamento superior/inferior e lateral para telas pequenas */
-    min-height: 100vh;                  /* deixa q ocupe pelo menos a altura total da tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
 }
 
-
-
-
-
-
-/* --- quadrado do post --- */
+/* --- Container do Post --- */
 .ContainerPostagem {
-    width: 100%;                         /* quanto q ocupa pros lados*/
-    max-width: 1200px;                      /* largura maxima q ocupa com a barra*/
+    width: 100%;
+    max-width: 1200px;
     background: rgba(44, 44, 44, 0.85);
     backdrop-filter: blur(5px);
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 35px;                       /* espaçamento interno */
+    padding: 35px;
 }
-
-
 
 /* Cabeçalho do Post */
 .Cabecalho {
@@ -69,7 +57,7 @@ body {
     background: none;
     border: none;
     color: #f0f0f0;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     cursor: pointer;
     margin-right: 20px;
 }
@@ -82,9 +70,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;              
+    font-size: 20px;
     margin-right: 15px;
-    flex-shrink: 0;            /* icone não encolhe */
+    flex-shrink: 0;
 }
 
 .InfoUsuario {
@@ -94,19 +82,18 @@ body {
 
 .NomeUsuario {
     font-family: 'Urbanist', sans-serif;
-    font-size: 18px;   
+    font-size: 18px;
     font-weight: 700;
     color: #FFFFFF;
 }
 
 .DataPostagem {
     font-family: 'Urbanist', sans-serif;
-    font-size: 14px; 
+    font-size: 14px;
     color: #CCCCCC;
 }
 
-/* conteudo principal do post */
-
+/* Conteudo Principal */
 .Postagem {
     width: 100%;
 }
@@ -121,10 +108,10 @@ body {
 
 .ImagemPostagem {
     width: 100%;
-    height: auto;                   /* auto pra manter a propor */
+    height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
-    display: block;                 /* remove o espaço a mais embaixo da imagem */
+    display: block;
 }
 
 .ConteudoPostagem {
@@ -141,7 +128,7 @@ body {
 }
 
 .Interacoes {
-    background-color: #3D3D3D;
+    background-color: var(--color-dark-gray);
     border-radius: 25px;
     padding: 5px 10px;
     display: inline-flex;
@@ -163,40 +150,28 @@ body {
     transform: scale(1.1);
 }
 
-
-
-
-
-/*
-================================================
-    PARTE DOS COMENTÁRISO 
-================================================
-*/
-
-
-
+/* --- Comentários --- */
 .SecaoComentarios {
     width: 100%;
-    max-width: 1200px;    /* mesma largura maxima do post para alinhamento */
-    margin-top: 40px;    /* espaço entre o post e os comentarios */
+    max-width: 1200px;
+    margin-top: 40px;
 }
-
 
 .TituloSecao {
     font-family: 'Urbanist', sans-serif;
-    font-size: 24px;    
+    font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
-    padding-left: 10px; /* alinhamento visual */
-    border-left: 3px solid #64191B; /* detalhe visual */
+    padding-left: 10px;
+    border-left: 3px solid #64191B;
 }
 
 .Comentario {
-    background: rgba(30, 30, 30, 0.8); 
+    background: rgba(30, 30, 30, 0.8);
     backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 20px; /* espaço entre cada comentário */
+    margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -206,7 +181,6 @@ body {
     margin-bottom: 15px;
 }
 
-/* Ajuste no tamanho da foto */
 .Comentario .IconeContainer {
     width: 40px;
     height: 40px;
@@ -216,8 +190,8 @@ body {
 .InfoUsuarioComentario {
     display: flex;
     align-items: center;
-    gap: 15px; /* espaço entre o nome e a data */
-    flex-wrap: wrap; /* arruma a data em tela de celular */
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .NomeUsuarioComentario {
@@ -241,10 +215,10 @@ body {
 }
 
 .InteracoesComentario {
-    background-color: #3D3D3D;
+    background-color: var(--color-dark-gray);
     border-radius: 20px;
     padding: 4px 8px;
-    display: inline-flex; /* xa caixinha tem a largura dos botões */
+    display: inline-flex;
     gap: 10px;
 }
 
@@ -252,7 +226,7 @@ body {
     background: none;
     border: none;
     color: #c0c0c0;
-    font-size: 1rem; /* 1rem = 16 pixel mais ou menos */
+    font-size: 1rem;
     cursor: pointer;
     padding: 6px;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -263,31 +237,26 @@ body {
     transform: scale(1.1);
 }
 
-
-/* --- RESPONSIVIDADE --- */
-
+/* --- Responsividade --- */
 @media (max-width: 768px) {
     body {
-    
-        padding: 1rem;      /* reduz o espaçamento geral em telas menores */
+        padding: 1rem;
     }
 
     .ContainerPostagem {
-      
-        padding: 20px;    /* reduz o espaçamento interno do post */
+        padding: 20px;
     }
 
     .TituloPostagem {
-        font-size: 24px;    /* diminui o tamanho do título principal */
+        font-size: 24px;
     }
 
     .ConteudoPostagem {
-        font-size: 0.95rem; /* mais ou menos15px */
+        font-size: 0.95rem;
     }
 
     .Cabecalho {
-        /* pro cabeçalho caber bem  */
         flex-wrap: wrap;
-        gap: 10px;
-        }
+        gap: 10px;
+    }
 }

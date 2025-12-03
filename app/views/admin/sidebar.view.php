@@ -40,7 +40,7 @@
 
 
         <li class="item">
-       <a href="/admindashboard">
+       <a href="/dashboard">
             <i class="fa-solid fa-chart-line"></i>
             <span class="item-description">
                 Dashboard
