@@ -40,14 +40,14 @@ h1, h2, h3 {
 
 /* --- Seção Degradê e Carrossel --- */
 .degrade {
-    background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);
+      background: linear-gradient(360deg, #B91C22, #64191B,#1A1A1A);
     padding: 40px 20px; /* Espaçamento vertical */
     
 }
 
 .fundo-do-carrossel {
     width: 90%; /* Ocupa 90% da largura do celular */
-    height: 60vh;
+    height: auto;
     margin: auto;
     padding: 0px;
     display: flex;
@@ -208,7 +208,7 @@ h1, h2, h3 {
 
      .fundo-do-carrossel {
         width: 80%; /* Volta a ter a largura fixa */
-        height: 704px;
+        height: auto;
         margin: auto;
         display: flex;
         align-items: center; /* Centraliza verticalmente */
@@ -243,6 +243,7 @@ h1, h2, h3 {
 
     /* Seção Sobre Nós fica lado a lado */
     .container-sobre-nos {
+       
         flex-direction: row; /* VOLTA A FICAR LADO A LADO */
         align-items: center;
     }
@@ -275,7 +276,7 @@ h1, h2, h3 {
 
     .fundo-do-carrossel {
         width: 70%;
-        height: 60vh;
+        height: 72vh;
         margin: auto;
         display: flex;
         align-items: center;

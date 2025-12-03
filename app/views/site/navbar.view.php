@@ -10,7 +10,7 @@
 <body>
         <nav class="navbar">
             <div class="navbar-container">
-                <a href="/" class="navbar-logo">
+                <a href="/home" class="navbar-logo">
                     <img src="../../../public/assets/LogoCarro.png" alt="logo carro e Ratão" class="logo-site">
                 </a>
 
@@ -23,7 +23,7 @@
             
                 <ul class="navbar-menu" id="navbar-menu">
                     <!-- Logo do ratão no celular -->
-                    <img src="../../../public/assets/LogoCarro.png" alt="logo ratão" class="mobile-logo">
+                    <a href="/home"><img src="../../../public/assets/LogoCarro.png" alt="logo ratão" class="mobile-logo"></a>
                     
                     <li class="navbar-item">
                         <a href="/home" class="navbar-home">Home</a>

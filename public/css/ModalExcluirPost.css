@@ -13,7 +13,7 @@
     box-sizing: border-box;
 }
 
-#modalExcluirPost .container {
+div[id^="modalExcluirPost"] .container {
     display: flex;
     width: 538px;
     height: 577px;
@@ -25,7 +25,7 @@
     box-shadow: 3px 3px 3px #ae171c;
 }
 
-#modalExcluirPost .borda {
+div[id^="modalExcluirPost"] .borda {
     display: flex;
     flex-direction: column;
     border: 5px solid #ae171c;
@@ -39,7 +39,7 @@
     padding: 0;
 }
 
-#modalExcluirPost .caixa-texto {
+div[id^="modalExcluirPost"] .caixa-texto {
     display: flex;
     align-items: center;
     text-align: center;
@@ -51,21 +51,21 @@
     border-top-right-radius: 10px;
 }
 
-#modalExcluirPost .caixa-texto h1 {
+div[id^="modalExcluirPost"] .caixa-texto h1 {
     color: #FFFFFF;
     font-size: 42px;
     margin: auto;
     padding: 0 15px;
 }
 
-#modalExcluirPost img {
+div[id^="modalExcluirPost"] img {
     display: block;
     height: auto;
     width: 150px;
     margin: 20px auto;
 }
 
-#modalExcluirPost .botoes {
+div[id^="modalExcluirPost"] .botoes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -77,7 +77,7 @@
     padding-bottom: 30px;
 }
 
-#modalExcluirPost .botoes h1 {
+div[id^="modalExcluirPost"] .botoes h1 {
     width: 100%;
     text-align: center;
     color: #FFFFFF;
@@ -86,7 +86,7 @@
     box-sizing: border-box;
 }
 
-#modalExcluirPost .sim {
+div[id^="modalExcluirPost"] .sim {
     background-color: #363636;
     border-radius: 16px;
     color: white;
@@ -102,19 +102,19 @@
     font-size: 20px;
 }
 
-#modalExcluirPost .sim:hover {
+div[id^="modalExcluirPost"] .sim:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-#modalExcluirPost .sim h2 {
+div[id^="modalExcluirPost"] .sim h2 {
     color: #FFFFFF;
     margin: 0;
     font-size: 20px;
 }
 
-#modalExcluirPost .nao {
+div[id^="modalExcluirPost"] .nao {
     background-color: #ae171c;
     border-radius: 16px;
     color: white;
@@ -130,13 +130,13 @@
     font-size: 20px;
 }
 
-#modalExcluirPost .nao:hover {
+div[id^="modalExcluirPost"] .nao:hover {
     background-color: #c0c0c0;
     box-shadow: 3px 3px 3px #ae171c;
     cursor: pointer;
 }
 
-#modalExcluirPost .nao h2 {
+div[id^="modalExcluirPost"] .nao h2 {
     color: #FFFFFF;
     margin: 0;
     font-size: 20px;
@@ -146,7 +146,7 @@
 
 @media (max-width: 700px) {
 
-    #modalExcluirPost .container {
+    div[id^="modalExcluirPost"] .container {
         width: 100%;
         height: auto;
         padding: 0;
@@ -155,38 +155,38 @@
         overflow-y: auto;
     }
 
-    #modalExcluirPost .borda {
+    div[id^="modalExcluirPost"] .borda {
         border: none;
     }
 
-    #modalExcluirPost .caixa-texto {
+    div[id^="modalExcluirPost"] .caixa-texto {
         height: auto;
         padding: 25px 15px;
     }
 
-    #modalExcluirPost .caixa-texto h1 {
+    div[id^="modalExcluirPost"] .caixa-texto h1 {
         font-size: 30px;
     }
 
-    #modalExcluirPost img {
+    div[id^="modalExcluirPost"] img {
         width: 130px;
         margin: 25px auto;
     }
 
-    #modalExcluirPost .botoes h1 {
+    div[id^="modalExcluirPost"] .botoes h1 {
         font-size: 18px;
     }
 
-    #modalExcluirPost .sim,
-    #modalExcluirPost .nao {
+    div[id^="modalExcluirPost"] .sim,
+    div[id^="modalExcluirPost"] .nao {
         width: 120px;
         height: 60px;
         margin: 0 10px;
         margin-bottom: 15px;
     }
 
-    #modalExcluirPost .sim h2,
-    #modalExcluirPost .nao h2 {
+    div[id^="modalExcluirPost"] .sim h2,
+    div[id^="modalExcluirPost"] .nao h2 {
         font-size: 18px;
     }
 }

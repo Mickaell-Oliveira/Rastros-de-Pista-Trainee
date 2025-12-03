@@ -13,9 +13,13 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function selectAll($table)
+    public function selectAll($table, $inicio = null, $rows_count = null)
     {
         $sql = "select * from {$table}";
+
+        if ($inicio !== null && $rows_count > 0) {
+            $sql .= " LIMIT {$inicio}, {$rows_count}";
+        }
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -30,7 +34,7 @@ class QueryBuilder
 
     public function verificaLogin($email, $senha)
     {
-        $sql = sprintf('SELECT * FROM usuarios WHERE email = :email AND senha = :senha');
+        $sql = 'SELECT * FROM usuarios WHERE email = :email AND senha = :senha';
 
         try {
             $stmt = $this->pdo->prepare($sql);
@@ -39,8 +43,22 @@ class QueryBuilder
                 'senha' => $senha
             ]);
 
-            $user = $stmt->fetch(PDO::FETCH_OBJ);
-            return $user;
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function countAll($table)
+    {
+        $sql = "select COUNT(*) from {$table}";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_NUM);
+            return $result ? intval($result[0]) : 0;
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -66,13 +84,11 @@ class QueryBuilder
 
     public function delete($table, $id)
     {
-        $sql = sprintf('DELETE FROM %s   WHERE %s',
-            $table,
-            'id = :id'
-        );
+        $sql = sprintf('DELETE FROM %s WHERE id = :id', $table);
+
         try {
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(compact('id'));
+            $stmt->execute(['id' => $id]);
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -86,7 +102,7 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS);
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -109,4 +125,21 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
+    public function selectComentariosPorPost($postId)
+    {
+        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
+                FROM comentarios 
+                JOIN usuarios ON comentarios.id_usuario = usuarios.id
+                WHERE comentarios.id_post = :post_id";
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute(['post_id' => $postId]);
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die("Erro ao buscar comentários: " . $e->getMessage());
+        }
+    }
 }
+?>

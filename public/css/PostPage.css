@@ -17,18 +17,14 @@
 }
 
 body {
-   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
+    background: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: white;
     min-height: 100vh;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px 0;
-    
+    padding: 0;
 }
 
 body::before {
@@ -43,25 +39,14 @@ body::before {
 }
 
 .admin-painel {
-    margin: auto;
-    background-color: var(--darker-bg-color);
+    margin: 0;
+    background-color: #101010;
+    opacity: 0.8;
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
-    width: 96%;
-}
-
-.admin-painel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90%;
-    height: 40%;
-    background: radial-gradient(circle, rgba(183, 28, 28, 0.3), transparent 70%);
-    z-index: 0;
-    filter: blur(20px);
+    width: 100%;
 }
 
 .main-header {
@@ -103,7 +88,7 @@ body::before {
 }
 
 .search-icon:hover{
-color: #AE171C;
+    color: #AE171C;
 }
 
 .search-bar {
@@ -132,7 +117,6 @@ color: #AE171C;
     gap: 8px;
     height: 45px;
     font-family: 'Oswald', sans-serif;
-   
 }
 
 .new-post-btn:hover{
@@ -152,7 +136,6 @@ color: #AE171C;
     border-radius: 0 5px 5px 0;
 }
 
-/* VERSÃO PARA CELULAR: CARDS  */
 .posts-table-header {
     display: none; 
 }
@@ -191,7 +174,7 @@ color: #AE171C;
 }
 .post-date {
     font-size: 0.9rem;
-    color: var(--gray-text-color);
+    color: #FFFFFF;
     margin-bottom: 15px;
 }
 
@@ -200,7 +183,7 @@ color: #AE171C;
     justify-content: center;
     gap: 20px;
     margin: 10px 0;
-    color: var(--gray-text-color);
+    color: #FFFFFF;
 }
 .post-stats .stat i { margin-left: 5px; }
 .post-actions, .post-id { display: none; }
@@ -209,7 +192,7 @@ color: #AE171C;
 .post-item::after {
     content: 'Ver mais';
     text-align: center;
-    color: var(--gray-text-color);
+    color: #FFFFFF;
     font-size: 0.9rem;
     margin-top: 10px;
     cursor: pointer;
@@ -240,7 +223,6 @@ color: #AE171C;
 
 .pagination a:hover{
     background-color: #c0392b;
-   
 }
 .pagination a.arrow {
     background-color: #c0392b;
@@ -263,7 +245,6 @@ color: #AE171C;
     justify-content: center;
     align-items: center;
     display: flex;
-    
 }
 
 #imgPost{
@@ -322,123 +303,117 @@ color: #AE171C;
     visibility: visible;
 }
 
-
-
-/* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
-  .admin-panel {
-    padding: 0 30px 30px;
+    .admin-painel {
+        padding: 0 30px 30px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .posts-table-header,
+    .post-item {
+        display: flex;
+        width: 100%;
+        padding: 15px 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .posts-table-header {
+        background-color: var(--table-header-bg);
+        color: var(--table-header-text);
+        font-weight: 700;
+        border-radius: 5px;
+        margin: 0;
+    }
+
+    .post-item {
+        background-color: var(--card-bg-color);
+        border-bottom: 1px solid var(--text-color);
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .post-item:last-child {
+        border-bottom: none;
+    }
+
+    .header-col,
+    .post-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex: 1;
+        padding: 0 20px;
+        overflow: hidden;
+    }
+
+    #header-titulo, 
+    .post-title {
+        flex: 2; 
+    }
+    #header-autor{
+        flex: 1.5;
+    }
+
+    #header-veiculo, .post-veiculo { flex: 1.5; }
+    #header-ano, .post-date { flex: 1.5; }
+    #header-tipo, .post-tipo { flex: 1.5; }
+
+    #header-interacao { flex: 2; }
+    .post-stats {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .post-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        flex: 1;
+    }
+
+    .post-title span, 
+    .post-author span, 
+    .post-date, 
+    .post-veiculo, 
+    .post-tipo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .post-id { display: block; }
+    .post-thumbnail { display: none; }
+    .post-item::after { display: none; }
+    .new-post-btn span { display: inline; }
+    .table-container { display: block !important; }
+    .posts-content { padding: 0; margin: 0 20px; display: block; }
+    .tabela { width: 100%; border-collapse: collapse; }
+
+    .action-btn {
+        background: none;
+        border: none;
+        color: var(--gray-text-color);
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-btn:hover { color: var(--text-color); }
+
+    .user-cards {
+        display: none !important;
+    }
 }
-
-.posts-table-header,
-.post-item {
-    display: flex;
-    width: 100%;
-    padding: 15px 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.posts-table-header {
-    background-color: var(--table-header-bg);
-    color: var(--table-header-text);
-    font-weight: 700;
-    border-radius: 5px;
-    margin: 0;
-}
-
-.post-item {
-    background-color: var(--card-bg-color);
-    border-bottom: 1px solid var(--text-color);
-    margin-bottom: 0;
-    border-radius: 0;
-}
-
-.post-item:last-child {
-    border-bottom: none;
-}
-
-.header-col,
-.post-data {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    padding: 0 20px;
-    overflow: hidden;
-}
-
-#header-titulo, 
-.post-title {
-    flex: 2; 
-}
-#header-autor{
-    flex: 1.5;
-}
-
-#header-veiculo, .post-veiculo { flex: 1.5; }
-#header-ano, .post-date { flex: 1.5; }
-#header-tipo, .post-tipo { flex: 1.5; }
-
-#header-interacao { flex: 2; }
-.post-stats {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.post-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-}
-
-.post-title span, 
-.post-author span, 
-.post-date, 
-.post-veiculo, 
-.post-tipo {
-    width: 100%;
-    text-align: center;
-}
-
-.post-id { display: block; }
-.post-thumbnail { display: none; }
-.post-item::after { display: none; }
-.new-post-btn span { display: inline; }
-.table-container { display: block !important; }
-.posts-content { padding: 0; margin: 0 20px; display: block; }
-.tabela { width: 100%; border-collapse: collapse; }
-
-.action-btn {
-    background: none;
-    border: none;
-    color: var(--gray-text-color);
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.action-btn:hover { color: var(--text-color); }
-
-.user-cards {
-    display: none !important;
-}
-}
-/* ================== FIM DESKTOP ================== */
-
-
-/* ================== MENU DE OPÇÕES PARA CELULAR (3 PONTINHOS) ================== */
 
 .post-item {
     position: relative;
@@ -450,7 +425,6 @@ color: #AE171C;
     right: 15px;
     z-index: 2;
 }
-
 
 .post-actions {
     display: none;
@@ -481,7 +455,6 @@ color: #AE171C;
     display: inline;
 }
 
-/* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
 @media (min-width: 992px) {
     .options-menu-btn {
         display: none;
@@ -503,8 +476,6 @@ color: #AE171C;
     }
 }
 
-
-/* CONTROLE DE EXIBIÇÃO MOBILE-FIRST */
 .table-container { 
     display: none; 
 }
@@ -537,9 +508,18 @@ nav a:hover {
     background: #AE171C;
 }
 
-
-/* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
+    .admin-painel {
+        margin: 20px auto;
+        width: 94%;
+        max-width: 700px;
+        background-color: var(--darker-bg-color);
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 20px;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
 
     .user-cards {
         display: grid !important;
@@ -559,8 +539,8 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important; 
-    }           
-
+        border: none;
+    }          
 
     h1 {
         font-size: 36px;
@@ -600,7 +580,6 @@ nav a:hover {
         font-size: 14px;
         border-radius: 8px;
     }
-
 
     .user-card {
         background: #1A1A1A;
@@ -651,8 +630,18 @@ nav a:hover {
     nav a:hover { 
         background: #AE171C;
     }
+
+    .search-bar {
+        width: 100%;
+        padding: 12px 10px 12px 50px;
+        background-color: var(--text-color);
+        border: none;
+        border-radius: 16px;
+        color: var(--darker-bg-color);
+        font-size: 1rem;
+        height: 45px;
+    }
 }
-/* ================== FIM MOBILE ================== */
 
 .user-cards { 
     list-style: none; 
@@ -714,8 +703,8 @@ nav a:hover {
 .btn-view   { background: #05AC4B; }
 .btn-edit   { background: #fff200b7; }
 .btn-delete { background: #ED1C24; }
+.btn-comentarios{background-color: #3C096C;}
 
-/* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
 @media screen and (max-width: 599px) {
   
     .user-cards {
@@ -739,7 +728,6 @@ nav a:hover {
     }
 }
 
-/* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
     .table-container { 
         display: none !important;
@@ -777,9 +765,7 @@ nav a:hover {
     .user-card .meta  { font-size: 13px; margin: 3px 0; }
     .btn-card { height: 32px; font-size: 14px; }
 }
-/* ================== FIM TABLET AJUSTES ================== */
 
-/* ================== BOTÃO FLUTUANTE DO CELULAR ================== */
 .fab-btn {
     position: fixed;
     bottom: 25px;
@@ -802,4 +788,36 @@ nav a:hover {
 .fab-btn:hover {
     background-color: var(--red-accent-color);
     transform: scale(1.05);
+}
+
+ul {
+    list-style: none;
+}
+.pagination a.page-number.active {
+    background-color: #b0b0b0 ;
+}
+
+@media (max-width: 1024px) {
+    
+    .admin-painel {
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box; 
+        width: 100%;
+    }
+
+    .user-cards {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-card {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
 }
