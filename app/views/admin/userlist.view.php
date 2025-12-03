@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['id'])){
+        header('Location: /login');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -17,6 +25,8 @@
 </head>
 
 <body>
+    <?php require 'app/views/admin/sidebar.view.php'; ?>
+    <main>
     <section class="admin-panel">
         <header class="main-header">
             <h1>TABELA DE USUÁRIO</h1>
@@ -300,11 +310,11 @@
     <!---------------------------------------------->
     <!-- ----------- FIM DOS MODAIS ------------- -->
 
-
+    </main>
 
         <script src="/public\js\Modal.js"></script>
         <script src="/public\js\PostChart.js"></script>
         <script src="../../../public/js/PreviewImagemUser.js"></script>
-
+    
     </body>
 </html>

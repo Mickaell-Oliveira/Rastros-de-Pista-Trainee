@@ -40,12 +40,17 @@
                 </button>
                 </a>
                 </form>
+
+                <form action="/usuarios" method="GET">
+                <a href="/userlist.view.php" id="caminhoUser">
                 <button class="botao-garagem">
                     <div class="imagem-botao">
                         <img src="../../../public/assets/garegem.png" alt="Ícone Garagem">
                     </div>
                     <span>Usuários</span>
                 </button>
+                </a>
+                </form>
 
                 <form action="/logout" method="POST">
                 <button class="botao-sair">
