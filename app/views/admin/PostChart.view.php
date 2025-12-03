@@ -1,3 +1,51 @@
+<?php
+$host = "localhost";
+$db = "rastros_de_pista_db";
+$user = "root";
+$pass = "";
+
+$mysqli = new mysqli($host, $user, $pass, $db);
+
+if($mysqli->connect_errno) {
+        die("Falha na conexão do banco de dados");
+}
+
+$busca = "";
+$sql = "SELECT * FROM posts ORDER BY data DESC"; 
+
+if (isset($_GET['busca']) && !empty($_GET['busca'])) {
+    $busca = $_GET['busca'];
+    $search_term = "%" . $mysqli->real_escape_string($busca) . "%";
+
+    $sql = "SELECT * FROM posts WHERE 
+                titulo LIKE ? OR 
+                autor LIKE ? OR 
+                veiculo LIKE ? OR 
+                ano_veiculo LIKE ? OR 
+                categoria LIKE ? OR 
+                descricao LIKE ? 
+            ORDER BY data DESC";
+    
+    $stmt = $mysqli->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param('ssssss', $search_term, $search_term, $search_term, $search_term, $search_term, $search_term);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    } else {
+        $result = null; 
+    }
+
+} else {
+    $result = $mysqli->query($sql);
+}
+
+$posts = [];    
+if ($result) {
+    while ($row = $result->fetch_object()) {
+        $posts[] = $row;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,26 +63,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
 </head>
 
+
+
+
 <body>
     <section class="admin-painel">
         <header class="main-header">
             <h1>TABELA DE POSTS</h1>
         </header>
-        <!-- Barra de Pesquisa, Nova Publicação-->
+
+
+
         <div class="toolbar">
-            <div class="search-container">
+            
+            
+            <form class="search-container" action="">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-bar" placeholder="">
-            </div>
+                <input type="text" class="search-bar" name="busca" value ="<?= htmlspecialchars($busca); ?>">
+            </form>
+
+
+
+
+
             <div class="actions-container">
                 <button class="new-post-btn" onclick="abrirModal('modalCriarPost')">
                     <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
                 </button>
             </div>
         </div>
+
+
+
+
         <main class="posts-content">
             <table class="tabela">
                  <tr class="posts-table-header">
+
+
                     <th class="header-col">Post ID</th>
                     <th class="header-col">Data</th>
                     <th class="header-col" id="header-titulo">Título</th> 
@@ -45,7 +111,12 @@
                     <th class="header-col" id="header-interacao">Interações</th>
                     <th class="header-col" id="header-açao">Ações</th>
                 </tr>
+
+
+
                 <?php foreach($posts as $post): ?>
+
+                    
                  <tr class="post-item">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
                     <td class="post-data post-date"><?= date('d/m/Y', strtotime($post->data)) ?></td>
@@ -60,12 +131,16 @@
                         <span class="stat">250 <i class="fas fa-comments"></i></span>
                     </td>
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios')"></i></button>
-                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost')"></i></button>
+                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')"></i></button>
                     </td>
-                </tr>
+                </tr> 
+
+
+                
+              
                 <?php endforeach ?>
                 
             </table>
@@ -84,10 +159,10 @@
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>
       <div class="card-actions">
-          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost')">VISUALIZAR </button>
-          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost')">EDITAR POST</button>
+          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')">VISUALIZAR </button>
+          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
           <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id; ?>')">DELETAR POST</button>
-          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios')">VER COMENTÁRIOS</button>
+          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
       </div>
     </li>
   </ul> 
@@ -107,8 +182,7 @@
     </section>
 
     <?php foreach($posts as $post): ?>
-     <!--Modal Visualizar Post-->
-     <div class="modal-overlay hidden" id="modalVisualizarPost">
+     <div class="modal-overlay hidden" id="modalVisualizarPost-<?= $post->id ?>">
         <section class="container"> 
       <div class="ladoEsquerdo">
             <div id="imgPost">
@@ -144,16 +218,15 @@
         <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
         
         <div class="buttons">
-        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost')">Cancelar</button>
-        <button onclick="fecharModal('modalVisualizarPost')" id="btn-salvar">Sair</button>
+        <button id="btn-cancelar" onclick="fecharModal('modalVisualizarPost-<?= $post->id ?>')">Cancelar</button>
+        <button onclick="fecharModal('modalVisualizarPost-<?= $post->id ?>')" id="btn-salvar">Sair</button>
         </div>
         </div>
         </section>
     </div>
     
-    <!-- Modal Editar Post-->
     <form action="/editarPost" method="POST" enctype="multipart/form-data">
-    <div class="modal-overlay hidden" id="modalEditarPost">
+    <div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
         <input type="hidden" name = "id" value="<?=$post->id;?>">
         <section class="container">
         <div class="ladoEsquerdo">
@@ -185,7 +258,7 @@
             <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
             <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
             <div class="buttons">
-            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost')" type="button">Cancelar</button>
+            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost-<?= $post->id ?>')" type="button">Cancelar</button>
             <button id="btn-salvar" type="submit">Publicar</button>
         </div>
         </div>
@@ -193,9 +266,8 @@
     </div>
     </form>
 
-    <!--Modal Excluir Post-->
-        <form action="/excluirPost" method="POST">
-        <div class="modal-overlay hidden" id="modalExcluirPost">
+    <form action="/excluirPost" method="POST">
+        <div class="modal-overlay hidden" id="modalExcluirPost-<?= $post->id ?>">
             <input type="hidden" name="id" value="<?= $post->id ?>">
         
         <section class="container">
@@ -208,7 +280,7 @@
                     <h1>Você não poderá reverter essa alteração</h1>
                     <button class="sim" id="btn-sim" type="submit">Sim</button>
                     
-                    <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost')">Cancelar</button>
+                    <button class="nao" type="button" id="btn-nao" onclick="fecharModal('modalExcluirPost-<?= $post->id ?>')">Cancelar</button>
                 </div>
             </div>
         </section>
@@ -216,7 +288,6 @@
   </form>
     <?php endforeach ?>
 
-    <!--Modal Criar Post-->    
     <div class="modal-overlay hidden" id="modalCriarPost">
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
         <section class="container"> 
@@ -243,7 +314,7 @@
                 <option value="passeio">Passeio</option>
                 <option value="trackday">Track day</option>
                 <option value="viagem">Viagem</option>
-                <option value="encontro">Encontro</option> 
+                <option value="encontro">Encontro</option> M
                 <option value="momentos">Momentos</option>
 </select>
            
@@ -266,9 +337,8 @@
 
     <?php foreach($posts as $post): ?>
 
-    <!--Modal Ver Comentarios-->
     <form action="/tabelaposts/verComentarios" method="POST">
-    <div class="modal-overlay hidden" id="modalVerComentarios">
+    <div class="modal-overlay hidden" id="modalVerComentarios-<?= $post->id ?>">
         <div class="container">            
             <h2>Comentários</h2>
             <div class="comments-list">
@@ -349,7 +419,7 @@
                             <span class="comment-username">Marcos #1111</span>
                             <p>Prefiro os modelos da Lamborghini</p>
                             <div class="comment-feedback">
-                                <span class="feedback-item like-data">
+                                <span classs="feedback-item like-data">
                                     <i class="fas fa-thumbs-up"></i>
                                     <span>5</span>
                                 </span>
@@ -369,7 +439,7 @@
             </div>
             
             <div class="caixa-btn">
-                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios')">Fechar</button>
+                <button class="btn-fechar" onclick="fecharModal('modalVerComentarios-<?= $post->id ?>')">Fechar</button>
             </div>
             
         </div>
