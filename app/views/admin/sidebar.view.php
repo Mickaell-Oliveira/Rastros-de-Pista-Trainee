@@ -21,7 +21,7 @@
      
      <ul id="side_itens">
         <li class="item">
-            <a href="#">
+            <a href="/tableposts">
             <i class="fas fa-paper-plane"></i>
             <span class="item-description">
                 Posts
@@ -30,7 +30,7 @@
         </li\>
 
         <li class="item">
-       <a href="#">
+       <a href="/usuarios">
             <i class="fa-solid fa-users"></i>
             <span class="item-description">
                 Usuários
@@ -40,7 +40,7 @@
 
 
         <li class="item">
-       <a href="#">
+       <a href="/admindashboard">
             <i class="fa-solid fa-chart-line"></i>
             <span class="item-description">
                 Dashboard
