@@ -60,6 +60,35 @@ class QueryBuilder
 
             $result = $stmt->fetch(PDO::FETCH_NUM);
             return $result ? intval($result[0]) : 0;
+    public function selectById($table, $id)
+    {
+        $sql = "SELECT * FROM {$table} WHERE id = :id";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function selectWhere($table, $conditions)
+    {
+        $clauses = [];
+        foreach ($conditions as $key => $value) {
+            $clauses[] = "{$key} = :{$key}";
+        }
+        
+        $sql = "SELECT * FROM {$table} WHERE " . implode(' AND ', $clauses);
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($conditions);
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -158,4 +187,21 @@ class QueryBuilder
         }
     }
 }
+
+    public function delete($table, $id)
+    {
+        $sql = sprintf('DELETE FROM %s WHERE %s',
+            $table,
+            'id = :id'
+        );
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(compact('id'));
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+}
+
 ?>

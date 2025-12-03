@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
 
-/* Correção: Definição de variáveis de cor corretamente */
-:root {
-    --color-light: #f2f2f2;
-    --color-dark: #1A1A1A;
-    --color-gray: #C0C0C0;
-    --color-black: #000000;
-    --color-dark-gray: #3D3D3D;
-    --color-red: #890000;
-    --gradient-bg: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
+colgroup {
+    background-color: #f2f2f2;
+    background-color: #1A1A1A;
+    background-color: #C0C0C0;
+    background-color: #000000;
+    background-color: #3D3D3D;
+    background-color: #890000;
 }
 
-/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
@@ -25,28 +22,27 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: var(--gradient-bg);
+    background: linear-gradient(135deg, #AE171C,#64191B,#1A1A1A); 
     background-attachment: fixed;
     color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-    min-height: 100vh;
+    display: flex;                  
+    flex-direction: column;            
+    align-items: center;               
+    padding: 2rem 1rem;                
+    min-height: 100vh;                 
 }
 
-/* --- Container do Post --- */
 .ContainerPostagem {
-    width: 100%;
-    max-width: 1200px;
+    width: 100%;                        
+    margin-top: 20px !important;
+    max-width: 1200px;                     
     background: rgba(44, 44, 44, 0.85);
     backdrop-filter: blur(5px);
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 35px;
+    padding: 35px;                      
 }
 
-/* Cabeçalho do Post */
 .Cabecalho {
     display: flex;
     align-items: center;
@@ -72,7 +68,7 @@ body {
     justify-content: center;
     font-size: 20px;
     margin-right: 15px;
-    flex-shrink: 0;
+    flex-shrink: 0;           
 }
 
 .InfoUsuario {
@@ -93,7 +89,6 @@ body {
     color: #CCCCCC;
 }
 
-/* Conteudo Principal */
 .Postagem {
     width: 100%;
 }
@@ -107,11 +102,15 @@ body {
 }
 
 .ImagemPostagem {
+    display: flex;
     width: 100%;
-    height: auto;
+    max-width: 1250px;
+    height: auto;                   
     border-radius: 10px;
     margin-bottom: 20px;
-    display: block;
+    justify-content: center;
+    align-items: center;
+    display: block;                 
 }
 
 .ConteudoPostagem {
@@ -121,7 +120,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* Botões de Interação */
 .ContainerBotoes {
     display: flex;
     justify-content: flex-start;
@@ -150,11 +148,13 @@ body {
     transform: scale(1.1);
 }
 
-/* --- Comentários --- */
 .SecaoComentarios {
     width: 100%;
-    max-width: 1200px;
-    margin-top: 40px;
+    max-width: 1200px;   
+    margin-top: 40px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .TituloSecao {
@@ -162,16 +162,20 @@ body {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
-    padding-left: 10px;
-    border-left: 3px solid #64191B;
+    padding-left: 10px; 
+    border-left: 3px solid #64191B; 
+    text-align: left;
+    width: 100%;
 }
 
 .Comentario {
-    background: rgba(30, 30, 30, 0.8);
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(30, 30, 30, 0.8); 
     backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -190,8 +194,8 @@ body {
 .InfoUsuarioComentario {
     display: flex;
     align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    gap: 15px; 
+    flex-wrap: wrap; 
 }
 
 .NomeUsuarioComentario {
@@ -212,13 +216,16 @@ body {
     color: #d0d0d0;
     line-height: 1.6;
     margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .InteracoesComentario {
     background-color: var(--color-dark-gray);
     border-radius: 20px;
     padding: 4px 8px;
-    display: inline-flex;
+    display: inline-flex; 
     gap: 10px;
 }
 
@@ -226,7 +233,7 @@ body {
     background: none;
     border: none;
     color: #c0c0c0;
-    font-size: 1rem;
+    font-size: 1rem; 
     cursor: pointer;
     padding: 6px;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -237,26 +244,110 @@ body {
     transform: scale(1.1);
 }
 
-/* --- Responsividade --- */
 @media (max-width: 768px) {
     body {
-        padding: 1rem;
+        padding: 1rem;      
     }
 
     .ContainerPostagem {
-        padding: 20px;
+        padding: 20px;    
     }
 
     .TituloPostagem {
-        font-size: 24px;
+        font-size: 24px;    
     }
 
     .ConteudoPostagem {
-        font-size: 0.95rem;
+        font-size: 0.95rem; 
     }
 
     .Cabecalho {
         flex-wrap: wrap;
         gap: 10px;
     }
+}
+
+.AreaComentar {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    animation: slideDown 0.3s ease-out;
+}
+
+.input-comentario {
+    width: 100%;
+    min-height: 120px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    padding: 15px;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-bottom: 15px;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.input-comentario::-webkit-scrollbar {
+    display: none;
+}
+
+.input-comentario:focus {
+    border-color: #AE171C;
+}
+
+.BotoesComentario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-cancelar, .btn-enviar {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Urbanist', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+
+.btn-cancelar {
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+}
+
+.btn-enviar {
+    background-color: #AE171C;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #c0c0c0;
+    color: white;
+}
+
+.btn-enviar:hover {
+    background-color: #c0c0c0;
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
