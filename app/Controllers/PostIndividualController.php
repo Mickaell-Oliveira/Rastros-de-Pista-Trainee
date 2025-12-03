@@ -10,9 +10,17 @@ class PostIndividualController
 
     public function PostIndividual()
     {
-        $posts = App::get('database')->selectAll('posts');
-        $comentarios = App::get('database')->selectAll('comentarios');
-        return view('site/Pagina_Individual', compact('posts', 'comentarios'));
+        if (!isset($_GET['id'])) {
+            die('ID do post não fornecido.');
+        }
+
+        $id_post = $_GET['id'];
+
+        $post = App::get('database')->selectById('posts', $id_post);
+
+        $comentarios = App::get('database')->selectWhere('comentarios', ['id_post' => $id_post]);
+
+        return view('site/Pagina_Individual', compact('post', 'comentarios'));
     }
 
     public function createComentario()
@@ -25,8 +33,8 @@ class PostIndividualController
         ];
                 
         App::get('database')->insert('comentarios', $parameters);
-        header('Location: /postindividual');
-
+        
+        header('Location: /postindividual?id=' . $_POST['id_post']);
     }
 }
 ?>

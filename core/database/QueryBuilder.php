@@ -8,7 +8,6 @@ class QueryBuilder
 {
     protected $pdo;
 
-
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
@@ -21,6 +20,41 @@ class QueryBuilder
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function selectById($table, $id)
+    {
+        $sql = "SELECT * FROM {$table} WHERE id = :id";
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function selectWhere($table, $conditions)
+    {
+        $clauses = [];
+        foreach ($conditions as $key => $value) {
+            $clauses[] = "{$key} = :{$key}";
+        }
+        
+        $sql = "SELECT * FROM {$table} WHERE " . implode(' AND ', $clauses);
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($conditions);
 
             return $stmt->fetchAll(PDO::FETCH_CLASS);
 
@@ -46,22 +80,7 @@ class QueryBuilder
         }
     }
 
-    public function delete($table, $id)
-    {
-        $sql = sprintf('DELETE FROM %s   WHERE %s',
-        $table,
-        'id = :id'
-    );
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute(compact('id'));
-
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
-
-  public function update($table, $id, $parameters)
+    public function update($table, $id, $parameters)
     {
         $setPart = implode(', ', array_map(function ($key) {
             return "{$key} = :{$key}";
@@ -78,6 +97,19 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
-}
 
-?>
+    public function delete($table, $id)
+    {
+        $sql = sprintf('DELETE FROM %s WHERE %s',
+            $table,
+            'id = :id'
+        );
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(compact('id'));
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+}
