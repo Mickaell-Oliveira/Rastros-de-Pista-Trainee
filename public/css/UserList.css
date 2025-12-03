@@ -1,5 +1,3 @@
-
-
 :root {
     --main-bg-color: #1a1a1a;
     --darker-bg-color: #101010;
@@ -19,19 +17,15 @@
 }
 
 body {
-   background: linear-gradient(135deg, #AE171C, #64191B,#1A1A1A);   
+    background: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: white;
     min-height: 100vh;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px 0;
+    padding: 0;
 }
-
 
 body::before {
     content: '';
@@ -45,15 +39,15 @@ body::before {
 }
 
 .admin-panel {
-    width: 97%;
-    margin: 20px;
+    width: 100%;
+    margin: 0;
     background-color: var(--darker-bg-color);
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
+    box-sizing: border-box;
 }
-
 
 .admin-panel::before {
     content: '';
@@ -67,12 +61,10 @@ body::before {
     filter: blur(20px);
 }
 
-
 .main-header {
     text-align: center;
     padding: 40px 20px 30px;
 }
-
 
 .main-header h1 {
     font-family: 'Oswald';
@@ -107,8 +99,8 @@ body::before {
     font-size: 1.2rem;
 }
 
-.search-icon:hover{
-color: #AE171C;
+.search-icon:hover {
+    color: #AE171C;
 }
 
 .search-bar {
@@ -127,7 +119,8 @@ color: #AE171C;
     align-items: center;
 }
 
-.new-post-btn, .menu-btn {
+.new-post-btn,
+.menu-btn {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
@@ -137,10 +130,9 @@ color: #AE171C;
     gap: 8px;
     height: 45px;
     font-family: 'Oswald', sans-serif;
-   
 }
 
-.new-post-btn:hover{
+.new-post-btn:hover {
     background-color: #e74c3c;
 }
 
@@ -152,21 +144,17 @@ color: #AE171C;
 }
 
 .pagination .page-item {
-    list-style: none; 
-    display: inline-block; 
+    list-style: none;
+    display: inline-block;
 }
 
-
-
-
-/* VERSÃO PARA CELULAR: CARDS  */
 .posts-table-header {
-    display: none; 
+    display: none;
 }
 
 .posts-content {
     padding: 0 20px;
-    display: none; 
+    display: none;
 }
 
 .post-item {
@@ -185,17 +173,23 @@ color: #AE171C;
     margin-bottom: 10px;
 }
 
-.post-data { margin-bottom: 10px; }
+.post-data {
+    margin-bottom: 10px;
+}
 
-.post-title span, .post-author, .post-date {
+.post-title span,
+.post-author,
+.post-date {
     display: block;
     text-align: center;
 }
+
 .post-title span {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
+
 .post-date {
     font-size: 0.9rem;
     color: var(--gray-text-color);
@@ -209,9 +203,19 @@ color: #AE171C;
     margin: 10px 0;
     color: var(--gray-text-color);
 }
-.post-stats .stat i { margin-left: 5px; }
-.post-actions, .post-id { display: none; }
-.new-post-btn span { display: none; }
+
+.post-stats .stat i {
+    margin-left: 5px;
+}
+
+.post-actions,
+.post-id {
+    display: none;
+}
+
+.new-post-btn span {
+    display: none;
+}
 
 .post-item::after {
     content: 'Ver mais';
@@ -224,10 +228,10 @@ color: #AE171C;
 
 .pagination {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 30px 20px 10px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .pagination a {
@@ -245,10 +249,10 @@ color: #AE171C;
     border: none;
 }
 
-.pagination a:hover{
+.pagination a:hover {
     background-color: #c0392b;
-   
 }
+
 .pagination a.arrow {
     background-color: #c0392b;
     color: #ffffff;
@@ -259,7 +263,7 @@ color: #AE171C;
     border-radius: 50px;
 }
 
-.pagination a.arrow:hover{
+.pagination a.arrow:hover {
     background-color: #e74c3c;
 }
 
@@ -270,13 +274,13 @@ color: #AE171C;
     justify-content: center;
     align-items: center;
     display: flex;
-    
 }
 
-/* ================== DESKTOP: TABELA (min-width: 992px) ================== */
 @media (min-width: 992px) {
     .admin-panel {
         padding: 0 30px 30px;
+        width: 100%;
+        margin: 0;
     }
 
     .posts-table-header {
@@ -289,14 +293,15 @@ color: #AE171C;
         margin: 0;
         width: 100%;
     }
+
     .header-col,
     .post-data {
         display: flex;
         align-items: center;
         padding: 0 10px;
-        justify-content: center; 
+        justify-content: center;
         text-align: center;
-        flex: 1; 
+        flex: 1;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -306,35 +311,34 @@ color: #AE171C;
         text-align: center;
     }
 
-
-    #header-titulo, #header-autor {
+    #header-titulo,
+    #header-autor {
         flex: 1;
-       text-align: center;
+        text-align: center;
     }
 
     #header-interacao {
         flex: 1.5;
     }
 
-
-    .header-col:nth-child(3), .header-col:nth-child(4) {
+    .header-col:nth-child(3),
+    .header-col:nth-child(4) {
         text-align: left;
     }
 
     .posts-content {
         padding: 0;
         margin: 0 20px;
-        display: block; 
-
+        display: block;
     }
-    
+
     .tabela {
         width: 100%;
         border-collapse: collapse;
     }
 
-    .table-container { 
-        display: block !important; 
+    .table-container {
+        display: block !important;
     }
 
     .post-item {
@@ -348,6 +352,7 @@ color: #AE171C;
         background-color: var(--card-bg-color);
         border-bottom: 1px solid var(--text-color);
     }
+
     .post-item:last-child {
         border-bottom: none;
     }
@@ -361,18 +366,50 @@ color: #AE171C;
         width: fit-content;
     }
 
-    .post-title { flex: 2; text-align: center; }
-    .post-author { flex: 2; text-align: center; }
-    .post-stats { flex: 1.5; }
-    
-    .post-id, .post-actions { display: block; }
-    .post-stats { justify-content: center; gap: 20px; }
-    .post-title span, .post-date { text-align: center; }
-    .post-author { text-align: center; }
-    
-    .post-thumbnail { display: none; }
-    .post-item::after { display: none; }
-    .new-post-btn span { display: inline; }
+    .post-title {
+        flex: 2;
+        text-align: center;
+    }
+
+    .post-author {
+        flex: 2;
+        text-align: center;
+    }
+
+    .post-stats {
+        flex: 1.5;
+    }
+
+    .post-id,
+    .post-actions {
+        display: block;
+    }
+
+    .post-stats {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .post-title span,
+    .post-date {
+        text-align: center;
+    }
+
+    .post-author {
+        text-align: center;
+    }
+
+    .post-thumbnail {
+        display: none;
+    }
+
+    .post-item::after {
+        display: none;
+    }
+
+    .new-post-btn span {
+        display: inline;
+    }
 
     .action-btn {
         background: none;
@@ -383,17 +420,15 @@ color: #AE171C;
         margin: 0 5px;
         text-align: center;
     }
-    .action-btn:hover { color: var(--text-color); }
 
+    .action-btn:hover {
+        color: var(--text-color);
+    }
 
     .user-cards {
         display: none !important;
     }
 }
-/* ================== FIM DESKTOP ================== */
-
-
-/* ================== MENU DE OPÇÕES PARA CELULAR (3 PONTINHOS) ================== */
 
 .post-item {
     position: relative;
@@ -442,11 +477,10 @@ color: #AE171C;
     padding: 10px 60px;
     text-align: center;
 }
+
 .post-actions .action-btn span {
     display: inline;
 }
-
-/* ================== AJUSTES PARA VERSÕES PARA COMPUTADOR ================== */
 
 @media (min-width: 992px) {
     .options-menu-btn {
@@ -454,11 +488,11 @@ color: #AE171C;
     }
 
     .post-options-container {
-        display: none; 
+        display: none;
     }
-    
+
     .post-actions {
-        display: block; 
+        display: block;
         position: static;
         background-color: transparent;
         box-shadow: none;
@@ -469,12 +503,12 @@ color: #AE171C;
     }
 }
 
-.table-container { 
-    display: none; 
+.table-container {
+    display: none;
 }
 
 .user-cards {
-    display: grid; 
+    display: grid;
     gap: 12px;
     max-width: 420px;
     margin: 0 auto 18px;
@@ -487,7 +521,8 @@ nav {
     max-width: 420px;
 }
 
-nav a, nav strong {
+nav a,
+nav strong {
     width: 28px;
     height: 28px;
     background: #1A1A1A;
@@ -505,10 +540,7 @@ nav a:hover {
     background: #AE171C;
 }
 
-
-/* ================== AJUSTES ESPECÍFICOS PARA MOBILE ================== */
 @media screen and (max-width: 935px) {
-
     .user-cards {
         display: grid !important;
         gap: 16px;
@@ -517,22 +549,21 @@ nav a:hover {
         list-style: none;
         padding: 0;
     }
-    .table-container { 
-        display: none !important; 
+
+    .table-container {
+        display: none !important;
     }
 
     .new-post-btn {
-        display: none !important; 
+        display: none !important;
     }
 
     .fab-btn {
-        display: flex !important; 
-    } 
+        display: flex !important;
+    }
 
     .search-bar {
-
         border-radius: 10px;
-
     }
 
     h1 {
@@ -574,7 +605,6 @@ nav a:hover {
         border-radius: 8px;
     }
 
-
     .user-card {
         background: #1A1A1A;
         border: 1px solid #C0C0C0;
@@ -591,10 +621,23 @@ nav a:hover {
         margin-bottom: 16px;
     }
 
-    .user-card .email { font-size: 20px; color: #F5F5F5; margin-bottom: 12px; }
-    .user-card .meta { font-size: 20px; color: #F5F5F5; margin: 6px 0; }
+    .user-card .email {
+        font-size: 20px;
+        color: #F5F5F5;
+        margin-bottom: 12px;
+    }
 
-    .card-actions { display: grid; gap: 12px; margin-top: 20px; }
+    .user-card .meta {
+        font-size: 20px;
+        color: #F5F5F5;
+        margin: 6px 0;
+    }
+
+    .card-actions {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+    }
 
     .btn-card {
         height: 36px;
@@ -611,7 +654,8 @@ nav a:hover {
         justify-content: center;
     }
 
-    nav a, nav strong {
+    nav a,
+    nav strong {
         width: 32px;
         height: 32px;
         font-size: 14px;
@@ -625,15 +669,14 @@ nav a:hover {
         text-decoration: none;
     }
 
-    nav a:hover { 
+    nav a:hover {
         background: #AE171C;
     }
 }
-/* ================== FIM MOBILE ================== */
 
-.user-cards { 
-    list-style: none; 
-    padding: 0; 
+.user-cards {
+    list-style: none;
+    padding: 0;
     margin: 0 auto;
     max-width: 600px;
 }
@@ -659,7 +702,7 @@ nav a:hover {
 .user-card .email {
     color: #F5F5F5;
     font-size: 20px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .user-card .meta {
@@ -683,71 +726,73 @@ nav a:hover {
     color: #F5F5F5;
     font-family: 'Bebas Neue';
     letter-spacing: 0.5px;
-
     cursor: pointer;
     box-shadow: 0 3px 8px #1A1A1A;
 }
 
-.btn-view { background: #05AC4B; }
-.btn-edit { background: #fff200b7; }
-.btn-delete { background: #ED1C24; }
-.btn-comentarios { background: #322d4d; }
+.btn-view {
+    background: #05AC4B;
+}
 
-/* ================== CORREÇÃO DE LAYOUT: CELULAR (max-width: 599px) ================== */
+.btn-edit {
+    background: #fff200b7;
+}
+
+.btn-delete {
+    background: #ED1C24;
+}
+
+.btn-comentarios {
+    background: #322d4d;
+}
+
 @media screen and (max-width: 599px) {
-
-   
     body {
         padding: 0;
-        display: block; 
+        display: block;
     }
 
     .admin-panel {
         width: 100%;
         min-height: 100vh;
         margin: 0;
-        border-radius: 0;
-        padding-bottom: 80px; 
+        border-radius: 16px; /* AQUI ESTÁ A MUDANÇA PARA ARREDONDAR */
+        padding-bottom: 80px;
     }
-    /* ===== FIM DAS ALTERAÇÕES ===== */
 
     .user-cards {
-        max-width: 100%; 
+        max-width: 100%;
         gap: 12px;
     }
 
     .user-card {
-        margin: 10px auto ;
-        padding: 14px 20px; 
-        max-width: 90%; 
-        width: 90%; 
+        margin: 10px auto;
+        padding: 14px 20px;
+        max-width: 90%;
+        width: 90%;
+        border-radius: 16px; /* Garante que os cards também fiquem redondos */
     }
-    
+
     .new-post-btn {
         display: none !important;
     }
+
     .fab-btn {
-        display: flex !important; 
+        display: flex !important;
     }
 
-    .user-card {
-        margin: 10px auto !important;
-        max-width: 580px;
-    }
     nav {
         max-width: 420px;
     }
 }
 
-/* ================== AJUSTE DE LAYOUT FINAL: TABLET (600px a 991px) ================== */
 @media screen and (min-width: 600px) and (max-width: 991px) {
-    
-    .admin-panel { 
+    .admin-panel {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .table-container { 
+    .table-container {
         display: none !important;
     }
 
@@ -755,50 +800,65 @@ nav a:hover {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 16px;
-        max-width: 800px; 
+        max-width: 800px;
         margin: 0 auto 18px;
         padding: 0;
     }
-    
+
     .user-card {
-        margin: 0 !important; 
+        margin: 0 !important;
         max-width: none !important;
     }
 
     .new-post-btn {
         display: flex !important;
     }
+
     .new-post-btn span {
         display: inline;
     }
+
     .fab-btn {
         display: none !important;
     }
 
     nav {
-        max-width: 800px; 
+        max-width: 800px;
         margin: 0 auto 24px;
         justify-content: center;
     }
 
-    .user-card .name { font-size: 24px; margin-bottom: 14px; }
-    .user-card .email { font-size: 14px; margin-bottom: 12px; }
-    .user-card .meta { font-size: 13px; margin: 5px 0; }
-    .btn-card { height: 32px; font-size: 14px; }
-}
-/* ================== FIM TABLET AJUSTES ================== */
+    .user-card .name {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
 
-/* ================== BOTÃO FLUTUANTE DO CELULAR ================== */
+    .user-card .email {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .user-card .meta {
+        font-size: 13px;
+        margin: 5px 0;
+    }
+
+    .btn-card {
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
 .fab-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
     width: 60px;
     height: 60px;
-    background-color: var(--header-bg-color); 
+    background-color: var(--header-bg-color);
     color: var(--text-color);
     border-radius: 50%;
-    display: none; 
+    display: none;
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;

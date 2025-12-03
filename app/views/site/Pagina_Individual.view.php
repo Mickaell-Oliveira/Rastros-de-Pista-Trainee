@@ -31,14 +31,22 @@
             </p>
         </div>
 
-        <div class="ContainerBotoes">
-            <div class="Interacoes">
-                <button><i class="fa-regular fa-thumbs-up"></i></button>
-                <button><i class="fa-regular fa-thumbs-down"></i></button>
-                <button onclick="toggleComentario()"><i class="fa-regular fa-comment"></i></button>
-                <button><i class="fa-solid fa-share"></i></button>
-            </div>
+    <div class="ContainerBotoes">
+        <div class="Interacoes">
+            <button id="btn-like" onclick="votar(<?= $post->id ?>, 'like')">
+                <i class="fa-regular fa-thumbs-up" id="icon-like"></i> 
+                <span id="contador-like"><?= $post->likes ?? 0 ?></span>
+            </button>
+
+            <button id="btn-dislike" onclick="votar(<?= $post->id ?>, 'dislike')">
+                <i class="fa-regular fa-thumbs-down" id="icon-dislike"></i> 
+                <span id="contador-dislike"><?= $post->dislikes ?? 0 ?></span>
+            </button>
+
+            <button onclick="toggleComentario()"><i class="fa-regular fa-comment"></i></button>
+            <button><i class="fa-solid fa-share"></i></button>
         </div>
+    </div>
 
     </main>
 
@@ -81,6 +89,6 @@
 
     </section>
 
-    <script src="../../../public/js/Pagina_Individual.js" defer></script>
+    <script src="/public/js/Pagina_Individual.js" defer></script>
 </body>
 </html>

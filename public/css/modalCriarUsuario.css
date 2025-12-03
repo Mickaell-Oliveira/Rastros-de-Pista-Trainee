@@ -24,13 +24,13 @@ body {
 #imgUser {
     position: relative;
     width: 250px;
-    height: 250px;
+    height: 200px;
     margin-top: 0px;
     margin-right: 20px;
     margin-left: 10px;
     margin-bottom: 0;
     border: 2px solid #AE171C;
-    border-radius: 150px;
+    border-radius: 10px;
     overflow: hidden;
 }
 

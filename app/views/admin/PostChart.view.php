@@ -92,7 +92,7 @@
         <h2 class="name"><?=$post->id?></h2>
         <p class="email"><?=$post->autor?></p>
         <p class="email"><?=$post->titulo?></p>
-      <p class="meta"><?= $post->data ?></p>
+      <p class="meta"><?= date('d/m/Y', strtotime($post->data)) ?></p>
       <span class="stat">270 <i class="fas fa-eye" ></i></span>
       <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
       <span class="stat">250 <i class="fas fa-comments"></i></span>

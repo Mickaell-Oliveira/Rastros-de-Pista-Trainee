@@ -91,12 +91,15 @@
     border-radius: 16px;
     width: 133px;
     height: 65px;
+    color: white;
     text-align: center;
     box-shadow: 3px 3px 3px #ae171c;
     margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    font-size: 20px;
 }
 
  .modal-excluir .sim:hover {
@@ -116,12 +119,15 @@
     border-radius: 16px;
     width: 133px;
     height: 65px;
+    color: white;
     text-align: center;
     box-shadow: 3px 3px 3px #363636;
     margin: 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    font-size: 20px;
 }
 
  .modal-excluir .nao:hover {
