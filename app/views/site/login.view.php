@@ -15,6 +15,17 @@
             <div><a href="/home" class="home"><svg xmlns="http://www.w3.org/2000/svg" class= "casinha" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>Voltar</a></div>
             <img src="../../../public/assets/LogoRatoBandeira.png" alt="">
             <h2>BEM VINDO!</h2>
+
+            <div class="mensagemErro">
+                <p>
+                    <?php
+                        if(isset($_SESSION['mensagemErro']))
+                            echo $_SESSION['mensagemErro'];
+                        unset($_SESSION['mensagemErro']);
+                    ?>
+                </p>
+            </div>
+            
             <div class="input-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="Insira seu e-mail" required>
@@ -25,16 +36,6 @@
                     <input type="password" id="password" name="senha" placeholder="Insira sua senha" required>
                     <i class="fas fa-eye-slash toggle-password"></i>
                 </div>
-            </div>
-            
-            <div class="mensagemErro">
-                <p>
-                    <?php
-                        if(isset($_SESSION['mensagemErro']))
-                            echo $_SESSION['mensagemErro'];
-                        unset($_SESSION['mensagemErro']);
-                    ?>
-                </p>
             </div>
 
             <button type="submit">ENTRAR</button>

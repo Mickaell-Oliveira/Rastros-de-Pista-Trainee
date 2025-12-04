@@ -21,7 +21,7 @@
      
      <ul id="side_itens">
         <li class="item">
-            <a href="/tableposts">
+            <a href="/tabelaposts">
             <i class="fas fa-paper-plane"></i>
             <span class="item-description">
                 Posts
@@ -57,12 +57,14 @@
 </div>
 
 <div id="logout">
+    <form action="/logout" method="POST">
     <button id="logout_bt">
         <i id="logout_icon" class="fa-solid fa-right-from-bracket"></i>
         <span class="item-description">
             Logout
         </span>
     </button>
+    </form>
 
     </div>
     
