@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="../../../public/css/posts_page.css" />
 </head>
 <body>
- 
-   <div id="page-container">
+
+  <?php require 'app/views/site/navbar.view.php'; ?>
+
+  <div id="page-container">
     <search class="search-section">
       <form class="search-bar">
         <button type="submit" class="search-button" aria-label="Buscar"> 
@@ -41,6 +43,8 @@
        <a href="#" class="arrow">&gt;</a>
      </nav>
   </div>
+
+  <?php require 'app/views/site/footer.view.php'; ?>
 
     <script src="../../../public/js/posts_page.js"></script>
 </body>

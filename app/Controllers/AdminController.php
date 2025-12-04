@@ -9,6 +9,7 @@ class AdminController
 {
     public function index()
     { 
+        
         $page = 1; 
         if(isset($_GET['paginacaoNumero']) && !empty($_GET['paginacaoNumero'])){
         $page = intval($_GET['paginacaoNumero']);
@@ -32,6 +33,7 @@ class AdminController
 
     public function create()
     {
+
         $caminhoNoBanco = 'public/assets/imagemPosts/default.jpg';
         if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
             $temporario = $_FILES['foto']['tmp_name'];
@@ -52,8 +54,8 @@ class AdminController
             'titulo'      => $_POST['titulo'] ?? null,
             'descricao'   => $_POST['descricao'] ?? null,
             'categoria'   => $_POST['post-tipo'] ?? null,
-            'id_usuario'  => 1, 
-            'autor'       => $_POST['autor'] ?? 'Admin',
+            'id_usuario'  => $_POST['id_usuario'], 
+            'autor'       => $_POST['autor'],
             'data'        => date('Y-m-d H:i:s'),
             'foto'        => $caminhodaimagem,
             'marca'       => $_POST['marca'] ?? null
@@ -101,8 +103,8 @@ class AdminController
             'titulo'      => $_POST['titulo'] ?? null,
             'descricao'   => $_POST['descricao'] ?? null,
             'categoria'   => $_POST['post-tipo'] ?? null,
-            'id_usuario'  => 1, 
-            'autor'       => $_POST['autor'] ?? 'Admin',
+            'id_usuario'  => $_SESSION['id'], 
+            'autor'       => $_POST['autor'],
             'data'        => date('Y-m-d H:i:s'),
             'foto'        => $caminhodaimagem,
             'marca'       => $_POST['marca'] ?? null

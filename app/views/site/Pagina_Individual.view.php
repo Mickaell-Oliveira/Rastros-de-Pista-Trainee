@@ -10,10 +10,13 @@
 </head>
 
 <body>
+
+    <?php require 'app/views/site/navbar.view.php'; ?>
+
     <main class="ContainerPostagem">
 
         <div class="Cabecalho">
-            <button class="BotaoVoltar" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+            <a href="/postspage"><button class="BotaoVoltar"><i class="fa-solid fa-arrow-left"></i></button></a>
             <div class="IconeContainer">
                 <i class="fa-solid fa-user"></i>
             </div>
@@ -88,6 +91,8 @@
         <?php endforeach ?>
 
     </section>
+
+    <?php require 'app/views/site/footer.view.php'; ?>
 
     <script src="/public/js/Pagina_Individual.js" defer></script>
 </body>

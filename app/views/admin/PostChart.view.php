@@ -245,7 +245,7 @@
             <input type="file" name="foto" accept="image/*" id="img-do-post" style="display: none" onchange="exibirPreview(this, 'previewCriar', 'imagemPadraoCriar', 'labelCriarPost')" required>
 
             <img src="#" alt="Preview" id="previewCriar" style="display: none;">
-            <img src="public/assets/Audi-R8.jpg" id="imagemPadraoCriar" alt="">
+            <img src="public/assets/imagemPosts/DefaultPost.png" id="imagemPadraoCriar" alt="">
 
             <label for="img-do-post" id="labelCriarPost" class="upload-label">
             <span><i class="fas fa-pencil-alt"></i></span>               
@@ -271,7 +271,7 @@
         </div>
         <div class="ladoDireito">
         <h2 class="textos-info-criar">Autor</h2>
-        <div class="info-caixa">Usuario</div>
+        <div class="info-caixa"><?=$post->autor;?></div>
         <h2 class="textos-info-criar">Titulo</h2>
         <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título" required>
         <h2 class="textos-info-criar">Descrição</h2>
@@ -310,8 +310,8 @@
                                 <img src="#" alt="Avatar" class="comment-avatar"> 
                                 
                                 <div class="comment-text">
-                                    <span class="comment-username">
-                                        <?= $comentario->nome_usuario ?? 'Anônimo' ?> #<?= $comentario->id_usuario ?>
+                                    <span class="comment-username"
+                                        <?= $comentario->nome_usuario ?> #<?= $comentario->id_usuario ?>
                                     </span>
                                     
                                     <div id="view-comentario-<?= $comentario->id ?>">
