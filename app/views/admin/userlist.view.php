@@ -114,6 +114,8 @@
 
         </section>
 
+        <!-- Modal Visualizar Usuário -->
+
         <?php foreach($usuarios as $user): ?>
             <div class="modal-overlay hidden" id="modal-visualizar-<?= $user->id ?>">
                 <section class="container">
@@ -138,6 +140,8 @@
                 </section>
             </div>
         <?php endforeach; ?>
+
+        <!-- Modal Editar Usuário -->
 
         <?php foreach($usuarios as $user): ?>
             <div class="modal-overlay hidden modal-editar-custom" id="modal-editar-<?= $user->id ?>">
@@ -187,6 +191,8 @@
             </div>
         <?php endforeach; ?>
 
+        <!-- Modal Excluir Usuário -->
+
         <?php foreach($usuarios as $user): ?>
             <form action="/user/delete" method="POST">
                 <div class="modal-overlay modal-excluir hidden" id="modal-excluir-<?= $user->id ?>">
@@ -206,6 +212,8 @@
             </form>
         <?php endforeach; ?>
 
+        <!-- Modal Criar Usuário -->
+
         <div class="modal-overlay hidden" id="modal-criar">
             <form action="/user/create" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">
                 <section class="container">
@@ -218,7 +226,7 @@
                                 <span><i class="fas fa-pencil-alt"></i></span>
                             </label>
                             
-                            <img src="/public/assets/padrao.jpg" id="imagemPadraoCriarNovo" alt="">
+                            <img src="/public/assets/imagemUsuario/DefaultIcon.png" id="imagemPadraoCriarNovo" alt="">
                             <img src="#" alt="Preview" id="previewCriarNovo" style="display: none; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:2;">
                         </div>
                     </div>
