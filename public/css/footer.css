@@ -3,9 +3,9 @@
 
 :root {
   --color-text: #000000; 
-  --color-primary-bg: #d3d3d3; 
-  --color-secondary-bg-top: #d3d3d3; 
-  --color-secondary-bg-bottom: #a9a9a9; 
+  --color-primary-bg: #6D6D6D; 
+  --color-secondary-bg-top: #6D6D6D; 
+  --color-secondary-bg-bottom: #595959; 
   --color-border: #333333;
 }
 
@@ -136,9 +136,11 @@ body {
 }
 
 #footer_content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 3rem 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    padding: 3rem 3.5rem;
+    column-gap: 2rem;
+    justify-items: center; 
 }
 
 
@@ -150,7 +152,7 @@ body {
 
 .footer-list h3 {
   margin-bottom: 0.75rem;
-  font-weight: bold;
+  font-weight: bold;  
 }
 
 
@@ -189,7 +191,7 @@ body {
 
 #footer_content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 3rem 3.5rem;
     column-gap: 2.5rem; 
 }

@@ -70,19 +70,6 @@
       <footer id="secondary_footer">
           <div id="footer_content">
 
-
- <!-- ------------Site Map--------------------- -->  
-
-              <ul class="footer-list">
-                  <li><h3>Site Map</h3></li>
-                  <li><a href="#" class="footer-link">Site Map 1</a></li>
-                  <li><a href="#" class="footer-link">Site Map 2</a></li>
-                  <li><a href="#" class="footer-link">Site Map 3</a></li>
-                  <li><a href="#" class="footer-link">Site Map 4</a></li>
-                  <li><a href="#" class="footer-link">Site Map 5</a></li>
-              </ul>
-
- <!-- ------------------------------------------ -->            
 <!-- /////////////////////////////////////////// -->
  <!-- ------------ Visão ----------------------- -->  
 
