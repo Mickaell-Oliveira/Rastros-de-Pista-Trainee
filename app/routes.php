@@ -22,6 +22,7 @@ $router->post('post/interacao', 'PostIndividualController@interagir');
 
 $router->get('postspage', 'ListaPostsController@ListaPosts');
 
+$router->get('', 'HomeController@index');
 $router->get('home', 'HomeController@index');
 
 $router->get('usuarios', 'UserAdminController@index');
