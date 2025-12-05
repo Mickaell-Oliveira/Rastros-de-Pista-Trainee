@@ -32,10 +32,10 @@
                   <a href="#" class="footer-link">
                       <i class="fa-brands fa-facebook"></i>
                   </a>
-                  <a href="#" class="footer-link">
+                  <a href="https://w.app/tllswh" class="footer-link">
                       <i class="fa-brands fa-whatsapp"></i>
                   </a>
-                  <a href="#" class="footer-link">
+                  <a href=" https://www.instagram.com/rastros_de_pista?igsh=MXAweDR5czNuMzhqbQ==" class="footer-link">
                       <i class="fa-brands fa-instagram"></i>
                   </a>
               </div>
