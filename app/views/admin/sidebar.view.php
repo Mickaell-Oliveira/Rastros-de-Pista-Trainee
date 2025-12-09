@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <nav class="sidebar">
+    <nav class="sidebar closed">
         
         <div id="sidebar_content">
      <img src="../../../public/assets/img/Logo-rato-bandeira.jpg.png" id="imagem">
@@ -48,7 +48,17 @@
         </a>
         </li>
 
+        <li class="item">
+       <a href="/home">
+            <i class="fa-solid fa-house"></i>
+            <span class="item-description">
+                Home
+            </span>
+        </a>
+        </li>
+
     </ul>
+
     <button id="open">
         <i id="open_icon" class="fa-solid fa-chevron-right"></i>
     </button>

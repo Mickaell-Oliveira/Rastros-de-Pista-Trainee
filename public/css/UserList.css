@@ -41,24 +41,13 @@ body::before {
 .admin-panel {
     width: 100%;
     margin: 0;
-    background-color: var(--darker-bg-color);
+    background-color: #101010;
+    opacity: 0.8;
     position: relative;
     overflow: hidden;
     padding-bottom: 20px;
     border-radius: 16px;
     box-sizing: border-box;
-}
-
-.admin-panel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 40%;
-    background: radial-gradient(circle, rgba(183, 28, 28, 0.3), transparent 70%);
-    z-index: 0;
-    filter: blur(20px);
 }
 
 .main-header {
@@ -756,7 +745,7 @@ nav a:hover {
         width: 100%;
         min-height: 100vh;
         margin: 0;
-        border-radius: 16px; /* AQUI ESTÁ A MUDANÇA PARA ARREDONDAR */
+        border-radius: 16px;
         padding-bottom: 80px;
     }
 
@@ -770,7 +759,7 @@ nav a:hover {
         padding: 14px 20px;
         max-width: 90%;
         width: 90%;
-        border-radius: 16px; /* Garante que os cards também fiquem redondos */
+        border-radius: 16px;
     }
 
     .new-post-btn {

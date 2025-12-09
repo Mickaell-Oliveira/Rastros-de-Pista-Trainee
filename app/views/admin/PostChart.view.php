@@ -67,9 +67,10 @@
                     <td class="post-data post-date" data-label="Ano do Veículo"><?= $post->ano_veiculo ?></td>
                     <td class="post-data post-tipo" data-label="Tipo do post"><?= $post->categoria ?></td>
                     <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
-                        <span class="stat">270 <i class="fas fa-eye"></i></span>
                         <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat">270 <i class="fa-solid fa-thumbs-down"></i></span>
                         <span class="stat">250 <i class="fas fa-comments"></i></span>
+                        
                     </td>
                     <td class="post-data post-actions" data-label="Ações">
                         <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')"></i></button>
