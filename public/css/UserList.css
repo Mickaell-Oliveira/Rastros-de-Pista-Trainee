@@ -17,6 +17,8 @@
 }
 
 body {
+    display: flex;
+    flex-direction: row;
     background: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
     background-size: cover;
     background-position: center;
@@ -25,6 +27,7 @@ body {
     min-height: 100vh;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
     padding: 0;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -49,6 +52,13 @@ body::before {
     border-radius: 16px;
     box-sizing: border-box;
 }
+main {
+    flex-grow: 1;
+    width: 100%;  
+    padding: 20px 40px;
+    transition: all 0.3s ease-in-out; 
+    margin-left: 0 !important; 
+}
 
 .main-header {
     text-align: center;
@@ -57,7 +67,8 @@ body::before {
 
 .main-header h1 {
     font-family: 'Oswald';
-    font-size: 4.5rem;
+    font-size: 3.0rem;
+    text-align: center;
     font-weight: 550;
     letter-spacing: 4px;
     position: relative;

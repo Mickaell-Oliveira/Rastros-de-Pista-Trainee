@@ -8,7 +8,7 @@ body {
 }
 
 main {
-    margin-left: 200px;
+    margin-left: 80px;
     padding: 20px 40px; 
     transition: margin-left 0.3s ease;
     width: auto;
@@ -34,7 +34,7 @@ main {
     height: 100vh;
     border-radius: 0px 18px 18px 0px;
     background: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
-    position: fixed;
+    position: sticky;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
     top: 0;
     left: 0;
@@ -107,6 +107,7 @@ main {
 #logout {
     border-top: 1px solid #c0c0c0;
     padding: 0px;
+    width: 100%;
 }
 
 #logout_bt {
@@ -200,9 +201,16 @@ main {
     }
 
     .sidebar {
-        width: 180px;
-        transform: translateX(0);
-        transition: transform 0.3s ease-in-out;
+       position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 180px; 
+        z-index: 10000;
+        
+        transform: translateX(0); 
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.7);
     }
 
     .sidebar.closed {

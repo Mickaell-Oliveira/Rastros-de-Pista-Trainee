@@ -75,7 +75,7 @@ $mysqli = new mysqli($host, $user, $pass, $db);
     <main>
         <section class="admin-panel">
             <header class="main-header">
-                <h1>TABELA DE USUÁRIO</h1>
+                <h1>Tabela de Usuários</h1>
             </header>
 
             <div class="toolbar">

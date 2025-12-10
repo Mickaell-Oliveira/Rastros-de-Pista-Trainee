@@ -118,7 +118,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     <main>
     <section class="admin-painel">
        <header class="main-header">
-            <h1>TABELA DE POSTS</h1>
+            <h1>Tabela de Posts</h1>
         </header>
 
          <div class="toolbar">
