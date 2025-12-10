@@ -56,7 +56,8 @@ body::before {
 
 .main-header h1 {
     font-family: 'Oswald';
-    font-size: 4.5rem;
+    font-size: 3.0rem;
+    text-align: center;
     font-weight: 550;
     letter-spacing: 4px;
     position: relative;
@@ -855,7 +856,9 @@ ul {
 @media (max-width: 992px) {
     .filter-btn span {
         display: none;
+        
     }
-    
-    
+    .filter-btn {
+        border-radius: 15px;
+    }
 }
