@@ -203,11 +203,11 @@ $mysqli = new mysqli($host, $user, $pass, $db);
 
         <?php foreach($usuarios as $user): ?>
             <div class="modal-overlay hidden modal-editar-custom" id="modal-editar-<?= $user->id ?>">
-                <form action="/user/edit" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-
-                    <section class="container">
-                        <div class="ladoEsquerdo">
+                
+                <section class="container">
+                    <form action="/user/edit" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">
+                        <input type="hidden" name="id" value="<?= $user->id ?>">
+                          <div class="ladoEsquerdo">
                             <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
                             <div id="imgUser">              
                                 <input type="file" name="foto" accept="image/*" id="img-do-user-<?= $user->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $user->id ?>', 'imagemPadraoEditar-<?= $user->id ?>', 'labelEditarUser-<?= $user->id ?>')">
