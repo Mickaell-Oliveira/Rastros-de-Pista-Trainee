@@ -120,18 +120,13 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
             </button>
     
             <input id="searchInput" type="text" class="search-bar" name="busca" value="<?= htmlspecialchars($busca); ?>" placeholder="Buscar">
-            <input type="hidden" name="tipo" value="<?= htmlspecialchars($filtroTipo) ?>">
-            <input type="hidden" name="ano" value="<?= htmlspecialchars($filtroAno) ?>">
-            <input type="hidden" name="tags" value="<?= htmlspecialchars($filtroTags) ?>">
 
+            <div class="actions-container">
+               <button class="filter-btn" type="button" onclick="abrirModal('modalFiltro')">
+                    <i class="fas fa-filter"></i> <span>Filtro</span>
+               </button>
+            </div>
         </form>
-
-       <div class="actions-container">
-          <button class="filter-btn" type="button" onclick="abrirModal('modalFiltro')">
-               <i class="fas fa-filter"></i> <span>Filtro</span>
-          </button>
-       </div>
-      
   </div>
 
     <main class="posts-grid">
