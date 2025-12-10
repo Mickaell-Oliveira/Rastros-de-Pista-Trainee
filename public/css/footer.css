@@ -3,8 +3,8 @@
 
 :root {
   --color-text: #000000; 
-  --color-primary-bg: #6D6D6D; 
-  --color-secondary-bg-top: #6D6D6D; 
+  --color-primary-bg: #444444; 
+  --color-secondary-bg-top: #444444; 
   --color-secondary-bg-bottom: #595959; 
   --color-border: #333333;
 }
@@ -106,9 +106,9 @@ body {
     position: relative;
     background: linear-gradient(to bottom, var(--color-secondary-bg-top), var(--color-secondary-bg-bottom));
     overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    max-height: none;
+    opacity: 1;
+    
 }
 
 

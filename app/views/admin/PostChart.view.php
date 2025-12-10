@@ -1,10 +1,96 @@
- <?php
+ <?php  // login
     session_start();
 
     if(!isset($_SESSION['id'])){
         header('Location: /login');
     }
 ?>
+
+<?php  // filtro
+
+$host = "localhost";
+$db = "rastros_de_pista_db";
+$user = "root";
+$pass = "";
+
+$mysqli = new mysqli($host, $user, $pass, $db);
+
+if($mysqli->connect_errno) {
+    die("Falha na conexão do banco de dados");
+}
+
+
+$busca = $_GET['busca'] ?? "";
+$filtroTipo = $_GET['tipo'] ?? "";
+$filtroAno = $_GET['ano'] ?? "";
+$filtroTags = $_GET['tags'] ?? ""; 
+
+
+if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtroTags)) {
+    
+    $sql = "SELECT * FROM posts WHERE 1=1";
+    $types = "";
+    $params = [];
+
+    // Busca Texto
+    if (!empty($busca)) {
+        $sql .= " AND (titulo LIKE ? OR autor LIKE ? OR veiculo LIKE ? OR descricao LIKE ?)";
+        $search_term = "%" . $busca . "%";
+        $types .= "ssss";
+        array_push($params, $search_term, $search_term, $search_term, $search_term);
+    }
+
+    // Filtro Tipo
+    if (!empty($filtroTipo)) {
+        $sql .= " AND categoria = ?";
+        $types .= "s";
+        $params[] = $filtroTipo;
+    }
+
+    // Filtro Ano
+    if (!empty($filtroAno)) {
+        $sql .= " AND ano_veiculo = ?";
+        $types .= "s";
+        $params[] = $filtroAno;
+    }
+
+    // Filtro Tags
+    if (!empty($filtroTags)) {
+        $tagsArray = explode(',', $filtroTags);
+        $tagClauses = [];
+        foreach ($tagsArray as $tag) {
+            $tagClauses[] = "(descricao LIKE ? OR titulo LIKE ?)";
+            $types .= "ss";
+            $params[] = "%" . trim($tag) . "%";
+            $params[] = "%" . trim($tag) . "%";
+        }
+        if (!empty($tagClauses)) {
+            $sql .= " AND (" . implode(" OR ", $tagClauses) . ")";
+        }
+    }
+
+    $sql .= " ORDER BY data DESC";
+
+    $stmt = $mysqli->prepare($sql);
+    if ($stmt) {
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $posts = [];    
+        if ($result) {
+            while ($row = $result->fetch_object()) {
+                $posts[] = $row;
+            }
+        }
+    }
+}
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,6 +106,8 @@
     <link rel="stylesheet" href="../../../public/css/modalCriarPost.css">
     <link rel="stylesheet" href="../../../public/css/modalVerComentarios.css">
     <link rel="stylesheet" href="/public/css/sidebar.css">
+    <link rel="stylesheet" href="/public/css/Filtro.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
 </head>
@@ -32,18 +120,29 @@
        <header class="main-header">
             <h1>TABELA DE POSTS</h1>
         </header>
-        <!-- Barra de Pesquisa, Nova Publicação-->
-        <div class="toolbar">
-            <div class="search-container">
+
+         <div class="toolbar">
+            <form class="search-container" action="" method="GET">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-bar" placeholder="">
-            </div>
+                <input id="searchInput" type="text" class="search-bar" name="busca" value="<?= htmlspecialchars($busca); ?>">
+                <input type="hidden" name="tipo" value="<?= htmlspecialchars($filtroTipo) ?>">
+                <input type="hidden" name="ano" value="<?= htmlspecialchars($filtroAno) ?>">
+                <input type="hidden" name="tags" value="<?= htmlspecialchars($filtroTags) ?>">
+            </form>
+
             <div class="actions-container">
-                <button class="new-post-btn" onclick="abrirModal('modalCriarPost')">
+                <button class="filter-btn" type="button" onclick="abrirModal('modalFiltro')">
+                    <i class="fas fa-filter"></i> <span>Filtro</span>
+                </button>
+
+                <button class="new-post-btn" type="button" onclick="abrirModal('modalCriarPost')">
                     <i class="fas fa-plus-circle"></i> <span>Nova Publicação</span>
                 </button>
             </div>
         </div>
+
+
+
         <main class="posts-content">
             <table class="tabela">
                  <tr class="posts-table-header">
@@ -57,8 +156,12 @@
                     <th class="header-col" id="header-interacao">Interações</th>
                     <th class="header-col" id="header-açao">Ações</th>
                 </tr>
+
+
+                <?php if(!empty($posts)): ?>
                 <?php foreach($posts as $post): ?>
-                 <tr class="post-item">
+
+                  <tr class="post-item" data-title="<?= htmlspecialchars($post->titulo) ?>">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
                     <td class="post-data post-date"><?= date('d/m/Y', strtotime($post->data)) ?></td>
                     <td class="post-data post-title" data-label="Título"><?= $post->titulo ?></td>
@@ -80,39 +183,51 @@
                     </td>
                 </tr>
                 <?php endforeach ?>
-                
-            </table>
 
+                <?php else:   //esse css ta no meio por praticidade, se precisar deixar mais complexo, lembrar de criar css próprio ?> 
+                    <tr><td colspan="9" style="text-align: center; padding: 20px;">Nenhum post encontrado.</td></tr>
+                <?php endif; ?>
+
+
+            </table>
         </main>
 
+        <?php if(!empty($posts)): ?>
+        <?php foreach($posts as $post): ?>
+                <ul class="user-cards">
 
-<?php foreach($posts as $post): ?>
-  <ul class="user-cards">
+                    <li class="user-card">
+                        <h2 class="name"><?=$post->id?></h2>
+                        <p class="email"><?=$post->autor?></p>
+                        <p class="email"><?=$post->titulo?></p>
+                    <p class="meta"><?= date('d/m/Y', strtotime($post->data)) ?></p>
+                    <span class="stat">270 <i class="fas fa-eye" ></i></span>
+                    <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
+                    <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    <div class="card-actions">
+                        <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')">VISUALIZAR </button>
+                        <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
+                        <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')">DELETAR POST</button>
+                        <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
+                    </div>
+                    </li>
+                </ul> 
+        <?php endforeach ?>
+        <?php endif; ?>
 
-    <li class="user-card">
-        <h2 class="name"><?=$post->id?></h2>
-        <p class="email"><?=$post->autor?></p>
-        <p class="email"><?=$post->titulo?></p>
-      <p class="meta"><?= date('d/m/Y', strtotime($post->data)) ?></p>
-      <span class="stat">270 <i class="fas fa-eye" ></i></span>
-      <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-      <span class="stat">250 <i class="fas fa-comments"></i></span>
-      <div class="card-actions">
-          <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')">VISUALIZAR </button>
-          <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
-          <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')">DELETAR POST</button>
-          <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
-      </div>
-    </li>
-  </ul> 
-  <?php endforeach ?>
-   <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
-        <i class="fas fa-plus"></i> 
-    </button>
-    <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
+
+        <button class="fab-btn" onclick="abrirModal('modalCriarPost')">
+            <i class="fas fa-plus"></i> 
+        </button>
+
+        <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
     </section>
 
     <?php foreach($posts as $post): ?>
+
+
+
+
      <!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost-<?= $post->id; ?>">
         <section class="container"> 
@@ -373,8 +488,70 @@
 </div>
 <?php endforeach ?>
 
-            </main>
+
+<!-- Modal do Filtro -->
+
+     <div class="modal-overlay hidden" id="modalFiltro" >
+    <section class="container-filtro">
+        <div class="formulario-filtro">
+            
+            <div class="coluna-esquerda">
+                <div class="grupo-campo">
+                    <label class="rotulo">Tipo</label>
+                    <select id="filtro-tipo" class="input-estilo">
+                        <option value="" <?= empty($filtroTipo) ? 'selected' : '' ?>>Selecione uma Opção</option>
+                        <option value="passeio" <?= $filtroTipo == 'passeio' ? 'selected' : '' ?>>Passeio</option>
+                        <option value="trackday" <?= $filtroTipo == 'trackday' ? 'selected' : '' ?>>Track day</option>
+                        <option value="viagem" <?= $filtroTipo == 'viagem' ? 'selected' : '' ?>>Viagem</option>
+                        <option value="encontro" <?= $filtroTipo == 'encontro' ? 'selected' : '' ?>>Encontro</option> 
+                        <option value="momentos" <?= $filtroTipo == 'momentos' ? 'selected' : '' ?>>Momentos</option>
+                    </select>
+                </div>
+
+                <div class="grupo-campo">
+                    <label class="rotulo">Ano do Veículo</label>
+                    <input 
+                        class="input-estilo" 
+                        id="filtro-ano" 
+                        type="text" 
+                        maxlength="4" 
+                        placeholder="Ex: 2024" 
+                        value="<?= htmlspecialchars($filtroAno) ?>"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                    >
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <div class="area-filtros-tags">
+                    <label class="rotulo">Tags Rápidas</label>
+                    <div class="container-tags" id="lista-tags">
+                        </div>
+                    <input type="hidden" id="filtro-tags-hidden" value="<?= htmlspecialchars($filtroTags) ?>">
+                </div>
+
+                <div class="SearchFiltro">
+                    <div class="input-busca-container">
+
+                        <input type="text" id="input-tag-busca" placeholder="Buscar / Adicionar Tag:" class="input-busca" onkeypress="criarTagAoDigitar(event)">
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <button type="button" class="btn btn-limpar-filtro" onclick="fecharModal('modalFiltro')">Cancelar</button>
+                        <button type="button" class="btn btn-aplicar-filtro" onclick="aplicarFiltros()">Buscar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </main>
     <script src="/public/js/Modal.js"></script>
+    <script src="/public/js/Filtro.js"></script>
     <script src="../../../public/js/PostPage.js"></script>
 </body>
 </html>

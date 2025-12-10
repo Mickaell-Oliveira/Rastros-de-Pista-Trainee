@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+
+.modal-overlay.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container-filtro {
+    display: flex;
+    max-width: 850px;
+    width: 95%;
+    background-color: #121212;
+    border-radius: 20px;
+    border: 1px solid #AE171C;
+    box-shadow: 0px 0px 20px rgba(174, 23, 28, 0.4);
+    padding: 35px;
+    color: white;
+    letter-spacing: 0.5px;
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+}
+
+
+.formulario-filtro {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+}
+
+
+.coluna-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    gap: 5px; 
+}
+
+.coluna-direita {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rotulo {
+    display: block;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.grupo-campo {
+    margin-bottom: 10px; 
+}
+
+.input-estilo {
+    width: 100%;
+    background-color: #121212;
+    border: 1px solid #AE171C;
+    border-radius: 8px;
+    padding: 12px;
+    color: #ccc;
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(174, 23, 28, 0.2);
+}
+
+.input-estilo:focus {
+    border-color: #ff3333;
+    color: white;
+}
+
+.input-estilo option {
+    background-color: #121212;
+    color: white;
+}
+
+.area-filtros-tags {
+    margin-bottom: 20px; 
+}
+
+.container-tags {
+    border: 1px solid #AE171C;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 165px;
+    align-content: flex-start;
+    background-color: transparent;
+}
+
+.tag-item {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+}
+
+.tag-item:hover {
+    border-color: #AE171C;
+    background-color: #1a1a1a;
+}
+
+.tag-item.ativo {
+    background-color: #AE171C;
+    border-color: #AE171C;
+    box-shadow: 0 0 10px rgba(174, 23, 28, 0.6);
+}
+
+.area-pesquisa {
+    display: flex;
+    align-items: flex-end;
+}
+
+.input-busca-container {
+    background-color: #e0e0e0;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    height: 50px;
+    width: 100%;
+}
+
+.icone-lupa {
+    width: 20px;
+    height: 20px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.input-busca {
+    border: none;
+    background: transparent;
+    flex: 1;
+    font-size: 1.2rem;
+    color: #333;
+    outline: none;
+    font-weight: 500;
+}
+
+.input-busca::placeholder {
+    color: #666;
+}
+
+.grupo-botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: none;
+    font-weight: 700;
+}
+
+.btn-limpar-filtro { 
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+}
+
+.btn-aplicar-filtro { 
+    background-color: #AE171C;
+    color: white;
+    box-shadow: 0 0 10px rgba(174, 23, 28, 0.6);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+.SearchFiltro { 
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch;
+    gap: 15px; 
+}
+
+
+@media (max-width: 768px) {
+
+    .container-filtro {
+        padding: 20px;
+    }
+    
+    .formulario-filtro {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .coluna-esquerda, .coluna-direita {
+        width: 100%;
+        flex: auto; 
+    }
+    
+    .coluna-esquerda {
+        justify-content: flex-start; 
+        gap: 10px; 
+    }
+
+
+    .SearchFiltro {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        width: 100%;
+    }
+    
+
+    .input-busca-container {
+        width: 100%;
+    }
+
+    .grupo-botoes {
+        display: flex;
+        flex-direction: row; 
+        gap: 10px;
+        margin-top: 0;
+        width: 100%;
+    }
+    
+    .btn-limpar-filtro, .btn-aplicar-filtro {
+        flex: 1; 
+    }
+    
+    .grupo-campo {
+        margin-bottom: 10px; 
+    }
+}

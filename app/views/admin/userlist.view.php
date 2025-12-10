@@ -1,10 +1,59 @@
-<?php
+<?php 
     session_start();
 
     if(!isset($_SESSION['id'])){
         header('Location: /login');
     }
 ?>
+
+<?php  
+
+$host = "localhost";
+$db = "rastros_de_pista_db";
+$user = "root";
+$pass = "";
+
+$mysqli = new mysqli($host, $user, $pass, $db);
+
+    if($mysqli->connect_errno) {
+        die("Falha na conexão do banco de dados");
+    }
+
+    $busca = $_GET['busca'] ?? "";
+    $sql = "SELECT * FROM usuarios WHERE 1=1"; 
+    $types = "";
+    $params = [];
+
+    if (!empty($busca)) {
+        $sql .= " AND (nome LIKE ? OR email LIKE ?)";
+        $search_term = "%" . $busca . "%";
+        $types .= "ss"; 
+        
+        array_push($params, $search_term, $search_term);
+    }
+
+    $sql .= " ORDER BY id DESC"; 
+    $stmt = $mysqli->prepare($sql);
+
+    if ($stmt) {
+
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $usuarios = [];    
+
+        if ($result) {
+            while ($row = $result->fetch_object()) {
+                $usuarios[] = $row;
+            }
+        }
+}
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,10 +79,12 @@
             </header>
 
             <div class="toolbar">
-                <div class="search-container">
+                <form class="search-container">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-bar" placeholder="">
-                </div>
+                    <input id="searchInput" type="text" class="search-bar" name="busca" value="<?= htmlspecialchars($busca); ?>">
+                     <input type="hidden" name="tipo" value="<?= htmlspecialchars($filtroTipo) ?>">
+
+                </form>
 
                 <div class="actions-container" onclick="abrirModal('modal-criar')">
                     <button class="new-post-btn">
@@ -52,6 +103,7 @@
                         <th class="header-col">Ações</th>
                     </tr>
 
+                    <?php if(!empty($usuarios)): ?>
                     <?php foreach($usuarios as $user): ?>
                     <tr class="post-item">
                         <td class="post-data post-id" data-label="Post ID"><?= $user->id ?></td>
@@ -65,6 +117,12 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
+                    
+                <?php else:   //esse css ta no meio por praticidade, se precisar deixar mais complexo, lembrar de criar css próprio ?> 
+                    <tr><td colspan="9" style="text-align: center; padding: 20px;">Nenhum usuário encontrado.</td></tr>
+                <?php endif; ?>
+
+
                 </table>
             </main>
 
