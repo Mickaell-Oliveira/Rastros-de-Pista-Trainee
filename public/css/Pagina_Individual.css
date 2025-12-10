@@ -120,7 +120,7 @@ body {
 }
 
 .ConteudoPostagem {
-    font-size: 16px;
+    font-size: 20px;
     color: #d0d0d0;
     line-height: 1.6;
     margin-bottom: 25px;
@@ -219,7 +219,7 @@ body {
 }
 
 .TextoComentario {
-    font-size: 15px;
+    font-size: 18px;
     color: #d0d0d0;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -253,7 +253,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        padding: 1rem;      
+        padding: 0;      
     }
 
     .ContainerPostagem {
