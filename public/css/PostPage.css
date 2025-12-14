@@ -677,12 +677,18 @@ nav a:hover {
     font-size: 20px;
     line-height: 1;
     margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .user-card .email {
     color: #F5F5F5;
     font-size: 20px;
-    margin-bottom: 6px; 
+    margin-bottom: 6px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word; 
 }
 
 .user-card .meta {
