@@ -562,6 +562,8 @@ nav a:hover {
 
     .fab-btn {
         display: flex !important;
+        border-radius: 50% !important;
+        font-size: 1.8rem !important;
     }
 
     .search-bar {
