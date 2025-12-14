@@ -432,6 +432,7 @@ main {
 
 .post-item {
     position: relative;
+    height: 175px;
 }
 
 .post-options-container {
