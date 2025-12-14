@@ -4,6 +4,7 @@ namespace App\Core\Database;
 
 use PDO;
 use Exception;
+use stdClass;
 
 class QueryBuilder
 {
@@ -16,7 +17,7 @@ class QueryBuilder
 
     public function selectAll($table, $inicio = null, $rows_count = null)
     {
-        $sql = "select * from {$table}";
+        $sql = "select * from {$table} ORDER BY id DESC";
 
         if($inicio !== null && $rows_count > 0 ){
             $sql .= " LIMIT {$inicio}, {$rows_count}";
@@ -61,7 +62,7 @@ class QueryBuilder
         foreach ($conditions as $key => $value) {
             $clauses[] = "{$key} = :{$key}";
         }
-        $sql = "SELECT * FROM {$table} WHERE " . implode(' AND ', $clauses);
+        $sql = "SELECT * FROM {$table} WHERE " . implode(' AND ', $clauses) . " ORDER BY id DESC";
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($conditions);
@@ -138,9 +139,11 @@ class QueryBuilder
 
     public function selectAllComentariosComNomes()
     {
-        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
+        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, comentarios.data, 
+                       usuarios.nome AS nome_usuario, usuarios.foto AS foto_usuario
                 FROM comentarios 
-                JOIN usuarios ON comentarios.id_usuario = usuarios.id";
+                JOIN usuarios ON comentarios.id_usuario = usuarios.id
+                ORDER BY comentarios.id DESC";
         try{
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -152,10 +155,12 @@ class QueryBuilder
 
     public function selectComentariosPorPost($postId)
     {
-        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, usuarios.nome AS nome_usuario 
+        $sql = "SELECT comentarios.id, comentarios.id_usuario, comentarios.id_post, comentarios.comentario, comentarios.data, 
+                       usuarios.nome AS nome_usuario, usuarios.foto AS foto_usuario
                 FROM comentarios 
                 JOIN usuarios ON comentarios.id_usuario = usuarios.id
-                WHERE comentarios.id_post = :post_id";
+                WHERE comentarios.id_post = :post_id
+                ORDER BY comentarios.id DESC";
         try {
             $statement = $this->pdo->prepare($sql);
             $statement->execute(['post_id' => $postId]);
@@ -172,62 +177,171 @@ class QueryBuilder
         try {
             $this->pdo->beginTransaction();
 
-            $sqlCheck = "SELECT tipo FROM {$tabela} WHERE id_usuario = :user AND id_post = :post";
+            $sqlCheck = "SELECT id, tipo FROM {$tabela} WHERE id_usuario = :user AND id_post = :post";
             $stmt = $this->pdo->prepare($sqlCheck);
             $stmt->execute(['user' => $idUsuario, 'post' => $idPost]);
             $votoExistente = $stmt->fetch(PDO::FETCH_OBJ);
 
-            $valLike = ($tipoNumerico == 1) ? 1 : 0;
-            $valDislike = ($tipoNumerico == 2) ? 1 : 0;
-
             if ($votoExistente) {
                 if ($votoExistente->tipo == $tipoNumerico) {
-                    $sqlDel = "DELETE FROM {$tabela} WHERE id_usuario = :user AND id_post = :post";
-                    $this->pdo->prepare($sqlDel)->execute(['user' => $idUsuario, 'post' => $idPost]);
+                    $sqlDel = "DELETE FROM {$tabela} WHERE id = :id";
+                    $this->pdo->prepare($sqlDel)->execute(['id' => $votoExistente->id]);
                 } else {
-                    $sqlUpd = "UPDATE {$tabela} SET tipo = :t, likes = :l, dislikes = :d WHERE id_usuario = :user AND id_post = :post";
+                    $sqlUpd = "UPDATE {$tabela} SET tipo = :t WHERE id = :id";
                     $this->pdo->prepare($sqlUpd)->execute([
                         't' => $tipoNumerico,
-                        'l' => $valLike,
-                        'd' => $valDislike,
-                        'user' => $idUsuario,
-                        'post' => $idPost
+                        'id' => $votoExistente->id
                     ]);
                 }
             } else {
-                $sqlIns = "INSERT INTO {$tabela} (id_usuario, id_post, tipo, likes, dislikes) VALUES (:user, :post, :t, :l, :d)";
+                $sqlIns = "INSERT INTO {$tabela} (id_usuario, id_post, tipo) VALUES (:user, :post, :t)";
                 $this->pdo->prepare($sqlIns)->execute([
                     'user' => $idUsuario,
                     'post' => $idPost,
-                    't' => $tipoNumerico,
-                    'l' => $valLike,
-                    'd' => $valDislike
+                    't' => $tipoNumerico
                 ]);
             }
 
-            $this->atualizarContadoresPost($idPost, $tabela);
+            $stmtLikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_post = ? AND tipo = 1");
+            $stmtLikes->execute([$idPost]);
+            $totalLikes = $stmtLikes->fetchColumn();
+
+            $stmtDislikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_post = ? AND tipo = 2");
+            $stmtDislikes->execute([$idPost]);
+            $totalDislikes = $stmtDislikes->fetchColumn();
             
             $this->pdo->commit();
-            return $this->selectById('posts', $idPost);
+
+            $resultado = new stdClass();
+            $resultado->likes = $totalLikes;
+            $resultado->dislikes = $totalDislikes;
+            
+            return $resultado;
 
         } catch (Exception $e) {
             $this->pdo->rollBack();
-            die(json_encode(['erro' => $e->getMessage()])); 
+            throw $e; 
         }
     }
 
-    private function atualizarContadoresPost($idPost, $tabelaInteracoes)
+    public function buscarTotaisInteracao($idPost)
     {
-        $stmtLike = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabelaInteracoes} WHERE id_post = ? AND tipo = 1");
-        $stmtLike->execute([$idPost]);
-        $likes = $stmtLike->fetchColumn();
+        $tabela = 'interacoes';
 
-        $stmtDislike = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabelaInteracoes} WHERE id_post = ? AND tipo = 2");
-        $stmtDislike->execute([$idPost]);
-        $dislikes = $stmtDislike->fetchColumn();
+        try {
+            $stmtLikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_post = ? AND tipo = 1");
+            $stmtLikes->execute([$idPost]);
+            $totalLikes = $stmtLikes->fetchColumn();
 
-        $sql = "UPDATE posts SET likes = :l, dislikes = :d WHERE id = :id";
-        $this->pdo->prepare($sql)->execute(['l' => $likes, 'd' => $dislikes, 'id' => $idPost]);
+            $stmtDislikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_post = ? AND tipo = 2");
+            $stmtDislikes->execute([$idPost]);
+            $totalDislikes = $stmtDislikes->fetchColumn();
+
+            $resultado = new stdClass();
+            $resultado->likes = $totalLikes;
+            $resultado->dislikes = $totalDislikes;
+            
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function verificarVotoUsuario($idUsuario, $idPost)
+    {
+        $sql = "SELECT tipo FROM interacoes WHERE id_usuario = :user AND id_post = :post";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['user' => $idUsuario, 'post' => $idPost]);
+            return $stmt->fetchColumn(); 
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function countComentariosPorPost($idPost)
+    {
+        $sql = "SELECT COUNT(*) FROM comentarios WHERE id_post = :id";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $idPost]);
+            return $stmt->fetchColumn();
+        } catch (Exception $e) {
+            return 0;
+        }
+    }
+
+    public function registrarInteracaoComentario($idUsuario, $idComentario, $tipoNumerico)
+    {
+        $tabela = 'interacoes_comentarios'; 
+
+        try {
+            $this->pdo->beginTransaction();
+
+            $sqlCheck = "SELECT id, tipo FROM {$tabela} WHERE id_usuario = :user AND id_comentario = :comentario";
+            $stmt = $this->pdo->prepare($sqlCheck);
+            $stmt->execute(['user' => $idUsuario, 'comentario' => $idComentario]);
+            $votoExistente = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if ($votoExistente) {
+                if ($votoExistente->tipo == $tipoNumerico) {
+                    $sqlDel = "DELETE FROM {$tabela} WHERE id = :id";
+                    $this->pdo->prepare($sqlDel)->execute(['id' => $votoExistente->id]);
+                } else {
+                    $sqlUpd = "UPDATE {$tabela} SET tipo = :t WHERE id = :id";
+                    $this->pdo->prepare($sqlUpd)->execute([
+                        't' => $tipoNumerico,
+                        'id' => $votoExistente->id
+                    ]);
+                }
+            } else {
+                $sqlIns = "INSERT INTO {$tabela} (id_usuario, id_comentario, tipo) VALUES (:user, :comentario, :t)";
+                $this->pdo->prepare($sqlIns)->execute([
+                    'user' => $idUsuario,
+                    'comentario' => $idComentario,
+                    't' => $tipoNumerico
+                ]);
+            }
+
+            $totais = $this->buscarTotaisComentario($idComentario);
+            
+            $this->pdo->commit();
+            return $totais;
+
+        } catch (Exception $e) {
+            $this->pdo->rollBack();
+            throw $e; 
+        }
+    }
+
+    public function buscarTotaisComentario($idComentario)
+    {
+        $tabela = 'interacoes_comentarios';
+        
+        $stmtLikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_comentario = ? AND tipo = 1");
+        $stmtLikes->execute([$idComentario]);
+        $totalLikes = $stmtLikes->fetchColumn();
+
+        $stmtDislikes = $this->pdo->prepare("SELECT COUNT(*) FROM {$tabela} WHERE id_comentario = ? AND tipo = 2");
+        $stmtDislikes->execute([$idComentario]);
+        $totalDislikes = $stmtDislikes->fetchColumn();
+
+        $resultado = new stdClass();
+        $resultado->likes = $totalLikes;
+        $resultado->dislikes = $totalDislikes;
+        return $resultado;
+    }
+
+    public function verificarVotoComentario($idUsuario, $idComentario)
+    {
+        $tabela = 'interacoes_comentarios';
+        $sql = "SELECT tipo FROM {$tabela} WHERE id_usuario = :user AND id_comentario = :comentario";
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['user' => $idUsuario, 'comentario' => $idComentario]);
+            return $stmt->fetchColumn(); 
+        } catch (Exception $e) {
+            return false;
+        }
     }
 }
-?>

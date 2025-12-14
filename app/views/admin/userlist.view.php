@@ -1,42 +1,33 @@
 <?php 
-    session_start();
-
-    if(!isset($_SESSION['id'])){
-        header('Location: /login');
-    }
-?>
-
-<?php  
 
 $host = "localhost";
 $db = "rastros_de_pista_db";
-$user = "root";
+$dbUser = "root";
 $pass = "";
 
-$mysqli = new mysqli($host, $user, $pass, $db);
+$mysqli = new mysqli($host, $dbUser, $pass, $db);
 
-    if($mysqli->connect_errno) {
-        die("Falha na conexão do banco de dados");
-    }
+if($mysqli->connect_errno) {
+    die("Falha na conexão do banco de dados");
+}
 
-    $busca = $_GET['busca'] ?? "";
+$busca = $_GET['busca'] ?? "";
+
+if (!empty($busca)) {
     $sql = "SELECT * FROM usuarios WHERE 1=1"; 
     $types = "";
     $params = [];
 
-    if (!empty($busca)) {
-        $sql .= " AND (nome LIKE ? OR email LIKE ?)";
-        $search_term = "%" . $busca . "%";
-        $types .= "ss"; 
-        
-        array_push($params, $search_term, $search_term);
-    }
-
+    $sql .= " AND (nome LIKE ? OR email LIKE ?)";
+    $search_term = "%" . $busca . "%";
+    $types .= "ss"; 
+    
+    array_push($params, $search_term, $search_term);
+    
     $sql .= " ORDER BY id DESC"; 
     $stmt = $mysqli->prepare($sql);
 
     if ($stmt) {
-
         if (!empty($params)) {
             $stmt->bind_param($types, ...$params);
         }
@@ -50,10 +41,9 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                 $usuarios[] = $row;
             }
         }
+    }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -81,9 +71,7 @@ $mysqli = new mysqli($host, $user, $pass, $db);
             <div class="toolbar">
                 <form class="search-container">
                     <i class="fas fa-search search-icon"></i>
-                    <input id="searchInput" type="text" class="search-bar" name="busca" value="<?= htmlspecialchars($busca); ?>">
-                     <input type="hidden" name="tipo" value="<?= htmlspecialchars($filtroTipo) ?>">
-
+                    <input id="searchInput" type="text" class="search-bar" name="busca" value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
                 </form>
 
                 <div class="actions-container" onclick="abrirModal('modal-criar')">
@@ -104,21 +92,34 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                     </tr>
 
                     <?php if(!empty($usuarios)): ?>
-                    <?php foreach($usuarios as $user): ?>
+                    <?php foreach($usuarios as $userItem): ?>
+                    
+                    <?php 
+                        $podeGerenciar = false;
+                        if(isset($user) && is_object($user)) {
+                            if($user->admin == 1 || $user->id == $userItem->id) {
+                                $podeGerenciar = true;
+                            }
+                        }
+                    ?>
+
                     <tr class="post-item">
-                        <td class="post-data post-id" data-label="Post ID"><?= $user->id ?></td>
-                        <td class="post-data post-date" data-label="Data"><?= date('d/m/Y', strtotime($user->data)) ?></td>
-                        <td class="post-data post-title" data-label="Título"><?= $user->nome ?></td>
-                        <td class="post-data post-date" data-label="Autor"><?= $user->email ?></td>
+                        <td class="post-data post-id" data-label="Post ID"><?= $userItem->id ?></td>
+                        <td class="post-data post-date" data-label="Data"><?= date('d/m/Y', strtotime($userItem->data)) ?></td>
+                        <td class="post-data post-title" data-label="Título"><?= $userItem->nome ?></td>
+                        <td class="post-data post-date" data-label="Autor"><?= $userItem->email ?></td>
                         <td class="post-data post-actions" data-label="Ações">
-                            <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar-<?= $user->id ?>')"><i class="fas fa-eye"></i></button>
-                            <button id="botaoEditarUsuario" class="action-btn edit" onclick="abrirModal('modal-editar-<?= $user->id ?>')"><i class="fas fa-pencil-alt"></i></button>
-                            <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir-<?= $user->id ?>')"><i class="fas fa-trash"></i></button>
+                            <button id="botaoViewUsuario" class="action-btn view" onclick="abrirModal('modal-visualizar-<?= $userItem->id ?>')"><i class="fas fa-eye"></i></button>
+                            
+                            <?php if($podeGerenciar): ?>
+                                <button id="botaoEditarUsuario" class="action-btn edit" onclick="abrirModal('modal-editar-<?= $userItem->id ?>')"><i class="fas fa-pencil-alt"></i></button>
+                                <button id="botaoExcluirUsuario" class="action-btn delete" onclick="abrirModal('modal-excluir-<?= $userItem->id ?>')"><i class="fas fa-trash"></i></button>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                     
-                <?php else:   //esse css ta no meio por praticidade, se precisar deixar mais complexo, lembrar de criar css próprio ?> 
+                <?php else: ?> 
                     <tr><td colspan="9" style="text-align: center; padding: 20px;">Nenhum usuário encontrado.</td></tr>
                 <?php endif; ?>
 
@@ -126,21 +127,33 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                 </table>
             </main>
 
-            <?php foreach($usuarios as $user): ?>
+            <?php if(!empty($usuarios)): ?>
+            <?php foreach($usuarios as $userItem): ?>
+                <?php 
+                    $podeGerenciar = false;
+                    if(isset($user) && is_object($user)) {
+                        if($user->admin == 1 || $user->id == $userItem->id) {
+                            $podeGerenciar = true;
+                        }
+                    }
+                ?>
                 <ul class="user-cards">
                       <li class="user-card">
-                        <h2 class="name"><?= $user->nome ?></h2>
-                        <p class="email"><?= $user->email ?></p>
-                        <p class="meta">Data de cadastro: <?= date('d/m/Y', strtotime($user->data)) ?></p>
-                        <p class="meta">USER ID: <?= $user->id ?></p>
+                        <h2 class="name"><?= $userItem->nome ?></h2>
+                        <p class="email"><?= $userItem->email ?></p>
+                        <p class="meta">Data de cadastro: <?= date('d/m/Y', strtotime($userItem->data)) ?></p>
+                        <p class="meta">USER ID: <?= $userItem->id ?></p>
                         <div class="card-actions">
-                            <button class="btn-card btn-view" type="button" onclick="abrirModal('modal-visualizar-<?= $user->id ?>')">VISUALIZAR USUÁRIO</button>
-                            <button class="btn-card btn-edit" type="button" onclick="abrirModal('modal-editar-<?= $user->id ?>')">EDITAR USUÁRIO</button>
-                            <button class="btn-card btn-delete" type="button" onclick="abrirModal('modal-excluir-<?= $user->id ?>')">DELETAR USUÁRIO</button>
+                            <button class="btn-card btn-view" type="button" onclick="abrirModal('modal-visualizar-<?= $userItem->id ?>')">VISUALIZAR USUÁRIO</button>
+                            <?php if($podeGerenciar): ?>
+                                <button class="btn-card btn-edit" type="button" onclick="abrirModal('modal-editar-<?= $userItem->id ?>')">EDITAR USUÁRIO</button>
+                                <button class="btn-card btn-delete" type="button" onclick="abrirModal('modal-excluir-<?= $userItem->id ?>')">DELETAR USUÁRIO</button>
+                            <?php endif; ?>
                         </div>
                     </li> 
                 </ul>
             <?php endforeach; ?>
+            <?php endif; ?>
                 
             <a href="#" class="fab-btn" onclick="abrirModal('modal-criar')"><i class="fas fa-plus"></i></a>
 
@@ -172,60 +185,76 @@ $mysqli = new mysqli($host, $user, $pass, $db);
 
         </section>
 
-        <!-- Modal Visualizar Usuário -->
-
-        <?php foreach($usuarios as $user): ?>
-            <div class="modal-overlay hidden" id="modal-visualizar-<?= $user->id ?>">
+        <?php if(!empty($usuarios)): ?>
+        <?php foreach($usuarios as $userItem): ?>
+            <div class="modal-overlay hidden" id="modal-visualizar-<?= $userItem->id ?>">
                 <section class="container">
                     <div class="ladoEsquerdo">
                         <h2 class="nomeFotoPerfil" >Foto de Perfil</h2>
                         <div id="imgPost">
-                            <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="Foto do Usuário">
-                            <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($user->data)) ?></p></div>
+                            <?php 
+                                $foto = $userItem->foto ?? 'default.png';
+                                $foto = str_replace('\\', '/', $foto);
+                                if (strpos($foto, 'public/') === false) {
+                                    $foto = 'public/assets/imagemUsuario/' . $foto;
+                                }
+                                $foto = '/' . ltrim($foto, '/');
+                            ?>
+                            <img src="<?= $foto ?>" alt="Foto do Usuário">
+                            <div class="DataUser"><p>Data de Criação: <?= date('d/m/Y', strtotime($userItem->data)) ?></p></div>
                         </div>
                     </div>
         
                     <div class="ladoDireito">
                         <div class="caixas-input">
-                            <h2>Nome</h2> <p class="inputs" type="text" disabled><?= $user->nome ?></p>
-                            <h2>Email</h2> <p class="inputs" type="text" disabled><?= $user->email ?></p>
+                            <h2>Nome</h2> <p class="inputs" type="text" disabled><?= $userItem->nome ?></p>
+                            <h2>Email</h2> <p class="inputs" type="text" disabled><?= $userItem->email ?></p>
                         </div>
 
                         <div class="buttons">
-                            <button onclick="fecharModal('modal-visualizar-<?= $user->id ?>')" class="btn-cancelar">Fechar</button>
+                            <button onclick="fecharModal('modal-visualizar-<?= $userItem->id ?>')" class="btn-cancelar">Fechar</button>
                         </div>
                     </div>
                 </section>
             </div>
         <?php endforeach; ?>
+        <?php endif; ?>
 
-        <!-- Modal Editar Usuário -->
-
-        <?php foreach($usuarios as $user): ?>
-            <div class="modal-overlay hidden modal-editar-custom" id="modal-editar-<?= $user->id ?>">
+        <?php if(!empty($usuarios)): ?>
+        <?php foreach($usuarios as $userItem): ?>
+            <div class="modal-overlay hidden modal-editar-custom" id="modal-editar-<?= $userItem->id ?>">
                 
                 <section class="container">
                     <form action="/user/edit" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">
-                        <input type="hidden" name="id" value="<?= $user->id ?>">
+                        <input type="hidden" name="id" value="<?= $userItem->id ?>">
                           <div class="ladoEsquerdo">
                             <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
                             <div id="imgUser">              
-                                <input type="file" name="foto" accept="image/*" id="img-do-user-<?= $user->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $user->id ?>', 'imagemPadraoEditar-<?= $user->id ?>', 'labelEditarUser-<?= $user->id ?>')">
+                                <input type="file" name="foto" accept="image/*" id="img-do-user-<?= $userItem->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $userItem->id ?>', 'imagemPadraoEditar-<?= $userItem->id ?>', 'labelEditarUser-<?= $userItem->id ?>')">
                                 
-                                <label for="img-do-user-<?= $user->id ?>" id="labelCriarUser">
+                                <label for="img-do-user-<?= $userItem->id ?>" id="labelCriarUser">
                                     <span><i class="fas fa-pencil-alt"></i><br></span>
                                 </label>
                                 
-                                <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" id="imagemPadraoEditar-<?= $user->id ?>" alt="">
-                                <img src="#" alt="Preview" id="previewEditar-<?= $user->id ?>" style="display: none; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:2;">
+                                <?php 
+                                    $fotoEdit = $userItem->foto ?? 'default.png';
+                                    $fotoEdit = str_replace('\\', '/', $fotoEdit);
+                                    if (strpos($fotoEdit, 'public/') === false) {
+                                        $fotoEdit = 'public/assets/imagemUsuario/' . $fotoEdit;
+                                    }
+                                    $fotoEdit = '/' . ltrim($fotoEdit, '/');
+                                ?>
+
+                                <img src="<?= $fotoEdit ?>" id="imagemPadraoEditar-<?= $userItem->id ?>" alt="">
+                                <img src="#" alt="Preview" id="previewEditar-<?= $userItem->id ?>" style="display: none; position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:2;">
                             </div>
                         </div>
                         <div class="ladoDireito">
                             <h2>Nome</h2>
-                            <input class="inputs" name="name" type="text" value="<?= $user->nome ?>">
+                            <input class="inputs" name="name" type="text" value="<?= $userItem->nome ?>">
                             
                             <h2>Email</h2>
-                            <input class="inputs" name="email" type="email" placeholder="Novo email" value="<?= $user->email ?>">
+                            <input class="inputs" name="email" type="email" placeholder="Novo email" value="<?= $userItem->email ?>">
                             
                             <h2>Senha</h2>
                             <div class="input-senha">
@@ -240,7 +269,7 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                             </div>
                         
                             <div class="buttons">   
-                                <button type="button" class="btn-cancelar" onclick="fecharModal('modal-editar-<?= $user->id ?>')">Cancelar</button>
+                                <button type="button" class="btn-cancelar" onclick="fecharModal('modal-editar-<?= $userItem->id ?>')">Cancelar</button>
                                 <button type="submit" class="btn-salvar">Salvar</button>
                             </div>
                         </div>
@@ -248,13 +277,13 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                 </form>
             </div>
         <?php endforeach; ?>
+        <?php endif; ?>
 
-        <!-- Modal Excluir Usuário -->
-
-        <?php foreach($usuarios as $user): ?>
+        <?php if(!empty($usuarios)): ?>
+        <?php foreach($usuarios as $userItem): ?>
             <form action="/user/delete" method="POST">
-                <div class="modal-overlay modal-excluir hidden" id="modal-excluir-<?= $user->id ?>">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
+                <div class="modal-overlay modal-excluir hidden" id="modal-excluir-<?= $userItem->id ?>">
+                    <input type="hidden" name="id" value="<?= $userItem->id ?>">
                     <section class="container">
                         <div class="borda">
                             <div class="caixa-texto"> <h1>Deseja excluir usuário?</h1></div>
@@ -262,15 +291,14 @@ $mysqli = new mysqli($host, $user, $pass, $db);
                             <div class="botoes">
                                 <h1>Você não poderá reverter essa alteração</h1>
                                 <button type="submit" class="sim">Sim</button>
-                                <button class="nao" type="button" onclick="fecharModal('modal-excluir-<?= $user->id ?>')">Não</button>
+                                <button class="nao" type="button" onclick="fecharModal('modal-excluir-<?= $userItem->id ?>')">Não</button>
                             </div>
                         </div>
                     </section>
                 </div>
             </form>
         <?php endforeach; ?>
-
-        <!-- Modal Criar Usuário -->
+        <?php endif; ?>
 
         <div class="modal-overlay hidden" id="modal-criar">
             <form action="/user/create" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">

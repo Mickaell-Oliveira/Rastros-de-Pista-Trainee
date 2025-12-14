@@ -15,6 +15,7 @@ function votar(idPost, tipo) {
     })
     .then(response => {
         if (!response.ok) {
+            if (response.status === 401) window.location.href = '/login';
             return response.text().then(text => { throw new Error(text) });
         }
         return response.json();
@@ -52,6 +53,76 @@ function atualizarEstiloBotoes(tipo) {
         iconDislike.classList.remove('fa-regular');
         iconDislike.classList.add('fa-solid');
         iconDislike.style.color = '#FFFFFF';
+    }
+}
+
+function votarComentario(idComentario, tipo) {
+    const url = '/comentario/interacao';
+
+    const dados = {
+        id_comentario: idComentario,
+        tipo: tipo
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        if (!response.ok) {
+            if (response.status === 401) window.location.href = '/login';
+            return response.text().then(text => { throw new Error(text) });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if(data.erro) {
+            console.error(data.erro);
+            return;
+        }
+        
+        const contadorLike = document.getElementById(`contador-like-comentario-${idComentario}`);
+        const contadorDislike = document.getElementById(`contador-dislike-comentario-${idComentario}`);
+        
+        if(contadorLike) contadorLike.innerText = data.likes;
+        if(contadorDislike) contadorDislike.innerText = data.dislikes;
+        
+        atualizarEstiloComentario(idComentario, tipo);
+    })
+    .catch(error => console.error('Erro:', error));
+}
+
+function atualizarEstiloComentario(id, tipoClicado) {
+    const iconLike = document.getElementById(`icon-like-comentario-${id}`);
+    const iconDislike = document.getElementById(`icon-dislike-comentario-${id}`);
+
+    if(iconLike) {
+        iconLike.classList.remove('fa-solid');
+        iconLike.classList.add('fa-regular');
+        iconLike.style.color = '';
+    }
+
+    if(iconDislike) {
+        iconDislike.classList.remove('fa-solid');
+        iconDislike.classList.add('fa-regular');
+        iconDislike.style.color = '';
+    }
+
+    if (tipoClicado === 'like') {
+        if(iconLike) {
+            iconLike.classList.remove('fa-regular');
+            iconLike.classList.add('fa-solid');
+            iconLike.style.color = '#FFFFFF';
+        }
+    } else if (tipoClicado === 'dislike') {
+        if(iconDislike) {
+            iconDislike.classList.remove('fa-regular');
+            iconDislike.classList.add('fa-solid');
+            iconDislike.style.color = '#FFFFFF';
+        }
     }
 }
 

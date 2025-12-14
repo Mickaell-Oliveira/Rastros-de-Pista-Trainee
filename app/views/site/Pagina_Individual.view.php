@@ -18,7 +18,7 @@
         <div class="Cabecalho">
             <a href="/postspage"><button class="BotaoVoltar"><i class="fa-solid fa-arrow-left"></i></button></a>
             <div class="IconeContainer">
-                <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="">
+                <img src="<?= (strpos($post->foto_autor, 'public') !== false) ? '/' . $post->foto_autor : '/public/assets/imagemUsuario/' . ($post->foto_autor ?? 'default.png') ?>" alt="">
             </div>
             <div class="InfoUsuario">
                 <h2 class="NomeUsuario"><?= $post->autor ?></h2>
@@ -37,13 +37,17 @@
     <div class="ContainerBotoes">
         <div class="Interacoes">
             <button id="btn-like" onclick="votar(<?= $post->id ?>, 'like')">
-                <i class="fa-regular fa-thumbs-up" id="icon-like"></i> 
-                <span id="contador-like"><?= $post->likes ?? 0 ?></span>
+                <i class="<?= ($votoUsuario == 1) ? 'fa-solid' : 'fa-regular' ?> fa-thumbs-up" 
+                   id="icon-like" 
+                   style="<?= ($votoUsuario == 1) ? 'color: #FFFFFF;' : '' ?>"></i> 
+                <span id="contador-like"><?= $post->likes_count ?? 0 ?></span>
             </button>
 
             <button id="btn-dislike" onclick="votar(<?= $post->id ?>, 'dislike')">
-                <i class="fa-regular fa-thumbs-down" id="icon-dislike"></i> 
-                <span id="contador-dislike"><?= $post->dislikes ?? 0 ?></span>
+                <i class="<?= ($votoUsuario == 2) ? 'fa-solid' : 'fa-regular' ?> fa-thumbs-down" 
+                   id="icon-dislike"
+                   style="<?= ($votoUsuario == 2) ? 'color: #FFFFFF;' : '' ?>"></i> 
+                <span id="contador-dislike"><?= $post->dislikes_count ?? 0 ?></span>
             </button>
 
             <button onclick="toggleComentario()"><i class="fa-regular fa-comment"></i></button>
@@ -73,19 +77,31 @@
             <div class="Comentario">
                 <div class="CabecalhoComentario">
                     <div class="IconeContainer">
-                        <i class="fa-solid fa-user"></i>
+                        <img src="<?= (strpos($comentario->foto_usuario, 'public') !== false) ? '/' . $comentario->foto_usuario : '/public/assets/imagemUsuario/' . ($comentario->foto_usuario ?? 'default.png') ?>" alt="" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                     </div>
                     <div class="InfoUsuarioComentario">
-                        <span class="NomeUsuarioComentario">Usuário</span>
+                        <span class="NomeUsuarioComentario"><?= $comentario->nome_usuario ?> #<?= $comentario->id_usuario ?></span>
                         <span class="DataComentario"><?= date('d/m/Y', strtotime($comentario->data)) ?></span>
                     </div>
                 </div>
                 <p class="TextoComentario">
                     <?= $comentario->comentario ?>
                 </p>
+                
                 <div class="InteracoesComentario">
-                    <button><i class="fa-regular fa-thumbs-up"></i></button>
-                    <button><i class="fa-regular fa-thumbs-down"></i></button>
+                    <button onclick="votarComentario(<?= $comentario->id ?>, 'like')">
+                        <i class="<?= ($comentario->meu_voto == 1) ? 'fa-solid' : 'fa-regular' ?> fa-thumbs-up"
+                           id="icon-like-comentario-<?= $comentario->id ?>"
+                           style="<?= ($comentario->meu_voto == 1) ? 'color: #FFFFFF;' : '' ?>"></i>
+                        <span id="contador-like-comentario-<?= $comentario->id ?>"><?= $comentario->likes_count ?? 0 ?></span>
+                    </button>
+
+                    <button onclick="votarComentario(<?= $comentario->id ?>, 'dislike')">
+                        <i class="<?= ($comentario->meu_voto == 2) ? 'fa-solid' : 'fa-regular' ?> fa-thumbs-down"
+                           id="icon-dislike-comentario-<?= $comentario->id ?>"
+                           style="<?= ($comentario->meu_voto == 2) ? 'color: #FFFFFF;' : '' ?>"></i>
+                        <span id="contador-dislike-comentario-<?= $comentario->id ?>"><?= $comentario->dislikes_count ?? 0 ?></span>
+                    </button>
                 </div>
             </div>
         <?php endforeach ?>

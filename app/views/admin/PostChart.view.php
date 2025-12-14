@@ -1,19 +1,11 @@
- <?php  // login
-    session_start();
-
-    if(!isset($_SESSION['id'])){
-        header('Location: /login');
-    }
-?>
-
-<?php  // filtro
+<?php 
 
 $host = "localhost";
 $db = "rastros_de_pista_db";
-$user = "root";
+$userdb = "root";
 $pass = "";
 
-$mysqli = new mysqli($host, $user, $pass, $db);
+$mysqli = new mysqli($host, $userdb, $pass, $db);
 
 if($mysqli->connect_errno) {
     die("Falha na conexão do banco de dados");
@@ -32,7 +24,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     $types = "";
     $params = [];
 
-    // Busca Texto
     if (!empty($busca)) {
         $sql .= " AND (titulo LIKE ? OR autor LIKE ? OR veiculo LIKE ? OR descricao LIKE ?)";
         $search_term = "%" . $busca . "%";
@@ -40,21 +31,18 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         array_push($params, $search_term, $search_term, $search_term, $search_term);
     }
 
-    // Filtro Tipo
     if (!empty($filtroTipo)) {
         $sql .= " AND categoria = ?";
         $types .= "s";
         $params[] = $filtroTipo;
     }
 
-    // Filtro Ano
     if (!empty($filtroAno)) {
         $sql .= " AND ano_veiculo = ?";
         $types .= "s";
         $params[] = $filtroAno;
     }
 
-    // Filtro Tags
     if (!empty($filtroTags)) {
         $tagsArray = explode(',', $filtroTags);
         $tagClauses = [];
@@ -89,8 +77,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -141,8 +127,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
             </div>
         </div>
 
-
-
         <main class="posts-content">
             <table class="tabela">
                  <tr class="posts-table-header">
@@ -157,9 +141,17 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                     <th class="header-col" id="header-açao">Ações</th>
                 </tr>
 
-
                 <?php if(!empty($posts)): ?>
                 <?php foreach($posts as $post): ?>
+                  
+                  <?php 
+                    $podeGerenciar = false;
+                    if(isset($user)) {
+                        if($user->admin == 1 || $user->id == $post->id_usuario) {
+                            $podeGerenciar = true;
+                        }
+                    }
+                  ?>
 
                   <tr class="post-item" data-title="<?= htmlspecialchars($post->titulo) ?>">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
@@ -170,30 +162,41 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                     <td class="post-data post-date" data-label="Ano do Veículo"><?= $post->ano_veiculo ?></td>
                     <td class="post-data post-tipo" data-label="Tipo do post"><?= $post->categoria ?></td>
                     <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
-                        <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-                        <span class="stat">270 <i class="fa-solid fa-thumbs-down"></i></span>
-                        <span class="stat">250 <i class="fas fa-comments"></i></span>
-                        
+                        <span class="stat"><?= $post->likes ?? 0 ?> <i class="fas fa-thumbs-up"></i></span>
+                        <span class="stat"><?= $post->dislikes ?? 0 ?> <i class="fa-solid fa-thumbs-down"></i></span>
+                        <span class="stat"><?= $post->total_comentarios ?? 0 ?> <i class="fas fa-comments"></i></span>
                     </td>
                     <td class="post-data post-actions" data-label="Ações">
-                        <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')"></i></button>
+                        
                         <button class="action-btn view"><i class="fas fa-eye" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')"></i></button>
-                        <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')"></i></button>
-                        <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')"></i></button>
+                        
+                        <?php if($podeGerenciar): ?>
+                            <button class="action-btn comentarios"><i class="bi bi-chat-left-dots-fill" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')"></i></button>
+                            <button class="action-btn edit"><i class="fas fa-pencil-alt" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')"></i></button>
+                            <button class="action-btn delete"><i class="fas fa-trash" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')"></i></button>
+                        <?php endif; ?>
+
                     </td>
                 </tr>
                 <?php endforeach ?>
 
-                <?php else:   //esse css ta no meio por praticidade, se precisar deixar mais complexo, lembrar de criar css próprio ?> 
+                <?php else: ?> 
                     <tr><td colspan="9" style="text-align: center; padding: 20px;">Nenhum post encontrado.</td></tr>
                 <?php endif; ?>
-
 
             </table>
         </main>
 
         <?php if(!empty($posts)): ?>
         <?php foreach($posts as $post): ?>
+                <?php 
+                    $podeGerenciar = false;
+                    if(isset($user)) {
+                        if($user->admin == 1 || $user->id == $post->id_usuario) {
+                            $podeGerenciar = true;
+                        }
+                    }
+                ?>
                 <ul class="user-cards">
 
                     <li class="user-card">
@@ -201,14 +204,17 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                         <p class="email"><?=$post->autor?></p>
                         <p class="email"><?=$post->titulo?></p>
                     <p class="meta"><?= date('d/m/Y', strtotime($post->data)) ?></p>
-                    <span class="stat">270 <i class="fas fa-eye" ></i></span>
-                    <span class="stat">100 <i class="fas fa-thumbs-up"></i></span>
-                    <span class="stat">250 <i class="fas fa-comments"></i></span>
+                    <span class="stat"><?= $post->likes ?? 0 ?> <i class="fas fa-thumbs-up"></i></span>
+                    <span class="stat"><?= $post->dislikes ?? 0 ?> <i class="fa-solid fa-thumbs-down"></i></span>
+                    <span class="stat"><?= $post->total_comentarios ?? 0 ?> <i class="fas fa-comments"></i></span>
                     <div class="card-actions">
                         <button class="btn-card btn-view" type="button" onclick="abrirModal('modalVisualizarPost-<?= $post->id ?>')">VISUALIZAR </button>
-                        <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
-                        <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')">DELETAR POST</button>
-                        <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
+                        
+                        <?php if($podeGerenciar): ?>
+                            <button class="btn-card btn-edit" type="button" onclick="abrirModal('modalEditarPost-<?= $post->id ?>')">EDITAR POST</button>
+                            <button class="btn-card btn-delete" type="button" onclick="abrirModal('modalExcluirPost-<?= $post->id ?>')">DELETAR POST</button>
+                            <button class="btn-card btn-comentarios" type="button" onclick="abrirModal('modalVerComentarios-<?= $post->id ?>')">VER COMENTÁRIOS</button>
+                        <?php endif; ?>
                     </div>
                     </li>
                 </ul> 
@@ -225,10 +231,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
 
     <?php foreach($posts as $post): ?>
 
-
-
-
-     <!--Modal Visualizar Post-->
      <div class="modal-overlay hidden" id="modalVisualizarPost-<?= $post->id; ?>">
         <section class="container"> 
       <div class="ladoEsquerdo">
@@ -278,7 +280,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         </section>
     </div>
     
-    <!-- Modal Editar Post-->
     <form action="/editarPost" method="POST" enctype="multipart/form-data">
     <div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
         <input type="hidden" name = "id" value="<?=$post->id;?>">
@@ -329,7 +330,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     </div>
     </form>
 
-    <!--Modal Excluir Post-->
     <form action="/excluirPost" method="POST">
         <div class="modal-overlay hidden" id="modalExcluirPost-<?= $post->id ?>">
             <input type="hidden" name="id" value="<?= $post->id;?>">
@@ -351,8 +351,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
 </div>
   </form>
     <?php endforeach ?>
-
-    <!--Modal Criar Post--> 
 
     <div class="modal-overlay hidden" id="modalCriarPost">
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
@@ -384,12 +382,14 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                 <option value="viagem">Viagem</option>
                 <option value="encontro">Encontro</option> 
                 <option value="momentos">Momentos</option>
-</select>
+            </select>
            
         </div>
         <div class="ladoDireito">
         <h2 class="textos-info-criar">Autor</h2>
-        <div class="info-caixa">Usuario</div>
+        
+        <div class="info-caixa"><?= $user->nome ?? 'Usuário' ?></div>
+        
         <h2 class="textos-info-criar">Titulo</h2>
         <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título" required>
         <h2 class="textos-info-criar">Descrição</h2>
@@ -404,8 +404,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     </form>
 
     
-
-    <!--Modal Ver Comentarios-->
 
     <?php foreach ($posts as $post): ?>
 
@@ -425,19 +423,33 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                         
                         <div class="comment-item">
                             <div class="comment-content">
-                                <img src="#" alt="Avatar" class="comment-avatar"> 
+                                <?php 
+                                    $fotoComent = $comentario->foto_usuario ?? 'default.png';
+                                    $fotoComent = str_replace('\\', '/', $fotoComent);
+                                    if (strpos($fotoComent, 'public/') === false) {
+                                        $fotoComent = 'public/assets/imagemUsuario/' . $fotoComent;
+                                    }
+                                    $fotoComent = '/' . ltrim($fotoComent, '/');
+                                ?>
+                                <img src="<?= $fotoComent ?>" alt="Avatar" class="comment-avatar"> 
                                 
                                 <div class="comment-text">
-                                    <span class="comment-username"
-                                        <?= $comentario->nome_usuario ?> #<?= $comentario->id_usuario ?>
+                                    <span class="comment-username">
+                                            <?= $comentario->nome_usuario ?> #<?= $comentario->id_usuario ?>
                                     </span>
                                     
                                     <div id="view-comentario-<?= $comentario->id ?>">
-                                        <p><?= $comentario->comentario ?></p>
-                                        <div class="comment-feedback">
-                                            <span class="feedback-item like-data"><i class="fas fa-thumbs-up"></i><span>12</span></span>
-                                            <span class="feedback-item dislike-data"><i class="fas fa-thumbs-down"></i><span>2</span></span>
-                                        </div>
+                                            <p><?= $comentario->comentario ?></p>
+                                            <div class="comment-feedback">
+                                                <span class="feedback-item like-data">
+                                                    <i class="fas fa-thumbs-up"></i>
+                                                    <span><?= $comentario->likes_count ?? 0 ?></span>
+                                                </span>
+                                                <span class="feedback-item dislike-data">
+                                                    <i class="fas fa-thumbs-down"></i>
+                                                    <span><?= $comentario->dislikes_count ?? 0 ?></span>
+                                                </span>
+                                            </div>
                                     </div>
                                     
                                     <form action="/tabelaposts/atualizarComentario" method="POST" 
@@ -454,11 +466,11 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                                     </form>
 
                                     <div id="delete-confirm-<?= $comentario->id ?>" class="delete-alert" style="display: none;">
-                                        <p>Tem certeza que deseja excluir?</p>
-                                        <div class="delete-actions">
-                                            <button type="button" class="btn-sim-mini" onclick="confirmarExclusaoAJAX(<?= $comentario->id ?>)">Sim</button>
-                                            <button type="button" class="btn-nao-mini" onclick="cancelarExclusao(<?= $comentario->id ?>)">Cancelar</button>
-                                        </div>
+                                            <p>Tem certeza que deseja excluir?</p>
+                                            <div class="delete-actions">
+                                                <button type="button" class="btn-sim-mini" onclick="confirmarExclusaoAJAX(<?= $comentario->id ?>)">Sim</button>
+                                                <button type="button" class="btn-nao-mini" onclick="cancelarExclusao(<?= $comentario->id ?>)">Cancelar</button>
+                                            </div>
                                     </div>
 
                                 </div> </div> <div class="comment-actions" id="actions-comentario-<?= $comentario->id ?>">
@@ -490,8 +502,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
 </div>
 <?php endforeach ?>
 
-
-<!-- Modal do Filtro -->
 
      <div class="modal-overlay hidden" id="modalFiltro" >
     <section class="container-filtro">
@@ -546,10 +556,6 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
             </div>
 
         </div>
-
-
-
-
 
     </main>
     <script src="/public/js/Modal.js"></script>

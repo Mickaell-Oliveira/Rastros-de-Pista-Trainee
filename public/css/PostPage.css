@@ -163,6 +163,9 @@ main {
     padding: 15px;
     display: flex;
     flex-direction: row;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .post-thumbnail {

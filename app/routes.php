@@ -19,6 +19,7 @@ $router->get('admin/PostChart', 'AdminController@index');
 $router->get('postindividual', 'PostIndividualController@PostIndividual');
 $router->post('postindividual/criarcomentar', 'PostIndividualController@createComentario');
 $router->post('post/interacao', 'PostIndividualController@interagir');
+$router->post('comentario/interacao', 'PostIndividualController@interagirComentario');
 
 $router->get('postspage', 'ListaPostsController@ListaPosts');
 
