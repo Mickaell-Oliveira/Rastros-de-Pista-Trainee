@@ -124,6 +124,9 @@ body {
     color: #d0d0d0;
     line-height: 1.6;
     margin-bottom: 25px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .ContainerBotoes {

@@ -13,7 +13,7 @@ class LoginController
         session_start();
 
         if(isset($_SESSION['id'])){
-            header(header: 'Location: /dashboard');
+            header(header: 'Location: /home');
         }
 
         return view('site/login');
@@ -35,7 +35,7 @@ class LoginController
         if($user != false){
             session_start();
             $_SESSION['id'] = $user -> id;
-            header('Location: /dashboard');
+            header('Location: /home');
             exit();
         }
         else{

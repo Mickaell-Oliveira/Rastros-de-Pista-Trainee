@@ -1,3 +1,9 @@
+<?php 
+
+if (session_status() === PHP_SESSION_NONE) { session_start(); } 
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,7 +38,11 @@
                         <a href="/postspage" class="navbar-pub">Publicações</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="/login" class="navbar-login">Login</a>
+                        <?php if (isset($_SESSION['id'])): ?>
+                            <a href="/dashboard" class="navbar-login">Dashboard</a>
+                        <?php else: ?>
+                            <a href="/login" class="navbar-login">Login</a>
+                        <?php endif; ?>
                     </li>
                 <!--X para fechar o menu do celular-->
                 <li class="close-menu">

@@ -21,9 +21,12 @@
 
 <body>
     <div class="caixa-principal">
-    <div class="linha-divisoria fora-cima"></div>
-    <div class="barra-vertical esquerda"></div>
     <div class="caixa-preta">
+
+            <div id="botaoHome">
+                <a href="/home" class="home"><svg xmlns="http://www.w3.org/2000/svg" class= "casinha" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a>
+            </div>
+
             <div class="barra-logo">
                 <div class="conteudo-logo">
                     <img src="../../../public/assets/LogoRatoBandeira.png" alt="Logo Rato com Bandeira" class="rato-bandeira">

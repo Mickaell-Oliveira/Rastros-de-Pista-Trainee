@@ -143,6 +143,9 @@ body::before {
   font-size: 14px;
   color: #ccc;
   line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .pagination {
@@ -152,6 +155,7 @@ body::before {
   gap: 8px;
   margin-top: 30px;
   flex-wrap: wrap;
+  list-style-type: none;
 }
 
 .pagination a {
@@ -166,6 +170,7 @@ body::before {
   border-radius: 50%;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  list-style-type: none;
 }
 
 .pagination a.arrow { background-color: #c0392b; }
@@ -198,6 +203,7 @@ body::before {
   .pagination {
     margin-top: 40px;
     gap: 10px;
+    margin-bottom: 30px
   }
 }
 

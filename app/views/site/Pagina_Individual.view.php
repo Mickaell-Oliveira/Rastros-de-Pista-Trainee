@@ -18,7 +18,7 @@
         <div class="Cabecalho">
             <a href="/postspage"><button class="BotaoVoltar"><i class="fa-solid fa-arrow-left"></i></button></a>
             <div class="IconeContainer">
-                <i class="fa-solid fa-user"></i>
+                <img src="/public/assets/imagemUsuario/<?= !empty($user->foto) ? $user->foto : 'default.png' ?>" alt="">
             </div>
             <div class="InfoUsuario">
                 <h2 class="NomeUsuario"><?= $post->autor ?></h2>

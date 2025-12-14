@@ -271,6 +271,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
             
         <div class="buttons">
+        <button id="botaoIrPost"><a href="/postindividual?id=<?= $post->id ?>">Ver Post</a></button>
         <button onclick="fecharModal('modalVisualizarPost-<?= $post->id ?>')" id="btn-salvar">Sair</button>
         </div>
         </div>
@@ -351,7 +352,8 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
   </form>
     <?php endforeach ?>
 
-    <!--Modal Criar Post-->    
+    <!--Modal Criar Post--> 
+
     <div class="modal-overlay hidden" id="modalCriarPost">
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
         <section class="container"> 
@@ -387,7 +389,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         </div>
         <div class="ladoDireito">
         <h2 class="textos-info-criar">Autor</h2>
-        <div class="info-caixa"><?=$post->autor;?></div>
+        <div class="info-caixa">Usuario</div>
         <h2 class="textos-info-criar">Titulo</h2>
         <input class="campo-editavel" type="text" name="titulo" placeholder="Digite o título" required>
         <h2 class="textos-info-criar">Descrição</h2>

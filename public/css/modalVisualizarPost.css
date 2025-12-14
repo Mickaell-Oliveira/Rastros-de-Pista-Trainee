@@ -136,6 +136,9 @@ div[id^="modalVisualizarPost"] #descricao-info {
 
 div[id^="modalVisualizarPost"] #descricao-info p {
     width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 div[id^="modalVisualizarPost"] #descricao-info::-webkit-scrollbar {
@@ -168,6 +171,27 @@ div[id^="modalVisualizarPost"] #btn-salvar {
     border: #AE171C;
     border-radius: 20px;
     box-shadow: 3px 3px 3px #363636;
+}
+
+div[id^="modalVisualizarPost"] #botaoIrPost {
+    width: 100px;
+    height: 40px;
+    background-color: #363636;
+    color: #FFFF;
+    border: #AE171C;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px #AE171C;
+}
+
+div[id^="modalVisualizarPost"] #botaoIrPost:hover{
+    cursor: pointer;
+    background-color: #c0c0c0;
+    box-shadow:3px 3px 3px #AE171C;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFF;
 }
 
 div[id^="modalVisualizarPost"] #btn-cancelar:hover {

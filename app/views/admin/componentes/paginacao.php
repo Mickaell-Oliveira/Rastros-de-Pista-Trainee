@@ -12,6 +12,7 @@
             $max_links = 2; // Define que o limite do raio será 2
             $start = max(1, $page - $max_links);
             $end = min($total_pages, $page + $max_links);
+            
         ?>
 
         <?php for($pagenumber = $start; $pagenumber <= $end; $pagenumber++): ?>

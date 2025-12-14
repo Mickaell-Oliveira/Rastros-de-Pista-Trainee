@@ -6,94 +6,6 @@
     }
 ?>
 
-<?php  // filtro
-
-$host = "localhost";
-$db = "rastros_de_pista_db";
-$user = "root";
-$pass = "";
-
-$mysqli = new mysqli($host, $user, $pass, $db);
-
-if($mysqli->connect_errno) {
-    die("Falha na conexão do banco de dados");
-}
-
-
-$busca = $_GET['busca'] ?? "";
-$filtroTipo = $_GET['tipo'] ?? "";
-$filtroAno = $_GET['ano'] ?? "";
-$filtroTags = $_GET['tags'] ?? ""; 
-
-
-if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtroTags)) {
-    
-    $sql = "SELECT * FROM posts WHERE 1=1";
-    $types = "";
-    $params = [];
-
-    // Busca Texto
-    if (!empty($busca)) {
-        $sql .= " AND (titulo LIKE ? OR autor LIKE ? OR veiculo LIKE ? OR descricao LIKE ?)";
-        $search_term = "%" . $busca . "%";
-        $types .= "ssss";
-        array_push($params, $search_term, $search_term, $search_term, $search_term);
-    }
-
-    // Filtro Tipo
-    if (!empty($filtroTipo)) {
-        $sql .= " AND categoria = ?";
-        $types .= "s";
-        $params[] = $filtroTipo;
-    }
-
-    // Filtro Ano
-    if (!empty($filtroAno)) {
-        $sql .= " AND ano_veiculo = ?";
-        $types .= "s";
-        $params[] = $filtroAno;
-    }
-
-    // Filtro Tags
-    if (!empty($filtroTags)) {
-        $tagsArray = explode(',', $filtroTags);
-        $tagClauses = [];
-        foreach ($tagsArray as $tag) {
-            $tagClauses[] = "(descricao LIKE ? OR titulo LIKE ?)";
-            $types .= "ss";
-            $params[] = "%" . trim($tag) . "%";
-            $params[] = "%" . trim($tag) . "%";
-        }
-        if (!empty($tagClauses)) {
-            $sql .= " AND (" . implode(" OR ", $tagClauses) . ")";
-        }
-    }
-
-    $sql .= " ORDER BY data DESC";
-
-    $stmt = $mysqli->prepare($sql);
-    if ($stmt) {
-        if (!empty($params)) {
-            $stmt->bind_param($types, ...$params);
-        }
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $posts = [];    
-        if ($result) {
-            while ($row = $result->fetch_object()) {
-                $posts[] = $row;
-            }
-        }
-    }
-}
-
-?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -146,21 +58,11 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         <?php endif; ?>
 
 
+    
+
     </main>
 
-    <nav class="pagination">
-      <a href="#" class="arrow">&lt;</a>
-      <a href="#" class="active">1</a>
-       <a href="#">2</a>
-       <a href="#">3</a>
-       <a href="#">4</a>
-       <a href="#">5</a>
-       <a href="#" class="arrow">&gt;</a>
-     </nav>
-  </div>
- <?php require 'app/views/site/footer.view.php'; ?>
-
-
+    <?php require(__DIR__  . '/../admin/componentes/paginacao.php') ?>
 
       <!-- Molda do Filtro -->
      <div class="modal-overlay hidden" id="modalFiltro" >
@@ -212,18 +114,16 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                         <button type="button" class="btn btn-limpar-filtro" onclick="fecharModal('modalFiltro')">Cancelar</button>
                         <button type="button" class="btn btn-aplicar-filtro" onclick="aplicarFiltros()">Buscar</button>
                     </div>
-                </div>
+                </div>         
             </div>
-
         </div>
+        </section>
+    </div>
+</div>
+    
+    <?php require 'app/views/site/footer.view.php'; ?>
+    
 
-
-
-
-
-
-
- 
     <script src="../../../public/js/Modal.js"></script>
     <script src="../../../public/js/Filtro.js"></script>
     <script src="../../../public/js/posts_page.js"></script>
