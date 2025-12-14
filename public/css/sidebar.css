@@ -2,7 +2,7 @@ body {
     min-height: 100vh;
     padding: 0;
     margin: 0;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: "Bebas Neue", sans-serif !important;
     background: linear-gradient(135deg, #AE171C, #64191B, #1A1A1A);
     overflow-x: hidden;
 }

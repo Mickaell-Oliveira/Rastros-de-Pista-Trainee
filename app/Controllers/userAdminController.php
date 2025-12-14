@@ -56,6 +56,23 @@ class UserAdminController
 
         if ($_POST['senha'] !== $_POST['senhaConfirmar']) {
             $_SESSION['form_error'] = 'As senhas não conferem.';
+            $_SESSION['open_modal'] = 'modal-criar';
+            header('Location: /usuarios');
+            exit;
+        }
+
+        $emailExistente = App::get('database')->selectWhere('usuarios', ['email' => $_POST['email']]);
+        if (!empty($emailExistente)) {
+            $_SESSION['form_error'] = 'Este email já está sendo utilizado.';
+            $_SESSION['open_modal'] = 'modal-criar';
+            header('Location: /usuarios');
+            exit;
+        }
+
+        $nomeExistente = App::get('database')->selectWhere('usuarios', ['nome' => $_POST['name']]);
+        if (!empty($nomeExistente)) {
+            $_SESSION['form_error'] = 'Este nome de usuário já está sendo utilizado.';
+            $_SESSION['open_modal'] = 'modal-criar';
             header('Location: /usuarios');
             exit;
         }

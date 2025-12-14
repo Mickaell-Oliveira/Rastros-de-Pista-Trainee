@@ -154,8 +154,6 @@ if (!empty($busca)) {
                 </ul>
             <?php endforeach; ?>
             <?php endif; ?>
-
-            <!--Modal Criar Usuario-->
                 
             <a href="#" class="fab-btn" onclick="abrirModal('modal-criar')"><i class="fas fa-plus"></i></a>
 
@@ -186,8 +184,6 @@ if (!empty($busca)) {
             </nav>
 
         </section>
-
-        <!-- Modal Visualizar Usuário -->
 
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
@@ -223,8 +219,6 @@ if (!empty($busca)) {
             </div>
         <?php endforeach; ?>
         <?php endif; ?>
-
-        <!-- Modal Editar Usuário -->                        
 
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
@@ -285,8 +279,6 @@ if (!empty($busca)) {
         <?php endforeach; ?>
         <?php endif; ?>
 
-        <!-- Modal Excluir Usuário -->
-
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
             <form action="/user/delete" method="POST">
@@ -308,15 +300,13 @@ if (!empty($busca)) {
         <?php endforeach; ?>
         <?php endif; ?>
 
-        <!-- Modal Criar Usuário -->
-
         <div class="modal-overlay hidden" id="modal-criar">
             <form action="/user/create" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">
                 <section class="container">
                     <div class="ladoEsquerdo">
                         <h2 class="nomeFotoPerfil">Foto de Perfil</h2>
                         <div id="imgUser">              
-                            <input type="file" name="foto" accept="image/*" id="img-criar-user" style="display: none" onchange="exibirPreview(this, 'previewCriarNovo', 'imagemPadraoCriarNovo', 'labelCriarNovo')" required>
+                            <input type="file" name="foto" accept="image/*" id="img-criar-user" style="display: none" onchange="exibirPreview(this, 'previewCriarNovo', 'imagemPadraoCriarNovo', 'labelCriarNovo')">
                             
                             <label for="img-criar-user" id="labelCriarUser">
                                 <span><i class="fas fa-pencil-alt"></i></span>
@@ -328,6 +318,13 @@ if (!empty($busca)) {
                     </div>
 
                     <div class="ladoDireito">
+                        <?php if(isset($_SESSION['form_error'])): ?>
+                            <div style="color: #ff4444; font-family: serif; text-align: center; font-size: 15px;">
+                                <?= $_SESSION['form_error']; ?>
+                            </div>
+                        <?php unset($_SESSION['form_error']); ?>
+                        <?php endif; ?>
+
                         <h2>Nome</h2> 
                         <input required class="inputs" name ="name" type="text" placeholder="Nome de usuário" required >
 
@@ -360,6 +357,15 @@ if (!empty($busca)) {
     <script src="/public/js/Modal.js"></script>
     <script src="/public/js/PreviewImagemUser.js"></script>
     <script src="/public/js/togglePassword.js"></script>
+
+    <?php if (isset($_SESSION['open_modal'])): ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                abrirModal('<?= $_SESSION['open_modal'] ?>');
+            });
+        </script>
+        <?php unset($_SESSION['open_modal']); ?>
+    <?php endif; ?>
     
 </body>
 </html>
