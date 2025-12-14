@@ -8,7 +8,7 @@ class ListaPostsController
 {
     public function ListaPosts()
     {
-        $itensPorPagina = 5;
+        $itensPorPagina = 6;
         
         $host = "localhost";
         $db = "rastros_de_pista_db";

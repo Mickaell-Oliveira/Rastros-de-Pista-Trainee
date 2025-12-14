@@ -154,6 +154,8 @@ if (!empty($busca)) {
                 </ul>
             <?php endforeach; ?>
             <?php endif; ?>
+
+            <!--Modal Criar Usuario-->
                 
             <a href="#" class="fab-btn" onclick="abrirModal('modal-criar')"><i class="fas fa-plus"></i></a>
 
@@ -184,6 +186,8 @@ if (!empty($busca)) {
             </nav>
 
         </section>
+
+        <!-- Modal Visualizar Usuário -->
 
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
@@ -219,6 +223,8 @@ if (!empty($busca)) {
             </div>
         <?php endforeach; ?>
         <?php endif; ?>
+
+        <!-- Modal Editar Usuário -->                        
 
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
@@ -279,6 +285,8 @@ if (!empty($busca)) {
         <?php endforeach; ?>
         <?php endif; ?>
 
+        <!-- Modal Excluir Usuário -->
+
         <?php if(!empty($usuarios)): ?>
         <?php foreach($usuarios as $userItem): ?>
             <form action="/user/delete" method="POST">
@@ -299,6 +307,8 @@ if (!empty($busca)) {
             </form>
         <?php endforeach; ?>
         <?php endif; ?>
+
+        <!-- Modal Criar Usuário -->
 
         <div class="modal-overlay hidden" id="modal-criar">
             <form action="/user/create" method="POST" enctype="multipart/form-data" style="width: 100%; display: flex; justify-content: center;">

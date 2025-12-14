@@ -280,6 +280,8 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
         </section>
     </div>
     
+    <!-- Modal Editar Post -->
+
     <form action="/editarPost" method="POST" enctype="multipart/form-data">
     <div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
         <input type="hidden" name = "id" value="<?=$post->id;?>">
@@ -330,6 +332,8 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     </div>
     </form>
 
+    <!-- Modal Excluir Post -->
+
     <form action="/excluirPost" method="POST">
         <div class="modal-overlay hidden" id="modalExcluirPost-<?= $post->id ?>">
             <input type="hidden" name="id" value="<?= $post->id;?>">
@@ -351,6 +355,8 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
 </div>
   </form>
     <?php endforeach ?>
+
+    <!-- Modal Criar Post -->
 
     <div class="modal-overlay hidden" id="modalCriarPost">
     <form action="/tabelaposts/criar" method="POST" enctype="multipart/form-data">
@@ -406,6 +412,8 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     
 
     <?php foreach ($posts as $post): ?>
+
+<!-- Modal Ver Comentários -->
 
 <div class="modal-overlay hidden" id="modalVerComentarios-<?= $post->id ?>">
     <div class="container">            
