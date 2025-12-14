@@ -52,6 +52,7 @@ body::before {
     border-radius: 16px;
     box-sizing: border-box;
 }
+
 main {
     flex-grow: 1;
     width: 100%;  
@@ -876,4 +877,22 @@ nav a:hover {
 
 .hidden {
     display: none;
+}
+
+.post-item,
+.post-data,
+.post-title span,
+.user-card .name,
+.user-card .email,
+.user-card .meta {
+    font-family: sans-serif;
+    font-weight: 400 !important;
+    letter-spacing: normal;
+    color: white;
+}
+
+.posts-table-header,
+.posts-table-header .header-col {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
 }
