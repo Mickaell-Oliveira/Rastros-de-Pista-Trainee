@@ -13,9 +13,9 @@
 
 #### Desenvolvedores:
 
-* [Bruno Assunção](coloque o link do github)
-* [Marcos César](coloque o link do github)
-* [Miguel Nogueira](coloque o link do github)
+* [Bruno Assunção](https://github.com/brxninn7)
+* [Marcos César](https://github.com/castilhos30)
+* [Miguel Nogueira](https://github.com/MiguelYumii)
   
 
 
