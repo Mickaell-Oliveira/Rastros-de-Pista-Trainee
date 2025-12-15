@@ -13,10 +13,10 @@
 
 #### Desenvolvedores:
 
-* [Trainee 1](coloque o link do github)
-* [Trainee 2](coloque o link do github)
-* [Trainee 3](coloque o link do github)
-* [Trainee 4](coloque o link do github)
+* [Bruno Assunção](https://github.com/brxninn7)
+* [Marcos César](https://github.com/castilhos30)
+* [Miguel Nogueira](https://github.com/MiguelYumii)
+  
 
 
 #### Scrum Master:
@@ -27,7 +27,7 @@
 
 * [Trello](https://trello.com/b/WgAceaOb/252-trello-do-scrum-rastros-de-pista)
 
-
+* [Manual de uso](https://www.figma.com/b6c95e98-f46a-48f4-98d9-d299d2ed54c5)
 
 ## Descrição do Projeto:
 
