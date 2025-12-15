@@ -33,4 +33,6 @@ $router->post('user/delete', 'UserAdminController@delete');
 
 $router->get('admin/userlist', 'UserAdminController@index');
 
+$router->get('fortuneRat', 'easterEggController@index')
+
 ?>

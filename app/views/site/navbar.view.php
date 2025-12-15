@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
 <body>
         <nav class="navbar">
             <div class="navbar-container">
-                <a href="/home" class="navbar-logo">
+                <a href="/fortuneRat" class="navbar-logo">
                     <img src="../../../public/assets/LogoCarro.png" alt="logo carro e Ratão" class="logo-site">
                 </a>
 
@@ -30,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
             
                 <ul class="navbar-menu" id="navbar-menu">
                     <!-- Logo do ratão no celular -->
-                    <a href="/home"><img src="../../../public/assets/LogoCarro.png" alt="logo ratão" class="mobile-logo"></a>
+                    <a href="/home><img src="../../../public/assets/LogoCarro.png" alt="logo ratão" class="mobile-logo"></a>
                     
                     <li class="navbar-item">
                         <a href="/home" class="navbar-home">Home</a>

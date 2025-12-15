@@ -286,54 +286,58 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     <!-- Modal Editar Post -->
 
     <form action="/editarPost" method="POST" enctype="multipart/form-data">
-    <div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
-        <input type="hidden" name = "id" value="<?=$post->id;?>">
-        <section class="container">
-        <div class="ladoEsquerdo">
-            <div id="imgPost">
+<div class="modal-overlay hidden" id="modalEditarPost-<?= $post->id ?>">
+    <input type="hidden" name = "id" value="<?=$post->id;?>">
+    <section class="container">
+    <div class="ladoEsquerdo">
+        <div id="imgPost">
 
-            <input type="file" name="foto" accept="image/*" id="img-do-post-editar-<?= $post->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $post->id ?>', 'imagemPadraoEditar-<?= $post->id ?>', 'labelCriarEditar-<?= $post->id ?>')" required>
+        <input type="file" name="foto" accept="image/*" id="img-do-post-editar-<?= $post->id ?>" style="display: none" onchange="exibirPreview(this, 'previewEditar-<?= $post->id ?>', 'imagemPadraoEditar-<?= $post->id ?>', 'labelCriarEditar-<?= $post->id ?>')" >
 
-            <img src="#" alt="Preview" id="previewEditar-<?= $post->id ?>" style="display: none;">
-            <img src="<?= $post -> foto ?>" id="imagemPadraoEditar-<?= $post->id ?>" alt="">
+        <img src="#" alt="Preview" id="previewEditar-<?= $post->id ?>" style="display: none;">
+        <img src="<?= $post -> foto ?>" id="imagemPadraoEditar-<?= $post->id ?>" alt="">
 
-            <label for="img-do-post-editar-<?= $post->id ?>" id="labelPost-<?= $post->id ?>" class="upload-label">
-                    <span><i class="fas fa-pencil-alt"></i></span>               
-            </label>
-            </div>
-            <p id="idPost">ID: <?=$post->id;?></p>
-            <h2 class="texto-infos">Veiculo</h2>
-            <input class="inputs" name = "veiculo" id="input-veiculo" type="text" value="<?=$post->veiculo;?>">
-            <h2 class="texto-infos">Ano</h2>
-            <input class="inputs" name = "ano_veiculo" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
-            <h2 class="texto-infos">Marca</h2>
-            <input class="inputs" id="input-marca" name="marca" type="text" value="<?=$post->marca;?>">
-            <h2 class="texto-infos">Tipo de post</h2>
-            <select name="post-tipo" id="tipo">
-                <option value="passeio"<?php if($post->categoria == 'passeio') echo 'selected'; ?>>Passeio</option>
-                <option value="trackday"<?php if($post->categoria == 'trackday') echo 'selected'; ?>>Track day</option>
-                <option value="viagem"<?php if($post->categoria == 'viagem') echo 'selected'; ?>>Viagem</option>
-                <option value="encontro"<?php if($post->categoria == 'encontro') echo 'selected'; ?>>Encontro</option> 
-                <option value="momentos"<?php if($post->categoria == 'momentos') echo 'selected'; ?>>Momentos</option>
-</select>
-           
+        <label for="img-do-post-editar-<?= $post->id ?>" id="labelPost-<?= $post->id ?>" class="upload-label">
+                    <span><i class="fas fa-pencil-alt"></i></span> 
+        </label>
         </div>
-        <div class="ladoDireito">
-            <h2 class="texto-infos">Autor</h2>
-            <div class="info-autor-caixa"><?=$post->autor;?></div>
-            <h2 class="texto-infos">Titulo</h2>
-            <input class="inputs" name = "titulo" type="text" value="<?=$post->titulo;?>">
-            <h2 class="texto-infos">Descrição</h2>
-            <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
-            <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
-            <div class="buttons">
-            <button id="btn-cancelar" onclick="fecharModal('modalEditarPost-<?= $post->id ?>')" type="button">Cancelar</button>
-            <button id="btn-salvar" type="submit">Publicar</button>
-        </div>
-        </div>
-        </section>
+        <p id="idPost">ID: <?=$post->id;?></p>
+        <h2 class="texto-infos">Veiculo</h2>
+        <input class="inputs" name = "veiculo" id="input-veiculo" type="text" value="<?=$post->veiculo;?>">
+        <h2 class="texto-infos">Ano</h2>
+        <input class="inputs" name = "ano_veiculo" id="input-ano" type="text" value="<?=$post->ano_veiculo;?>">
+        <h2 class="texto-infos">Marca</h2>
+        <input class="inputs" id="input-marca" name="marca" type="text" value="<?=$post->marca;?>">
+        <h2 class="texto-infos">Tipo de post</h2>
+        <select name="post-tipo" id="tipo">
+            <option value="passeio"<?php if($post->categoria == 'passeio') echo 'selected'; ?>>Passeio</option>
+            <option value="trackday"<?php if($post->categoria == 'trackday') echo 'selected'; ?>>Track day</option>
+            <option value="viagem"<?php if($post->categoria == 'viagem') echo 'selected'; ?>>Viagem</option>
+            <option value="encontro"<?php if($post->categoria == 'encontro') echo 'selected'; ?>>Encontro</option> 
+            <option value="momentos"<?php if($post->categoria == 'momentos') echo 'selected'; ?>>Momentos</option>
+        </select>
+            
     </div>
-    </form>
+    <div class="ladoDireito">
+        <h2 class="texto-infos">Autor</h2>
+        
+        <div class="info-autor-caixa"><?=$post->autor;?></div>
+        
+        <input type="hidden" name="autor" value="<?=$post->autor;?>">
+        
+        <h2 class="texto-infos">Titulo</h2>
+        <input class="inputs" name = "titulo" type="text" value="<?=$post->titulo;?>">
+        <h2 class="texto-infos">Descrição</h2>
+        <textarea class="inputs" name = "descricao" id="inputDesc" type="text" autocomplete="off"><?=$post->descricao;?></textarea>
+        <p id="dataPost">Data de criação: <?= date('d/m/Y', strtotime($post->data)) ?></p>
+        <div class="buttons">
+        <button id="btn-cancelar" onclick="fecharModal('modalEditarPost-<?= $post->id ?>')" type="button">Cancelar</button>
+        <button id="btn-salvar" type="submit">Publicar</button>
+        </div>
+    </div>
+    </section>
+</div>
+</form>
 
     <!-- Modal Excluir Post -->
 
