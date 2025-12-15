@@ -77,7 +77,7 @@ class UserAdminController
             exit;
         }
 
-        $nomeimagem = 'default.png'; 
+        $nomeimagem = 'DefaultIcon.png'; 
 
         if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
             $temporario = $_FILES['foto']['tmp_name'];

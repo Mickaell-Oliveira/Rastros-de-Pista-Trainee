@@ -568,7 +568,7 @@ nav a:hover {
     }
 
     .search-bar {
-        border-radius: 10px;
+        border-radius: 10px 0px 0px 10px;
     }
 
     h1 {
@@ -581,7 +581,7 @@ nav a:hover {
     .toolbar {
         max-width: 660px;
         margin: 0 auto 18px;
-        gap: 10px;
+        gap: 0;
         flex-wrap: nowrap;
     }
 
@@ -803,9 +803,8 @@ nav a:hover {
 
     .user-cards {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
         gap: 16px;
-        max-width: 800px;
+        max-width: 70%;
         margin: 0 auto 18px;
         padding: 0;
     }
