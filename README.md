@@ -13,10 +13,10 @@
 
 #### Desenvolvedores:
 
-* [Trainee 1](coloque o link do github)
-* [Trainee 2](coloque o link do github)
-* [Trainee 3](coloque o link do github)
-* [Trainee 4](coloque o link do github)
+* [Bruno Assunção](coloque o link do github)
+* [Marcos César](coloque o link do github)
+* [Miguel Nogueira](coloque o link do github)
+  
 
 
 #### Scrum Master:
