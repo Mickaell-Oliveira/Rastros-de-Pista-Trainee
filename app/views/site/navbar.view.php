@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE) { session_start(); }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../public/css/navbar.css">
+    <link rel="shortcut icon" href="/public/assets/img/favicon.png" type="image/x-icon">
     <script src="../../../public/js/navbar.js" defer></script>
     <title>NavBar</title>
 </head>

@@ -15,6 +15,7 @@
   <title>Rastros de Pista | Posts</title>
   <link rel="stylesheet" href="../../../public/css/posts_page.css" />
   <link rel="stylesheet" href="../../../public/css/Filtro.css" />
+  <link rel="shortcut icon" href="/public/assets/img/favicon.png" type="image/x-icon">
 </head>
 <body>
 

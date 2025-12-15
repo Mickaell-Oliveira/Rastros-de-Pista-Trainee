@@ -14,6 +14,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="/public/assets/img/favicon.png" type="image/x-icon">
 
             <link rel="stylesheet" href="../../../public/css/landingpage.css">
 

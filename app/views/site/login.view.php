@@ -6,6 +6,7 @@
     <link href="../../../public/css/login.css" rel="stylesheet">
     <script src="../../../public/js/login.js" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/assets/img/favicon.png" type="image/x-icon">
     <title>Login</title>
 </head>
 <body>

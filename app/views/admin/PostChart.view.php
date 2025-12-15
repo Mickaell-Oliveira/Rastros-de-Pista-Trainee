@@ -93,6 +93,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
     <link rel="stylesheet" href="../../../public/css/modalVerComentarios.css">
     <link rel="stylesheet" href="/public/css/sidebar.css">
     <link rel="stylesheet" href="/public/css/Filtro.css">
+    <link rel="shortcut icon" href="/public/assets/img/favicon.png" type="image/x-icon">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">   
