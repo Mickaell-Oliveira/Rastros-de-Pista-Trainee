@@ -154,6 +154,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                   ?>
 
                   <tr class="post-item" data-title="<?= htmlspecialchars($post->titulo) ?>">
+                    <div class="teste">
                     <td class="post-data post-id" data-label="Post ID"><?= $post->id ?></td>
                     <td class="post-data post-date"><?= date('d/m/Y', strtotime($post->data)) ?></td>
                     <td class="post-data post-title" data-label="Título"><?= $post->titulo ?></td>
@@ -164,7 +165,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                     <td class="post-data post-stats" data-label="Views/Curtidas/Comentários">
                         <span class="stat"><?= $post->likes ?? 0 ?> <i class="fas fa-thumbs-up"></i></span>
                         <span class="stat"><?= $post->dislikes ?? 0 ?> <i class="fa-solid fa-thumbs-down"></i></span>
-                        <span class="stat"><?= $post->total_comentarios ?? 0 ?> <i class="fas fa-comments"></i></span>
+                        <div class="comentarios-interacao"> <span class="stat"><?= $post->total_comentarios ?? 0 ?> <i class="fas fa-comments"></i></span></div>
                     </td>
                     <td class="post-data post-actions" data-label="Ações">
                         
@@ -177,6 +178,7 @@ if (!empty($busca) || !empty($filtroTipo) || !empty($filtroAno) || !empty($filtr
                         <?php endif; ?>
 
                     </td>
+                    </div>
                 </tr>
                 <?php endforeach ?>
 

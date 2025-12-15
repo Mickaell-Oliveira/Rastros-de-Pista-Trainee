@@ -112,10 +112,19 @@ main {
     height: 45px;
 }
 
+
+
 .actions-container {
     display: flex;
     align-items: center;
 }
+
+
+.comentarios-interacao{ 
+
+    padding-left: 5px;
+}
+
 
 .new-post-btn, .menu-btn {
     padding: 10px 15px;
