@@ -1,3 +1,4 @@
+
 body {
     min-height: 100vh;
     padding: 0;
@@ -26,6 +27,16 @@ main {
     border-radius: 12px;
     transition: width 0.3s ease, height 0.3s ease;
 }
+
+.texto-sidebar {
+
+    font-family: "Bebas Neue";
+    font-weight: normal;
+    font-size: 24px;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+ }
 
 .sidebar {
     display: flex;
@@ -95,7 +106,7 @@ main {
     transition: margin-right 0.3s ease;
 }
 
-.item-description {
+.item-description-sidebar {
     display: block;
     opacity: 1;
     white-space: nowrap;
@@ -132,7 +143,7 @@ main {
     background-color: #CE1A20 !important;
 }
 
-#logout .item-description {
+#logout .item-description-sidebar {
     color: #c0c0c0;
 }
 
@@ -183,7 +194,7 @@ main {
     margin-right: 0;
 }
 
-.sidebar.closed .item-description {
+.sidebar.closed .item-description-sidebar {
     max-width: 0;
     opacity: 0;
     pointer-events: none;

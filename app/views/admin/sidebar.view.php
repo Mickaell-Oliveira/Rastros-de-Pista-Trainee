@@ -23,8 +23,8 @@
         <li class="item">
             <a href="/tabelaposts">
             <i class="fas fa-paper-plane"></i>
-            <span class="item-description">
-                Posts
+            <span class="item-description-sidebar">
+                <h1 class="texto-sidebar">Posts </h1>
             </span>
             </a>
         </li\>
@@ -32,8 +32,8 @@
         <li class="item">
        <a href="/usuarios">
             <i class="fa-solid fa-users"></i>
-            <span class="item-description">
-                Usuários
+            <span class="item-description-sidebar">
+                <h1 class="texto-sidebar">Usuários </h1>
             </span>
         </a>
         </li>
@@ -42,8 +42,8 @@
         <li class="item">
        <a href="/dashboard">
             <i class="fa-solid fa-chart-line"></i>
-            <span class="item-description">
-                Dashboard
+            <span class="item-description-sidebar">
+                <h1 class="texto-sidebar"> Dashboard</h1>
             </span>
         </a>
         </li>
@@ -51,8 +51,8 @@
         <li class="item">
        <a href="/home">
             <i class="fa-solid fa-house"></i>
-            <span class="item-description">
-                Home
+            <span class="item-description-sidebar">
+                <h1 class="texto-sidebar"> Home</h1>
             </span>
         </a>
         </li>
@@ -70,8 +70,8 @@
     <form action="/logout" method="POST">
     <button id="logout_bt">
         <i id="logout_icon" class="fa-solid fa-right-from-bracket"></i>
-        <span class="item-description">
-            Logout
+        <span class="item-description-sidebar">
+            <h1 class="texto-sidebar"> Logout </h1>
         </span>
     </button>
     </form>

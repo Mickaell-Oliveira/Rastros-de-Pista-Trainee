@@ -206,7 +206,7 @@ if (!empty($busca)) {
                     </div>
         
                     <div class="ladoDireito">
-                        <div class="caixas-input">
+                        <div class="caixas-input-usuarios">
                             <h2>Nome</h2> <p class="inputs" type="text" disabled><?= $userItem->nome ?></p>
                             <h2>Email</h2> <p class="inputs" type="text" disabled><?= $userItem->email ?></p>
                         </div>
