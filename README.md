@@ -27,7 +27,7 @@
 
 * [Trello](https://trello.com/b/WgAceaOb/252-trello-do-scrum-rastros-de-pista)
 
-
+* [Manual de uso](https://www.figma.com/b6c95e98-f46a-48f4-98d9-d299d2ed54c5)
 
 ## Descrição do Projeto:
 
